@@ -1,6 +1,5 @@
 name: tuner
 base: core18 
-version: '1.2.4'
 license: GPL-3.0+
 adopt-info: tuner
 
@@ -24,6 +23,9 @@ parts:
       - libgstreamer-plugins-bad1.0-dev
       - libjson-glib-dev
       - libgee-0.8-dev
+    stage-packages:
+      - libgranite4
+      - libgstreamer-plugins-bad1.0-0
     organize:
       snap/tuner/current/usr: usr
     parse-info: [usr/share/metainfo/com.github.louis77.tuner.appdata.xml]
@@ -32,14 +34,7 @@ apps:
   tuner:
     command: usr/bin/com.github.louis77.tuner
     extensions: [gnome-3-28]
-    plugs:
-      - home
-    slots:
-      - dbus-daemon
+    plugs: [home, unity7]
+    slots: [mpris]
     common-id: com.github.louis77.tuner
 
-slots:
-  dbus-daemon:
-    interface: dbus
-    bus: session
-    name: com.github.louis77.tuner
