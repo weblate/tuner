@@ -10,6 +10,8 @@ confinement: devmode # use 'strict' once you have the right plugs and slots
 parts:
   tuner:
     plugin: meson
+    source: https://github.com/louis77/tuner.git
+    source-branch: snapcraft
     meson-parameters: [--prefix=/snap/tuner/current/usr]
     build-packages:
       - cmake
