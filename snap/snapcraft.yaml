@@ -1,0 +1,43 @@
+name: tuner
+base: core18 
+version: '1.2.4'
+license: GPL-3.0+
+adopt-info: tuner
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+parts:
+  tuner:
+    plugin: meson
+    meson-parameters: [--prefix=/snap/tuner/current/usr]
+    build-packages:
+      - cmake
+      - debhelper
+      - libgtk-3-dev
+      - valac
+      - libgranite-dev
+      - libsoup2.4-dev
+      - libgstreamer1.0-dev
+      - libgstreamer-plugins-bad1.0-dev
+      - libjson-glib-dev
+      - libgee-0.8-dev
+    organize:
+      snap/tuner/current/usr: usr
+    parse-info: [usr/share/metainfo/com.github.louis77.tuner.appdata.xml]
+
+apps:
+  tuner:
+    command: usr/bin/com.github.louis77.tuner
+    extensions: [gnome-3-28]
+    plugs:
+      - home
+    slots:
+      - dbus-daemon
+    common-id: com.github.louis77.tuner
+
+slots:
+  dbus-daemon:
+    interface: dbus
+    bus: session
+    name: com.github.louis77.tuner
