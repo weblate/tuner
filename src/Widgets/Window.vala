@@ -82,12 +82,13 @@ public class Tuner.Window : Gtk.ApplicationWindow {
             }
         });
 
+        /* Doesn't work on non-EOS distros 
         var granite_settings = Granite.Settings.get_default ();
         granite_settings.notify.connect( (key) => {
                 warning("theme-mode changed");
                 adjust_theme();
         });
-
+        */
         add_action_entries (ACTION_ENTRIES, this);
 
         window_position = Gtk.WindowPosition.CENTER;
@@ -397,6 +398,8 @@ public class Tuner.Window : Gtk.ApplicationWindow {
         var theme = Application.instance.settings.get_string("theme-mode");
         warning(@"current theme: $theme");
         
+        /* Doesn't work on non-EOS distros
+
         var gtk_settings = Gtk.Settings.get_default ();
         var granite_settings = Granite.Settings.get_default ();
         if (theme != "system") {
@@ -404,6 +407,7 @@ public class Tuner.Window : Gtk.ApplicationWindow {
         } else {
             gtk_settings.gtk_application_prefer_dark_theme = (granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK);
         }
+        */
     }
 
     private void on_action_quit () {
