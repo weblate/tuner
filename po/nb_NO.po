@@ -1,0 +1,1369 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.louis77.tuner package.
+# Allan Nordhøy <epost@anotheragency.no>, 2022.
+# Jon Helgeland <jhelg@live.no>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.louis77.tuner\n"
+"Report-Msgid-Bugs-To: louis@brauer.family\n"
+"POT-Creation-Date: 2020-11-08 19:49+0100\n"
+"PO-Revision-Date: 2022-11-20 15:47+0000\n"
+"Last-Translator: Jon Helgeland <jhelg@live.no>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/tuner/"
+"tuner-ui/nb_NO/>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15-dev\n"
+
+#: src/Models/Countries.vala:34
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+#: src/Models/Countries.vala:35
+#, fuzzy
+msgid "Åland Islands"
+msgstr "Åland Islands"
+
+#: src/Models/Countries.vala:36
+msgid "Albania"
+msgstr "Albania"
+
+#: src/Models/Countries.vala:37
+msgid "Algeria"
+msgstr "Algerie"
+
+#: src/Models/Countries.vala:38
+msgid "American Samoa"
+msgstr "Amerikansk Samoa"
+
+#: src/Models/Countries.vala:39
+msgid "Andorra"
+msgstr "Andorra"
+
+#: src/Models/Countries.vala:40
+msgid "Angola"
+msgstr "Angola"
+
+#: src/Models/Countries.vala:41
+msgid "Anguilla"
+msgstr "Anguilla"
+
+#: src/Models/Countries.vala:42
+msgid "Antarctica"
+msgstr "Antarktis"
+
+#: src/Models/Countries.vala:43
+msgid "Antigua and Barbuda"
+msgstr "Antigua og Barbuda"
+
+#: src/Models/Countries.vala:44
+msgid "Argentina"
+msgstr "Argentina"
+
+#: src/Models/Countries.vala:45
+msgid "Armenia"
+msgstr "Armenia"
+
+#: src/Models/Countries.vala:46
+msgid "Aruba"
+msgstr "Aruba"
+
+#: src/Models/Countries.vala:47
+msgid "Australia"
+msgstr "Australia"
+
+#: src/Models/Countries.vala:48
+msgid "Austria"
+msgstr "Østerrike"
+
+#: src/Models/Countries.vala:49
+msgid "Azerbaijan"
+msgstr "Azerbajdsjan"
+
+#: src/Models/Countries.vala:50
+msgid "Bahamas"
+msgstr "Bahamas"
+
+#: src/Models/Countries.vala:51
+msgid "Bahrain"
+msgstr "Bahrain"
+
+#: src/Models/Countries.vala:52
+msgid "Bangladesh"
+msgstr "Bangladesh"
+
+#: src/Models/Countries.vala:53
+msgid "Barbados"
+msgstr "Barbados"
+
+#: src/Models/Countries.vala:54
+msgid "Belarus"
+msgstr "Hviterussland"
+
+#: src/Models/Countries.vala:55
+msgid "Belgium"
+msgstr "Belgia"
+
+#: src/Models/Countries.vala:56
+msgid "Belize"
+msgstr "Belize"
+
+#: src/Models/Countries.vala:57
+msgid "Benin"
+msgstr "Benin"
+
+#: src/Models/Countries.vala:58
+msgid "Bermuda"
+msgstr "Bermuda"
+
+#: src/Models/Countries.vala:59
+msgid "Bhutan"
+msgstr "Bhutan"
+
+#: src/Models/Countries.vala:60
+msgid "Bolivia"
+msgstr "Bolivia"
+
+#: src/Models/Countries.vala:61
+msgid "Bonaire, Sint Eustatius and Saba"
+msgstr "Bonaire, Sint Eustatius og Saba"
+
+#: src/Models/Countries.vala:62
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnia-Hercegovina"
+
+#: src/Models/Countries.vala:63
+msgid "Botswana"
+msgstr "Botswana"
+
+#: src/Models/Countries.vala:64
+msgid "Bouvet Island"
+msgstr "Bouvetøya"
+
+#: src/Models/Countries.vala:65
+msgid "Brazil"
+msgstr "Brasil"
+
+#: src/Models/Countries.vala:66
+msgid "British Indian Ocean Territory"
+msgstr "Det britiske territoriet i Indiahavet"
+
+#: src/Models/Countries.vala:67
+msgid "Brunei Darussalam"
+msgstr "Brunei Darussalam"
+
+#: src/Models/Countries.vala:68
+msgid "Bulgaria"
+msgstr "Bulgaria"
+
+#: src/Models/Countries.vala:69
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+#: src/Models/Countries.vala:70
+msgid "Burundi"
+msgstr "Burundi"
+
+#: src/Models/Countries.vala:71
+msgid "Cabo Verde"
+msgstr "Cabo Verde"
+
+#: src/Models/Countries.vala:72
+msgid "Cambodia"
+msgstr "Kambodsja"
+
+#: src/Models/Countries.vala:73
+msgid "Cameroon"
+msgstr "Kamerun"
+
+#: src/Models/Countries.vala:74
+msgid "Canada"
+msgstr "Canada"
+
+#: src/Models/Countries.vala:75
+msgid "Cayman Islands"
+msgstr "Caymanøyene"
+
+#: src/Models/Countries.vala:76
+msgid "Central African Republic"
+msgstr "Den sentralafrikanske republikk"
+
+#: src/Models/Countries.vala:77
+msgid "Chad"
+msgstr "Tsjad"
+
+#: src/Models/Countries.vala:78
+msgid "Chile"
+msgstr "Chile"
+
+#: src/Models/Countries.vala:79
+msgid "China"
+msgstr "Kina"
+
+#: src/Models/Countries.vala:80
+msgid "Christmas Island"
+msgstr "Christmasøya"
+
+#: src/Models/Countries.vala:81
+#, fuzzy
+msgid "Cocos (Keeling) Islands"
+msgstr "Cocos (Keeling) Islands"
+
+#: src/Models/Countries.vala:82
+msgid "Colombia"
+msgstr "Colombia"
+
+#: src/Models/Countries.vala:83
+#, fuzzy
+msgid "Comoros"
+msgstr "Comoros"
+
+#: src/Models/Countries.vala:84
+msgid "Congo"
+msgstr "Kongo"
+
+#: src/Models/Countries.vala:85
+#, fuzzy
+msgid "Congo, Democratic Republic of the"
+msgstr "Congo, Democratic Republic of the"
+
+#: src/Models/Countries.vala:86
+#, fuzzy
+msgid "Cook Islands"
+msgstr "Cook Islands"
+
+#: src/Models/Countries.vala:87
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: src/Models/Countries.vala:88
+msgid "Côte d'Ivoire"
+msgstr "Elfenbenskysten"
+
+#: src/Models/Countries.vala:89
+msgid "Croatia"
+msgstr "Kroatia"
+
+#: src/Models/Countries.vala:90
+msgid "Cuba"
+msgstr "Kuba"
+
+#: src/Models/Countries.vala:91
+msgid "Curaçao"
+msgstr "Curaçao"
+
+#: src/Models/Countries.vala:92
+msgid "Cyprus"
+msgstr "Kypros"
+
+#: src/Models/Countries.vala:93
+msgid "Czechia"
+msgstr "Tsjekkia"
+
+#: src/Models/Countries.vala:94
+msgid "Denmark"
+msgstr "Danmark"
+
+#: src/Models/Countries.vala:95
+msgid "Djibouti"
+msgstr "Djibouti"
+
+#: src/Models/Countries.vala:96
+msgid "Dominica"
+msgstr "Dominica"
+
+#: src/Models/Countries.vala:97
+msgid "Dominican Republic"
+msgstr "Den dominikanske republikk"
+
+#: src/Models/Countries.vala:98
+msgid "Ecuador"
+msgstr "Ecuador"
+
+#: src/Models/Countries.vala:99
+msgid "Egypt"
+msgstr "Egypt"
+
+#: src/Models/Countries.vala:100
+msgid "El Salvador"
+msgstr "El Salvador"
+
+#: src/Models/Countries.vala:101
+#, fuzzy
+msgid "Equatorial Guinea"
+msgstr "Equatorial Guinea"
+
+#: src/Models/Countries.vala:102
+msgid "Eritrea"
+msgstr "Eritrea"
+
+#: src/Models/Countries.vala:103
+msgid "Estonia"
+msgstr "Estland"
+
+#: src/Models/Countries.vala:104
+#, fuzzy
+msgid "Eswatini"
+msgstr "Eswatini"
+
+#: src/Models/Countries.vala:105
+#, fuzzy
+msgid "Ethiopia"
+msgstr "Ethiopia"
+
+#: src/Models/Countries.vala:106
+#, fuzzy
+msgid "Falkland Islands (Malvinas)"
+msgstr "Falkland Islands (Malvinas)"
+
+#: src/Models/Countries.vala:107
+#, fuzzy
+msgid "Faroe Islands"
+msgstr "Faroe Islands"
+
+#: src/Models/Countries.vala:108
+#, fuzzy
+msgid "Fiji"
+msgstr "Fiji"
+
+#: src/Models/Countries.vala:109
+msgid "Finland"
+msgstr "Finland"
+
+#: src/Models/Countries.vala:110
+msgid "France"
+msgstr "Frankrike"
+
+#: src/Models/Countries.vala:111
+#, fuzzy
+msgid "French Guiana"
+msgstr "French Guiana"
+
+#: src/Models/Countries.vala:112
+#, fuzzy
+msgid "French Polynesia"
+msgstr "French Polynesia"
+
+#: src/Models/Countries.vala:113
+#, fuzzy
+msgid "French Southern Territories"
+msgstr "French Southern Territories"
+
+#: src/Models/Countries.vala:114
+#, fuzzy
+msgid "Gabon"
+msgstr "Gabon"
+
+#: src/Models/Countries.vala:115
+#, fuzzy
+msgid "Gambia"
+msgstr "Gambia"
+
+#: src/Models/Countries.vala:116
+#, fuzzy
+msgid "Georgia"
+msgstr "Georgia"
+
+#: src/Models/Countries.vala:117
+#, fuzzy
+msgid "Germany"
+msgstr "Germany"
+
+#: src/Models/Countries.vala:118
+#, fuzzy
+msgid "Ghana"
+msgstr "Ghana"
+
+#: src/Models/Countries.vala:119
+#, fuzzy
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+#: src/Models/Countries.vala:120
+#, fuzzy
+msgid "Greece"
+msgstr "Greece"
+
+#: src/Models/Countries.vala:121
+#, fuzzy
+msgid "Greenland"
+msgstr "Greenland"
+
+#: src/Models/Countries.vala:122
+#, fuzzy
+msgid "Grenada"
+msgstr "Grenada"
+
+#: src/Models/Countries.vala:123
+#, fuzzy
+msgid "Guadeloupe"
+msgstr "Guadeloupe"
+
+#: src/Models/Countries.vala:124
+#, fuzzy
+msgid "Guam"
+msgstr "Guam"
+
+#: src/Models/Countries.vala:125
+#, fuzzy
+msgid "Guatemala"
+msgstr "Guatemala"
+
+#: src/Models/Countries.vala:126
+#, fuzzy
+msgid "Guernsey"
+msgstr "Guernsey"
+
+#: src/Models/Countries.vala:127
+#, fuzzy
+msgid "Guinea"
+msgstr "Guinea"
+
+#: src/Models/Countries.vala:128
+#, fuzzy
+msgid "Guinea-Bissau"
+msgstr "Guinea-Bissau"
+
+#: src/Models/Countries.vala:129
+#, fuzzy
+msgid "Guyana"
+msgstr "Guyana"
+
+#: src/Models/Countries.vala:130
+#, fuzzy
+msgid "Haiti"
+msgstr "Haiti"
+
+#: src/Models/Countries.vala:131
+#, fuzzy
+msgid "Heard Island and McDonald Islands"
+msgstr "Heard Island and McDonald Islands"
+
+#: src/Models/Countries.vala:132
+#, fuzzy
+msgid "Holy See"
+msgstr "Holy See"
+
+#: src/Models/Countries.vala:133
+msgid "Honduras"
+msgstr "Honduras"
+
+#: src/Models/Countries.vala:134
+#, fuzzy
+msgid "Hong Kong"
+msgstr "Hong Kong"
+
+#: src/Models/Countries.vala:135
+msgid "Hungary"
+msgstr "Ungarn"
+
+#: src/Models/Countries.vala:136
+msgid "Iceland"
+msgstr "Island"
+
+#: src/Models/Countries.vala:137
+#, fuzzy
+msgid "India"
+msgstr "India"
+
+#: src/Models/Countries.vala:138
+#, fuzzy
+msgid "Indonesia"
+msgstr "Indonesia"
+
+#: src/Models/Countries.vala:139
+#, fuzzy
+msgid "Iran"
+msgstr "Iran"
+
+#: src/Models/Countries.vala:140
+msgid "Iraq"
+msgstr "Irak"
+
+#: src/Models/Countries.vala:141
+msgid "Ireland"
+msgstr "Irland"
+
+#: src/Models/Countries.vala:142
+#, fuzzy
+msgid "Isle of Man"
+msgstr "Isle of Man"
+
+#: src/Models/Countries.vala:143
+msgid "Israel"
+msgstr "Israel"
+
+#: src/Models/Countries.vala:144
+msgid "Italy"
+msgstr "Italia"
+
+#: src/Models/Countries.vala:145
+#, fuzzy
+msgid "Jamaica"
+msgstr "Jamaica"
+
+#: src/Models/Countries.vala:146
+msgid "Japan"
+msgstr "Japan"
+
+#: src/Models/Countries.vala:147
+#, fuzzy
+msgid "Jersey"
+msgstr "Jersey"
+
+#: src/Models/Countries.vala:148
+#, fuzzy
+msgid "Jordan"
+msgstr "Jordan"
+
+#: src/Models/Countries.vala:149
+msgid "Kazakhstan"
+msgstr "Kasakhstan"
+
+#: src/Models/Countries.vala:150
+#, fuzzy
+msgid "Kenya"
+msgstr "Kenya"
+
+#: src/Models/Countries.vala:151
+#, fuzzy
+msgid "Kiribati"
+msgstr "Kiribati"
+
+#: src/Models/Countries.vala:152
+#, fuzzy
+msgid "Korea (Democratic People's Republic of)"
+msgstr "Korea (Democratic People's Republic of)"
+
+#: src/Models/Countries.vala:153
+#, fuzzy
+msgid "Korea, Republic of"
+msgstr "Korea, Republic of"
+
+#: src/Models/Countries.vala:154
+#, fuzzy
+msgid "Kuwait"
+msgstr "Kuwait"
+
+#: src/Models/Countries.vala:155
+#, fuzzy
+msgid "Kyrgyzstan"
+msgstr "Kyrgyzstan"
+
+#: src/Models/Countries.vala:156
+#, fuzzy
+msgid "Lao People's Democratic Republic"
+msgstr "Lao People's Democratic Republic"
+
+#: src/Models/Countries.vala:157
+#, fuzzy
+msgid "Latvia"
+msgstr "Latvia"
+
+#: src/Models/Countries.vala:158
+#, fuzzy
+msgid "Lebanon"
+msgstr "Lebanon"
+
+#: src/Models/Countries.vala:159
+#, fuzzy
+msgid "Lesotho"
+msgstr "Lesotho"
+
+#: src/Models/Countries.vala:160
+#, fuzzy
+msgid "Liberia"
+msgstr "Liberia"
+
+#: src/Models/Countries.vala:161
+#, fuzzy
+msgid "Libya"
+msgstr "Libya"
+
+#: src/Models/Countries.vala:162
+#, fuzzy
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+#: src/Models/Countries.vala:163
+#, fuzzy
+msgid "Lithuania"
+msgstr "Lithuania"
+
+#: src/Models/Countries.vala:164
+#, fuzzy
+msgid "Luxembourg"
+msgstr "Luxembourg"
+
+#: src/Models/Countries.vala:165
+#, fuzzy
+msgid "Macao"
+msgstr "Macao"
+
+#: src/Models/Countries.vala:166
+#, fuzzy
+msgid "Madagascar"
+msgstr "Madagascar"
+
+#: src/Models/Countries.vala:167
+#, fuzzy
+msgid "Malawi"
+msgstr "Malawi"
+
+#: src/Models/Countries.vala:168
+#, fuzzy
+msgid "Malaysia"
+msgstr "Malaysia"
+
+#: src/Models/Countries.vala:169
+#, fuzzy
+msgid "Maldives"
+msgstr "Maldives"
+
+#: src/Models/Countries.vala:170
+#, fuzzy
+msgid "Mali"
+msgstr "Mali"
+
+#: src/Models/Countries.vala:171
+#, fuzzy
+msgid "Malta"
+msgstr "Malta"
+
+#: src/Models/Countries.vala:172
+#, fuzzy
+msgid "Marshall Islands"
+msgstr "Marshall Islands"
+
+#: src/Models/Countries.vala:173
+#, fuzzy
+msgid "Martinique"
+msgstr "Martinique"
+
+#: src/Models/Countries.vala:174
+#, fuzzy
+msgid "Mauritania"
+msgstr "Mauritania"
+
+#: src/Models/Countries.vala:175
+#, fuzzy
+msgid "Mauritius"
+msgstr "Mauritius"
+
+#: src/Models/Countries.vala:176
+#, fuzzy
+msgid "Mayotte"
+msgstr "Mayotte"
+
+#: src/Models/Countries.vala:177
+#, fuzzy
+msgid "Mexico"
+msgstr "Mexico"
+
+#: src/Models/Countries.vala:178
+#, fuzzy
+msgid "Micronesia"
+msgstr "Micronesia"
+
+#: src/Models/Countries.vala:179
+#, fuzzy
+msgid "Moldova"
+msgstr "Moldova"
+
+#: src/Models/Countries.vala:180
+#, fuzzy
+msgid "Monaco"
+msgstr "Monaco"
+
+#: src/Models/Countries.vala:181
+msgid "Mongolia"
+msgstr "Mongolia"
+
+#: src/Models/Countries.vala:182
+msgid "Montenegro"
+msgstr "Montenegro"
+
+#: src/Models/Countries.vala:183
+#, fuzzy
+msgid "Montserrat"
+msgstr "Montserrat"
+
+#: src/Models/Countries.vala:184
+msgid "Morocco"
+msgstr "Marokko"
+
+#: src/Models/Countries.vala:185
+#, fuzzy
+msgid "Mozambique"
+msgstr "Mozambique"
+
+#: src/Models/Countries.vala:186
+#, fuzzy
+msgid "Myanmar"
+msgstr "Myanmar"
+
+#: src/Models/Countries.vala:187
+#, fuzzy
+msgid "Namibia"
+msgstr "Namibia"
+
+#: src/Models/Countries.vala:188
+#, fuzzy
+msgid "Nauru"
+msgstr "Nauru"
+
+#: src/Models/Countries.vala:189
+msgid "Nepal"
+msgstr "Nepal"
+
+#: src/Models/Countries.vala:190
+#, fuzzy
+msgid "Netherlands"
+msgstr "Netherlands"
+
+#: src/Models/Countries.vala:191
+#, fuzzy
+msgid "New Caledonia"
+msgstr "New Caledonia"
+
+#: src/Models/Countries.vala:192
+#, fuzzy
+msgid "New Zealand"
+msgstr "New Zealand"
+
+#: src/Models/Countries.vala:193
+#, fuzzy
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+#: src/Models/Countries.vala:194
+#, fuzzy
+msgid "Niger"
+msgstr "Niger"
+
+#: src/Models/Countries.vala:195
+#, fuzzy
+msgid "Nigeria"
+msgstr "Nigeria"
+
+#: src/Models/Countries.vala:196
+#, fuzzy
+msgid "Niue"
+msgstr "Niue"
+
+#: src/Models/Countries.vala:197
+#, fuzzy
+msgid "Norfolk Island"
+msgstr "Norfolk Island"
+
+#: src/Models/Countries.vala:198
+#, fuzzy
+msgid "North Macedonia"
+msgstr "North Macedonia"
+
+#: src/Models/Countries.vala:199
+#, fuzzy
+msgid "Northern Mariana Islands"
+msgstr "Northern Mariana Islands"
+
+#: src/Models/Countries.vala:200
+msgid "Norway"
+msgstr "Norge"
+
+#: src/Models/Countries.vala:201
+#, fuzzy
+msgid "Oman"
+msgstr "Oman"
+
+#: src/Models/Countries.vala:202
+#, fuzzy
+msgid "Pakistan"
+msgstr "Pakistan"
+
+#: src/Models/Countries.vala:203
+#, fuzzy
+msgid "Palau"
+msgstr "Palau"
+
+#: src/Models/Countries.vala:204
+#, fuzzy
+msgid "Palestine"
+msgstr "Palestine"
+
+#: src/Models/Countries.vala:205
+#, fuzzy
+msgid "Panama"
+msgstr "Panama"
+
+#: src/Models/Countries.vala:206
+#, fuzzy
+msgid "Papua New Guinea"
+msgstr "Papua New Guinea"
+
+#: src/Models/Countries.vala:207
+#, fuzzy
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: src/Models/Countries.vala:208
+#, fuzzy
+msgid "Peru"
+msgstr "Peru"
+
+#: src/Models/Countries.vala:209
+#, fuzzy
+msgid "Philippines"
+msgstr "Philippines"
+
+#: src/Models/Countries.vala:210
+#, fuzzy
+msgid "Pitcairn"
+msgstr "Pitcairn"
+
+#: src/Models/Countries.vala:211
+#, fuzzy
+msgid "Poland"
+msgstr "Poland"
+
+#: src/Models/Countries.vala:212
+#, fuzzy
+msgid "Portugal"
+msgstr "Portugal"
+
+#: src/Models/Countries.vala:213
+#, fuzzy
+msgid "Puerto Rico"
+msgstr "Puerto Rico"
+
+#: src/Models/Countries.vala:214
+#, fuzzy
+msgid "Qatar"
+msgstr "Qatar"
+
+#: src/Models/Countries.vala:215
+#, fuzzy
+msgid "Réunion"
+msgstr "Réunion"
+
+#: src/Models/Countries.vala:216
+#, fuzzy
+msgid "Romania"
+msgstr "Romania"
+
+#: src/Models/Countries.vala:217
+#, fuzzy
+msgid "Russian Federation"
+msgstr "Russian Federation"
+
+#: src/Models/Countries.vala:218
+#, fuzzy
+msgid "Rwanda"
+msgstr "Rwanda"
+
+#: src/Models/Countries.vala:219
+#, fuzzy
+msgid "Saint Barthélemy"
+msgstr "Saint Barthélemy"
+
+#: src/Models/Countries.vala:220
+#, fuzzy
+msgid "Saint Helena, Ascension and Tristan da Cunha"
+msgstr "Saint Helena, Ascension and Tristan da Cunha"
+
+#: src/Models/Countries.vala:221
+#, fuzzy
+msgid "Saint Kitts and Nevis"
+msgstr "Saint Kitts and Nevis"
+
+#: src/Models/Countries.vala:222
+#, fuzzy
+msgid "Saint Lucia"
+msgstr "Saint Lucia"
+
+#: src/Models/Countries.vala:223
+#, fuzzy
+msgid "Saint Martin"
+msgstr "Saint Martin"
+
+#: src/Models/Countries.vala:224
+#, fuzzy
+msgid "Saint Pierre and Miquelon"
+msgstr "Saint Pierre and Miquelon"
+
+#: src/Models/Countries.vala:225
+#, fuzzy
+msgid "Saint Vincent and the Grenadines"
+msgstr "Saint Vincent and the Grenadines"
+
+#: src/Models/Countries.vala:226
+#, fuzzy
+msgid "Samoa"
+msgstr "Samoa"
+
+#: src/Models/Countries.vala:227
+#, fuzzy
+msgid "San Marino"
+msgstr "San Marino"
+
+#: src/Models/Countries.vala:228
+#, fuzzy
+msgid "Sao Tome and Principe"
+msgstr "Sao Tome and Principe"
+
+#: src/Models/Countries.vala:229
+#, fuzzy
+msgid "Saudi Arabia"
+msgstr "Saudi Arabia"
+
+#: src/Models/Countries.vala:230
+#, fuzzy
+msgid "Senegal"
+msgstr "Senegal"
+
+#: src/Models/Countries.vala:231
+#, fuzzy
+msgid "Serbia"
+msgstr "Serbia"
+
+#: src/Models/Countries.vala:232
+#, fuzzy
+msgid "Seychelles"
+msgstr "Seychelles"
+
+#: src/Models/Countries.vala:233
+#, fuzzy
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+#: src/Models/Countries.vala:234
+#, fuzzy
+msgid "Singapore"
+msgstr "Singapore"
+
+#: src/Models/Countries.vala:235
+#, fuzzy
+msgid "Sint Maarten"
+msgstr "Sint Maarten"
+
+#: src/Models/Countries.vala:236
+msgid "Slovakia"
+msgstr "Slovakia"
+
+#: src/Models/Countries.vala:237
+msgid "Slovenia"
+msgstr "Slovenia"
+
+#: src/Models/Countries.vala:238
+#, fuzzy
+msgid "Solomon Islands"
+msgstr "Solomon Islands"
+
+#: src/Models/Countries.vala:239
+msgid "Somalia"
+msgstr "Somalia"
+
+#: src/Models/Countries.vala:240
+msgid "South Africa"
+msgstr "Sør-Afrika"
+
+#: src/Models/Countries.vala:241
+#, fuzzy
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "South Georgia and the South Sandwich Islands"
+
+#: src/Models/Countries.vala:242
+#, fuzzy
+msgid "South Sudan"
+msgstr "South Sudan"
+
+#: src/Models/Countries.vala:243
+msgid "Spain"
+msgstr "Spania"
+
+#: src/Models/Countries.vala:244
+#, fuzzy
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: src/Models/Countries.vala:245
+#, fuzzy
+msgid "Sudan"
+msgstr "Sudan"
+
+#: src/Models/Countries.vala:246
+msgid "Suriname"
+msgstr "Surinam"
+
+#: src/Models/Countries.vala:247
+#, fuzzy
+msgid "Svalbard and Jan Mayen"
+msgstr "Svalbard and Jan Mayen"
+
+#: src/Models/Countries.vala:248
+msgid "Sweden"
+msgstr "Sverige"
+
+#: src/Models/Countries.vala:249
+msgid "Switzerland"
+msgstr "Sveits"
+
+#: src/Models/Countries.vala:250
+#, fuzzy
+msgid "Syrian Arab Republic"
+msgstr "Syrian Arab Republic"
+
+#: src/Models/Countries.vala:251
+#, fuzzy
+msgid "Taiwan"
+msgstr "Taiwan"
+
+#: src/Models/Countries.vala:252
+#, fuzzy
+msgid "Tajikistan"
+msgstr "Tajikistan"
+
+#: src/Models/Countries.vala:253
+#, fuzzy
+msgid "Tanzania"
+msgstr "Tanzania"
+
+#: src/Models/Countries.vala:254
+#, fuzzy
+msgid "Thailand"
+msgstr "Thailand"
+
+#: src/Models/Countries.vala:255
+#, fuzzy
+msgid "Timor-Leste"
+msgstr "Timor-Leste"
+
+#: src/Models/Countries.vala:256
+#, fuzzy
+msgid "Togo"
+msgstr "Togo"
+
+#: src/Models/Countries.vala:257
+#, fuzzy
+msgid "Tokelau"
+msgstr "Tokelau"
+
+#: src/Models/Countries.vala:258
+#, fuzzy
+msgid "Tonga"
+msgstr "Tonga"
+
+#: src/Models/Countries.vala:259
+#, fuzzy
+msgid "Trinidad and Tobago"
+msgstr "Trinidad and Tobago"
+
+#: src/Models/Countries.vala:260
+#, fuzzy
+msgid "Tunisia"
+msgstr "Tunisia"
+
+#: src/Models/Countries.vala:261
+#, fuzzy
+msgid "Turkey"
+msgstr "Turkey"
+
+#: src/Models/Countries.vala:262
+#, fuzzy
+msgid "Turkmenistan"
+msgstr "Turkmenistan"
+
+#: src/Models/Countries.vala:263
+#, fuzzy
+msgid "Turks and Caicos Islands"
+msgstr "Turks and Caicos Islands"
+
+#: src/Models/Countries.vala:264
+#, fuzzy
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+#: src/Models/Countries.vala:265
+#, fuzzy
+msgid "Uganda"
+msgstr "Uganda"
+
+#: src/Models/Countries.vala:266
+#, fuzzy
+msgid "Ukraine"
+msgstr "Ukraine"
+
+#: src/Models/Countries.vala:267
+#, fuzzy
+msgid "United Arab Emirates"
+msgstr "United Arab Emirates"
+
+#: src/Models/Countries.vala:268
+#, fuzzy
+msgid "United Kingdom of Great Britain and Northern Ireland"
+msgstr "United Kingdom of Great Britain and Northern Ireland"
+
+#: src/Models/Countries.vala:269
+#, fuzzy
+msgid "United States of America"
+msgstr "United States of America"
+
+#: src/Models/Countries.vala:270
+#, fuzzy
+msgid "United States Minor Outlying Islands"
+msgstr "United States Minor Outlying Islands"
+
+#: src/Models/Countries.vala:271
+#, fuzzy
+msgid "Uruguay"
+msgstr "Uruguay"
+
+#: src/Models/Countries.vala:272
+#, fuzzy
+msgid "Uzbekistan"
+msgstr "Uzbekistan"
+
+#: src/Models/Countries.vala:273
+#, fuzzy
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+#: src/Models/Countries.vala:274
+#, fuzzy
+msgid "Venezuela"
+msgstr "Venezuela"
+
+#: src/Models/Countries.vala:275
+msgid "Viet Nam"
+msgstr "Vietnam"
+
+#: src/Models/Countries.vala:276 src/Models/Countries.vala:277
+#, fuzzy
+msgid "Virgin Islands"
+msgstr "Virgin Islands"
+
+#: src/Models/Countries.vala:278
+#, fuzzy
+msgid "Wallis and Futuna"
+msgstr "Wallis and Futuna"
+
+#: src/Models/Countries.vala:279
+#, fuzzy
+msgid "Western Sahara"
+msgstr "Western Sahara"
+
+#: src/Models/Countries.vala:280
+#, fuzzy
+msgid "Yemen"
+msgstr "Yemen"
+
+#: src/Models/Countries.vala:281
+#, fuzzy
+msgid "Zambia"
+msgstr "Zambia"
+
+#: src/Models/Countries.vala:282
+#, fuzzy
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
+
+#: src/Models/Genre.vala:35
+#, fuzzy
+msgid "70s"
+msgstr "70s"
+
+#: src/Models/Genre.vala:36
+#, fuzzy
+msgid "80s"
+msgstr "80s"
+
+#: src/Models/Genre.vala:37
+#, fuzzy
+msgid "90s"
+msgstr "90s"
+
+#: src/Models/Genre.vala:38
+msgid "Classical"
+msgstr "Klassisk"
+
+#: src/Models/Genre.vala:39
+#, fuzzy
+msgid "Country"
+msgstr "Country"
+
+#: src/Models/Genre.vala:40
+#, fuzzy
+msgid "Dance"
+msgstr "Dance"
+
+#: src/Models/Genre.vala:41
+#, fuzzy
+msgid "Electronic"
+msgstr "Electronic"
+
+#: src/Models/Genre.vala:42
+#, fuzzy
+msgid "House"
+msgstr "House"
+
+#: src/Models/Genre.vala:43
+#, fuzzy
+msgid "Jazz"
+msgstr "Jazz"
+
+#: src/Models/Genre.vala:44
+#, fuzzy
+msgid "Pop"
+msgstr "Pop"
+
+#: src/Models/Genre.vala:45
+#, fuzzy
+msgid "Rock"
+msgstr "Rock"
+
+#: src/Widgets/ContentBox.vala:47
+msgid "Nothing here"
+msgstr "Ingenting her"
+
+#: src/Widgets/ContentBox.vala:47
+#, fuzzy
+msgid ""
+"Something went wrong loading radio stations data from radio-browser.info. "
+"Please try again later."
+msgstr ""
+"Kunne ikke laste inn radiostasjoner fra radio-browser.info. Prøv igjen "
+"senere."
+
+#: src/Widgets/ContentBox.vala:57
+msgid "No stations found"
+msgstr "Fant ingen stasjoner"
+
+#: src/Widgets/ContentBox.vala:57
+#, fuzzy
+msgid "Please try a different search term."
+msgstr "Please try a different search term."
+
+#: src/Widgets/HeaderBar.vala:52
+msgid "Choose a station"
+msgstr "Velg en stasjon"
+
+#: src/Widgets/HeaderBar.vala:69
+#, fuzzy
+msgid "About"
+msgstr "About"
+
+#: src/Widgets/HeaderBar.vala:73
+msgid "Do not track"
+msgstr "Ikke spor meg"
+
+#: src/Widgets/HeaderBar.vala:75
+#, fuzzy
+msgid "If enabled, we will not send usage info to radio-browser.org"
+msgstr "Sender bruksinfo til radio-browser.org"
+
+#: src/Widgets/HeaderBar.vala:82
+msgid "Light mode"
+msgstr "Lys drakt"
+
+#: src/Widgets/HeaderBar.vala:83
+msgid "Dark mode"
+msgstr "Mørk drakt"
+
+#: src/Widgets/HeaderBar.vala:108
+msgid "Preferences"
+msgstr "Innstillinger"
+
+#: src/Widgets/HeaderBar.vala:114
+#, fuzzy
+msgid "Station name"
+msgstr "Station name"
+
+#: src/Widgets/HeaderBar.vala:130 src/Widgets/StationContextMenu.vala:71
+msgid "Star this station"
+msgstr "Stjernemerk denne stasjonen"
+
+#: src/Widgets/HeaderBar.vala:179
+msgid "Playing"
+msgstr "Spiller"
+
+#: src/Widgets/StationContextMenu.vala:41
+#, fuzzy
+msgid "Visit Website"
+msgstr "Visit Website"
+
+#: src/Widgets/StationContextMenu.vala:71
+msgid "Unstar this station"
+msgstr "Fjern stjernemerking"
+
+#: src/Widgets/Window.vala:107
+msgid "Selections"
+msgstr "Utvalg"
+
+#: src/Widgets/Window.vala:111
+msgid "Library"
+msgstr "Bibliotek"
+
+#: src/Widgets/Window.vala:115
+msgid "Genres"
+msgstr "Sjangere"
+
+#. Discover Box
+#: src/Widgets/Window.vala:122
+msgid "Discover"
+msgstr "Oppdagelse"
+
+#: src/Widgets/Window.vala:127
+#, fuzzy
+msgid "Discover Stations"
+msgstr "Discover Stations"
+
+#: src/Widgets/Window.vala:128
+msgid "Discover more stations"
+msgstr "Oppdag flere stasjoner"
+
+#. Trending Box
+#: src/Widgets/Window.vala:153
+msgid "Trending"
+msgstr "På vei opp"
+
+#: src/Widgets/Window.vala:158
+#, fuzzy
+msgid "Trending in the last 24 hours"
+msgstr "Trending in the last 24 hours"
+
+#. Popular Box
+#: src/Widgets/Window.vala:174
+msgid "Popular"
+msgstr "Populært"
+
+#: src/Widgets/Window.vala:179
+msgid "Most-listened over 24 hours"
+msgstr "Mest lyttet til de siste 24 timene"
+
+#. Country-specific stations list
+#: src/Widgets/Window.vala:194 src/Widgets/Window.vala:198
+#, fuzzy
+msgid "Your Country"
+msgstr "Your Country"
+
+#: src/Widgets/Window.vala:216
+msgid "Top 100 in"
+msgstr "Topp 100 i"
+
+#. Favourites Box
+#: src/Widgets/Window.vala:232 src/Widgets/Window.vala:236
+msgid "Starred by You"
+msgstr "Stjernemerket av deg"
+
+#. Search Results Box
+#: src/Widgets/Window.vala:245
+#, fuzzy
+msgid "Recent Search"
+msgstr "Recent Search"
+
+#: src/Widgets/Window.vala:249
+msgid "Search"
+msgstr "Søk"

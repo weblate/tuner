@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2020-2022 Louis Brauer / <louis@brauer.family> -->
+<!-- Copyright 2020-2024 Louis Brauer / <louis@brauer.family> -->
 <component type="desktop-application">
   <id>com.github.louis77.tuner</id>
   <metadata_license>FSFAP</metadata_license>
@@ -7,12 +7,16 @@
   <project_license>GPL-3.0+</project_license>
   <name>Tuner</name>
   <developer_name>Louis Brauer</developer_name>
+  <developer_name>technosf</developer_name>
   <launchable type="desktop-id">com.github.louis77.tuner.desktop</launchable>
-  <summary>Discover and listen to internet radio stations</summary>
-
+  <branding>
+    <color type="primary" scheme_preference="light">#fafafa</color>
+    <color type="primary" scheme_preference="dark">#abacae</color>
+  </branding>
+  <summary>Internet Radio</summary>
   <description>
-    <p>Make listening to internet radio stations fun again!</p>
-    <p>Instead of providing you with all the stations you already know,
+    <p>Make finding and listening to internet radio stations fun again!</p>
+    <p>Instead of showing all the stations you already know,
        Tuner presents you a new selection of stations from all over the world
        every time you hit the Shuffle button.</p>
     <p>Tuner uses the community-driven station catalog radio-browser.info.</p>
@@ -25,17 +29,40 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/louis77/tuner/master/docs/screen_light_1.4.2.png</image>
+      <image>https://raw.githubusercontent.com/louis77/tuner/master/docs/Tuner_2.0_discover.png</image>
+      <caption>Tuner with dark theme, discovery</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/louis77/tuner/master/docs/screen_light-2_1.4.2.png</image>
+      <image>https://raw.githubusercontent.com/louis77/tuner/master/docs/Tuner_2.0_starred.png</image>
+      <caption>Tuner with light theme, starred stations</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/louis77/tuner/master/docs/screen_dark_1.4.2.png</image>
+      <image>https://raw.githubusercontent.com/louis77/tuner/master/docs/Tuner_2.0_search.png</image>
+      <caption>Tuner search for stations</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/louis77/tuner/master/docs/Tuner_2.0_saved.png</image>
+      <caption>Tuner saved searches</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/louis77/tuner/master/docs/Tuner_2.0_meta.png</image>
+      <caption>Tuner playing station metadata</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/louis77/tuner/master/docs/Tuner_2.0_pref.png</image>
+      <caption>Tuner preferences</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/louis77/tuner/master/docs/Tuner_2.0_context.png</image>
+      <caption>Tuner station context information</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/louis77/tuner/master/docs/Tuner_2.0_jukebox.png</image>
+      <caption>Tuner jukebox station shuffle</caption>
     </screenshot>
   </screenshots>
 
-  <update_contact>louis_AT_brauer.family</update_contact>
+  <update_contact>tuner.10.technomation_AT_xoxy.net</update_contact>
   <url type="homepage">https://github.com/louis77/tuner</url>
   <url type="bugtracker">http://github.com/louis77/tuner/issues</url>
   <url type="help">http://github.com/louis77/tuner/issues</url>
@@ -61,7 +88,74 @@
     <dbus type="system">org.mpris.MediaPlayer2.Player</dbus>
   </provides>
 
+  <replaces>
+    <id>com.github.louis77.tuner</id>
+  </replaces>
+
   <releases>
+    <release version="2.0.0" date="2025-01-10">
+      <description>
+        <p>New Version!</p>
+        <ul>
+          <li>Saved Searches - new feature</li>
+          <li>Explore Genres - new feature</li>
+          <li>Jukebox Shuffle - Play Random Station - new feature</li>
+          <li>New Default Genres added</li>
+          <li>Updated look and feel</li>
+          <li>Station and Stream History - new feature</li>
+          <li>More Station and Stream Metadata - new feature</li>
+          <li>Save, import Starred Stations to playlists - new feature</li>
+          <li>Faster responsiveness and image loading</li>
+          <li>New data provider API, plus better support for Radio Browser</li>
+          <li>Refactored for separation of concerns, OO, maintainability</li>
+          <li>Renamed, updated icons, description and screenshots per Flathub quality directives</li>
+        </ul>
+      </description>
+    </release>     
+    <release version="1.5.5" date="2024-11-08">
+      <url type="details">https://github.com/louis77/tuner/releases/tag/v1.5.5</url>
+      <description>
+        <p>Maintanance release:</p>
+        <ul>
+          <li>Updated HTTP Session params to improve response</li>
+          <li>Increased Search re-fire interval to reduce number of concurrent searches</li>
+          <li>Made Search asynchronous so UI remains responsive during searches</li>
+          <li>Ignore request to load failing favicons URLs</li>
+          <li>Removed org.gnome.SettingsDaemon.MediaKeys from manifest per flathub</li>
+        </ul>
+      </description>
+    </release>    
+    <release version="1.5.4" date="2024-10-10">
+      <description>
+        <p>Maintanance release:</p>
+        <ul>
+          <li>Added API server lookup via SRV and backup via JSON, plus randomization</li>
+          <li>Added JSON validation for empty nodes</li>
+          <li>Refactored libsoup calls out to HttpClient.vala</li>
+          <li>Refactored loading of favicons to Favicon.vala</li>
+          <li>Turned off TLS checks for HTTP calls to avoid non loading of favicons with invalid certs</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.5.3" date="2024-09-22">
+      <description>
+        <p>Maintanance release:</p>
+        <ul>
+          <li>Upgrade to taglib 1.13.1</li>
+          <li>Corrected README (apt libs)</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.5.2" date="2024-06-22">
+      <description>
+        <p>Maintanance release:</p>
+        <ul>
+          <li>Upgrade to libsoup-3.0</li>
+          <li>Fix issue where radio-browser.info API did not work</li>
+          <li>Remove Geolocation service</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.5.1" date="2022-02-06">
       <description>
         <p>Maintanance release:</p>

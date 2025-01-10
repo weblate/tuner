@@ -2,6 +2,17 @@ build
 builddir
 build-aux
 *~
+apidocs/*
 .vscode
 .buildconfig
 .flatpak-builder
+.flatpak
+code.sh
+favicon.ico
+tuner.code-workspace
+.~lock.tags.ods#
+.~lock.tags.ods#
+labelexpand.ods
+tuner-starred.m3u8
+uncrustify.cfg
+repo/*

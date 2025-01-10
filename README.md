@@ -1,10 +1,9 @@
-# ![icon](docs/logo_01.png) Tuner
+# ![icon](docs/logo_01.png) Tuner [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) [![Translation status](https://hosted.weblate.org/widgets/tuner/-/tuner-ui/svg-badge.svg)](https://hosted.weblate.org/engage/tuner/)
 
-## Minimalist radio station player
+## Minimalist radio station player - V2
 Discover and Listen to your favourite internet radio stations.
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
-![Screenshot 01](docs/screen_dark_1.4.2.png?raw=true)
+![Screenshot 01](docs/Tuner_2.0_discover.png?raw=true)
 
 ## Contributors wanted!
 
@@ -17,6 +16,15 @@ At the time, I never expected `Tuner` to be installed by the thousands on other 
 Maybe it was around this time when I started to feel not only the euphoria that comes with Open Source projects but also the weight of responsibility. I feared to move on because I didn't want to break things, so *I* took a break :-). 
 
 Yet, users keep sending bug reports and feature requests. I want `Tuner` to live on and be the best tiny internet radio receiver for the Linux environment. 
+
+### You can help translate Tuner into your language
+
+Tuner translations are now hosted on [Weblate](https://hosted.weblate.org/engage/tuner/). Please help by translating Tuner into your language or fix any translation issues.
+
+[![Translation status](https://hosted.weblate.org/widgets/tuner/-/tuner/multi-auto.svg)](https://hosted.weblate.org/engage/tuner/)
+
+Thanks to the Weblate team for generously hosting Tuner for free.
+
 
 **Would you be interested in joining the project as a developer or package maintainer?**
 
@@ -34,15 +42,24 @@ Things I need help with:
 
 ### Flathub
 
-Tuner is available on Flathub, but there are some known bugs:
+Tuner is primarily available as a Flatpak on Flathub:
 https://flathub.org/apps/details/com.github.louis77.tuner
 
-### elementary OS
+
+### Local Build
+
+Build Tuner localy with the [development doc](DEVELOP.md).
+
+
+### Other Places
+Other packed versions of Tuner are available, but are maintained outside of Tuner itself: Versions may be out of date.
+
+#### elementary OS
 
 Install Tuner via elementary's App store:
 https://appcenter.elementary.io/com.github.louis77.tuner
 
-### Arch Linux / AUR
+#### Arch Linux / AUR
 Arch-based GNU/Linux users can find `Tuner` under the name [tuner-git](https://aur.archlinux.org/packages/tuner-git/) in the **AUR**:
 
 ```sh
@@ -50,12 +67,12 @@ $ yay -S tuner-git
 ```
 Thanks to [@btd1377](https://github.com/btd1337) for supporting Tuner on Arch Linux!
 
-### MX Linux
+#### MX Linux
 MX Linux users can find `Tuner` by using the MX Package Installer (currently under the MX Test Repo tab for MX-19 and the Stable Repo for MX-21)
 
 Thanks to SwampRabbit for packaging Tuner for MX Linux!
 
-### Pacstall
+#### Pacstall
 Pacstall is a totally new package manager for Ubuntu that provides an AUR-like community-driven repo for package builds. If you already use `pacstall` you can install Tuner:
 
 ```sh
@@ -75,7 +92,7 @@ While I hacked on this App, I discovered so many cool and new stations, which ma
 
 ## Features
 
-- Uses radio-browser.info catalog
+- Uses [radio-browser.info](https://www.radio-browser.info/) radio station catalog
 - Presets various selection of stations (random, top, trending, genres)
 - Save favourite stations
 - Sends a click count to radio-browser.info on station click
@@ -94,51 +111,37 @@ While I hacked on this App, I discovered so many cool and new stations, which ma
 * `TUNER_API` - a `:` separated list of API servers to read from, e.g.
     * `export TUNER_API="de1.api.radio-browser.info:nl1.api.radio-browser.info"; com.github.louis77.tuner`
 
-## Dependencies
 
-```bash
-granite
-gtk+-3.0
-gstreamer-1.0
-gstreamer-player-1.0
-libsoup-2.4
-json-glib-1.0
-libgee-0.8
-libgeoclue-2-0
-libgeocode-glib0
-meson
-vala
-```
+## Build, Maintance and Development of Tuner
 
-## Building
+Building, developing and maintianing **Tuner** is detailed seperately and in detail in the [DEVELOP](DEVELOP.md) markdown.
 
-Make sure you have the dependencies installed:
 
-```bash
-sudo apt install git valac meson
-sudo apt install libgtk-3-dev libgee-0.8-dev libgranite-dev libgstreamer1.0-dev libgstreamer-plugins-bad1.0-dev libsoup2.4-dev libjson-glib-dev libgeoclue-2-dev libgeocode-glib-dev
-```
+## Support 
 
-Then clone this repo and build it locally:
+Feature request, observations and Issues can be documented with tickets on [Github](https://github.com/louis77/tuner/issues)
 
-```bash
-meson build && cd build
-meson configure -Dprefix=/usr
-sudo ninja install
-```
 
-## Known Issues
+### Known Issues
 
-- If AAC/AAC+ streams don't play (found on Elementary OS 6) install the following dependency:
-
+#### If AAC/AAC+ streams don't play (found on Elementary OS 6) install the following dependency:
 ```sh
 $ sudo apt install gstreamer1.0-libav
 ```
 
+#### 'Failed to load module "xapp-gtk3-module"'
+Running Tuner from the CLI with `flatpak run com.github.louis77.tuner` may produce a message like the following:
+
+`Gtk-Message: 10:01:00.561: Failed to load module "xapp-gtk3-module"`
+
+This relates to Gtk looking for Xapp (which isn't used by Tuner) and can be ignored.
+
+
 ## Credits
 
+- [technosf](https://github.com/technosf) (_Me!_) Louis has been gracious enough to let me rewrite a swarthe of Tuner and create v2
 - [faleksandar.com](https://faleksandar.com/) for icons and colors
-- [radio-browser.info](http://www.radio-browser.info) for providing a free radio station directory
+- [faleksandar.com](https://faleksandar.com/) for icons and colors
 - [@NathanBnm](https://github.com/NathanBnm) - French translation
 - [@DevAlien](https://github.com/DevAlien) - Italian translation 
 - [@albanobattistella](https://github.com/albanobattistella) - Italian translation
