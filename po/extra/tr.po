@@ -1,226 +1,36 @@
-# Turkish translations for extra package.
-# Copyright (C) 2020 THE extra'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
-# Safak <bjksafak45@gmail.com>, 2020.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-08 19:20+0100\n"
-"PO-Revision-Date: 2020-11-08 19:16+0100\n"
-"Last-Translator: Safak <bjksafak45@gmail.com>\n"
-"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"POT-Creation-Date: 2026-03-30 17:20-0700\n"
+"PO-Revision-Date: 2026-03-31 05:12+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/tuner/extra/tr/>"
+"\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.17-dev\n"
 
-#: data/com.github.louis77.tuner.desktop.in:4
-#: data/com.github.louis77.tuner.appdata.xml.in:8
+#: data/io.github.tuner_labs.tuner.desktop.in:9
 msgid "Tuner"
-msgstr ""
+msgstr "Tuner"
 
-#: data/com.github.louis77.tuner.desktop.in:5
+#: data/io.github.tuner_labs.tuner.desktop.in:10
 msgid "Internet Radio Player"
 msgstr "İnternet Radyo İstasyonu Alıcısı"
 
-#: data/com.github.louis77.tuner.desktop.in:6
-msgid "Listen to Radio Stations all over the world"
-msgstr "Tüm dünyadaki Radyo İstasyonlarını dinleyin"
+#: data/io.github.tuner_labs.tuner.desktop.in:11
+msgid "Listen to Radio Stations from around the world"
+msgstr "Dünya çapında Radio Stations'ı dinleyin"
 
-#: data/com.github.louis77.tuner.desktop.in:9
-msgid "com.github.louis77.tuner"
-msgstr "com.github.louis77.tuner"
-
-#: data/com.github.louis77.tuner.desktop.in:11
-msgid "Radio;Audio;Listen;Stations;Receiver;"
-msgstr "Radyo; Ses; Dinle; İstasyonlar; Alıcı;"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:9
-msgid "Louis Brauer"
-msgstr "Louis Brauer"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:11
-msgid "Discover and listen to internet radio stations"
-msgstr "İnternet radyo istasyonlarını keşfedin ve dinleyin"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:14
-msgid "Make listening to internet radio stations fun again!"
-msgstr ""
-"İnternet radyo istasyonlarını dinlemeyi yeniden eğlenceli hale getirin!"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:15
-msgid ""
-"Instead of providing you with all the stations you already know, Tuner "
-"presents you a new selection of stations from all over the world every time "
-"you hit the Shuffle button."
-msgstr ""
-"Sizin bildiğiniz tüm istasyonları sağlamak yerine, Tunersize dünyanın her "
-"yerinden yeni bir istasyon seçimi sunarKarıştır düğmesine basmanız yeterli."
-
-#: data/com.github.louis77.tuner.appdata.xml.in:18
-msgid "Tuner uses the community-driven station catalog radio-browser.info."
-msgstr ""
-"Tuner, topluluk odaklı istasyon kataloğu radio-browser.info'yu kullanır."
-
-#: data/com.github.louis77.tuner.appdata.xml.in:20
-msgid "Discover new stations every day"
-msgstr "Her gün yeni istasyonları keşfedin"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:21
-msgid "Star stations you like and visit their website"
-msgstr ""
-
-#: data/com.github.louis77.tuner.appdata.xml.in:22
-msgid "Control Tuner from your volume indicator"
-msgstr "Tuner'ı ses göstergenizden kontrol edin"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:64
-#: data/com.github.louis77.tuner.appdata.xml.in:95
-#: data/com.github.louis77.tuner.appdata.xml.in:116
-msgid "New features:"
-msgstr "Yeni özellikler:"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:66
-msgid "Show the current track playing if supported by station"
-msgstr ""
-
-#: data/com.github.louis77.tuner.appdata.xml.in:67
-msgid "Show Top 100 stations of user country if detectable"
-msgstr ""
-
-#: data/com.github.louis77.tuner.appdata.xml.in:68
-msgid "\"Visit Website\" link in station context menu"
-msgstr ""
-
-#: data/com.github.louis77.tuner.appdata.xml.in:70
-#: data/com.github.louis77.tuner.appdata.xml.in:82
-#: data/com.github.louis77.tuner.appdata.xml.in:101
-#: data/com.github.louis77.tuner.appdata.xml.in:123
-msgid "Other improvements:"
-msgstr "Diğer iyileştirmeler:"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:72
-msgid "Added Dutch translation"
-msgstr ""
-
-#: data/com.github.louis77.tuner.appdata.xml.in:74
-#: data/com.github.louis77.tuner.appdata.xml.in:87
-#: data/com.github.louis77.tuner.appdata.xml.in:108
-#: data/com.github.louis77.tuner.appdata.xml.in:130
-msgid "Bugfixes:"
-msgstr "Hata düzeltmeleri:"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:76
-#: data/com.github.louis77.tuner.appdata.xml.in:89
-msgid "Fix missing icons for non elementary OS systems"
-msgstr ""
-
-#: data/com.github.louis77.tuner.appdata.xml.in:84
-msgid "Add manual dark mode switch in settings"
-msgstr ""
-
-#: data/com.github.louis77.tuner.appdata.xml.in:85
-msgid "Compact sidebar and content window"
-msgstr ""
-
-#: data/com.github.louis77.tuner.appdata.xml.in:97
-msgid "Right-click a station to add or remove to favourites directly"
-msgstr ""
-"Doğrudan favorilere eklemek veya çıkarmak için bir istasyona sağ tıklayın"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:98
-msgid ""
-"Add settings menu with \"Do-Not-Track\" option, disables sending station "
-"listening events to radio-browser.org"
-msgstr ""
-"\"Takip Etme\" seçeneğiyle dinlediğiniz radyoların diğer sitelere 'radio-"
-"browser.org'  veri gönderimini durdurur "
-
-#: data/com.github.louis77.tuner.appdata.xml.in:99
-msgid "Add About dialog"
-msgstr "Hakkında iletişim bölümüne eklendi"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:103
-msgid ""
-"If a station is already in your favourites, you'll see a little star in the "
-"title"
-msgstr "Bir istasyon zaten favorilerinizdeyse, küçük bir yıldız göreceksiniz."
-
-#: data/com.github.louis77.tuner.appdata.xml.in:104
-msgid ""
-"Randomly selects one of the available radio-browser.org servers (was always "
-"de1 before)"
-msgstr "Mevcut radio-browser.org sunucularından birini rastgele seçer"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:105
-msgid ""
-"Favourites are now stored in a local favourites.json file to improve app "
-"startup time"
-msgstr ""
-"Sık kullanılanlar artık uygulamayı iyileştirmek için yerel bir favourites."
-"json dosyasında saklanıyor"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:106
-msgid "Added Italian translation"
-msgstr "İtalyanca Çeviri Eklendi"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:110
-msgid ""
-"Fix broken dark theme support (elementary and Adwaita dark look fine now)"
-msgstr ""
-"Hatalı karanlık tema desteği düzeltildi (elemantry os ve adwaita koyu tema "
-"şimdi iyi gözüküyor)"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:118
-msgid "Search for radio stations"
-msgstr "Radyo istasyonlarını arayın"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:119
-msgid "New \"Genres\" section with select popular genres"
-msgstr "Seçkin popüler türleri içeren yeni \"Türler\" bölümü"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:120
-msgid "Added French translation"
-msgstr "Fransızca Çeviri Eklendi"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:121
-msgid "Added German translation"
-msgstr "Almanca Çeviri Eklendi"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:125
-msgid "Each section now displays the most-voted-for 40 stations"
-msgstr "Her bölüm artık en çok oy alan 40 istasyonu gösteriyor"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:126
-msgid "Station images are now being cached"
-msgstr "İstasyon görüntüleri artık önbelleğe alınıyor"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:127
-msgid "The app icon now appears more vertically centered"
-msgstr "Uygulama simgesi artık daha dikey olarak ortalanmış görünüyor"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:128
-msgid "Station images are now always the same size"
-msgstr "İstasyon görüntüleri artık her zaman aynı boyuttadır"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:132
-msgid "Fixed a bug where starred stations appeared as unstarred"
-msgstr ""
-"Yıldızlı istasyonların yıldızsız olarak görünmesine neden olan bir hata "
-"düzeltildi"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:133
-msgid "Display a nice API error screen"
-msgstr "Güzel bir API hatası ekranı görüntüleyin"
-
-#: data/com.github.louis77.tuner.appdata.xml.in:140
-msgid "New sidebar menu with different selections and your favourite stations."
-msgstr ""
-"Farklı seçimler ve favori istasyonlarınız ile yeni kenar çubuğu menüsü."
-
-#: data/com.github.louis77.tuner.appdata.xml.in:145
-msgid "Initial release"
-msgstr "İlk sürüm"
+#: data/io.github.tuner_labs.tuner.desktop.in:16
+msgid "Radio;Receiver;FM;Talk;Sport;News"
+msgstr "Radyo;Receiver;FM;Talk;Sport;News"

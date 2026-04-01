@@ -1,0 +1,137 @@
+# Event Architecture
+
+This document tracks the event orchestration introduced in the 2026 refactor.
+
+## Files and Responsibilities
+
+- `src/Events/AppEventBus.vala`
+  - Defines typed cross-component application signals.
+  - Current signals:
+    - `connectivity_changed(bool is_online, bool is_offline)`
+
+- `src/Coordinators/StartupCoordinator.vala`
+  - Owns startup workflow orchestration.
+  - Current workflow:
+    - deferred autoplay of last station
+    - waits for online connectivity before autoplay attempt
+    - attempts autoplay once per app start
+
+- `src/Coordinators/PlaybackRecoveryCoordinator.vala`
+  - Owns restart-after-outage playback behavior.
+  - Tracks whether playback was active before loss of connectivity.
+  - Restarts playback on reconnect when `settings.play_restart` is enabled.
+
+- `src/Coordinators/UsageTrackingCoordinator.vala`
+  - Owns provider click/vote updates driven by player events.
+  - Handles both play-start click tracking and periodic tape-counter tracking.
+
+- `src/Application.vala`
+  - Owns the shared `events` bus instance.
+  - Emits `connectivity_changed` when `is_online`/`is_offline` changes.
+  - Instantiates coordinators:
+    - `PlaybackRecoveryCoordinator` during app construction.
+    - `UsageTrackingCoordinator` during app construction.
+    - `StartupCoordinator` after creating the main window.
+
+- `src/Widgets/Window.vala`
+  - Consumes app-level connectivity events to update interactive window state.
+  - No longer owns autoplay orchestration.
+
+- `src/Widgets/HeaderBar.vala`
+  - Consumes app-level connectivity and player-state events for control-state updates.
+  - No longer owns restart-after-outage orchestration.
+
+- `src/meson.build`
+  - Registers the new event/coordinator source files in build inputs.
+
+## Event Flow (Connectivity)
+
+1. `Application` detects network change.
+2. `Application` updates `is_online` and `is_offline`.
+3. `Application` emits `events.connectivity_changed(...)`.
+4. Subscribers react:
+   - `Window` updates active UI state.
+   - `HeaderBar` updates visual controls.
+   - `PlaybackRecoveryCoordinator` manages restart-after-outage behavior.
+   - `StartupCoordinator` tries deferred autoplay when online.
+
+## Design Notes
+
+- Keep local widget events in widget files.
+- Use `AppEventBus` for cross-component events that otherwise create tight coupling.
+- Use coordinators for workflows that span UI + services + application state.
+
+## Window Action Handling
+
+- `src/Widgets/Window.vala` now centralizes action-state initialization with:
+  - `sync_action_states_from_settings()`
+- Boolean toggle actions now use a shared path:
+  - `toggle_setting_action(...)`
+- This reduces copy/paste logic across action handlers and lowers the chance of mismatched setting/action wiring.
+
+## Search Debounce Ownership
+
+- `src/Widgets/HeaderBar.vala`
+  - Emits `searching_for_sig` immediately on text change.
+  - No longer owns debounce timers.
+- `src/Controllers/SearchController.vala`
+  - Owns debounce and pending-search cancellation.
+  - Uses configured `_max_search_results` instead of a hardcoded limit.
+- `src/Widgets/Display.vala`
+  - Receives search focus/query via explicit methods:
+    - `on_search_focused()`
+    - `on_search_requested(string text)`
+  - No longer routes search input through internal self-signals.
+
+## Application Bootstrap Decomposition
+
+- `src/Application.vala`
+  - Keeps construct-only property assignment in the `construct` block.
+  - Splits initialization responsibilities into helper methods:
+    - runtime storage preparation + migration
+    - connectivity monitoring setup
+    - core service factory helpers
+    - coordinator initialization
+    - action registration helpers
+  - Activation flow is split into explicit lifecycle helpers:
+    - `initialize_runtime_presentation()`
+    - `apply_runtime_preferences()`
+    - `create_main_window()`
+
+## Window Connectivity UI State
+
+- `src/Widgets/Window.vala`
+  - `check_online_status()` now delegates UI transitions to:
+    - `apply_offline_ui_state()`
+    - `apply_online_ui_state()`
+  - Keeps online/offline behavior explicit and reduces branching complexity.
+
+## Display API Cleanup
+
+- `src/Widgets/Display.vala`
+  - Removed unused public signals:
+    - `favourites_changed_sig`
+    - `refresh_starred_stations_sig`
+  - Keeps the public event surface aligned with active call paths.
+
+## Dependency Injection Sweep
+
+- Replaced singleton `app()` lookups with injected references in:
+  - `src/Widgets/HeaderBar.vala`
+  - `src/Widgets/Display.vala`
+  - `src/Services/DBusMediaPlayer.vala`
+- Constructors and initializers now receive required collaborators explicitly
+  (`Application`, `PlayerController`, `DataProvider.API`, `StarStore`), reducing
+  hidden coupling and startup-order risk.
+
+## Coordinator Connectivity Injection
+
+- Removed remaining coordinator singleton lookups by injecting `Application`
+  explicitly into:
+  - `src/Coordinators/StartupCoordinator.vala`
+  - `src/Coordinators/PlaybackRecoveryCoordinator.vala`
+- `StartupCoordinator.try_autoplay()` now checks `_app.is_offline`.
+- `PlaybackRecoveryCoordinator.on_player_state_changed()` now checks
+  `_app.is_online`.
+- `src/Application.vala` constructor wiring now passes `this` into coordinator
+  constructors, making coordinator connectivity decisions explicit and testable.
