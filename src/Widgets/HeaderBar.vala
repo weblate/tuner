@@ -73,7 +73,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 	private PlayButton _play_button  = new PlayButton ();
 	private MenuButton _prefs_button = new MenuButton ();
 	private Button _search_button = new Button.from_icon_name ("system-search-symbolic", IconSize.LARGE_TOOLBAR);
-	private ListButton _list_button  = new ListButton.from_icon_name ("mark-location-symbolic", IconSize.LARGE_TOOLBAR);
+	private ListButton _list_button;
 	private Button _heart_button = new Button();
 
 	/*
@@ -85,8 +85,6 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 	private Station _station;
 	private Station _last_metadata_station;
 	private string _last_metadata_title = "";
-	private string _heart_favorited_title = "";
-	private bool _heart_is_favorited = false;
 	private Mutex _station_update_lock = Mutex();       // Lock out concurrent updates
 	private bool _station_locked       = false;
 	private ulong _station_handler_id  = 0;
@@ -191,6 +189,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 		_prefs_button.tooltip_text = _("Preferences");
 		_prefs_button.popover      = new PreferencesPopover();
 
+		_list_button = new ListButton.from_icon_name(_app.history, "mark-location-symbolic", IconSize.LARGE_TOOLBAR);
 		_list_button.valign       = Align.CENTER;
 		_list_button.tooltip_text = _("History");
 
@@ -202,20 +201,15 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 		{
 			if (_last_metadata_station == null || _last_metadata_title == "")
 				return;
-			var hearted_title = "♥ " + _last_metadata_title;
-			if (_heart_is_favorited && _heart_favorited_title == _last_metadata_title)
+
+			var next_hearted_state = !_app.history.is_last_entry_hearted_for(_last_metadata_station, _last_metadata_title);
+			if (!_list_button.set_last_entry_hearted_if_matches(_last_metadata_station, _last_metadata_title, next_hearted_state))
 			{
-				if (!_list_button.replace_last_title_if_matches(_last_metadata_station, hearted_title, _last_metadata_title))
-					_list_button.append_station_title_pair(_last_metadata_station, _last_metadata_title);
-				_heart_favorited_title = "";
-				set_heart_favorited(false);
-				return;
+				_list_button.append_station_title_pair(_last_metadata_station, _last_metadata_title);
+				_list_button.set_last_entry_hearted_if_matches(_last_metadata_station, _last_metadata_title, next_hearted_state);
 			}
 
-			if (!_list_button.replace_last_title_if_matches(_last_metadata_station, _last_metadata_title, hearted_title))
-				_list_button.append_station_title_pair(_last_metadata_station, hearted_title);
-			_heart_favorited_title = _last_metadata_title;
-			set_heart_favorited(true);
+			set_heart_favorited(next_hearted_state);
 		});
 
        /*
@@ -238,13 +232,6 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 		pack_end (_list_button);
 		pack_end (_search_button);
 
-		/* Test fixture */
-		//  private Button _off_button       = new Button.from_icon_name ("list-add", IconSize.LARGE_TOOLBAR);
-		//  pack_end (_off_button);
-		//  _off_button.clicked.connect (() => {
-		//  	app().is_online = !app().is_online;
-		//  });
-
 		show_close_button = true;
 
 
@@ -259,6 +246,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 
 		_app.events.player_state_changed_sig.connect ((station, state) =>
 		{
+			_app.history.sync_play_state(station, state);
 			update_controls_state();
 		});
 
@@ -277,11 +265,11 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 		_app.events.playback_metadata_changed_sig.connect ((station, metadata) =>
 		{
 			_list_button.append_station_title_pair(station, metadata.title);
+			_app.history.sync_play_state(station, _player.player_state);
 			_last_metadata_station = station;
 			_last_metadata_title = metadata.title != null ? metadata.title : "";
 			_heart_button.sensitive = _last_metadata_title != "";
-			if (_last_metadata_title == "" || _last_metadata_title != _heart_favorited_title)
-				set_heart_favorited(false);
+			set_heart_favorited(_app.history.is_last_entry_hearted_for(_last_metadata_station, _last_metadata_title));
 		});
 
 		_list_button.item_station_selected_sig.connect((station) =>
@@ -298,8 +286,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 			ctx.add_class("heart-favorited");
 		else
 			ctx.remove_class("heart-favorited");
-		_heart_is_favorited = favorited;
-	}
+	} // set_heart_favorited
 
 	public Gee.List<string> get_hearted_titles()
 	{
@@ -309,7 +296,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 	public Gee.List<string> get_hearted_history_lines_without_hearts()
 	{
 		return _list_button.get_hearted_history_lines_without_hearts();
-	}
+	} // get_hearted_history_lines_without_hearts
 
 
     /* 

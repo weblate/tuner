@@ -35,6 +35,7 @@ public class Tuner.Models.StreamMetadata : GLib.Object
         {"extended-comment",            N_("Extended Comment")	    },
         {"bitrate",                     N_("Bitrate")	            },
         {"audio-codec",                 N_("Audio Codec")	        },
+        {"video-codec",                 N_("Video Codec")	        },
         {"channel-mode",                N_("Channel Mode")	        },
         {"track-number",                N_("Track Number")	        },
         {"track-count",                 N_("Track Count")	        },
@@ -171,13 +172,14 @@ public class Tuner.Models.StreamMetadata : GLib.Object
         _genre = extract ("genre");
         _homepage = extract ("homepage");
 
-        _audio_info = extract ("audio_codec ");
-        _audio_info += extract ("bitrate ");
-        _audio_info += extract ("channel_mode");
+        _audio_info = extract ("audio-codec");
+        _audio_info += extract ("video-codec");
+        _audio_info += extract ("bitrate");
+        _audio_info += extract ("channel-mode");
         if (_audio_info != null && _audio_info.length > 0)
             _audio_info = safestrip(_audio_info);
 
-        _org_loc = extract("organization ");
+        _org_loc = extract("organization");
         _org_loc += extract ("location");
         if (_org_loc != null && _org_loc.length > 0)
             org_loc = safestrip(_org_loc);

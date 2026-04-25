@@ -195,6 +195,9 @@ namespace Tuner {
 
         /** @brief Player controller */
         public StarStore stars { get; construct; }
+
+        /** @brief Shared session playback history */
+        public History history { get; private set; }
         
         /** @brief API DataProvider */
         public DataProvider.API provider { get; construct; }
@@ -287,6 +290,7 @@ namespace Tuner {
             player = create_player();
             stars = create_star_store(starred_file);
             directory = create_directory_controller(provider, stars);
+            history = new History();
             initialize_coordinators();
 
             register_application_actions ();
