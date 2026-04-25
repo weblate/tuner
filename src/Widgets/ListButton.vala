@@ -142,7 +142,7 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 		total_play_time_value.xalign = 1.0f;
 		total_play_time_value.tooltip_text = _("Total play time");
 		total_play_time_value.get_style_context().add_class("history-total-time");
-		action_row.pack_start(total_play_time_value, false, false, 0);
+		action_row.pack_start(total_play_time_value, false, false, 12);
 
 		content.pack_start(action_row, false, false, 0);
 
