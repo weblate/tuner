@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: application\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
-"POT-Creation-Date: 2026-04-19 20:37-0700\n"
-"PO-Revision-Date: 2026-04-20 03:51+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"POT-Creation-Date: 2026-04-24 23:06-0700\n"
+"PO-Revision-Date: 2026-05-10 11:46+0000\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/tuner/tuner-ui/"
 "hr/>\n"
 "Language: hr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.17.1-dev\n"
+"X-Generator: Weblate 2026.5-dev\n"
 
 #. Count once per day
 #. ----------------------------------------------------------
@@ -33,9 +33,9 @@ msgid "Station no longer in the index"
 msgstr "Stanica više nije u indeksu"
 
 #: src/Models/Station.vala:402
-#, c-format, fuzzy
+#, c-format
 msgid "Last Played: %s\tPlays: %d"
-msgstr "Last Played: %s\tPlays: %d"
+msgstr "Zadnja svirana: %s\tSvira: %d"
 
 #: src/Models/Station.vala:436
 msgid "Changes"
@@ -295,8 +295,8 @@ msgstr "Označi ovu stanicu kao favorit"
 #.
 #. Search button
 #: src/Widgets/HeaderBar.vala:183
-msgid "Search"
-msgstr "Pretraga"
+msgid "Search for Stations"
+msgstr "Traži stanice"
 
 #: src/Widgets/HeaderBar.vala:191
 msgid "Preferences"
@@ -411,14 +411,12 @@ msgid "Show a movable popup with images discovered in the stream metadata"
 msgstr "Prikaži skočni prozor s otkrivenim slikama u metapodacima emisije"
 
 #: src/Widgets/PreferencesPopover.vala:94
-#, fuzzy
 msgid "Shrink title dynamically with the text"
-msgstr "Shrink title dynamically with the text"
+msgstr "Dinamički smanji naslov zajedno s tekstom"
 
 #: src/Widgets/PreferencesPopover.vala:96
-#, fuzzy
 msgid "Shrink the title according to the length of the displayed text."
-msgstr "Shrink the title according to the length of the displayed text."
+msgstr "Smanji naslov prema duljini prikazanog teksta."
 
 #: src/Widgets/PreferencesPopover.vala:114
 msgid "Language"
@@ -523,3 +521,6 @@ msgstr "Spremiti omiljene snimke u datoteku?"
 #: src/Widgets/Window.vala:544
 msgid "_Don't Save"
 msgstr "_Nemoj spremiti"
+
+#~ msgid "Search"
+#~ msgstr "Pretraga"

@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.tuner_labs.tuner\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
-"POT-Creation-Date: 2026-04-19 20:37-0700\n"
-"PO-Revision-Date: 2026-04-20 20:19+0000\n"
-"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
+"POT-Creation-Date: 2026-04-24 23:06-0700\n"
+"PO-Revision-Date: 2026-05-10 11:46+0000\n"
+"Last-Translator: \"David D.\" <dadu042@users.noreply.hosted.weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/tuner/tuner-ui/"
 "fr/>\n"
 "Language: fr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.17.1-dev\n"
+"X-Generator: Weblate 2026.5-dev\n"
 
 #. Count once per day
 #. ----------------------------------------------------------
@@ -37,7 +37,7 @@ msgstr "Station n’est plus dans l’index"
 #: src/Models/Station.vala:402
 #, c-format
 msgid "Last Played: %s\tPlays: %d"
-msgstr "Dernière lecture: %s Joue: %d"
+msgstr "Dernière lecture : %s\tJoue : %d"
 
 #: src/Models/Station.vala:436
 msgid "Changes"
@@ -146,7 +146,7 @@ msgstr "Format conteneur"
 
 #: src/Models/StreamMetadata.vala:46
 msgid "Track Id"
-msgstr "Track Id"
+msgstr "ID piste"
 
 #: src/Models/StreamMetadata.vala:47
 msgid "Application Name"
@@ -174,7 +174,7 @@ msgstr "ID3 Privé"
 
 #: src/Models/StreamMetadata.vala:53
 msgid "GStreamer Sample"
-msgstr "GStreamer Sample"
+msgstr "Exemple GStreamer"
 
 #: src/Models/StreamMetadata.vala:54
 msgid "GStreamer Date Time"
@@ -297,8 +297,8 @@ msgstr "Ajouter aux favorites"
 #.
 #. Search button
 #: src/Widgets/HeaderBar.vala:183
-msgid "Search"
-msgstr "Rechercher"
+msgid "Search for Stations"
+msgstr "Recherche de stations"
 
 #: src/Widgets/HeaderBar.vala:191
 msgid "Preferences"
@@ -526,6 +526,9 @@ msgstr "Sauver des morceaux de cœur dans un fichier ?"
 #: src/Widgets/Window.vala:544
 msgid "_Don't Save"
 msgstr "_Ne pas sauver"
+
+#~ msgid "Search"
+#~ msgstr "Rechercher"
 
 #~ msgid "Stream Metadata"
 #~ msgstr "Métadonnées de flux"

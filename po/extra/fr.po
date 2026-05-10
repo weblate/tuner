@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-19 20:37-0700\n"
-"PO-Revision-Date: 2026-04-04 17:25+0000\n"
+"PO-Revision-Date: 2026-05-10 11:46+0000\n"
 "Last-Translator: \"David D.\" <dadu042@users.noreply.hosted.weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/tuner/extra/fr/>\n"
 "Language: fr\n"
@@ -16,24 +16,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 2026.5-dev\n"
 
 #: data/io.github.tuner_labs.tuner.desktop.in:9
 msgid "Tuner"
 msgstr "Tuner"
 
 #: data/io.github.tuner_labs.tuner.desktop.in:10
-#, fuzzy
-#| msgid "Internet Radio Player"
 msgid "Internet streaming radio music player"
-msgstr "Lecteur radios Internet"
+msgstr "Lecteur de musique radio en streaming sur Internet"
 
 #: data/io.github.tuner_labs.tuner.desktop.in:11
 msgid "Listen to Radio Stations from around the world"
 msgstr "Écoutez des stations de radio du monde entier"
 
 #: data/io.github.tuner_labs.tuner.desktop.in:17
-#, fuzzy
-#| msgid "Radio;Receiver;FM;Talk;Sport;News"
 msgid "Radio;Receiver;FM;Music;Talk;Sport;News"
-msgstr "Radio;Récepteur;FM;Discussions;Sport;Nouvelles;Actualités"
+msgstr "Radio;Récepteur;FM;Musique;Discussions;Sport;Nouvelles;Actualités"

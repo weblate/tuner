@@ -4,13 +4,14 @@
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2026.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2026.
 # Prefill add-on <noreply-addon-prefill@weblate.org>, 2026.
+# Troy <radiohotline@disroot.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: io.github.tuner_labs.tuner 2.0.1-beta.2\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
-"POT-Creation-Date: 2026-04-19 20:37-0700\n"
-"PO-Revision-Date: 2026-04-20 20:19+0000\n"
-"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
+"POT-Creation-Date: 2026-04-24 23:06-0700\n"
+"PO-Revision-Date: 2026-04-30 20:09+0000\n"
+"Last-Translator: Troy <radiohotline@disroot.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/tuner/tuner-ui/"
 "ar/>\n"
 "Language: ar\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.17.1-dev\n"
+"X-Generator: Weblate 5.17.1\n"
 
 #. Count once per day
 #. ----------------------------------------------------------
@@ -294,8 +295,8 @@ msgstr "نجم هذه المحطة"
 #.
 #. Search button
 #: src/Widgets/HeaderBar.vala:183
-msgid "Search"
-msgstr "بحث"
+msgid "Search for Stations"
+msgstr "البحث عن المحطات"
 
 #: src/Widgets/HeaderBar.vala:191
 msgid "Preferences"
@@ -514,6 +515,9 @@ msgstr "انقذوا مسارات القلب للملف؟?"
 #: src/Widgets/Window.vala:544
 msgid "_Don't Save"
 msgstr "لا تنقذ"
+
+#~ msgid "Search"
+#~ msgstr "بحث"
 
 #~ msgid "Stream Metadata"
 #~ msgstr "بيانات تعريف البث"
