@@ -53,6 +53,7 @@ public class Tuner.Widgets.Window : Gtk.ApplicationWindow
 	public const string ACTION_ENABLE_AUTOPLAY      = "action_enable_autoplay";
 	public const string ACTION_ENABLE_PLAY_RESTART  = "action_enable_play_restart";
 	public const string ACTION_START_ON_STARRED     = "action_starred_start";
+	public const string ACTION_STARTUP_JINGLE       = "action_startup_jingle";
 	public const string ACTION_STREAM_INFO          = "action_stream_info";
 	public const string ACTION_STREAM_INFO_FAST     = "action_stream_info_fast";
 	public const string ACTION_STREAM_INFO_IMAGE_POPUP = "action_stream_info_image_popup";
@@ -92,6 +93,7 @@ public class Tuner.Widgets.Window : Gtk.ApplicationWindow
 		{ ACTION_ENABLE_AUTOPLAY,       on_action_enable_autoplay, null, "false"   },
 		{ ACTION_ENABLE_PLAY_RESTART,   on_action_enable_play_restart, null, "false" },
 		{ ACTION_START_ON_STARRED,      on_action_start_on_starred, null, "false"  },
+		{ ACTION_STARTUP_JINGLE,        on_action_startup_jingle, null, "true"     },
 		{ ACTION_STREAM_INFO,           on_action_stream_info, null, "true"        },
 		{ ACTION_STREAM_INFO_FAST,      on_action_stream_info_fast, null, "false"  },
 		{ ACTION_STREAM_INFO_IMAGE_POPUP, on_action_stream_info_image_popup, null, "false" },
@@ -276,6 +278,7 @@ public class Tuner.Widgets.Window : Gtk.ApplicationWindow
 		change_action_state (ACTION_ENABLE_AUTOPLAY, settings.auto_play);
 		change_action_state (ACTION_ENABLE_PLAY_RESTART, settings.play_restart);
 		change_action_state (ACTION_START_ON_STARRED, settings.start_on_starred);
+		change_action_state (ACTION_STARTUP_JINGLE, settings.startup_jingle);
 		change_action_state (ACTION_STREAM_INFO, settings.stream_info);
 		change_action_state (ACTION_STREAM_INFO_FAST, settings.stream_info_fast);
 		change_action_state (ACTION_STREAM_INFO_IMAGE_POPUP, settings.stream_info_image_popup);
@@ -401,6 +404,22 @@ public class Tuner.Widgets.Window : Gtk.ApplicationWindow
 			(value) => { settings.start_on_starred = value; }
 		);
     } // on_action_start_on_starred
+
+
+    /**
+     * @brief Handles the startup-jingle action.
+     * @param action The SimpleAction that triggered this method.
+     * @param parameter The parameter passed with the action (unused).
+     */
+     public void on_action_startup_jingle (SimpleAction action, Variant? parameter) 
+     {
+		toggle_setting_action(
+			action,
+			"on_action_startup_jingle",
+			() => { return settings.startup_jingle; },
+			(value) => { settings.startup_jingle = value; }
+		);
+    } // on_action_startup_jingle
 
 
 	/**
