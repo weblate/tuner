@@ -99,7 +99,7 @@ public class Tuner.Widgets.PlayButton : Gtk.Button
 		case StreamPlayer.State.STOPPED_ERROR:
 			image         = ERROR;
 			image.opacity = 0.5;
-			string? error_message = app().player.play_error_message;	// TODO Use signals?
+			string? error_message = app().player.play_error_message;
 			if (error_message == null || error_message.strip () == "")
 				error_message = "An error occurred during playback.";
 			tooltip_text = error_message;

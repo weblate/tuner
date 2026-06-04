@@ -12,6 +12,10 @@
  * features such as a source list, content stack that display and manage Station
  * settings and handles user actions like station selection.
  *
+ * Display consists of a source list (LHS) for navigation and a stack (RHS) for content presentation, with background visuals that transition based on user interactions.
+ * The class manages various categories of stations, including selections, library, explore, genres, subgenres, eras, and talk stations. 
+ * It also handles search functionality and starred stations management.
+ *
  * @since 2.0.0
  *
  * @see Tuner.Application
@@ -209,20 +213,21 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
 		_background_tuner.reveal_child        = true;
 		_background_tuner.child               = tuner;
 
+		var jukebox = new AnimatedJukeboxIcon (256, 256);
+		jukebox.opacity                         = BACKGROUND_OPACITY;
+		_background_jukebox.transition_duration = BACKGROUND_TRANSITION_TIME_MS;
+		_background_jukebox.transition_type     = BACKGROUND_TRANSITION_TYPE;
+		_background_jukebox.reveal_child        = false;
+		_background_jukebox.child               = jukebox;
+
 		_app.events.station_changed_sig.connect((station) =>
 		{
 			string key = station.stationuuid != "" ? station.stationuuid : station.name;
 			uint hash = GLib.str_hash (key);
 			double norm = (double) (hash % 1000) / 999.0;
 			tuner.animate_to (norm);
+			jukebox.animate_to (norm);
 		});
-
-		var jukebox = new Gtk.Image.from_icon_name (BACKGROUND_JUKEBOX, Gtk.IconSize.INVALID);
-		jukebox.opacity                         = BACKGROUND_OPACITY;
-		_background_jukebox.transition_duration = BACKGROUND_TRANSITION_TIME_MS;
-		_background_jukebox.transition_type     = BACKGROUND_TRANSITION_TYPE;
-		_background_jukebox.reveal_child        = false;
-		_background_jukebox.child               = jukebox;
 
 		var background = new Gtk.Fixed();
 		background.add(_background_tuner);
@@ -447,8 +452,8 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
                 "discover",
                 "face-smile",
                 _("Discover"),
-                _("Stations to Discover"),
-                true
+                _("Stations to Discover")
+                // true // TODO Implement filter
             ) {
                 station_set = _directory.load_random_stations(20),
                 action_tooltip_text = _("Discover more stations"),
@@ -822,8 +827,8 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
                     genre,
                     "tuner:playlist-symbolic",
                     genre,
-                    genre,
-                    true
+                    genre
+                    // true // TODO Implement filter
                 ) {
                     station_set = directory.load_by_tag (genre.down ())
                 }
