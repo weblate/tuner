@@ -9,8 +9,9 @@ msgstr ""
 "Project-Id-Version: application\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
 "POT-Creation-Date: 2026-06-09 10:10-0700\n"
-"PO-Revision-Date: 2026-06-09 17:19+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"PO-Revision-Date: 2026-06-09 20:07+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Uzbek <https://hosted.weblate.org/projects/tuner/tuner-ui/uz/>"
 "\n"
 "Language: uz\n"
@@ -82,14 +83,12 @@ msgid "Title"
 msgstr "Sarlavha"
 
 #: src/Models/StreamMetadata.vala:28
-#, fuzzy
 msgid "Artist"
-msgstr "Artist"
+msgstr "Ijrochi"
 
 #: src/Models/StreamMetadata.vala:29
-#, fuzzy
 msgid "Album"
-msgstr "Album"
+msgstr "Albom"
 
 #: src/Models/StreamMetadata.vala:30
 msgid "Image"
