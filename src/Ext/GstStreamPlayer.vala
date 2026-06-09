@@ -197,11 +197,12 @@ namespace Tuner.Ext
                     {
                         var tag = tag_list.nth_tag_name (i);
                         unowned GLib.Value? value = tag_list.get_value_index (tag, 0);
-                        if (value != null && value.holds (typeof (string))) {
-                            var tag_string = value.get_string ();
-                            _metadata.insert (tag, tag_string);
-                            changed = true;
-                        }
+                        var tag_string = value_to_tag_string (value);
+                        if (tag_string == null || tag_string.strip () == "")
+                            continue;
+
+                        _metadata.insert (tag, tag_string);
+                        changed = true;
                     }
                     if (TRACE_METADATA_PATH)
                     {
@@ -255,6 +256,26 @@ namespace Tuner.Ext
 
             return true;
         } // bus_callback
+
+
+        private string? value_to_tag_string (GLib.Value? value)
+        {
+            if (value == null)
+                return null;
+
+            if (value.holds (typeof (string)))
+                return value.get_string ();
+
+            if (value.holds (typeof (GLib.DateTime)))
+            {
+                var dt = (GLib.DateTime?) value.get_boxed ();
+                if (dt == null)
+                    return null;
+                return dt.format_iso8601 ();
+            }
+
+            return value.strdup_contents ();
+        } // value_to_tag_string
 
 
         /**

@@ -195,6 +195,9 @@ namespace Tuner {
 
         /** @brief Player controller */
         public StarStore stars { get; construct; }
+
+        /** @brief Shared session playback history */
+        public History history { get; private set; }
         
         /** @brief API DataProvider */
         public DataProvider.API provider { get; construct; }
@@ -287,6 +290,7 @@ namespace Tuner {
             player = create_player();
             stars = create_star_store(starred_file);
             directory = create_directory_controller(provider, stars);
+            history = new History();
             initialize_coordinators();
 
             register_application_actions ();
@@ -560,15 +564,17 @@ namespace Tuner {
 
 
         /**
-        * @brief Play the startup jingle (resource-backed WAV) once per launch.
+        * @brief Play the startup jingle (resource-backed sound) once per launch.
         */
         private void play_startup_jingle ()
         {
-            if (_startup_jingle != null)
+            if ( _startup_jingle != null || !settings.startup_jingle )
+            {
                 return;
+            } // if
 
             var uri = "resource:///io/github/tuner_labs/tuner/sounds/tuner_startup.mp3";
-            _startup_jingle = StreamPlayer.play_file (uri, settings.volume, () => {
+            _startup_jingle = StreamPlayer.play_file (uri, settings.volume/2, () => {
                 _startup_jingle = null;
             });
         }

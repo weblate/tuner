@@ -70,7 +70,7 @@ namespace Tuner.Widgets.Base
             foreach (var child in _content.get_children ()) { child.destroy (); }
 
             _content_list = content;
-            _content.add (_content_list);   // FIXME analyze why when 'saving a search' content is double wrapped?
+            _content.add (_content_list);   
             show_content ();
             show_all ();
         }

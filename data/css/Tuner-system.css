@@ -152,6 +152,81 @@ tooltip label {
     color: #d00000;
 }
 
+.history-popover {
+    background-color: mix(@theme_base_color, @theme_bg_color, 0.45);
+    border: 1px solid alpha(@theme_fg_color, 0.14);
+    border-radius: 6px;
+}
+
+.history-summary-box {
+    margin-bottom: 2px;
+}
+
+.history-summary-tile {
+    background-color: alpha(@theme_fg_color, 0.05);
+    border-radius: 6px;
+    padding: 6px 8px;
+}
+
+.history-summary-value {
+    font-weight: 700;
+    font-size: 13pt;
+}
+
+.history-summary-caption {
+    font-size: 8.5pt;
+    opacity: 0.72;
+}
+
+.history-action-row button {
+    min-width: 32px;
+}
+
+.history-list {
+    background: transparent;
+}
+
+.history-row {
+    border-radius: 6px;
+    background-color: alpha(@theme_fg_color, 0.03);
+}
+
+.history-row-alt {
+    background-color: alpha(@theme_selected_bg_color, 0.08);
+}
+
+.history-row-hearted {
+    background-color: alpha(#c52828, 0.10);
+    border-left: 3px solid alpha(#c52828, 0.70);
+}
+
+.history-row-station {
+    font-weight: 700;
+}
+
+.history-row-title {
+    opacity: 0.88;
+}
+
+.history-row-title-hearted {
+    color: #b61f1f;
+    font-weight: 600;
+}
+
+.history-heart-badge {
+    color: #c52828;
+    background-color: transparent;
+    border-radius: 0;
+    font-size: 14pt;
+    font-weight: 700;
+    padding: 0;
+}
+
+.history-play-time,
+.history-total-time {
+    font-family: monospace;
+}
+
 /*
  * Search revealer
  */

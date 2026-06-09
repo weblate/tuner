@@ -32,6 +32,23 @@ void on_signal (int sig) {
     Posix._exit (128 + sig);
 }
 
+private void install_filtered_json_warning_handler ()
+{
+    GLib.Log.set_handler (
+        "Json",
+        GLib.LogLevelFlags.LEVEL_WARNING,
+        (log_domain, log_level, message) => {
+            if (message != null
+                && message.contains ("Boxed type 'GDateTime' is not handled by JSON-GLib"))
+            {
+                return;
+            }
+
+            GLib.Log.default_handler (log_domain, log_level, message);
+        }
+    );
+} // install_filtered_json_warning_handler
+
 public static int main (string[] args) 
 {
     Posix.signal (Posix.Signal.SEGV, on_signal);
@@ -39,6 +56,7 @@ public static int main (string[] args)
     Posix.signal (Posix.Signal.BUS,  on_signal);
 
     Intl.setlocale (LocaleCategory.ALL, "");
+    install_filtered_json_warning_handler ();
     Gst.init (ref args);
     var app = Tuner.Application.instance;
     try {

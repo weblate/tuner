@@ -21,6 +21,7 @@ public class Tuner.Settings : GLib.Settings
     private const string SETTINGS_POS_X = "pos-x";
     private const string SETTINGS_POS_Y = "pos-y";
     private const string SETTINGS_START_ON_STARRED = "start-on-starred";
+    private const string SETTINGS_STARTUP_JINGLE = "startup-jingle";
     private const string SETTINGS_STREAM_INFO = "stream-info";
     private const string SETTINGS_STREAM_INFO_FAST = "stream-info-fast";
     private const string SETTINGS_STREAM_INFO_IMAGE_POPUP = "stream-info-image-popup";
@@ -37,6 +38,7 @@ public class Tuner.Settings : GLib.Settings
     public bool do_not_vote { get; set; }
     public string last_played_station { get; set; }
     public bool start_on_starred { get; set; }
+    public bool startup_jingle { get; set; }
     public bool stream_info { get; set; }
     public bool stream_info_fast { get; set; }
     public bool stream_info_image_popup { get; set; }
@@ -71,6 +73,7 @@ public class Tuner.Settings : GLib.Settings
         bind (SETTINGS_DO_NOT_VOTE, this, "do_not_vote", SettingsBindFlags.DEFAULT);
         bind (SETTINGS_LAST_PLAYED_STATION, this, "last_played_station", SettingsBindFlags.DEFAULT);
         bind (SETTINGS_START_ON_STARRED, this, "start_on_starred", SettingsBindFlags.DEFAULT);
+        bind (SETTINGS_STARTUP_JINGLE, this, "startup_jingle", SettingsBindFlags.DEFAULT);
         bind (SETTINGS_STREAM_INFO, this, "stream_info", SettingsBindFlags.DEFAULT);
         bind (SETTINGS_STREAM_INFO_FAST, this, "stream_info_fast", SettingsBindFlags.DEFAULT);
         bind (SETTINGS_STREAM_INFO_IMAGE_POPUP, this, "stream_info_image_popup", SettingsBindFlags.DEFAULT);

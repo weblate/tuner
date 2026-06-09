@@ -253,6 +253,215 @@ public class Tuner.Widgets.Base.AnimatedTunerIcon : Gtk.DrawingArea
 	}
 }
 
+
+/**
+ * @brief Animated jukebox icon that moves the tonearm and spins the record.
+ *
+ * Renders the jukebox SVG from resources, then animates sub-layers:
+ * - `tuner-base`: static cabinet art
+ * - `window`: static upper glass
+ * - `needle-position`: translated across the record
+ * - `record-position`: stationary clipped record for static icon rendering
+ * - `knob-rotation`: record art rotated inside a Cairo clip
+ */
+public class Tuner.Widgets.Base.AnimatedJukeboxIcon : Gtk.DrawingArea
+{
+	// SVG coordinate system is 128x128. These match the jukebox artwork geometry.
+	private const double NEEDLE_BASE_X = 0.0;
+	private const double NEEDLE_MIN_X = -4.0;
+	private const double NEEDLE_MAX_X = 18.0;
+	private const double RECORD_POSITION_X = 27.591421;
+	private const double RECORD_POSITION_Y = 23.087348;
+	private const double RECORD_SOURCE_CENTER = 232.5;
+	private const double RECORD_SCALE_X = 0.15870427;
+	private const double RECORD_SCALE_Y = 0.15939803;
+	private const double RECORD_CENTER_X = RECORD_POSITION_X + (RECORD_SOURCE_CENTER * RECORD_SCALE_X);
+	private const double RECORD_CENTER_Y = RECORD_POSITION_Y + (RECORD_SOURCE_CENTER * RECORD_SCALE_Y);
+	private const double RECORD_CLIP_X = 27.594669;
+	private const double RECORD_CLIP_Y = 23.079477;
+	private const double RECORD_CLIP_WIDTH = 73.808601;
+	private const double RECORD_CLIP_HEIGHT = 37.085617;
+	private const double RECORD_TURNS = 4.0;
+	private const int ANIMATION_DURATION_MS = 2000;
+
+	private Rsvg.Handle _handle;
+	private Rsvg.Handle _record_handle;
+	private uint _animation_tick_id = 0;
+	private int64 _animation_start_us = 0;
+	private double _needle_offset = 0.0;
+	private double _record_angle = 0.0;
+	private double _start_needle_offset = 0.0;
+	private double _start_record_angle = 0.0;
+	private double _target_needle_offset = 0.0;
+	private double _target_record_angle = 0.0;
+
+	/**
+	 * @brief Create an animated jukebox icon with an optional fixed size.
+	 * @param width Optional pixel width (defaults to IconSize.DIALOG).
+	 * @param height Optional pixel height (defaults to IconSize.DIALOG).
+	 */
+	public AnimatedJukeboxIcon (int? width = null, int? height = null)
+	{
+		set_halign (Align.CENTER);
+		set_valign (Align.CENTER);
+
+		int icon_width = 64;
+		int icon_height = 64;
+		IconSize.lookup (IconSize.DIALOG, out icon_width, out icon_height);
+		set_size_request (width ?? icon_width, height ?? icon_height);
+
+		try
+		{
+			var bytes = GLib.resources_lookup_data ("/io/github/tuner_labs/tuner/icons/tuner:background-jukebox.svg", GLib.ResourceLookupFlags.NONE);
+			_handle = new Rsvg.Handle.from_data (bytes.get_data ());
+			string svg = (string) bytes.get_data ();
+			string animation_svg = svg.replace ("clip-path=\"url(#clipPath2)\"", "");
+			_record_handle = new Rsvg.Handle.from_data (animation_svg.data);
+		}
+		catch (GLib.Error e)
+		{
+			warning ("Failed to load jukebox SVG for animation: %s", e.message);
+		}
+
+		draw.connect (on_draw);
+		destroy.connect (() =>
+		{
+			if (_animation_tick_id != 0)
+			{
+				remove_tick_callback (_animation_tick_id);
+				_animation_tick_id = 0;
+			}
+		});
+	} // AnimatedJukeboxIcon
+
+
+	/**
+	 * @brief Animate the jukebox to a normalized station position.
+	 * @param normalized_position 0.0 = tonearm-left, 1.0 = tonearm-right.
+	 */
+	public void animate_to (double normalized_position)
+	{
+		double target_norm = Math.fmax (0.0, Math.fmin (1.0, normalized_position));
+
+		_target_needle_offset = (NEEDLE_MIN_X + target_norm * (NEEDLE_MAX_X - NEEDLE_MIN_X)) - NEEDLE_BASE_X;
+		_target_record_angle = _record_angle + (360.0 * RECORD_TURNS) + (target_norm * 360.0);
+
+		_start_needle_offset = _needle_offset;
+		_start_record_angle = _record_angle;
+		_animation_start_us = 0;
+
+		if (_animation_tick_id == 0)
+			_animation_tick_id = add_tick_callback (on_animation_tick);
+	} // animate_to
+
+
+	/**
+	 * @brief Frame-clock tick callback. Updates interpolation and triggers redraw.
+	 * @return false when the animation completes (stops tick), true to continue.
+	 */
+	private bool on_animation_tick (Gtk.Widget widget, Gdk.FrameClock frame_clock)
+	{
+		int64 frame_us = frame_clock.get_frame_time ();
+		if (_animation_start_us == 0)
+			_animation_start_us = frame_us;
+
+		double elapsed_ms = (frame_us - _animation_start_us) / 1000.0;
+		double progress = elapsed_ms / ANIMATION_DURATION_MS;
+
+		if (progress >= 1.0)
+		{
+			_needle_offset = _target_needle_offset;
+			_record_angle = _target_record_angle;
+			queue_draw ();
+
+			_animation_tick_id = 0;
+			_animation_start_us = 0;
+			return false;
+		}
+
+		double eased = 1.0 - Math.pow (1.0 - progress, 3.0);
+		_needle_offset = _start_needle_offset + ((_target_needle_offset - _start_needle_offset) * eased);
+		_record_angle = _start_record_angle + ((_target_record_angle - _start_record_angle) * eased);
+		queue_draw ();
+		return true;
+	} // on_animation_tick
+
+
+	/**
+	 * @brief Draw handler. Renders SVG layers with animation transforms.
+	 */
+	private bool on_draw (Cairo.Context cr)
+	{
+		if (_handle == null || _record_handle == null)
+			return false;
+
+		int width = get_allocated_width ();
+		int height = get_allocated_height ();
+		var dims = _handle.get_dimensions ();
+
+		if (dims.width == 0 || dims.height == 0 || width == 0 || height == 0)
+			return false;
+
+		double scale = Math.fmin ((double) width / (double) dims.width,
+			(double) height / (double) dims.height);
+		double tx = ((double) width - ((double) dims.width * scale)) / 2.0;
+		double ty = ((double) height - ((double) dims.height * scale)) / 2.0;
+
+		cr.save ();
+		cr.translate (tx, ty);
+		cr.scale (scale, scale);
+
+		render_static (cr, "tuner-base");
+		render_static (cr, "window");
+		render_clipped_rotated_record (cr, _record_angle);
+		render_translated (cr, "needle-position", _needle_offset, 0.0);
+
+		cr.restore ();
+		return false;
+	} // on_draw
+
+
+	/**
+	 * @brief Render an SVG element by id without transforms.
+	 */
+	private void render_static (Cairo.Context cr, string id)
+	{
+		_handle.render_cairo_sub (cr, "#" + id);
+	} // render_static
+
+
+	/**
+	 * @brief Render an SVG element by id with a translation.
+	 * @param dx X translation in SVG units.
+	 * @param dy Y translation in SVG units.
+	 */
+	private void render_translated (Cairo.Context cr, string id, double dx, double dy)
+	{
+		cr.save ();
+		cr.translate (dx, dy);
+		_handle.render_cairo_sub (cr, "#" + id);
+		cr.restore ();
+	} // render_translated
+
+
+	/**
+	 * @brief Render the record rotation inside the stationary SVG clip path.
+	 * @param angle_deg Rotation angle in degrees.
+	 */
+	private void render_clipped_rotated_record (Cairo.Context cr, double angle_deg)
+	{
+		cr.save ();
+		cr.rectangle (RECORD_CLIP_X, RECORD_CLIP_Y, RECORD_CLIP_WIDTH, RECORD_CLIP_HEIGHT);
+		cr.clip ();
+		cr.translate (RECORD_CENTER_X, RECORD_CENTER_Y);
+		cr.rotate (angle_deg * Math.PI / 180.0);
+		cr.translate (-RECORD_CENTER_X, -RECORD_CENTER_Y);
+		_record_handle.render_cairo_sub (cr, "#knob-rotation");
+		cr.restore ();
+	} // render_clipped_rotated_record
+} // AnimatedJukeboxIcon
+
+
 /** 
  * TunerStatus widget for displaying tuner on-line status and data provider information.
  */

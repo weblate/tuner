@@ -175,7 +175,7 @@ public class Tuner.Widgets.TitleBox : Gtk.Box
 	public Gee.List<string> get_hearted_history_lines_without_hearts()
 	{
 		return _headerbar.get_hearted_history_lines_without_hearts();
-	}
+	} // get_hearted_history_lines_without_hearts
 
 
 } // Tuner.Widgets.TitleBox

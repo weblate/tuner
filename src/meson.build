@@ -28,6 +28,7 @@ sources = files (
     'Models/Favicon.vala',
     'Models/StreamPlayer.vala',
     'Models/StreamMetadata.vala',
+    'Models/History.vala',
     'Models/StationListBoxConfig.vala',
     'Models/StationListBoxPager.vala',
 
@@ -44,7 +45,6 @@ sources = files (
     'Widgets/base/RevealLabel.vala',
     'Widgets/base/CyclingRevealLabel.vala',
     'Widgets/base/SelectorButton.vala',
-    'Widgets/base/HistoryList.vala',
     'Widgets/base/StationListBox.vala',
     'Widgets/base/StationListBoxHeader.vala',
     'Widgets/base/StationListBoxContent.vala',
