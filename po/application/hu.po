@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.tuner_labs.tuner 2.0.1-beta.2\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
-"POT-Creation-Date: 2026-04-24 23:06-0700\n"
-"PO-Revision-Date: 2026-04-25 06:11+0000\n"
+"POT-Creation-Date: 2026-06-09 10:10-0700\n"
+"PO-Revision-Date: 2026-06-09 17:19+0000\n"
 "Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/tuner/tuner-ui/"
 "hu/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.17.1-dev\n"
+"X-Generator: Weblate 2026.6\n"
 
 #. Count once per day
 #. ----------------------------------------------------------
@@ -109,178 +109,183 @@ msgid "Audio Codec"
 msgstr "Audio Codec"
 
 #: src/Models/StreamMetadata.vala:38
+#, fuzzy
+msgid "Video Codec"
+msgstr "Video Codec"
+
+#: src/Models/StreamMetadata.vala:39
 msgid "Channel Mode"
 msgstr "Channel mód"
 
-#: src/Models/StreamMetadata.vala:39
+#: src/Models/StreamMetadata.vala:40
 msgid "Track Number"
 msgstr "Sávszám"
 
-#: src/Models/StreamMetadata.vala:40
+#: src/Models/StreamMetadata.vala:41
 msgid "Track Count"
 msgstr "Track Count"
 
-#: src/Models/StreamMetadata.vala:41
+#: src/Models/StreamMetadata.vala:42
 msgid "Nominal Bitrate"
 msgstr "Nominális kalóz"
 
-#: src/Models/StreamMetadata.vala:42
+#: src/Models/StreamMetadata.vala:43
 msgid "Minimum Bitrate"
 msgstr "Minimum Bitrate"
 
-#: src/Models/StreamMetadata.vala:43
+#: src/Models/StreamMetadata.vala:44
 msgid "Maximum Bitrate"
 msgstr "Maximum Bitrate"
 
-#: src/Models/StreamMetadata.vala:44
+#: src/Models/StreamMetadata.vala:45
 msgid "Has CRC"
 msgstr "CRC"
 
-#: src/Models/StreamMetadata.vala:45
+#: src/Models/StreamMetadata.vala:46
 msgid "Container Format"
 msgstr "Container Format"
 
-#: src/Models/StreamMetadata.vala:46
+#: src/Models/StreamMetadata.vala:47
 msgid "Track Id"
 msgstr "Track Id"
 
-#: src/Models/StreamMetadata.vala:47
+#: src/Models/StreamMetadata.vala:48
 msgid "Application Name"
 msgstr "Alkalmazási név"
 
-#: src/Models/StreamMetadata.vala:48
+#: src/Models/StreamMetadata.vala:49
 msgid "Encoder"
 msgstr "Jeladó"
 
-#: src/Models/StreamMetadata.vala:49
+#: src/Models/StreamMetadata.vala:50
 msgid "Encoder Version"
 msgstr "Encoder Verzió"
 
-#: src/Models/StreamMetadata.vala:50
+#: src/Models/StreamMetadata.vala:51
 msgid "Encoded by"
 msgstr "Kódolás"
 
-#: src/Models/StreamMetadata.vala:51
+#: src/Models/StreamMetadata.vala:52
 msgid "Private Data"
 msgstr "Magán adatok"
 
-#: src/Models/StreamMetadata.vala:52
+#: src/Models/StreamMetadata.vala:53
 msgid "ID3 Private"
 msgstr "ID3 Private"
 
-#: src/Models/StreamMetadata.vala:53
+#: src/Models/StreamMetadata.vala:54
 msgid "GStreamer Sample"
 msgstr "GStreamer minta"
 
-#: src/Models/StreamMetadata.vala:54
+#: src/Models/StreamMetadata.vala:55
 msgid "GStreamer Date Time"
 msgstr "GStreamer dátum idő"
 
-#: src/Models/StreamMetadata.vala:55
+#: src/Models/StreamMetadata.vala:56
 msgid "Date Time"
 msgstr "Időpont"
 
 #.
 #. Display Assets
 #.
-#: src/Widgets/Display.vala:114
+#: src/Widgets/Display.vala:118
 msgid "Selections"
 msgstr "Kijelölések"
 
-#: src/Widgets/Display.vala:115
+#: src/Widgets/Display.vala:119
 msgid "Library"
 msgstr "Könyvtár"
 
-#: src/Widgets/Display.vala:116
+#: src/Widgets/Display.vala:120
 msgid "Saved Searches"
 msgstr "Megtakarított keresések"
 
-#: src/Widgets/Display.vala:117
+#: src/Widgets/Display.vala:121
 msgid "Explore"
 msgstr "Felfedezés"
 
-#: src/Widgets/Display.vala:118
+#: src/Widgets/Display.vala:122
 msgid "Genres"
 msgstr "Műfajok"
 
-#: src/Widgets/Display.vala:119
+#: src/Widgets/Display.vala:123
 msgid "Subgenres"
 msgstr "Subgenres"
 
-#: src/Widgets/Display.vala:120
+#: src/Widgets/Display.vala:124
 msgid "Eras"
 msgstr "Eras"
 
-#: src/Widgets/Display.vala:121
+#: src/Widgets/Display.vala:125
 msgid "Talk, News, Sport"
 msgstr "Beszélgetés, hírek, sport"
 
-#: src/Widgets/Display.vala:449
+#: src/Widgets/Display.vala:454
 msgid "Discover"
 msgstr "Felfedezés"
 
-#: src/Widgets/Display.vala:450
+#: src/Widgets/Display.vala:455
 msgid "Stations to Discover"
 msgstr "Stations to Discover"
 
-#: src/Widgets/Display.vala:454
+#: src/Widgets/Display.vala:459
 msgid "Discover more stations"
 msgstr "Fedezzen fel több állomást"
 
-#: src/Widgets/Display.vala:474
+#: src/Widgets/Display.vala:479
 msgid "Trending"
 msgstr "Népszerű"
 
-#: src/Widgets/Display.vala:475
+#: src/Widgets/Display.vala:480
 msgid "Trending Stations in the last 24 hours"
 msgstr "Trending állomások az elmúlt 24 órában"
 
-#: src/Widgets/Display.vala:492
+#: src/Widgets/Display.vala:497
 msgid "Popular"
 msgstr "Népszerű"
 
-#: src/Widgets/Display.vala:493
+#: src/Widgets/Display.vala:498
 msgid "Most listened to Stations in the last 24 hours"
 msgstr "A legtöbben hallgatták az állomásokat az elmúlt 24 órában"
 
-#: src/Widgets/Display.vala:530 src/Widgets/Display.vala:531
+#: src/Widgets/Display.vala:535 src/Widgets/Display.vala:536
 msgid "Starred by You"
 msgstr "Kezdőlap >"
 
-#: src/Widgets/Display.vala:569
+#: src/Widgets/Display.vala:574
 msgid "Latest Search"
 msgstr "Legújabb keresés"
 
-#: src/Widgets/Display.vala:570
+#: src/Widgets/Display.vala:575
 msgid "Search Results"
 msgstr "A keresés eredménye"
 
-#: src/Widgets/Display.vala:572
+#: src/Widgets/Display.vala:577
 msgid "Save this search"
 msgstr "Mentse el ezt a keresést"
 
-#: src/Widgets/Display.vala:706
+#: src/Widgets/Display.vala:711
 msgid "Jukebox"
 msgstr "Jukebox"
 
-#: src/Widgets/Display.vala:708
+#: src/Widgets/Display.vala:713
 #, c-format
 msgid "Double click to shuffle through %1$u stations"
 msgstr "Dupla kattintás a %1$u állomásokon keresztül"
 
-#: src/Widgets/Display.vala:709
+#: src/Widgets/Display.vala:714
 msgid "one, every ten minutes, for %2$u days"
 msgstr "minden tíz percben %2$u nap"
 
-#: src/Widgets/Display.vala:775
+#: src/Widgets/Display.vala:780
 msgid "Saved Search"
 msgstr "Megtakarított keresés"
 
-#: src/Widgets/Display.vala:778
+#: src/Widgets/Display.vala:783
 msgid "Remove this saved search"
 msgstr "Távolítsa el ezt a mentett keresést"
 
-#: src/Widgets/HeaderBar.vala:161 src/Widgets/StationContextMenu.vala:159
+#: src/Widgets/HeaderBar.vala:159 src/Widgets/StationContextMenu.vala:159
 msgid "Star this station"
 msgstr "Csillag ez az állomás"
 
@@ -292,20 +297,20 @@ msgstr "Csillag ez az állomás"
 #. RHS Controls
 #.
 #. Search button
-#: src/Widgets/HeaderBar.vala:183
+#: src/Widgets/HeaderBar.vala:181
 #, fuzzy
 msgid "Search for Stations"
 msgstr "Search for Stations"
 
-#: src/Widgets/HeaderBar.vala:191
+#: src/Widgets/HeaderBar.vala:189
 msgid "Preferences"
 msgstr "Beállítások"
 
-#: src/Widgets/HeaderBar.vala:195
+#: src/Widgets/HeaderBar.vala:194
 msgid "History"
 msgstr "Előzmények"
 
-#: src/Widgets/HeaderBar.vala:199
+#: src/Widgets/HeaderBar.vala:198
 msgid "Heart current track in history"
 msgstr "Szív jelenlegi pálya a történelemben"
 
@@ -381,20 +386,31 @@ msgstr ""
 "Ha engedélyezték, amikor a Tuner elkezdi megnyitni a csillagolt állomások "
 "nézetét"
 
-#. Play Display
+#. Startup sound
 #: src/Widgets/PreferencesPopover.vala:76
+#, fuzzy
+msgid "Play startup jingle"
+msgstr "Play startup jingle"
+
+#: src/Widgets/PreferencesPopover.vala:78
+#, fuzzy
+msgid "If enabled, Tuner plays a short sound when it starts"
+msgstr "If enabled, Tuner plays a short sound when it starts"
+
+#. Play Display
+#: src/Widgets/PreferencesPopover.vala:84
 msgid "Show stream info when playing"
 msgstr "Mutasd meg a stream info játékot"
 
-#: src/Widgets/PreferencesPopover.vala:78
+#: src/Widgets/PreferencesPopover.vala:86
 msgid "Cycle through the metadata from the playing stream"
 msgstr "Cycle át a metaadata a játék stream"
 
-#: src/Widgets/PreferencesPopover.vala:82
+#: src/Widgets/PreferencesPopover.vala:90
 msgid "Faster cycling through stream info"
 msgstr "Gyorsabb kerékpározás a stream információn keresztül"
 
-#: src/Widgets/PreferencesPopover.vala:84
+#: src/Widgets/PreferencesPopover.vala:92
 msgid ""
 "Fast cycle through the metadata from the playing stream if show stream info "
 "is enabled"
@@ -402,72 +418,72 @@ msgstr ""
 "Gyors ciklus a metaadatokon keresztül a játékfolyamból, ha a stream "
 "információt engedélyezik"
 
-#: src/Widgets/PreferencesPopover.vala:88
+#: src/Widgets/PreferencesPopover.vala:96
 msgid "Stream metadata image popup"
 msgstr "Stream metaadata kép popup"
 
-#: src/Widgets/PreferencesPopover.vala:90
+#: src/Widgets/PreferencesPopover.vala:98
 msgid "Show a movable popup with images discovered in the stream metadata"
 msgstr ""
 "Mutasson egy mozgatható popupot a stream metaadatában felfedezett képekkel"
 
-#: src/Widgets/PreferencesPopover.vala:94
+#: src/Widgets/PreferencesPopover.vala:102
 msgid "Shrink title dynamically with the text"
 msgstr "Shrink cím dinamikusan a szöveggel"
 
-#: src/Widgets/PreferencesPopover.vala:96
+#: src/Widgets/PreferencesPopover.vala:104
 msgid "Shrink the title according to the length of the displayed text."
 msgstr "Zsugorja a címet a megjelenített szöveg hosszának megfelelően."
 
-#: src/Widgets/PreferencesPopover.vala:114
+#: src/Widgets/PreferencesPopover.vala:122
 msgid "Language"
 msgstr "Nyelv"
 
-#: src/Widgets/PreferencesPopover.vala:115
+#: src/Widgets/PreferencesPopover.vala:123
 msgid "Language changes restart Tuner"
 msgstr "A nyelvi változások újraindítják a Tunert"
 
 #. end language selection
 #. Export starred
-#: src/Widgets/PreferencesPopover.vala:123
+#: src/Widgets/PreferencesPopover.vala:131
 msgid "Export Starred Stations to Playlist"
 msgstr "Export Starred Stations to Playlist"
 
 #. Import starred
-#: src/Widgets/PreferencesPopover.vala:133
+#: src/Widgets/PreferencesPopover.vala:141
 msgid "Import Station UUIDs as Starred Stations"
 msgstr "Import Station UUIDs mint Starred Stations"
 
 #. Create the file chooser dialog for saving the exported playlist
-#: src/Widgets/PreferencesPopover.vala:219 src/Widgets/Window.vala:553
+#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:572
 msgid "Save File"
 msgstr "Fájl mentése"
 
-#: src/Widgets/PreferencesPopover.vala:222
-#: src/Widgets/PreferencesPopover.vala:260 src/Widgets/Window.vala:556
+#: src/Widgets/PreferencesPopover.vala:232
+#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:575
 msgid "_Cancel"
 msgstr "_Mégsem"
 
-#: src/Widgets/PreferencesPopover.vala:223 src/Widgets/Window.vala:545
-#: src/Widgets/Window.vala:557
+#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:564
+#: src/Widgets/Window.vala:576
 msgid "_Save"
 msgstr "_Mentés"
 
 #. warning("Error: $(e.message)");
-#: src/Widgets/PreferencesPopover.vala:244
+#: src/Widgets/PreferencesPopover.vala:254
 msgid "Error"
 msgstr "Hiba"
 
-#: src/Widgets/PreferencesPopover.vala:257
+#: src/Widgets/PreferencesPopover.vala:267
 msgid "Choose a file"
 msgstr "Fájl kiválasztása"
 
-#: src/Widgets/PreferencesPopover.vala:261
+#: src/Widgets/PreferencesPopover.vala:271
 msgid "_Open"
 msgstr "_Megnyitás"
 
 #. warning("Error reading file: $(e.message)");
-#: src/Widgets/PreferencesPopover.vala:284
+#: src/Widgets/PreferencesPopover.vala:294
 msgid "Error reading file"
 msgstr "Hiba a fájl olvasásakor"
 
@@ -499,11 +515,11 @@ msgid "Unstar this station"
 msgstr "Csillag ez az állomás"
 
 #. Private
-#: src/Widgets/Window.vala:73
+#: src/Widgets/Window.vala:74
 msgid "Playing in background"
 msgstr "Lejátszás a háttérben"
 
-#: src/Widgets/Window.vala:74
+#: src/Widgets/Window.vala:75
 msgid ""
 "Click here to resume window. To quit Tuner, pause playback and close the "
 "window."
@@ -511,15 +527,15 @@ msgstr ""
 "Kattintson ide az ablak újraindításához. Kilépni a Tuner, szünet lejátszani "
 "és bezárni az ablakot."
 
-#: src/Widgets/Window.vala:337
+#: src/Widgets/Window.vala:340
 msgid "Stop Playback requested"
 msgstr "Stop Playback kért"
 
-#: src/Widgets/Window.vala:542
+#: src/Widgets/Window.vala:561
 msgid "Save hearted tracks to a file?"
 msgstr "Szíves pályák mentése egy fájlba?"
 
-#: src/Widgets/Window.vala:544
+#: src/Widgets/Window.vala:563
 msgid "_Don't Save"
 msgstr "Nem mentett"
 
