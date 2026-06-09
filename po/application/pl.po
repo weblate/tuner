@@ -9,9 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: application\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
-"POT-Creation-Date: 2026-04-24 23:06-0700\n"
-"PO-Revision-Date: 2026-04-25 06:11+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"POT-Creation-Date: 2026-06-09 10:10-0700\n"
+"PO-Revision-Date: 2026-06-09 19:26+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/tuner/tuner-ui/"
 "pl/>\n"
 "Language: pl\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.17.1-dev\n"
+"X-Generator: Weblate 2026.6\n"
 
 #. Count once per day
 #. ----------------------------------------------------------
@@ -111,178 +112,182 @@ msgid "Audio Codec"
 msgstr "Audio Code"
 
 #: src/Models/StreamMetadata.vala:38
+msgid "Video Codec"
+msgstr "Size & Format\""
+
+#: src/Models/StreamMetadata.vala:39
 msgid "Channel Mode"
 msgstr "Mode Channel"
 
-#: src/Models/StreamMetadata.vala:39
+#: src/Models/StreamMetadata.vala:40
 msgid "Track Number"
 msgstr "Numer ścieżki"
 
-#: src/Models/StreamMetadata.vala:40
+#: src/Models/StreamMetadata.vala:41
 msgid "Track Count"
 msgstr "Statek"
 
-#: src/Models/StreamMetadata.vala:41
+#: src/Models/StreamMetadata.vala:42
 msgid "Nominal Bitrate"
 msgstr "Nominal bitrate"
 
-#: src/Models/StreamMetadata.vala:42
+#: src/Models/StreamMetadata.vala:43
 msgid "Minimum Bitrate"
 msgstr "Minimum Bitrate"
 
-#: src/Models/StreamMetadata.vala:43
+#: src/Models/StreamMetadata.vala:44
 msgid "Maximum Bitrate"
 msgstr "Maksymalny bitrate"
 
-#: src/Models/StreamMetadata.vala:44
+#: src/Models/StreamMetadata.vala:45
 msgid "Has CRC"
 msgstr "CRC"
 
-#: src/Models/StreamMetadata.vala:45
+#: src/Models/StreamMetadata.vala:46
 msgid "Container Format"
 msgstr "Format"
 
-#: src/Models/StreamMetadata.vala:46
+#: src/Models/StreamMetadata.vala:47
 msgid "Track Id"
 msgstr "Trasa"
 
-#: src/Models/StreamMetadata.vala:47
+#: src/Models/StreamMetadata.vala:48
 msgid "Application Name"
 msgstr "Nazwa"
 
-#: src/Models/StreamMetadata.vala:48
+#: src/Models/StreamMetadata.vala:49
 msgid "Encoder"
 msgstr "Encoder"
 
-#: src/Models/StreamMetadata.vala:49
+#: src/Models/StreamMetadata.vala:50
 msgid "Encoder Version"
 msgstr "Oficjalna strona Encoder"
 
-#: src/Models/StreamMetadata.vala:50
+#: src/Models/StreamMetadata.vala:51
 msgid "Encoded by"
 msgstr "Zakodowane przez"
 
-#: src/Models/StreamMetadata.vala:51
+#: src/Models/StreamMetadata.vala:52
 msgid "Private Data"
 msgstr "Dane prywatne"
 
-#: src/Models/StreamMetadata.vala:52
+#: src/Models/StreamMetadata.vala:53
 msgid "ID3 Private"
 msgstr "ID3 Private"
 
-#: src/Models/StreamMetadata.vala:53
+#: src/Models/StreamMetadata.vala:54
 msgid "GStreamer Sample"
 msgstr "GStreamer Sample (ang.)"
 
-#: src/Models/StreamMetadata.vala:54
+#: src/Models/StreamMetadata.vala:55
 msgid "GStreamer Date Time"
 msgstr "GStreamer Date Time (ang.)"
 
-#: src/Models/StreamMetadata.vala:55
+#: src/Models/StreamMetadata.vala:56
 msgid "Date Time"
 msgstr "Data czasu"
 
 #.
 #. Display Assets
 #.
-#: src/Widgets/Display.vala:114
+#: src/Widgets/Display.vala:118
 msgid "Selections"
 msgstr "Wybór"
 
-#: src/Widgets/Display.vala:115
+#: src/Widgets/Display.vala:119
 msgid "Library"
 msgstr "Biblioteka"
 
-#: src/Widgets/Display.vala:116
+#: src/Widgets/Display.vala:120
 msgid "Saved Searches"
 msgstr "Zapisane wyszukiwania"
 
-#: src/Widgets/Display.vala:117
+#: src/Widgets/Display.vala:121
 msgid "Explore"
 msgstr "Przeglądaj"
 
-#: src/Widgets/Display.vala:118
+#: src/Widgets/Display.vala:122
 msgid "Genres"
 msgstr "Gatunki"
 
-#: src/Widgets/Display.vala:119
+#: src/Widgets/Display.vala:123
 msgid "Subgenres"
 msgstr "Subgenres"
 
-#: src/Widgets/Display.vala:120
+#: src/Widgets/Display.vala:124
 msgid "Eras"
 msgstr "Erasa"
 
-#: src/Widgets/Display.vala:121
+#: src/Widgets/Display.vala:125
 msgid "Talk, News, Sport"
 msgstr "Talk, News, Sport"
 
-#: src/Widgets/Display.vala:449
+#: src/Widgets/Display.vala:454
 msgid "Discover"
 msgstr "Odkryj"
 
-#: src/Widgets/Display.vala:450
+#: src/Widgets/Display.vala:455
 msgid "Stations to Discover"
 msgstr "Station to Discover (ang.)"
 
-#: src/Widgets/Display.vala:454
+#: src/Widgets/Display.vala:459
 msgid "Discover more stations"
 msgstr "Discovery"
 
-#: src/Widgets/Display.vala:474
+#: src/Widgets/Display.vala:479
 msgid "Trending"
 msgstr "W trendach"
 
-#: src/Widgets/Display.vala:475
+#: src/Widgets/Display.vala:480
 msgid "Trending Stations in the last 24 hours"
 msgstr "Dworzec kolejowy w ciągu ostatnich 24 godzin"
 
-#: src/Widgets/Display.vala:492
+#: src/Widgets/Display.vala:497
 msgid "Popular"
 msgstr "Popularne"
 
-#: src/Widgets/Display.vala:493
+#: src/Widgets/Display.vala:498
 msgid "Most listened to Stations in the last 24 hours"
 msgstr "Najwięcej słuchało stacji w ciągu ostatnich 24 godzin"
 
-#: src/Widgets/Display.vala:530 src/Widgets/Display.vala:531
+#: src/Widgets/Display.vala:535 src/Widgets/Display.vala:536
 msgid "Starred by You"
 msgstr "Gwiazda"
 
-#: src/Widgets/Display.vala:569
+#: src/Widgets/Display.vala:574
 msgid "Latest Search"
 msgstr "Okładka"
 
-#: src/Widgets/Display.vala:570
+#: src/Widgets/Display.vala:575
 msgid "Search Results"
 msgstr "Rezultaty Wyszukiwania"
 
-#: src/Widgets/Display.vala:572
+#: src/Widgets/Display.vala:577
 msgid "Save this search"
 msgstr "Poszukiwania te"
 
-#: src/Widgets/Display.vala:706
+#: src/Widgets/Display.vala:711
 msgid "Jukebox"
 msgstr "Jukebox"
 
-#: src/Widgets/Display.vala:708
+#: src/Widgets/Display.vala:713
 #, c-format
 msgid "Double click to shuffle through %1$u stations"
 msgstr "Double click to shuffle through (ang.)"
 
-#: src/Widgets/Display.vala:709
+#: src/Widgets/Display.vala:714
 msgid "one, every ten minutes, for %2$u days"
 msgstr "każde dziesięć minut (X28X)"
 
-#: src/Widgets/Display.vala:775
+#: src/Widgets/Display.vala:780
 msgid "Saved Search"
 msgstr "Saving Search (ang.)"
 
-#: src/Widgets/Display.vala:778
+#: src/Widgets/Display.vala:783
 msgid "Remove this saved search"
 msgstr "Przewiduje to wszczęcie wyszukiwania"
 
-#: src/Widgets/HeaderBar.vala:161 src/Widgets/StationContextMenu.vala:159
+#: src/Widgets/HeaderBar.vala:159 src/Widgets/StationContextMenu.vala:159
 msgid "Star this station"
 msgstr "Gwiazda ta"
 
@@ -294,20 +299,19 @@ msgstr "Gwiazda ta"
 #. RHS Controls
 #.
 #. Search button
-#: src/Widgets/HeaderBar.vala:183
-#, fuzzy
+#: src/Widgets/HeaderBar.vala:181
 msgid "Search for Stations"
-msgstr "Search for Stations"
+msgstr "Poszukiwanie stacji"
 
-#: src/Widgets/HeaderBar.vala:191
+#: src/Widgets/HeaderBar.vala:189
 msgid "Preferences"
 msgstr "Preferencje"
 
-#: src/Widgets/HeaderBar.vala:195
+#: src/Widgets/HeaderBar.vala:194
 msgid "History"
 msgstr "Historia"
 
-#: src/Widgets/HeaderBar.vala:199
+#: src/Widgets/HeaderBar.vala:198
 msgid "Heart current track in history"
 msgstr "Aktualny utwór w historii serca"
 
@@ -379,20 +383,29 @@ msgstr "Otwarta do stacji Starred"
 msgid "If enabled, when Tuner starts it will open to the starred stations view"
 msgstr "Gdy Tuner zaczyna ją otwierać, będzie można oglądać główne stacje"
 
-#. Play Display
+#. Startup sound
 #: src/Widgets/PreferencesPopover.vala:76
+msgid "Play startup jingle"
+msgstr "Gra na początku"
+
+#: src/Widgets/PreferencesPopover.vala:78
+msgid "If enabled, Tuner plays a short sound when it starts"
+msgstr "W przypadku, Tuner gra krótkie dźwięki, gdy rozpoczyna się ona"
+
+#. Play Display
+#: src/Widgets/PreferencesPopover.vala:84
 msgid "Show stream info when playing"
 msgstr "Show stream info when playing"
 
-#: src/Widgets/PreferencesPopover.vala:78
+#: src/Widgets/PreferencesPopover.vala:86
 msgid "Cycle through the metadata from the playing stream"
 msgstr "Cykl poprzez metadane z gry w strumieniu"
 
-#: src/Widgets/PreferencesPopover.vala:82
+#: src/Widgets/PreferencesPopover.vala:90
 msgid "Faster cycling through stream info"
 msgstr "Szybkie cyklowanie przez strumień informacyjny"
 
-#: src/Widgets/PreferencesPopover.vala:84
+#: src/Widgets/PreferencesPopover.vala:92
 msgid ""
 "Fast cycle through the metadata from the playing stream if show stream info "
 "is enabled"
@@ -400,72 +413,72 @@ msgstr ""
 "Szybkie cykle przez metadane z strumienia gry, jeśli pokazują info strumień "
 "strumień strumień jest dozwolone"
 
-#: src/Widgets/PreferencesPopover.vala:88
+#: src/Widgets/PreferencesPopover.vala:96
 msgid "Stream metadata image popup"
 msgstr "Stream metadata image popup"
 
-#: src/Widgets/PreferencesPopover.vala:90
+#: src/Widgets/PreferencesPopover.vala:98
 msgid "Show a movable popup with images discovered in the stream metadata"
 msgstr ""
 "Pokazuje ruchomy popup z obrazami odkrytymi w metadanych strumieniowych"
 
-#: src/Widgets/PreferencesPopover.vala:94
+#: src/Widgets/PreferencesPopover.vala:102
 msgid "Shrink title dynamically with the text"
 msgstr "Tytuł płyty dynamicznie z tekstem"
 
-#: src/Widgets/PreferencesPopover.vala:96
+#: src/Widgets/PreferencesPopover.vala:104
 msgid "Shrink the title according to the length of the displayed text."
 msgstr "Tytuł nawiązuje do długości wyświetlanego tekstu."
 
-#: src/Widgets/PreferencesPopover.vala:114
+#: src/Widgets/PreferencesPopover.vala:122
 msgid "Language"
 msgstr "Języki"
 
-#: src/Widgets/PreferencesPopover.vala:115
+#: src/Widgets/PreferencesPopover.vala:123
 msgid "Language changes restart Tuner"
 msgstr "Zmiany językowe restartują Tuner"
 
 #. end language selection
 #. Export starred
-#: src/Widgets/PreferencesPopover.vala:123
+#: src/Widgets/PreferencesPopover.vala:131
 msgid "Export Starred Stations to Playlist"
 msgstr "Oficjalna strona Starred Station"
 
 #. Import starred
-#: src/Widgets/PreferencesPopover.vala:133
+#: src/Widgets/PreferencesPopover.vala:141
 msgid "Import Station UUIDs as Starred Stations"
 msgstr "Import Station UUIDs jako Starred Station (ang.)"
 
 #. Create the file chooser dialog for saving the exported playlist
-#: src/Widgets/PreferencesPopover.vala:219 src/Widgets/Window.vala:553
+#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:572
 msgid "Save File"
 msgstr "Zapisz Plik"
 
-#: src/Widgets/PreferencesPopover.vala:222
-#: src/Widgets/PreferencesPopover.vala:260 src/Widgets/Window.vala:556
+#: src/Widgets/PreferencesPopover.vala:232
+#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:575
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: src/Widgets/PreferencesPopover.vala:223 src/Widgets/Window.vala:545
-#: src/Widgets/Window.vala:557
+#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:564
+#: src/Widgets/Window.vala:576
 msgid "_Save"
 msgstr "_Zapisz"
 
 #. warning("Error: $(e.message)");
-#: src/Widgets/PreferencesPopover.vala:244
+#: src/Widgets/PreferencesPopover.vala:254
 msgid "Error"
 msgstr "Błąd"
 
-#: src/Widgets/PreferencesPopover.vala:257
+#: src/Widgets/PreferencesPopover.vala:267
 msgid "Choose a file"
 msgstr "Wybierz plik"
 
-#: src/Widgets/PreferencesPopover.vala:261
+#: src/Widgets/PreferencesPopover.vala:271
 msgid "_Open"
 msgstr "_Otwórz"
 
 #. warning("Error reading file: $(e.message)");
-#: src/Widgets/PreferencesPopover.vala:284
+#: src/Widgets/PreferencesPopover.vala:294
 msgid "Error reading file"
 msgstr "Błąd odczytu pliku"
 
@@ -497,25 +510,25 @@ msgid "Unstar this station"
 msgstr "Unstar this station"
 
 #. Private
-#: src/Widgets/Window.vala:73
+#: src/Widgets/Window.vala:74
 msgid "Playing in background"
 msgstr "Odtwarzanie w tle"
 
-#: src/Widgets/Window.vala:74
+#: src/Widgets/Window.vala:75
 msgid ""
 "Click here to resume window. To quit Tuner, pause playback and close the "
 "window."
 msgstr "Wracają do okna. Aby opuścić Tuner, przerwać grę i zamykać okno."
 
-#: src/Widgets/Window.vala:337
+#: src/Widgets/Window.vala:340
 msgid "Stop Playback requested"
 msgstr "Stop Playback (ang.)"
 
-#: src/Widgets/Window.vala:542
+#: src/Widgets/Window.vala:561
 msgid "Save hearted tracks to a file?"
 msgstr "Oszczędne ślady do pliku?"
 
-#: src/Widgets/Window.vala:544
+#: src/Widgets/Window.vala:563
 msgid "_Don't Save"
 msgstr "Nie zapisuj"
 

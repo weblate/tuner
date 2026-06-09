@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.tuner_labs.tuner 2.0.1-beta.2\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
-"POT-Creation-Date: 2026-04-24 23:06-0700\n"
-"PO-Revision-Date: 2026-04-25 06:11+0000\n"
+"POT-Creation-Date: 2026-06-09 10:10-0700\n"
+"PO-Revision-Date: 2026-06-09 17:19+0000\n"
 "Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/tuner/tuner-ui/"
 "ko/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.17.1-dev\n"
+"X-Generator: Weblate 2026.6\n"
 
 #. Count once per day
 #. ----------------------------------------------------------
@@ -109,178 +109,183 @@ msgid "Audio Codec"
 msgstr "오디오 Codec"
 
 #: src/Models/StreamMetadata.vala:38
+#, fuzzy
+msgid "Video Codec"
+msgstr "Video Codec"
+
+#: src/Models/StreamMetadata.vala:39
 msgid "Channel Mode"
 msgstr "채널 모드"
 
-#: src/Models/StreamMetadata.vala:39
+#: src/Models/StreamMetadata.vala:40
 msgid "Track Number"
 msgstr "트랙 번호"
 
-#: src/Models/StreamMetadata.vala:40
+#: src/Models/StreamMetadata.vala:41
 msgid "Track Count"
 msgstr "트랙 카운트"
 
-#: src/Models/StreamMetadata.vala:41
+#: src/Models/StreamMetadata.vala:42
 msgid "Nominal Bitrate"
 msgstr "명목상 비트레이트"
 
-#: src/Models/StreamMetadata.vala:42
+#: src/Models/StreamMetadata.vala:43
 msgid "Minimum Bitrate"
 msgstr "최소 비트레이트"
 
-#: src/Models/StreamMetadata.vala:43
+#: src/Models/StreamMetadata.vala:44
 msgid "Maximum Bitrate"
 msgstr "최대 비트레이트"
 
-#: src/Models/StreamMetadata.vala:44
+#: src/Models/StreamMetadata.vala:45
 msgid "Has CRC"
 msgstr "CRC는"
 
-#: src/Models/StreamMetadata.vala:45
+#: src/Models/StreamMetadata.vala:46
 msgid "Container Format"
 msgstr "컨테이너 형식"
 
-#: src/Models/StreamMetadata.vala:46
+#: src/Models/StreamMetadata.vala:47
 msgid "Track Id"
 msgstr "트랙 Id"
 
-#: src/Models/StreamMetadata.vala:47
+#: src/Models/StreamMetadata.vala:48
 msgid "Application Name"
 msgstr "신청 이름"
 
-#: src/Models/StreamMetadata.vala:48
+#: src/Models/StreamMetadata.vala:49
 msgid "Encoder"
 msgstr "지원하다"
 
-#: src/Models/StreamMetadata.vala:49
+#: src/Models/StreamMetadata.vala:50
 msgid "Encoder Version"
 msgstr "인코더 버전"
 
-#: src/Models/StreamMetadata.vala:50
+#: src/Models/StreamMetadata.vala:51
 msgid "Encoded by"
 msgstr "녹음"
 
-#: src/Models/StreamMetadata.vala:51
+#: src/Models/StreamMetadata.vala:52
 msgid "Private Data"
 msgstr "개인 데이터"
 
-#: src/Models/StreamMetadata.vala:52
+#: src/Models/StreamMetadata.vala:53
 msgid "ID3 Private"
 msgstr "ID3 개인"
 
-#: src/Models/StreamMetadata.vala:53
+#: src/Models/StreamMetadata.vala:54
 msgid "GStreamer Sample"
 msgstr "GStreamer 샘플"
 
-#: src/Models/StreamMetadata.vala:54
+#: src/Models/StreamMetadata.vala:55
 msgid "GStreamer Date Time"
 msgstr "GStreamer 날짜 시간"
 
-#: src/Models/StreamMetadata.vala:55
+#: src/Models/StreamMetadata.vala:56
 msgid "Date Time"
 msgstr "일정 시간"
 
 #.
 #. Display Assets
 #.
-#: src/Widgets/Display.vala:114
+#: src/Widgets/Display.vala:118
 msgid "Selections"
 msgstr "선택하기"
 
-#: src/Widgets/Display.vala:115
+#: src/Widgets/Display.vala:119
 msgid "Library"
 msgstr "라이브러리"
 
-#: src/Widgets/Display.vala:116
+#: src/Widgets/Display.vala:120
 msgid "Saved Searches"
 msgstr "저장된 검색어"
 
-#: src/Widgets/Display.vala:117
+#: src/Widgets/Display.vala:121
 msgid "Explore"
 msgstr "찾아보기"
 
-#: src/Widgets/Display.vala:118
+#: src/Widgets/Display.vala:122
 msgid "Genres"
 msgstr "장르"
 
-#: src/Widgets/Display.vala:119
+#: src/Widgets/Display.vala:123
 msgid "Subgenres"
 msgstr "관련 기사"
 
-#: src/Widgets/Display.vala:120
+#: src/Widgets/Display.vala:124
 msgid "Eras"
 msgstr "에라스"
 
-#: src/Widgets/Display.vala:121
+#: src/Widgets/Display.vala:125
 msgid "Talk, News, Sport"
 msgstr "토크, 뉴스, 스포츠"
 
-#: src/Widgets/Display.vala:449
+#: src/Widgets/Display.vala:454
 msgid "Discover"
 msgstr "탐색"
 
-#: src/Widgets/Display.vala:450
+#: src/Widgets/Display.vala:455
 msgid "Stations to Discover"
 msgstr "오시는 길"
 
-#: src/Widgets/Display.vala:454
+#: src/Widgets/Display.vala:459
 msgid "Discover more stations"
 msgstr "더 많은 역 찾기"
 
-#: src/Widgets/Display.vala:474
+#: src/Widgets/Display.vala:479
 msgid "Trending"
 msgstr "유행"
 
-#: src/Widgets/Display.vala:475
+#: src/Widgets/Display.vala:480
 msgid "Trending Stations in the last 24 hours"
 msgstr "지난 24 시간 동안의 동향"
 
-#: src/Widgets/Display.vala:492
+#: src/Widgets/Display.vala:497
 msgid "Popular"
 msgstr "인기"
 
-#: src/Widgets/Display.vala:493
+#: src/Widgets/Display.vala:498
 msgid "Most listened to Stations in the last 24 hours"
 msgstr "가장 가까운 역에 24 시간"
 
-#: src/Widgets/Display.vala:530 src/Widgets/Display.vala:531
+#: src/Widgets/Display.vala:535 src/Widgets/Display.vala:536
 msgid "Starred by You"
 msgstr "에 의해 별"
 
-#: src/Widgets/Display.vala:569
+#: src/Widgets/Display.vala:574
 msgid "Latest Search"
 msgstr "최근 검색"
 
-#: src/Widgets/Display.vala:570
+#: src/Widgets/Display.vala:575
 msgid "Search Results"
 msgstr "결과 찾기"
 
-#: src/Widgets/Display.vala:572
+#: src/Widgets/Display.vala:577
 msgid "Save this search"
 msgstr "이 검색"
 
-#: src/Widgets/Display.vala:706
+#: src/Widgets/Display.vala:711
 msgid "Jukebox"
 msgstr "주크박스"
 
-#: src/Widgets/Display.vala:708
+#: src/Widgets/Display.vala:713
 #, c-format
 msgid "Double click to shuffle through %1$u stations"
 msgstr "%1$u 역을 통해 두 번 클릭"
 
-#: src/Widgets/Display.vala:709
+#: src/Widgets/Display.vala:714
 msgid "one, every ten minutes, for %2$u days"
 msgstr "1, 매 10 분, %2$u 일"
 
-#: src/Widgets/Display.vala:775
+#: src/Widgets/Display.vala:780
 msgid "Saved Search"
 msgstr "비밀번호"
 
-#: src/Widgets/Display.vala:778
+#: src/Widgets/Display.vala:783
 msgid "Remove this saved search"
 msgstr "이 저장된 검색 제거"
 
-#: src/Widgets/HeaderBar.vala:161 src/Widgets/StationContextMenu.vala:159
+#: src/Widgets/HeaderBar.vala:159 src/Widgets/StationContextMenu.vala:159
 msgid "Star this station"
 msgstr "이 역"
 
@@ -292,20 +297,20 @@ msgstr "이 역"
 #. RHS Controls
 #.
 #. Search button
-#: src/Widgets/HeaderBar.vala:183
+#: src/Widgets/HeaderBar.vala:181
 #, fuzzy
 msgid "Search for Stations"
 msgstr "Search for Stations"
 
-#: src/Widgets/HeaderBar.vala:191
+#: src/Widgets/HeaderBar.vala:189
 msgid "Preferences"
 msgstr "환경설정"
 
-#: src/Widgets/HeaderBar.vala:195
+#: src/Widgets/HeaderBar.vala:194
 msgid "History"
 msgstr "기록"
 
-#: src/Widgets/HeaderBar.vala:199
+#: src/Widgets/HeaderBar.vala:198
 msgid "Heart current track in history"
 msgstr "역사의 심장 현재 트랙"
 
@@ -376,90 +381,101 @@ msgstr "Starred 역에 열기"
 msgid "If enabled, when Tuner starts it will open to the starred stations view"
 msgstr "활성화되면, Tuner가 Starred 역보기에 열릴 때"
 
-#. Play Display
+#. Startup sound
 #: src/Widgets/PreferencesPopover.vala:76
+#, fuzzy
+msgid "Play startup jingle"
+msgstr "Play startup jingle"
+
+#: src/Widgets/PreferencesPopover.vala:78
+#, fuzzy
+msgid "If enabled, Tuner plays a short sound when it starts"
+msgstr "If enabled, Tuner plays a short sound when it starts"
+
+#. Play Display
+#: src/Widgets/PreferencesPopover.vala:84
 msgid "Show stream info when playing"
 msgstr "재생할 때 스트림 정보 표시"
 
-#: src/Widgets/PreferencesPopover.vala:78
+#: src/Widgets/PreferencesPopover.vala:86
 msgid "Cycle through the metadata from the playing stream"
 msgstr "재생 스트림에서 metadata를 통해 사이클"
 
-#: src/Widgets/PreferencesPopover.vala:82
+#: src/Widgets/PreferencesPopover.vala:90
 msgid "Faster cycling through stream info"
 msgstr "Faster 순환을 통해 스트림 정보"
 
-#: src/Widgets/PreferencesPopover.vala:84
+#: src/Widgets/PreferencesPopover.vala:92
 msgid ""
 "Fast cycle through the metadata from the playing stream if show stream info "
 "is enabled"
 msgstr "스트림 정보가 활성화되면 재생 스트림에서 metadata를 통해 빠른 사이클"
 
-#: src/Widgets/PreferencesPopover.vala:88
+#: src/Widgets/PreferencesPopover.vala:96
 msgid "Stream metadata image popup"
 msgstr "Stream 메타데이터 이미지 팝업"
 
-#: src/Widgets/PreferencesPopover.vala:90
+#: src/Widgets/PreferencesPopover.vala:98
 msgid "Show a movable popup with images discovered in the stream metadata"
 msgstr "스트림 metadata에서 발견 된 이미지와 이동식 팝업보기"
 
-#: src/Widgets/PreferencesPopover.vala:94
+#: src/Widgets/PreferencesPopover.vala:102
 msgid "Shrink title dynamically with the text"
 msgstr "텍스트와 역동적으로 수축 제목"
 
-#: src/Widgets/PreferencesPopover.vala:96
+#: src/Widgets/PreferencesPopover.vala:104
 msgid "Shrink the title according to the length of the displayed text."
 msgstr "표시된 텍스트의 길이에 따라 제목을 축소합니다."
 
-#: src/Widgets/PreferencesPopover.vala:114
+#: src/Widgets/PreferencesPopover.vala:122
 msgid "Language"
 msgstr "언어"
 
-#: src/Widgets/PreferencesPopover.vala:115
+#: src/Widgets/PreferencesPopover.vala:123
 msgid "Language changes restart Tuner"
 msgstr "언어 변경 다시 시작 Tuner"
 
 #. end language selection
 #. Export starred
-#: src/Widgets/PreferencesPopover.vala:123
+#: src/Widgets/PreferencesPopover.vala:131
 msgid "Export Starred Stations to Playlist"
 msgstr "Playlist에 Starred 역 수출"
 
 #. Import starred
-#: src/Widgets/PreferencesPopover.vala:133
+#: src/Widgets/PreferencesPopover.vala:141
 msgid "Import Station UUIDs as Starred Stations"
 msgstr "수입 역 UUIDs로 Starred 역"
 
 #. Create the file chooser dialog for saving the exported playlist
-#: src/Widgets/PreferencesPopover.vala:219 src/Widgets/Window.vala:553
+#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:572
 msgid "Save File"
 msgstr "파일 저장"
 
-#: src/Widgets/PreferencesPopover.vala:222
-#: src/Widgets/PreferencesPopover.vala:260 src/Widgets/Window.vala:556
+#: src/Widgets/PreferencesPopover.vala:232
+#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:575
 msgid "_Cancel"
 msgstr "_취소"
 
-#: src/Widgets/PreferencesPopover.vala:223 src/Widgets/Window.vala:545
-#: src/Widgets/Window.vala:557
+#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:564
+#: src/Widgets/Window.vala:576
 msgid "_Save"
 msgstr "저장(_S)"
 
 #. warning("Error: $(e.message)");
-#: src/Widgets/PreferencesPopover.vala:244
+#: src/Widgets/PreferencesPopover.vala:254
 msgid "Error"
 msgstr "오류"
 
-#: src/Widgets/PreferencesPopover.vala:257
+#: src/Widgets/PreferencesPopover.vala:267
 msgid "Choose a file"
 msgstr "파일 선택"
 
-#: src/Widgets/PreferencesPopover.vala:261
+#: src/Widgets/PreferencesPopover.vala:271
 msgid "_Open"
 msgstr "_열기"
 
 #. warning("Error reading file: $(e.message)");
-#: src/Widgets/PreferencesPopover.vala:284
+#: src/Widgets/PreferencesPopover.vala:294
 msgid "Error reading file"
 msgstr "오류 읽기 파일"
 
@@ -491,25 +507,25 @@ msgid "Unstar this station"
 msgstr "이 역을 Unstar"
 
 #. Private
-#: src/Widgets/Window.vala:73
+#: src/Widgets/Window.vala:74
 msgid "Playing in background"
 msgstr "백그라운드에서 재생 중"
 
-#: src/Widgets/Window.vala:74
+#: src/Widgets/Window.vala:75
 msgid ""
 "Click here to resume window. To quit Tuner, pause playback and close the "
 "window."
 msgstr "자주 묻는 질문 튜너를 종료하려면, 일시 재생 및 창을 닫습니다."
 
-#: src/Widgets/Window.vala:337
+#: src/Widgets/Window.vala:340
 msgid "Stop Playback requested"
 msgstr "중지 Playback 요청"
 
-#: src/Widgets/Window.vala:542
+#: src/Widgets/Window.vala:561
 msgid "Save hearted tracks to a file?"
 msgstr "파일에 하트 트랙을 저장?"
 
-#: src/Widgets/Window.vala:544
+#: src/Widgets/Window.vala:563
 msgid "_Don't Save"
 msgstr "_Don't 저장"
 
