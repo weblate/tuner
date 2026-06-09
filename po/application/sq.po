@@ -9,8 +9,9 @@ msgstr ""
 "Project-Id-Version: application\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
 "POT-Creation-Date: 2026-06-09 10:10-0700\n"
-"PO-Revision-Date: 2026-06-09 17:20+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"PO-Revision-Date: 2026-06-09 20:07+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/tuner/tuner-ui/"
 "sq/>\n"
 "Language: sq\n"
@@ -233,9 +234,8 @@ msgid "Explore"
 msgstr "Explore"
 
 #: src/Widgets/Display.vala:122
-#, fuzzy
 msgid "Genres"
-msgstr "Genres"
+msgstr "Zhanri"
 
 #: src/Widgets/Display.vala:123
 #, fuzzy
