@@ -85,7 +85,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 	private Station _station;
 	private Station _last_metadata_station;
 	private string _last_metadata_title = "";
-	private Mutex _station_update_lock = Mutex();       // Lock out concurrent updates
+	private uint _station_update_in_progress = 0u;       // Guard concurrent updates with an atomic flag
 	private bool _station_locked       = false;
 	private ulong _station_handler_id  = 0;
 	private Application _app;
@@ -257,7 +257,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 		{
 			if (!_station_locked)
 				return;
-			_station_update_lock.unlock();
+			AtomicUint.set (ref _station_update_in_progress, 0u);
 			_station_locked = false;
 		});
 
@@ -316,9 +316,9 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 		if ( _app.is_offline || ( _station != null && _station == station && _player.player_state != StreamPlayer.State.STOPPED_ERROR ) )
 			return false;
 
-		if (_station_update_lock.trylock())
-		// Lock while changing the station to ensure single threading.
-		// Lock is released when the info is updated on emit of info_changed_completed_sig
+		if (AtomicUint.compare_and_exchange (ref _station_update_in_progress, 0u, 1u))
+		// Guard while changing the station to ensure single threading.
+		// Guard is released when the info is updated on emit of info_changed_completed_sig
 			{
 				_station_locked       = true;
 				//_player_info.metadata = STREAM_METADATA;
