@@ -99,6 +99,8 @@ namespace Tuner {
 
         private static Gtk.Settings GTK_SETTINGS;
 
+        private static int CONST_JINGLE_DELAY_MS = 777;
+
         private static string GTK_SYSTEM_THEME = "unset";
 
         public static string SYSTEM_THEME() { return GTK_SYSTEM_THEME; }
@@ -552,9 +554,13 @@ namespace Tuner {
         private void create_main_window()
         {
             window = new Window (this, player, settings, directory);
-            play_startup_jingle ();
+
             _startup_coordinator = new StartupCoordinator(this, events, window, settings, directory);
             _startup_coordinator.start();
+
+            GLib.Timeout.add_once (CONST_JINGLE_DELAY_MS, () => {
+                    play_startup_jingle ();
+                });
 
             // Flathub screenshot sizing
             //window.resize(1000, 625);    // Screenshot sizing - round corners 80, ds op 1
@@ -572,6 +578,14 @@ namespace Tuner {
             {
                 return;
             } // if
+
+            //  if (wait_ms > 0)
+            //  {
+            //      GLib.Timeout.Add (wait_ms, () => {
+            //          play_startup_jingle ();
+            //      });
+            //      return;
+            //  } // if
 
             var uri = "resource:///io/github/tuner_labs/tuner/sounds/tuner_startup.mp3";
             _startup_jingle = StreamPlayer.play_file (uri, settings.volume/2, () => {
