@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the application package.
 # Languages add-on <noreply-addon-languages@weblate.org>, 2026.
 # Prefill add-on <noreply-addon-prefill@weblate.org>, 2026.
+# ssantos <ssantos@web.de>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: application\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
 "POT-Creation-Date: 2026-06-09 10:10-0700\n"
-"PO-Revision-Date: 2026-07-01 05:24+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"PO-Revision-Date: 2026-07-01 19:45+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/tuner/tuner-"
 "ui/pt/>\n"
 "Language: pt\n"
@@ -26,9 +27,8 @@ msgstr ""
 #. Indicates if the station is in the provider index
 #. Indicates if the station is up-to-date with the provider index
 #: src/Models/Station.vala:160
-#, fuzzy
 msgid "Station no longer in the index"
-msgstr "Station no longer in the index"
+msgstr "Estação não mais no índice"
 
 #: src/Models/Station.vala:402
 #, c-format, fuzzy
@@ -36,223 +36,180 @@ msgid "Last Played: %s\tPlays: %d"
 msgstr "Last Played: %s\tPlays: %d"
 
 #: src/Models/Station.vala:436
-#, fuzzy
 msgid "Changes"
-msgstr "Changes"
+msgstr "Alterações"
 
 #: src/Models/Station.vala:437
-#, fuzzy
 msgid "Stream Url"
-msgstr "Stream Url"
+msgstr "Fluxo de fluxo"
 
 #: src/Models/Station.vala:438
-#, fuzzy
 msgid "Stream Resolved Url"
-msgstr "Stream Resolved Url"
+msgstr "Fluxo resolvido Url"
 
 #: src/Models/Station.vala:439
-#, fuzzy
 msgid "Favicon address"
-msgstr "Favicon address"
+msgstr "Endereço de Favicon"
 
 #: src/Models/Station.vala:440
-#, fuzzy
 msgid "Homepage address"
-msgstr "Homepage address"
+msgstr "Endereço da página inicial"
 
 #: src/Models/Station.vala:441
-#, fuzzy
 msgid "Station tags"
-msgstr "Station tags"
+msgstr "Tags de estação"
 
 #: src/Models/Station.vala:442 src/Models/StreamMetadata.vala:36
-#, fuzzy
 msgid "Bitrate"
-msgstr "Bitrate"
+msgstr "Taxa de bits"
 
 #: src/Models/Station.vala:443
-#, fuzzy
 msgid "Codec"
 msgstr "Codec"
 
 #. Ordered array of tags and descriptions
 #: src/Models/StreamMetadata.vala:27
-#, fuzzy
 msgid "Title"
-msgstr "Title"
+msgstr "Título"
 
 #: src/Models/StreamMetadata.vala:28
-#, fuzzy
 msgid "Artist"
-msgstr "Artist"
+msgstr "Artista"
 
 #: src/Models/StreamMetadata.vala:29
-#, fuzzy
 msgid "Album"
-msgstr "Album"
+msgstr "Álbum"
 
 #: src/Models/StreamMetadata.vala:30
-#, fuzzy
 msgid "Image"
-msgstr "Image"
+msgstr "Imagem"
 
 #: src/Models/StreamMetadata.vala:31
-#, fuzzy
 msgid "Genre"
-msgstr "Genre"
+msgstr "Género"
 
 #: src/Models/StreamMetadata.vala:32
-#, fuzzy
 msgid "Homepage"
-msgstr "Homepage"
+msgstr "Página inicial"
 
 #: src/Models/StreamMetadata.vala:33
-#, fuzzy
 msgid "Organization"
-msgstr "Organization"
+msgstr "Organização"
 
 #: src/Models/StreamMetadata.vala:34
-#, fuzzy
 msgid "Location"
-msgstr "Location"
+msgstr "Localização"
 
 #: src/Models/StreamMetadata.vala:35
-#, fuzzy
 msgid "Extended Comment"
-msgstr "Extended Comment"
+msgstr "Comentário estendido"
 
 #: src/Models/StreamMetadata.vala:37
-#, fuzzy
 msgid "Audio Codec"
-msgstr "Audio Codec"
+msgstr "Código de áudio"
 
 #: src/Models/StreamMetadata.vala:38
-#, fuzzy
 msgid "Video Codec"
-msgstr "Video Codec"
+msgstr "Código de vídeo"
 
 #: src/Models/StreamMetadata.vala:39
-#, fuzzy
 msgid "Channel Mode"
-msgstr "Channel Mode"
+msgstr "Modo de canal"
 
 #: src/Models/StreamMetadata.vala:40
-#, fuzzy
 msgid "Track Number"
-msgstr "Track Number"
+msgstr "Número da Faixa"
 
 #: src/Models/StreamMetadata.vala:41
-#, fuzzy
 msgid "Track Count"
-msgstr "Track Count"
+msgstr "Contagem de faixa"
 
 #: src/Models/StreamMetadata.vala:42
-#, fuzzy
 msgid "Nominal Bitrate"
-msgstr "Nominal Bitrate"
+msgstr "Bitrate nominal"
 
 #: src/Models/StreamMetadata.vala:43
-#, fuzzy
 msgid "Minimum Bitrate"
-msgstr "Minimum Bitrate"
+msgstr "Taxa de bits mínima"
 
 #: src/Models/StreamMetadata.vala:44
-#, fuzzy
 msgid "Maximum Bitrate"
-msgstr "Maximum Bitrate"
+msgstr "Taxa de bits máxima"
 
 #: src/Models/StreamMetadata.vala:45
-#, fuzzy
 msgid "Has CRC"
-msgstr "Has CRC"
+msgstr "Tem CRC"
 
 #: src/Models/StreamMetadata.vala:46
-#, fuzzy
 msgid "Container Format"
-msgstr "Container Format"
+msgstr "Formato do recipiente"
 
 #: src/Models/StreamMetadata.vala:47
-#, fuzzy
 msgid "Track Id"
-msgstr "Track Id"
+msgstr "Rastrear Id"
 
 #: src/Models/StreamMetadata.vala:48
-#, fuzzy
 msgid "Application Name"
-msgstr "Application Name"
+msgstr "Nome da aplicação"
 
 #: src/Models/StreamMetadata.vala:49
-#, fuzzy
 msgid "Encoder"
-msgstr "Encoder"
+msgstr "Codificador"
 
 #: src/Models/StreamMetadata.vala:50
-#, fuzzy
 msgid "Encoder Version"
-msgstr "Encoder Version"
+msgstr "Versão do Encoder"
 
 #: src/Models/StreamMetadata.vala:51
-#, fuzzy
 msgid "Encoded by"
-msgstr "Encoded by"
+msgstr "Codificado por"
 
 #: src/Models/StreamMetadata.vala:52
-#, fuzzy
 msgid "Private Data"
-msgstr "Private Data"
+msgstr "Dados privados"
 
 #: src/Models/StreamMetadata.vala:53
-#, fuzzy
 msgid "ID3 Private"
-msgstr "ID3 Private"
+msgstr "ID3 Privado"
 
 #: src/Models/StreamMetadata.vala:54
-#, fuzzy
 msgid "GStreamer Sample"
-msgstr "GStreamer Sample"
+msgstr "Amostra de GStreamer"
 
 #: src/Models/StreamMetadata.vala:55
-#, fuzzy
 msgid "GStreamer Date Time"
-msgstr "GStreamer Date Time"
+msgstr "GStreamer Data Hora"
 
 #: src/Models/StreamMetadata.vala:56
-#, fuzzy
 msgid "Date Time"
-msgstr "Date Time"
+msgstr "Data de hora"
 
 #.
 #. Display Assets
 #.
 #: src/Widgets/Display.vala:118
-#, fuzzy
 msgid "Selections"
-msgstr "Selections"
+msgstr "Seleções"
 
 #: src/Widgets/Display.vala:119
-#, fuzzy
 msgid "Library"
-msgstr "Library"
+msgstr "Biblioteca"
 
 #: src/Widgets/Display.vala:120
-#, fuzzy
 msgid "Saved Searches"
-msgstr "Saved Searches"
+msgstr "Pesquisas gravadas"
 
 #: src/Widgets/Display.vala:121
-#, fuzzy
 msgid "Explore"
-msgstr "Explore"
+msgstr "Explorar"
 
 #: src/Widgets/Display.vala:122
-#, fuzzy
 msgid "Genres"
-msgstr "Genres"
+msgstr "Géneros"
 
 #: src/Widgets/Display.vala:123
-#, fuzzy
 msgid "Subgenres"
-msgstr "Subgenres"
+msgstr "Subgêneros"
 
 #: src/Widgets/Display.vala:124
 #, fuzzy
@@ -260,64 +217,52 @@ msgid "Eras"
 msgstr "Eras"
 
 #: src/Widgets/Display.vala:125
-#, fuzzy
 msgid "Talk, News, Sport"
-msgstr "Talk, News, Sport"
+msgstr "Conversa, Notícias, Desporto"
 
 #: src/Widgets/Display.vala:454
-#, fuzzy
 msgid "Discover"
-msgstr "Discover"
+msgstr "Descobrir"
 
 #: src/Widgets/Display.vala:455
-#, fuzzy
 msgid "Stations to Discover"
-msgstr "Stations to Discover"
+msgstr "Estações para descobrir"
 
 #: src/Widgets/Display.vala:459
-#, fuzzy
 msgid "Discover more stations"
-msgstr "Discover more stations"
+msgstr "Descobrir mais estações"
 
 #: src/Widgets/Display.vala:479
-#, fuzzy
 msgid "Trending"
-msgstr "Trending"
+msgstr "Tendências"
 
 #: src/Widgets/Display.vala:480
-#, fuzzy
 msgid "Trending Stations in the last 24 hours"
-msgstr "Trending Stations in the last 24 hours"
+msgstr "Estações de Tendência nas últimas 24 horas"
 
 #: src/Widgets/Display.vala:497
-#, fuzzy
 msgid "Popular"
 msgstr "Popular"
 
 #: src/Widgets/Display.vala:498
-#, fuzzy
 msgid "Most listened to Stations in the last 24 hours"
-msgstr "Most listened to Stations in the last 24 hours"
+msgstr "A maioria ouviu estações nas últimas 24 horas"
 
 #: src/Widgets/Display.vala:535 src/Widgets/Display.vala:536
-#, fuzzy
 msgid "Starred by You"
-msgstr "Starred by You"
+msgstr "Estrelado por você"
 
 #: src/Widgets/Display.vala:574
-#, fuzzy
 msgid "Latest Search"
-msgstr "Latest Search"
+msgstr "Pesquisa mais recente"
 
 #: src/Widgets/Display.vala:575
-#, fuzzy
 msgid "Search Results"
-msgstr "Search Results"
+msgstr "Resultados da pesquisa"
 
 #: src/Widgets/Display.vala:577
-#, fuzzy
 msgid "Save this search"
-msgstr "Save this search"
+msgstr "Gravar esta pesquisa"
 
 #: src/Widgets/Display.vala:711
 #, fuzzy
@@ -325,29 +270,25 @@ msgid "Jukebox"
 msgstr "Jukebox"
 
 #: src/Widgets/Display.vala:713
-#, c-format, fuzzy
+#, c-format
 msgid "Double click to shuffle through %1$u stations"
-msgstr "Double click to shuffle through %1$u stations"
+msgstr "Clique duas vezes para evitar %1$u estações"
 
 #: src/Widgets/Display.vala:714
-#, fuzzy
 msgid "one, every ten minutes, for %2$u days"
-msgstr "one, every ten minutes, for %2$u days"
+msgstr "um, cada dez minutos, para %2$u dias"
 
 #: src/Widgets/Display.vala:780
-#, fuzzy
 msgid "Saved Search"
-msgstr "Saved Search"
+msgstr "Pesquisa gravada"
 
 #: src/Widgets/Display.vala:783
-#, fuzzy
 msgid "Remove this saved search"
-msgstr "Remove this saved search"
+msgstr "Remover esta pesquisa gravada"
 
 #: src/Widgets/HeaderBar.vala:159 src/Widgets/StationContextMenu.vala:159
-#, fuzzy
 msgid "Star this station"
-msgstr "Star this station"
+msgstr "Dar estrela a esta estação"
 
 #.
 #. Create and configure play button
@@ -358,142 +299,122 @@ msgstr "Star this station"
 #.
 #. Search button
 #: src/Widgets/HeaderBar.vala:181
-#, fuzzy
 msgid "Search for Stations"
-msgstr "Search for Stations"
+msgstr "Procurar por estações"
 
 #: src/Widgets/HeaderBar.vala:189
-#, fuzzy
 msgid "Preferences"
-msgstr "Preferences"
+msgstr "Preferências"
 
 #: src/Widgets/HeaderBar.vala:194
-#, fuzzy
 msgid "History"
-msgstr "History"
+msgstr "Histórico"
 
 #: src/Widgets/HeaderBar.vala:198
-#, fuzzy
 msgid "Heart current track in history"
-msgstr "Heart current track in history"
+msgstr "Faixa de corrente cardíaca na história"
 
 #: src/Widgets/PreferencesPopover.vala:24
-#, fuzzy
 msgid "About"
-msgstr "About"
+msgstr "Sobre"
 
 #. Voting
 #: src/Widgets/PreferencesPopover.vala:30
-#, fuzzy
 msgid "Do not participate in Station voting"
-msgstr "Do not participate in Station voting"
+msgstr "Não participe na votação da estação"
 
 #: src/Widgets/PreferencesPopover.vala:32
-#, fuzzy
 msgid ""
 "If checked, your starred and streamed stations will not be used to calculate "
 "the Station index popularity vote, nor the popular and trending stations"
 msgstr ""
-"If checked, your starred and streamed stations will not be used to calculate "
-"the Station index popularity vote, nor the popular and trending stations"
+"Se verificado, as suas estações estreladas e transmitidas não serão usadas "
+"para calcular o voto de popularidade do índice de estação, nem as estações "
+"populares e de tendência"
 
 #. Theme
 #: src/Widgets/PreferencesPopover.vala:38
-#, fuzzy
 msgid "System"
-msgstr "System"
+msgstr "Sistema"
 
 #: src/Widgets/PreferencesPopover.vala:39
-#, fuzzy
 msgid "Light mode"
-msgstr "Light mode"
+msgstr "Modo claro"
 
 #: src/Widgets/PreferencesPopover.vala:40
-#, fuzzy
 msgid "Dark mode"
-msgstr "Dark mode"
+msgstr "Modo escuro"
 
 #: src/Widgets/PreferencesPopover.vala:47
-#, fuzzy
 msgid "Theme"
-msgstr "Theme"
+msgstr "Tema"
 
 #. Autoplay
 #: src/Widgets/PreferencesPopover.vala:52
-#, fuzzy
 msgid "Auto-play last station on startup"
-msgstr "Auto-play last station on startup"
+msgstr "Auto-play última estação na inicialização"
 
 #: src/Widgets/PreferencesPopover.vala:54
-#, fuzzy
 msgid ""
 "If enabled, when Tuner starts it will automatically start to play the last "
 "played station"
 msgstr ""
-"If enabled, when Tuner starts it will automatically start to play the last "
-"played station"
+"Se ativado, quando o Tuner inicia, ele começará automaticamente a jogar a "
+"última estação tocada"
 
 #. Restart Playing after network interruption
 #: src/Widgets/PreferencesPopover.vala:60
-#, fuzzy
 msgid "Restart playing after a network outage"
-msgstr "Restart playing after a network outage"
+msgstr "Reinicie a reproduzir após uma interrupção de rede"
 
 #: src/Widgets/PreferencesPopover.vala:62
-#, fuzzy
 msgid ""
 "If enabled, Tuner will restart playing the current station if it was stopped "
 "by a network outage"
 msgstr ""
-"If enabled, Tuner will restart playing the current station if it was stopped "
-"by a network outage"
+"Se ativado, o Tuner reiniciará a reproduzir a estação atual se for "
+"interrompido por uma saída de rede"
 
 #. Start on Starred
 #: src/Widgets/PreferencesPopover.vala:68
-#, fuzzy
 msgid "Open to Starred Stations"
-msgstr "Open to Starred Stations"
+msgstr "Aberto às Estações Estreladas"
 
 #: src/Widgets/PreferencesPopover.vala:70
-#, fuzzy
 msgid "If enabled, when Tuner starts it will open to the starred stations view"
-msgstr "If enabled, when Tuner starts it will open to the starred stations view"
+msgstr ""
+"Se ativado, quando o Tuner inicia, ele será aberto à vista das estações "
+"estreladas"
 
 #. Startup sound
 #: src/Widgets/PreferencesPopover.vala:76
-#, fuzzy
 msgid "Play startup jingle"
-msgstr "Play startup jingle"
+msgstr "Jogue jingle de inicialização"
 
 #: src/Widgets/PreferencesPopover.vala:78
-#, fuzzy
 msgid "If enabled, Tuner plays a short sound when it starts"
-msgstr "If enabled, Tuner plays a short sound when it starts"
+msgstr "Se ativado, Tuner toca um som curto quando começa"
 
 #. Play Display
 #: src/Widgets/PreferencesPopover.vala:84
-#, fuzzy
 msgid "Show stream info when playing"
-msgstr "Show stream info when playing"
+msgstr "Mostrar informações de fluxo ao jogar"
 
 #: src/Widgets/PreferencesPopover.vala:86
-#, fuzzy
 msgid "Cycle through the metadata from the playing stream"
-msgstr "Cycle through the metadata from the playing stream"
+msgstr "Ciclo através dos metadados do fluxo de jogo"
 
 #: src/Widgets/PreferencesPopover.vala:90
-#, fuzzy
 msgid "Faster cycling through stream info"
-msgstr "Faster cycling through stream info"
+msgstr "Ciclismo mais rápido através de informações de fluxo"
 
 #: src/Widgets/PreferencesPopover.vala:92
-#, fuzzy
 msgid ""
 "Fast cycle through the metadata from the playing stream if show stream info "
 "is enabled"
 msgstr ""
-"Fast cycle through the metadata from the playing stream if show stream info "
-"is enabled"
+"Ciclo rápido através dos metadados do fluxo de reprodução se mostrar "
+"informações do fluxo está ativado"
 
 #: src/Widgets/PreferencesPopover.vala:96
 #, fuzzy
@@ -501,142 +422,117 @@ msgid "Stream metadata image popup"
 msgstr "Stream metadata image popup"
 
 #: src/Widgets/PreferencesPopover.vala:98
-#, fuzzy
 msgid "Show a movable popup with images discovered in the stream metadata"
-msgstr "Show a movable popup with images discovered in the stream metadata"
+msgstr "Mostrar um popup móvel com imagens descobertas nos metadados do fluxo"
 
 #: src/Widgets/PreferencesPopover.vala:102
-#, fuzzy
 msgid "Shrink title dynamically with the text"
-msgstr "Shrink title dynamically with the text"
+msgstr "Curte o título dinamicamente com o texto"
 
 #: src/Widgets/PreferencesPopover.vala:104
-#, fuzzy
 msgid "Shrink the title according to the length of the displayed text."
-msgstr "Shrink the title according to the length of the displayed text."
+msgstr "Encolher o título de acordo com o comprimento do texto exibido."
 
 #: src/Widgets/PreferencesPopover.vala:122
-#, fuzzy
 msgid "Language"
-msgstr "Language"
+msgstr "Idioma"
 
 #: src/Widgets/PreferencesPopover.vala:123
-#, fuzzy
 msgid "Language changes restart Tuner"
-msgstr "Language changes restart Tuner"
+msgstr "Alterações linguísticas reiniciar Tuner"
 
 #. end language selection
 #. Export starred
 #: src/Widgets/PreferencesPopover.vala:131
-#, fuzzy
 msgid "Export Starred Stations to Playlist"
-msgstr "Export Starred Stations to Playlist"
+msgstr "Exportar estações estreladas para lista de reprodução"
 
 #. Import starred
 #: src/Widgets/PreferencesPopover.vala:141
-#, fuzzy
 msgid "Import Station UUIDs as Starred Stations"
-msgstr "Import Station UUIDs as Starred Stations"
+msgstr "UUIDs da estação de importação como estações estreladas"
 
 #. Create the file chooser dialog for saving the exported playlist
 #: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:572
-#, fuzzy
 msgid "Save File"
-msgstr "Save File"
+msgstr "Gravar Ficheiro"
 
 #: src/Widgets/PreferencesPopover.vala:232
 #: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:575
-#, fuzzy
 msgid "_Cancel"
-msgstr "_Cancel"
+msgstr "_Cancelar"
 
 #: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:564
 #: src/Widgets/Window.vala:576
-#, fuzzy
 msgid "_Save"
-msgstr "_Save"
+msgstr "_Gravar"
 
 #. warning("Error: $(e.message)");
 #: src/Widgets/PreferencesPopover.vala:254
-#, fuzzy
 msgid "Error"
-msgstr "Error"
+msgstr "Erro"
 
 #: src/Widgets/PreferencesPopover.vala:267
-#, fuzzy
 msgid "Choose a file"
-msgstr "Choose a file"
+msgstr "Selecionar um ficheiro"
 
 #: src/Widgets/PreferencesPopover.vala:271
-#, fuzzy
 msgid "_Open"
-msgstr "_Open"
+msgstr "_Abrir"
 
 #. warning("Error reading file: $(e.message)");
 #: src/Widgets/PreferencesPopover.vala:294
-#, fuzzy
 msgid "Error reading file"
-msgstr "Error reading file"
+msgstr "Erro ao ler o ficheiro"
 
 #. ----------------------------------------------
 #: src/Widgets/StationContextMenu.vala:77
-#, fuzzy
 msgid "Station info updated Online - View changes"
-msgstr "Station info updated Online - View changes"
+msgstr "Informação atualizada Online - Ver alterações"
 
 #: src/Widgets/StationContextMenu.vala:78
-#, fuzzy
 msgid "Update Station from Online"
-msgstr "Update Station from Online"
+msgstr "Estação de atualização de Online"
 
 #: src/Widgets/StationContextMenu.vala:86
-#, fuzzy
 msgid "Visit Website"
-msgstr "Visit Website"
+msgstr "Visite o site"
 
 #: src/Widgets/StationContextMenu.vala:93
-#, fuzzy
 msgid "Copy Stream-URI to clipboard"
-msgstr "Copy Stream-URI to clipboard"
+msgstr "Copiar Stream-URI para área de transferência"
 
 #. warning (@"Unable to open website: $(e.message)");
 #: src/Widgets/StationContextMenu.vala:135
-#, fuzzy
 msgid "Unable to open website"
-msgstr "Unable to open website"
+msgstr "Incapaz de abrir o site"
 
 #. item.label = _station.starred ? Application.UNSTAR_CHAR + _("Unstar this station") : Application.STAR_CHAR + _("Star this station");
 #: src/Widgets/StationContextMenu.vala:158
-#, fuzzy
 msgid "Unstar this station"
-msgstr "Unstar this station"
+msgstr "Retirar estrela desta estação"
 
 #. Private
 #: src/Widgets/Window.vala:74
-#, fuzzy
 msgid "Playing in background"
-msgstr "Playing in background"
+msgstr "A reproduzir em segundo plano"
 
 #: src/Widgets/Window.vala:75
-#, fuzzy
 msgid ""
 "Click here to resume window. To quit Tuner, pause playback and close the "
 "window."
 msgstr ""
-"Click here to resume window. To quit Tuner, pause playback and close the "
-"window."
+"Clique aqui para retomar a janela. Para deixar o Tuner, pausar a reprodução "
+"e fechar a janela."
 
 #: src/Widgets/Window.vala:340
-#, fuzzy
 msgid "Stop Playback requested"
-msgstr "Stop Playback requested"
+msgstr "Reprodução solicitada"
 
 #: src/Widgets/Window.vala:561
-#, fuzzy
 msgid "Save hearted tracks to a file?"
-msgstr "Save hearted tracks to a file?"
+msgstr "Gravar faixas cardíacas num ficheiro?"
 
 #: src/Widgets/Window.vala:563
-#, fuzzy
 msgid "_Don't Save"
-msgstr "_Don't Save"
+msgstr "_Não Gravar"
