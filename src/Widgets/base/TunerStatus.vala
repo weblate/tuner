@@ -341,11 +341,19 @@ public class Tuner.Widgets.Base.AnimatedJukeboxIcon : Gtk.DrawingArea
 	 */
 	public void animate_to (double normalized_position)
 	{
+		// Stop old animation immediately
+		if (_animation_tick_id != 0) 
+		{
+			remove_tick_callback(_animation_tick_id);
+			_animation_tick_id = 0;
+			_animation_start_us = 0;
+		}
+
 		double target_norm = Math.fmax (0.0, Math.fmin (1.0, normalized_position));
 
 		_target_needle_offset = (NEEDLE_MIN_X + target_norm * (NEEDLE_MAX_X - NEEDLE_MIN_X)) - NEEDLE_BASE_X;
-		_target_record_angle = _record_angle + (360.0 * RECORD_TURNS) + (target_norm * 360.0);
-
+		_target_record_angle = _record_angle + (293.0 * RECORD_TURNS) + (target_norm * 360.0);
+		
 		_start_needle_offset = _needle_offset;
 		_start_record_angle = _record_angle;
 		_animation_start_us = 0;
