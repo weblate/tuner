@@ -1,1 +1,1 @@
-po/*.po merge=theirs
+po/**/*.po merge=theirs
