@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: application\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
 "POT-Creation-Date: 2026-06-09 10:10-0700\n"
-"PO-Revision-Date: 2026-06-09 17:20+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"PO-Revision-Date: 2026-06-09 19:26+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/tuner/tuner-ui/"
 "pl/>\n"
 "Language: pl\n"
@@ -111,9 +112,8 @@ msgid "Audio Codec"
 msgstr "Audio Code"
 
 #: src/Models/StreamMetadata.vala:38
-#, fuzzy
 msgid "Video Codec"
-msgstr "Video Codec"
+msgstr "Size & Format\""
 
 #: src/Models/StreamMetadata.vala:39
 msgid "Channel Mode"
@@ -300,9 +300,8 @@ msgstr "Gwiazda ta"
 #.
 #. Search button
 #: src/Widgets/HeaderBar.vala:181
-#, fuzzy
 msgid "Search for Stations"
-msgstr "Search for Stations"
+msgstr "Poszukiwanie stacji"
 
 #: src/Widgets/HeaderBar.vala:189
 msgid "Preferences"
@@ -386,14 +385,12 @@ msgstr "Gdy Tuner zaczyna ją otwierać, będzie można oglądać główne stacj
 
 #. Startup sound
 #: src/Widgets/PreferencesPopover.vala:76
-#, fuzzy
 msgid "Play startup jingle"
-msgstr "Play startup jingle"
+msgstr "Gra na początku"
 
 #: src/Widgets/PreferencesPopover.vala:78
-#, fuzzy
 msgid "If enabled, Tuner plays a short sound when it starts"
-msgstr "If enabled, Tuner plays a short sound when it starts"
+msgstr "W przypadku, Tuner gra krótkie dźwięki, gdy rozpoczyna się ona"
 
 #. Play Display
 #: src/Widgets/PreferencesPopover.vala:84
