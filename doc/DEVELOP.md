@@ -90,6 +90,9 @@ sudo apt install git valac meson
 sudo apt install libgtk-3-dev libgee-0.8-dev libgstreamer1.0-dev libgstreamer-plugins-bad1.0-dev libsoup-3.0-dev libjson-glib-dev
 ```
 
+[libgee](https://gitlab.gnome.org/GNOME/libgee/-/releases) is built as a module during the build.
+
+
 ## Tuner Development Lifecycle
 
 Hosted on Github, the _main_ branch reflects captured the current release and tags. The _development_ branch is the destination for in progress code, translations and where releases are staged. Fork the project and develop on your forks' _development_ branch. All _Pull Requests_ should be made against the _development_ branch.
@@ -170,7 +173,8 @@ gdb -ex "set environment GSETTINGS_SCHEMA_DIR=builddir/data" -ex run -ex bt --ar
 
 ## Building the Tuner Flatpak
 
-Tuner uses the **org.freedesktop.Sdk** version **25.08** with the  **Vala** extension. To build the tuner flatpak, install the freedesktop SDK, Platform and Vala extension. For example, for x86:
+Tuner uses the **org.freedesktop.Sdk** version **25.08** with the  **Vala** extension ([releases here](https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/releases)).
+To build the tuner flatpak, install the freedesktop SDK, Platform and Vala extension. For example, for x86:
 
 ```bash
 apt-get install flatpak-builder
