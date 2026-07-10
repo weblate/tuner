@@ -110,7 +110,6 @@ dependencies = [
     dependency ('gee-0.8'),
     dependency ('gio-2.0'),
     dependency ('gstreamer-1.0'),
-    dependency ('gstreamer-player-1.0'),
     dependency ('libsoup-3.0'),
     dependency ('json-glib-1.0'),
     dependency ('librsvg-2.0')
