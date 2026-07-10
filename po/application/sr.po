@@ -9,8 +9,9 @@ msgstr ""
 "Project-Id-Version: io.github.tuner_labs.tuner 2.0.1-beta.2\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
 "POT-Creation-Date: 2026-06-09 10:10-0700\n"
-"PO-Revision-Date: 2026-06-09 17:19+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"PO-Revision-Date: 2026-06-09 19:26+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/tuner/tuner-ui/"
 "sr/>\n"
 "Language: sr\n"
@@ -110,9 +111,8 @@ msgid "Audio Codec"
 msgstr "@Audio"
 
 #: src/Models/StreamMetadata.vala:38
-#, fuzzy
 msgid "Video Codec"
-msgstr "Video Codec"
+msgstr "Size & Format\""
 
 #: src/Models/StreamMetadata.vala:39
 msgid "Channel Mode"
@@ -299,9 +299,8 @@ msgstr "#Zvijezda @this #postaja"
 #.
 #. Search button
 #: src/Widgets/HeaderBar.vala:181
-#, fuzzy
 msgid "Search for Stations"
-msgstr "Search for Stations"
+msgstr "@Search# for #Postaja"
 
 #: src/Widgets/HeaderBar.vala:189
 msgid "Preferences"
@@ -389,14 +388,12 @@ msgstr ""
 
 #. Startup sound
 #: src/Widgets/PreferencesPopover.vala:76
-#, fuzzy
 msgid "Play startup jingle"
-msgstr "Play startup jingle"
+msgstr "#Predstava startup @jingle"
 
 #: src/Widgets/PreferencesPopover.vala:78
-#, fuzzy
 msgid "If enabled, Tuner plays a short sound when it starts"
-msgstr "If enabled, Tuner plays a short sound when it starts"
+msgstr "Li #omogućivati, Tuner #predstava @a @short #zvuk kada #free #početak"
 
 #. Play Display
 #: src/Widgets/PreferencesPopover.vala:84

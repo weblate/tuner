@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: io.github.tuner_labs.tuner 2.0.1-beta.2\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
 "POT-Creation-Date: 2026-06-09 10:10-0700\n"
-"PO-Revision-Date: 2026-06-09 17:19+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"PO-Revision-Date: 2026-06-09 19:26+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/tuner/tuner-ui/"
 "ar/>\n"
 "Language: ar\n"
@@ -111,7 +111,6 @@ msgid "Audio Codec"
 msgstr "Audio Codec"
 
 #: src/Models/StreamMetadata.vala:38
-#, fuzzy
 msgid "Video Codec"
 msgstr "Video Codec"
 
@@ -384,14 +383,12 @@ msgstr "إذا مُكّن، عندما يبدأ (تونر) سيفتح على م�
 
 #. Startup sound
 #: src/Widgets/PreferencesPopover.vala:76
-#, fuzzy
 msgid "Play startup jingle"
-msgstr "Play startup jingle"
+msgstr "ابدأي"
 
 #: src/Widgets/PreferencesPopover.vala:78
-#, fuzzy
 msgid "If enabled, Tuner plays a short sound when it starts"
-msgstr "If enabled, Tuner plays a short sound when it starts"
+msgstr "إذا مُكّنَ، تونر يَلْعبُ a صوت قصير عندما يَبْدأُ"
 
 #. Play Display
 #: src/Widgets/PreferencesPopover.vala:84

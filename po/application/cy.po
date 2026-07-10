@@ -9,8 +9,9 @@ msgstr ""
 "Project-Id-Version: application\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
 "POT-Creation-Date: 2026-06-09 10:10-0700\n"
-"PO-Revision-Date: 2026-06-09 17:19+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"PO-Revision-Date: 2026-06-09 19:26+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Welsh <https://hosted.weblate.org/projects/tuner/tuner-ui/cy/>"
 "\n"
 "Language: cy\n"
@@ -504,9 +505,8 @@ msgstr "Import Station UUIDs as Starred Stations"
 
 #. Create the file chooser dialog for saving the exported playlist
 #: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:572
-#, fuzzy
 msgid "Save File"
-msgstr "Save File"
+msgstr "Cadw Ffeil"
 
 #: src/Widgets/PreferencesPopover.vala:232
 #: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:575
