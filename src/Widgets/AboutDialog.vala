@@ -26,7 +26,7 @@ public class Tuner.Widgets.AboutDialog : Gtk.AboutDialog {
         set_transient_for (window);
         set_modal (true);
 
-		artists            = {"https://faleksandar.com/ and vinyl record graphic from https://www.svgrepo.com/"};
+		artists            = {"https://faleksandar.com/","Vinyl record graphic from SVGRepo https://www.svgrepo.com/"};
 		authors            = {"Louis Brauer, technosf"};
 		documenters        = null;
 		translator_credits = """Estonian tranlation by jrthwlate https://hosted.weblate.org/user/jrthwlate/

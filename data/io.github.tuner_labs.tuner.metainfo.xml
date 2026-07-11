@@ -101,15 +101,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
   <releases>
   
-    <release version="2.2.0-beta.1" date="2026-04-16">
+    <release version="2.2.0-beta.2" date="2026-07-10">
       <description>
         <p>Feature release:</p>
         <ul>
-          <li>Station change crossfades</li>
-          <li>Icon animations</li>
+          <li>Station change crossfade added</li>
+          <li>Icon animations added</li>
           <li>Refactored audio player and removed use of deprecated GstPlayer</li>
           <li>Refactored metadata processing and title transitions</li>
-          <li>Jingle preference</li>
+          <li>Jingle preferences added</li>
+          <li>Translations updated and expanded</li>
         </ul>
       </description>
     </release>      
