@@ -106,6 +106,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <p>Feature release:</p>
         <ul>
           <li>Station change crossfade added</li>
+          <li>History view revamped</li>
           <li>Icon animations added</li>
           <li>Refactored audio player and removed use of deprecated GstPlayer</li>
           <li>Refactored metadata processing and title transitions</li>
