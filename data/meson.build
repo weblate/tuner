@@ -88,7 +88,6 @@ meson.add_install_script (
     install_tag: 'schemas'
 )
 
-
 message('Installed schema\n')
 
 subdir('icons')

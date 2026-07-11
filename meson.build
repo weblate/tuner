@@ -12,7 +12,7 @@
 project (
     'io.github.tuner_labs.tuner',
     'vala', 'c',
-    version: '2.1.1-beta.1',
+    version: '2.2.0-beta.2',
     meson_version: '>= 1.3.2',
 )
 
@@ -110,7 +110,6 @@ dependencies = [
     dependency ('gee-0.8'),
     dependency ('gio-2.0'),
     dependency ('gstreamer-1.0'),
-    dependency ('gstreamer-player-1.0'),
     dependency ('libsoup-3.0'),
     dependency ('json-glib-1.0'),
     dependency ('librsvg-2.0')

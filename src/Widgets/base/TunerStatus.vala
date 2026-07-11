@@ -270,17 +270,18 @@ public class Tuner.Widgets.Base.AnimatedJukeboxIcon : Gtk.DrawingArea
 	private const double NEEDLE_BASE_X = 0.0;
 	private const double NEEDLE_MIN_X = -4.0;
 	private const double NEEDLE_MAX_X = 18.0;
-	private const double RECORD_POSITION_X = 27.591421;
-	private const double RECORD_POSITION_Y = 23.087348;
-	private const double RECORD_SOURCE_CENTER = 232.5;
-	private const double RECORD_SCALE_X = 0.15870427;
-	private const double RECORD_SCALE_Y = 0.15939803;
-	private const double RECORD_CENTER_X = RECORD_POSITION_X + (RECORD_SOURCE_CENTER * RECORD_SCALE_X);
-	private const double RECORD_CENTER_Y = RECORD_POSITION_Y + (RECORD_SOURCE_CENTER * RECORD_SCALE_Y);
+	private const double RECORD_SOURCE_SIZE = 800.0;
+	private const double RECORD_SOURCE_CENTER = RECORD_SOURCE_SIZE / 2.0;
 	private const double RECORD_CLIP_X = 27.594669;
-	private const double RECORD_CLIP_Y = 23.079477;
 	private const double RECORD_CLIP_WIDTH = 73.808601;
-	private const double RECORD_CLIP_HEIGHT = 37.085617;
+	private const double RECORD_CLIP_PADDING = 1.0;
+	private const double RECORD_VISIBLE_TOP_Y = 13.1;
+	private const double RECORD_VISIBLE_BOTTOM_Y = 53.5;
+	private const double RECORD_SCALE = RECORD_CLIP_WIDTH / RECORD_SOURCE_SIZE;
+	private const double RECORD_POSITION_X = RECORD_CLIP_X;
+	private const double RECORD_POSITION_Y = RECORD_VISIBLE_BOTTOM_Y - (RECORD_SOURCE_CENTER * RECORD_SCALE);
+	private const double RECORD_CENTER_X = RECORD_POSITION_X + (RECORD_SOURCE_CENTER * RECORD_SCALE);
+	private const double RECORD_CENTER_Y = RECORD_POSITION_Y + (RECORD_SOURCE_CENTER * RECORD_SCALE);
 	private const double RECORD_TURNS = 4.0;
 	private const int ANIMATION_DURATION_MS = 2000;
 
@@ -314,9 +315,8 @@ public class Tuner.Widgets.Base.AnimatedJukeboxIcon : Gtk.DrawingArea
 		{
 			var bytes = GLib.resources_lookup_data ("/io/github/tuner_labs/tuner/icons/tuner:background-jukebox.svg", GLib.ResourceLookupFlags.NONE);
 			_handle = new Rsvg.Handle.from_data (bytes.get_data ());
-			string svg = (string) bytes.get_data ();
-			string animation_svg = svg.replace ("clip-path=\"url(#clipPath2)\"", "");
-			_record_handle = new Rsvg.Handle.from_data (animation_svg.data);
+			var record_bytes = GLib.resources_lookup_data ("/io/github/tuner_labs/tuner/icons/tuner:vinyl-record.svg", GLib.ResourceLookupFlags.NONE);
+			_record_handle = new Rsvg.Handle.from_data (record_bytes.get_data ());
 		}
 		catch (GLib.Error e)
 		{
@@ -341,11 +341,19 @@ public class Tuner.Widgets.Base.AnimatedJukeboxIcon : Gtk.DrawingArea
 	 */
 	public void animate_to (double normalized_position)
 	{
+		// Stop old animation immediately
+		if (_animation_tick_id != 0) 
+		{
+			remove_tick_callback(_animation_tick_id);
+			_animation_tick_id = 0;
+			_animation_start_us = 0;
+		}
+
 		double target_norm = Math.fmax (0.0, Math.fmin (1.0, normalized_position));
 
 		_target_needle_offset = (NEEDLE_MIN_X + target_norm * (NEEDLE_MAX_X - NEEDLE_MIN_X)) - NEEDLE_BASE_X;
-		_target_record_angle = _record_angle + (360.0 * RECORD_TURNS) + (target_norm * 360.0);
-
+		_target_record_angle = _record_angle + (293.0 * RECORD_TURNS) + (target_norm * 360.0);
+		
 		_start_needle_offset = _needle_offset;
 		_start_record_angle = _record_angle;
 		_animation_start_us = 0;
@@ -451,12 +459,21 @@ public class Tuner.Widgets.Base.AnimatedJukeboxIcon : Gtk.DrawingArea
 	private void render_clipped_rotated_record (Cairo.Context cr, double angle_deg)
 	{
 		cr.save ();
-		cr.rectangle (RECORD_CLIP_X, RECORD_CLIP_Y, RECORD_CLIP_WIDTH, RECORD_CLIP_HEIGHT);
+		double clip_x = RECORD_CLIP_X - RECORD_CLIP_PADDING;
+		double clip_y = RECORD_VISIBLE_TOP_Y;
+		double clip_width = RECORD_CLIP_WIDTH + (RECORD_CLIP_PADDING * 2.0);
+		double clip_height = RECORD_CENTER_Y - clip_y;
+
+		cr.rectangle (clip_x, clip_y, clip_width, clip_height);
 		cr.clip ();
-		cr.translate (RECORD_CENTER_X, RECORD_CENTER_Y);
+
+		cr.translate (RECORD_POSITION_X, RECORD_POSITION_Y);
+		cr.scale (RECORD_SCALE, RECORD_SCALE);
+		cr.translate (RECORD_SOURCE_CENTER, RECORD_SOURCE_CENTER);
 		cr.rotate (angle_deg * Math.PI / 180.0);
-		cr.translate (-RECORD_CENTER_X, -RECORD_CENTER_Y);
-		_record_handle.render_cairo_sub (cr, "#knob-rotation");
+		cr.translate (-RECORD_SOURCE_CENTER, -RECORD_SOURCE_CENTER);
+
+		_record_handle.render_cairo (cr);
 		cr.restore ();
 	} // render_clipped_rotated_record
 } // AnimatedJukeboxIcon
