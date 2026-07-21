@@ -8,9 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-19 20:37-0700\n"
-"PO-Revision-Date: 2026-03-31 05:12+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-07-21 11:01+0000\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "tuner/extra/en_GB/>\n"
 "Language: en_GB\n"
@@ -18,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 2026.8.dev0\n"
 
 #: data/io.github.tuner_labs.tuner.desktop.in:9
 msgid "Tuner"
@@ -26,12 +25,12 @@ msgstr "Tuner"
 
 #: data/io.github.tuner_labs.tuner.desktop.in:10
 msgid "Internet streaming radio music player"
-msgstr ""
+msgstr "Internet streaming radio music player"
 
 #: data/io.github.tuner_labs.tuner.desktop.in:11
 msgid "Listen to Radio Stations from around the world"
-msgstr ""
+msgstr "Listen to Radio Stations from around the World"
 
 #: data/io.github.tuner_labs.tuner.desktop.in:17
 msgid "Radio;Receiver;FM;Music;Talk;Sport;News"
-msgstr ""
+msgstr "Radio;Receiver;FM;Music;Talk;Sport;News"
