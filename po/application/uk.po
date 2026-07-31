@@ -1,0 +1,592 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# technosf <535060+technosf@users.noreply.github.com>, 2026.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2026.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2026.
+# Prefill add-on <noreply-addon-prefill@weblate.org>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: io.github.tuner_labs.tuner 2.0.1-beta.2\n"
+"Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
+"POT-Creation-Date: 2026-06-09 10:10-0700\n"
+"PO-Revision-Date: 2026-06-09 18:20+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/tuner/tuner-ui/"
+"uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 2026.6\n"
+
+#. Count once per day
+#. ----------------------------------------------------------
+#. Temporal Properties
+#. ----------------------------------------------------------
+#. Indicates if the station is in the provider index
+#. Indicates if the station is up-to-date with the provider index
+#: src/Models/Station.vala:160
+msgid "Station no longer in the index"
+msgstr "Станція не більше в індексі"
+
+#: src/Models/Station.vala:402
+#, c-format
+msgid "Last Played: %s\tPlays: %d"
+msgstr "Останнє Зіграно: %s величина: %d"
+
+#: src/Models/Station.vala:436
+msgid "Changes"
+msgstr "Зміни"
+
+#: src/Models/Station.vala:437
+msgid "Stream Url"
+msgstr "Потік Урл"
+
+#: src/Models/Station.vala:438
+msgid "Stream Resolved Url"
+msgstr "Потокове розчинення Урл"
+
+#: src/Models/Station.vala:439
+msgid "Favicon address"
+msgstr "Фавіконська адреса"
+
+#: src/Models/Station.vala:440
+msgid "Homepage address"
+msgstr "Головна сторінка"
+
+#: src/Models/Station.vala:441
+msgid "Station tags"
+msgstr "Станційні теги"
+
+#: src/Models/Station.vala:442 src/Models/StreamMetadata.vala:36
+msgid "Bitrate"
+msgstr "Бітрейт"
+
+#: src/Models/Station.vala:443
+msgid "Codec"
+msgstr "Кодек"
+
+#. Ordered array of tags and descriptions
+#: src/Models/StreamMetadata.vala:27
+msgid "Title"
+msgstr "Назва"
+
+#: src/Models/StreamMetadata.vala:28
+msgid "Artist"
+msgstr "Художник"
+
+#: src/Models/StreamMetadata.vala:29
+msgid "Album"
+msgstr "Альбом"
+
+#: src/Models/StreamMetadata.vala:30
+msgid "Image"
+msgstr "Зображення"
+
+#: src/Models/StreamMetadata.vala:31
+msgid "Genre"
+msgstr "Жанр"
+
+#: src/Models/StreamMetadata.vala:32
+msgid "Homepage"
+msgstr "Домашня сторінка"
+
+#: src/Models/StreamMetadata.vala:33
+msgid "Organization"
+msgstr "Організація"
+
+#: src/Models/StreamMetadata.vala:34
+msgid "Location"
+msgstr "Розташування"
+
+#: src/Models/StreamMetadata.vala:35
+msgid "Extended Comment"
+msgstr "Розширений коментар"
+
+#: src/Models/StreamMetadata.vala:37
+msgid "Audio Codec"
+msgstr "Аудіокод"
+
+#: src/Models/StreamMetadata.vala:38
+msgid "Video Codec"
+msgstr "Відеокод"
+
+#: src/Models/StreamMetadata.vala:39
+msgid "Channel Mode"
+msgstr "Режим Каналу"
+
+#: src/Models/StreamMetadata.vala:40
+msgid "Track Number"
+msgstr "Номер доріжки"
+
+#: src/Models/StreamMetadata.vala:41
+msgid "Track Count"
+msgstr "Кількість треків"
+
+#: src/Models/StreamMetadata.vala:42
+msgid "Nominal Bitrate"
+msgstr "Номінал бітрейт"
+
+#: src/Models/StreamMetadata.vala:43
+msgid "Minimum Bitrate"
+msgstr "Мінімальний бітрейт"
+
+#: src/Models/StreamMetadata.vala:44
+msgid "Maximum Bitrate"
+msgstr "Максимальний бітрейт"
+
+#: src/Models/StreamMetadata.vala:45
+msgid "Has CRC"
+msgstr "КАР"
+
+#: src/Models/StreamMetadata.vala:46
+msgid "Container Format"
+msgstr "Формат контейнера"
+
+#: src/Models/StreamMetadata.vala:47
+msgid "Track Id"
+msgstr "Відстеження"
+
+#: src/Models/StreamMetadata.vala:48
+msgid "Application Name"
+msgstr "Ім'я користувача"
+
+#: src/Models/StreamMetadata.vala:49
+msgid "Encoder"
+msgstr "Енкодер"
+
+#: src/Models/StreamMetadata.vala:50
+msgid "Encoder Version"
+msgstr "Версія Encoder"
+
+#: src/Models/StreamMetadata.vala:51
+msgid "Encoded by"
+msgstr "Кодований"
+
+#: src/Models/StreamMetadata.vala:52
+msgid "Private Data"
+msgstr "Приватні дані"
+
+#: src/Models/StreamMetadata.vala:53
+msgid "ID3 Private"
+msgstr "ID3 Приватне"
+
+#: src/Models/StreamMetadata.vala:54
+msgid "GStreamer Sample"
+msgstr "GStreamer Приклад"
+
+#: src/Models/StreamMetadata.vala:55
+msgid "GStreamer Date Time"
+msgstr "GStreamer Дата час"
+
+#: src/Models/StreamMetadata.vala:56
+msgid "Date Time"
+msgstr "Дата час"
+
+#.
+#. Display Assets
+#.
+#: src/Widgets/Display.vala:118
+msgid "Selections"
+msgstr "Вибірки"
+
+#: src/Widgets/Display.vala:119
+msgid "Library"
+msgstr "Бібліотека"
+
+#: src/Widgets/Display.vala:120
+msgid "Saved Searches"
+msgstr "Збережені пошуки"
+
+#: src/Widgets/Display.vala:121
+msgid "Explore"
+msgstr "Цікаве"
+
+#: src/Widgets/Display.vala:122
+msgid "Genres"
+msgstr "Жанри"
+
+#: src/Widgets/Display.vala:123
+msgid "Subgenres"
+msgstr "Субгенти"
+
+#: src/Widgets/Display.vala:124
+msgid "Eras"
+msgstr "Еразмус"
+
+#: src/Widgets/Display.vala:125
+msgid "Talk, News, Sport"
+msgstr "Розмова, Новини, Спорт"
+
+#: src/Widgets/Display.vala:454
+msgid "Discover"
+msgstr "Відкрийте для себе"
+
+#: src/Widgets/Display.vala:455
+msgid "Stations to Discover"
+msgstr "Станції для відкриття"
+
+#: src/Widgets/Display.vala:459
+msgid "Discover more stations"
+msgstr "Дізнатися більше станцій"
+
+#: src/Widgets/Display.vala:479
+msgid "Trending"
+msgstr "В тренді"
+
+#: src/Widgets/Display.vala:480
+msgid "Trending Stations in the last 24 hours"
+msgstr "Модні станції в останні 24 години"
+
+#: src/Widgets/Display.vala:497
+msgid "Popular"
+msgstr "Популярне"
+
+#: src/Widgets/Display.vala:498
+msgid "Most listened to Stations in the last 24 hours"
+msgstr "Найпопулярніші станції в останні 24 години"
+
+#: src/Widgets/Display.vala:535 src/Widgets/Display.vala:536
+msgid "Starred by You"
+msgstr "Ви"
+
+#: src/Widgets/Display.vala:574
+msgid "Latest Search"
+msgstr "Пошук"
+
+#: src/Widgets/Display.vala:575
+msgid "Search Results"
+msgstr "Результати пошуку"
+
+#: src/Widgets/Display.vala:577
+msgid "Save this search"
+msgstr "Збережіть цей пошук"
+
+#: src/Widgets/Display.vala:711
+msgid "Jukebox"
+msgstr "Юкбокс"
+
+#: src/Widgets/Display.vala:713
+#, c-format
+msgid "Double click to shuffle through %1$u stations"
+msgstr "Двічі клацніть, щоб перемикати між %1$u станціями"
+
+#: src/Widgets/Display.vala:714
+msgid "one, every ten minutes, for %2$u days"
+msgstr "один раз кожні десять хвилин протягом %2$u днів"
+
+#: src/Widgets/Display.vala:780
+msgid "Saved Search"
+msgstr "Збережений пошук"
+
+#: src/Widgets/Display.vala:783
+msgid "Remove this saved search"
+msgstr "Видалити цей збережений пошук"
+
+#: src/Widgets/HeaderBar.vala:159 src/Widgets/StationContextMenu.vala:159
+msgid "Star this station"
+msgstr "Зірка цієї станції"
+
+#.
+#. Create and configure play button
+#.
+#. Toggles player state
+#.
+#. RHS Controls
+#.
+#. Search button
+#: src/Widgets/HeaderBar.vala:181
+msgid "Search for Stations"
+msgstr "Пошук станцій"
+
+#: src/Widgets/HeaderBar.vala:189
+msgid "Preferences"
+msgstr "Властивості"
+
+#: src/Widgets/HeaderBar.vala:194
+msgid "History"
+msgstr "Історія"
+
+#: src/Widgets/HeaderBar.vala:198
+msgid "Heart current track in history"
+msgstr "Строк серцевого ритму в історії"
+
+#: src/Widgets/PreferencesPopover.vala:24
+msgid "About"
+msgstr "Інформація"
+
+#. Voting
+#: src/Widgets/PreferencesPopover.vala:30
+msgid "Do not participate in Station voting"
+msgstr "Не брати участь у голосуванні станції"
+
+#: src/Widgets/PreferencesPopover.vala:32
+msgid ""
+"If checked, your starred and streamed stations will not be used to calculate "
+"the Station index popularity vote, nor the popular and trending stations"
+msgstr ""
+"Якщо перевіряються, ваші ранкові та потокові станції не будуть "
+"використовуватися для розрахунку популярності індексу станції, ані популярні "
+"та трендові станції"
+
+#. Theme
+#: src/Widgets/PreferencesPopover.vala:38
+msgid "System"
+msgstr "Система"
+
+#: src/Widgets/PreferencesPopover.vala:39
+msgid "Light mode"
+msgstr "Світлий режим"
+
+#: src/Widgets/PreferencesPopover.vala:40
+msgid "Dark mode"
+msgstr "Темний режим"
+
+#: src/Widgets/PreferencesPopover.vala:47
+msgid "Theme"
+msgstr "Тема"
+
+#. Autoplay
+#: src/Widgets/PreferencesPopover.vala:52
+msgid "Auto-play last station on startup"
+msgstr "Автосплеї останню станцію на старті"
+
+#: src/Widgets/PreferencesPopover.vala:54
+msgid ""
+"If enabled, when Tuner starts it will automatically start to play the last "
+"played station"
+msgstr ""
+"Якщо увімкнено, коли Тюнер запускає, що вона автоматично почне грати в "
+"останній відтворений станцію"
+
+#. Restart Playing after network interruption
+#: src/Widgets/PreferencesPopover.vala:60
+msgid "Restart playing after a network outage"
+msgstr "Рештарт грати після виходу мережі"
+
+#: src/Widgets/PreferencesPopover.vala:62
+msgid ""
+"If enabled, Tuner will restart playing the current station if it was stopped "
+"by a network outage"
+msgstr ""
+"Якщо увімкнено, то втенер буде перезавантажити поточну станцію, якщо вона "
+"була зупинена мережею"
+
+#. Start on Starred
+#: src/Widgets/PreferencesPopover.vala:68
+msgid "Open to Starred Stations"
+msgstr "Відкрито до Starred Stations"
+
+#: src/Widgets/PreferencesPopover.vala:70
+msgid "If enabled, when Tuner starts it will open to the starred stations view"
+msgstr "Якщо увімкнено, коли Тюнер запустив його у зовнішній вигляд"
+
+#. Startup sound
+#: src/Widgets/PreferencesPopover.vala:76
+msgid "Play startup jingle"
+msgstr "Грати стартап jingle"
+
+#: src/Widgets/PreferencesPopover.vala:78
+msgid "If enabled, Tuner plays a short sound when it starts"
+msgstr "Якщо увімкнено, втенер грає коротке звучання, коли він запускає"
+
+#. Play Display
+#: src/Widgets/PreferencesPopover.vala:84
+msgid "Show stream info when playing"
+msgstr "Показати інформацію про потік при грі"
+
+#: src/Widgets/PreferencesPopover.vala:86
+msgid "Cycle through the metadata from the playing stream"
+msgstr "Цикл через метадані з потоку гри"
+
+#: src/Widgets/PreferencesPopover.vala:90
+msgid "Faster cycling through stream info"
+msgstr "Швидке вело через потокову інформацію"
+
+#: src/Widgets/PreferencesPopover.vala:92
+msgid ""
+"Fast cycle through the metadata from the playing stream if show stream info "
+"is enabled"
+msgstr ""
+"Швидкий цикл за допомогою метаданих з потокового передавання, якщо "
+"активовано інформацію про потік"
+
+#: src/Widgets/PreferencesPopover.vala:96
+msgid "Stream metadata image popup"
+msgstr "Розширення зображення метаданих"
+
+#: src/Widgets/PreferencesPopover.vala:98
+msgid "Show a movable popup with images discovered in the stream metadata"
+msgstr "Показати знімний спливаючі зображення, виявлені у метаданих потоку"
+
+#: src/Widgets/PreferencesPopover.vala:102
+msgid "Shrink title dynamically with the text"
+msgstr "Скорочення назви динамічно з текстом"
+
+#: src/Widgets/PreferencesPopover.vala:104
+msgid "Shrink the title according to the length of the displayed text."
+msgstr "Подрібніть назву відповідно до довжини відображеного тексту."
+
+#: src/Widgets/PreferencesPopover.vala:122
+msgid "Language"
+msgstr "Мова"
+
+#: src/Widgets/PreferencesPopover.vala:123
+msgid "Language changes restart Tuner"
+msgstr "Зміни в мовному режимі"
+
+#. end language selection
+#. Export starred
+#: src/Widgets/PreferencesPopover.vala:131
+msgid "Export Starred Stations to Playlist"
+msgstr "Експортувати Starred Stations для Playlist"
+
+#. Import starred
+#: src/Widgets/PreferencesPopover.vala:141
+msgid "Import Station UUIDs as Starred Stations"
+msgstr "Імпортна станція UUIDs як Starred Stations"
+
+#. Create the file chooser dialog for saving the exported playlist
+#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:572
+msgid "Save File"
+msgstr "Зберегти файл"
+
+#: src/Widgets/PreferencesPopover.vala:232
+#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:575
+msgid "_Cancel"
+msgstr "_Скасувати"
+
+#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:564
+#: src/Widgets/Window.vala:576
+msgid "_Save"
+msgstr "_Зберегти"
+
+#. warning("Error: $(e.message)");
+#: src/Widgets/PreferencesPopover.vala:254
+msgid "Error"
+msgstr "Помилка"
+
+#: src/Widgets/PreferencesPopover.vala:267
+msgid "Choose a file"
+msgstr "Обрати файл"
+
+#: src/Widgets/PreferencesPopover.vala:271
+msgid "_Open"
+msgstr "_Відкрити"
+
+#. warning("Error reading file: $(e.message)");
+#: src/Widgets/PreferencesPopover.vala:294
+msgid "Error reading file"
+msgstr "Помилка читання файлу"
+
+#. ----------------------------------------------
+#: src/Widgets/StationContextMenu.vala:77
+msgid "Station info updated Online - View changes"
+msgstr "Інформація про станцію оновлений Онлайн - Перегляд змін"
+
+#: src/Widgets/StationContextMenu.vala:78
+msgid "Update Station from Online"
+msgstr "Станція оновлень онлайн"
+
+#: src/Widgets/StationContextMenu.vala:86
+msgid "Visit Website"
+msgstr "Відвідати веб-сайт"
+
+#: src/Widgets/StationContextMenu.vala:93
+msgid "Copy Stream-URI to clipboard"
+msgstr "Статус на сервери"
+
+#. warning (@"Unable to open website: $(e.message)");
+#: src/Widgets/StationContextMenu.vala:135
+msgid "Unable to open website"
+msgstr "Не вдається відкрити веб-сайт"
+
+#. item.label = _station.starred ? Application.UNSTAR_CHAR + _("Unstar this station") : Application.STAR_CHAR + _("Star this station");
+#: src/Widgets/StationContextMenu.vala:158
+msgid "Unstar this station"
+msgstr "Зняти зірочку з цієї станції"
+
+#. Private
+#: src/Widgets/Window.vala:74
+msgid "Playing in background"
+msgstr "Відтворення у фоновому режимі"
+
+#: src/Widgets/Window.vala:75
+msgid ""
+"Click here to resume window. To quit Tuner, pause playback and close the "
+"window."
+msgstr ""
+"Натисніть тут, щоб відновити вікно. Щоб кинути Тюнер, пауза відтворення і "
+"закрити вікно."
+
+#: src/Widgets/Window.vala:340
+msgid "Stop Playback requested"
+msgstr "Стоп Playback запитав"
+
+#: src/Widgets/Window.vala:561
+msgid "Save hearted tracks to a file?"
+msgstr "Заощаджуйте сердечники до файлу?"
+
+#: src/Widgets/Window.vala:563
+msgid "_Don't Save"
+msgstr "_Не Зберегти"
+
+#~ msgid "Search"
+#~ msgstr "Пошук"
+
+#~ msgid "Stream Metadata"
+#~ msgstr "Статус на сервери"
+
+#~ msgid "Data Provider"
+#~ msgstr "Постачальник даних"
+
+#~ msgid "Stations"
+#~ msgstr "Станції"
+
+#~ msgid "Tags"
+#~ msgstr "Теґи"
+
+#~ msgid "Station Search"
+#~ msgstr "Пошук станції"
+
+#~ msgid "Nothing here"
+#~ msgstr "Ніщо тут"
+
+#~ msgid ""
+#~ "Something went wrong loading radio stations data from station provider. "
+#~ "Please try again later."
+#~ msgstr ""
+#~ "У зв'язку з тим, що деякі з них вийшли неправильне завантаження "
+#~ "радіостанцій даних від станції провайдера. Будь ласка, спробуйте ще раз."
+
+#~ msgid "No stations found"
+#~ msgstr "Станцій не знайдено"
+
+#~ msgid "Please try a different search term."
+#~ msgstr "Будь ласка, спробуйте інший термін пошуку."
+
+#~ msgid "Error while trying to autoplay, aborting…"
+#~ msgstr "Помилка при спробі автоплея, аборт .."
+
+#, fuzzy
+#~ msgid "Restart playing after a network interruption"
+#~ msgstr "Restart playing after a network interruption"
+
+#, fuzzy
+#~ msgid ""
+#~ "If enabled, if there is an network interuption and Tuner was playing "
+#~ "Tuner will automatically start to play the last played station"
+#~ msgstr ""
+#~ "If enabled, if there is an network interuption and Tuner was playing "
+#~ "Tuner will automatically start to play the last played station"
+
+#~ msgid "Could not get random station"
+#~ msgstr "Не вдалося знайти випадкову станцію"
+
+#~ msgid "Default"
+#~ msgstr "Типовий"
+
+#~ msgid "Requires restarting Tuner"
+#~ msgstr "Вимагає перезавантаження тонера"

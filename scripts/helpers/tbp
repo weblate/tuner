@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Copyright © 2026 <https://github.com/technosf>
+# SPDX-FileCopyrightText: © 2026 <https://github.com/technosf>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
+##
+## Clean build tranlation pot files
+##
+
+set -e
+
+rm -rf builddir
+meson setup --buildtype=debug builddir -Dtranslation=update
+meson compile -C builddir application-pot
+meson compile -C builddir countries-pot
+meson compile -C builddir extra-pot

@@ -1,0 +1,588 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# technosf <535060+technosf@users.noreply.github.com>, 2026.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2026.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2026.
+# Prefill add-on <noreply-addon-prefill@weblate.org>, 2026.
+# Troy <radiohotline@disroot.org>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: io.github.tuner_labs.tuner 2.0.1-beta.2\n"
+"Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
+"POT-Creation-Date: 2026-06-09 10:10-0700\n"
+"PO-Revision-Date: 2026-06-09 19:26+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/tuner/tuner-ui/"
+"ar/>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 2026.6\n"
+
+#. Count once per day
+#. ----------------------------------------------------------
+#. Temporal Properties
+#. ----------------------------------------------------------
+#. Indicates if the station is in the provider index
+#. Indicates if the station is up-to-date with the provider index
+#: src/Models/Station.vala:160
+msgid "Station no longer in the index"
+msgstr "المحطة لم تعد في الرقم القياسي"
+
+#: src/Models/Station.vala:402
+#, c-format
+msgid "Last Played: %s\tPlays: %d"
+msgstr "آخر لعب: %s اللعب: %d"
+
+#: src/Models/Station.vala:436
+msgid "Changes"
+msgstr "التغييرات"
+
+#: src/Models/Station.vala:437
+msgid "Stream Url"
+msgstr "رابط البث"
+
+#: src/Models/Station.vala:438
+msgid "Stream Resolved Url"
+msgstr "عنوان URL للبث الذي تم حله"
+
+#: src/Models/Station.vala:439
+msgid "Favicon address"
+msgstr "عنوان Favicon"
+
+#: src/Models/Station.vala:440
+msgid "Homepage address"
+msgstr "عنوان صفحة الاستقبال"
+
+#: src/Models/Station.vala:441
+msgid "Station tags"
+msgstr "علامات المحطة"
+
+#: src/Models/Station.vala:442 src/Models/StreamMetadata.vala:36
+msgid "Bitrate"
+msgstr "معدل البت"
+
+#: src/Models/Station.vala:443
+msgid "Codec"
+msgstr "الترميز"
+
+#. Ordered array of tags and descriptions
+#: src/Models/StreamMetadata.vala:27
+msgid "Title"
+msgstr "العنوان"
+
+#: src/Models/StreamMetadata.vala:28
+msgid "Artist"
+msgstr "فنان"
+
+#: src/Models/StreamMetadata.vala:29
+msgid "Album"
+msgstr "آلبوم"
+
+#: src/Models/StreamMetadata.vala:30
+msgid "Image"
+msgstr "صورة"
+
+#: src/Models/StreamMetadata.vala:31
+msgid "Genre"
+msgstr "النوع"
+
+#: src/Models/StreamMetadata.vala:32
+msgid "Homepage"
+msgstr "الصفحة الرئيسية"
+
+#: src/Models/StreamMetadata.vala:33
+msgid "Organization"
+msgstr "المنظمة"
+
+#: src/Models/StreamMetadata.vala:34
+msgid "Location"
+msgstr "المكان"
+
+#: src/Models/StreamMetadata.vala:35
+msgid "Extended Comment"
+msgstr "التعليق الموسع"
+
+#: src/Models/StreamMetadata.vala:37
+msgid "Audio Codec"
+msgstr "Audio Codec"
+
+#: src/Models/StreamMetadata.vala:38
+msgid "Video Codec"
+msgstr "Video Codec"
+
+#: src/Models/StreamMetadata.vala:39
+msgid "Channel Mode"
+msgstr "وضع القناة"
+
+#: src/Models/StreamMetadata.vala:40
+msgid "Track Number"
+msgstr "رقم المسار"
+
+#: src/Models/StreamMetadata.vala:41
+msgid "Track Count"
+msgstr "الكونت"
+
+#: src/Models/StreamMetadata.vala:42
+msgid "Nominal Bitrate"
+msgstr "معدل البت الاسمي"
+
+#: src/Models/StreamMetadata.vala:43
+msgid "Minimum Bitrate"
+msgstr "الحد الأدنى لسندات"
+
+#: src/Models/StreamMetadata.vala:44
+msgid "Maximum Bitrate"
+msgstr "الحد الأقصى للثنائيات"
+
+#: src/Models/StreamMetadata.vala:45
+msgid "Has CRC"
+msgstr "لجنة حقوق الطفل"
+
+#: src/Models/StreamMetadata.vala:46
+msgid "Container Format"
+msgstr "استمارة الحاويات"
+
+#: src/Models/StreamMetadata.vala:47
+msgid "Track Id"
+msgstr "المسار الأول"
+
+#: src/Models/StreamMetadata.vala:48
+msgid "Application Name"
+msgstr "الاسم"
+
+#: src/Models/StreamMetadata.vala:49
+msgid "Encoder"
+msgstr "الرمز"
+
+#: src/Models/StreamMetadata.vala:50
+msgid "Encoder Version"
+msgstr "إصدار برنامج الترميز"
+
+#: src/Models/StreamMetadata.vala:51
+msgid "Encoded by"
+msgstr "مشفرة"
+
+#: src/Models/StreamMetadata.vala:52
+msgid "Private Data"
+msgstr "البيانات الخاصة"
+
+#: src/Models/StreamMetadata.vala:53
+msgid "ID3 Private"
+msgstr "ID3 Private"
+
+#: src/Models/StreamMetadata.vala:54
+msgid "GStreamer Sample"
+msgstr "العينات"
+
+#: src/Models/StreamMetadata.vala:55
+msgid "GStreamer Date Time"
+msgstr "توقيت الاختبار"
+
+#: src/Models/StreamMetadata.vala:56
+msgid "Date Time"
+msgstr "التاريخ"
+
+#.
+#. Display Assets
+#.
+#: src/Widgets/Display.vala:118
+msgid "Selections"
+msgstr "التحديد"
+
+#: src/Widgets/Display.vala:119
+msgid "Library"
+msgstr "مكتبة"
+
+#: src/Widgets/Display.vala:120
+msgid "Saved Searches"
+msgstr "عمليات البحث المحفوظة"
+
+#: src/Widgets/Display.vala:121
+msgid "Explore"
+msgstr "استكشف"
+
+#: src/Widgets/Display.vala:122
+msgid "Genres"
+msgstr "النوع"
+
+#: src/Widgets/Display.vala:123
+msgid "Subgenres"
+msgstr "المواد الفرعية"
+
+#: src/Widgets/Display.vala:124
+msgid "Eras"
+msgstr "العصور"
+
+#: src/Widgets/Display.vala:125
+msgid "Talk, News, Sport"
+msgstr "الحديث، الأخبار، الرياضة"
+
+#: src/Widgets/Display.vala:454
+msgid "Discover"
+msgstr "استكشف"
+
+#: src/Widgets/Display.vala:455
+msgid "Stations to Discover"
+msgstr "محطات للكشف"
+
+#: src/Widgets/Display.vala:459
+msgid "Discover more stations"
+msgstr "الكشف عن المزيد من المحطات"
+
+#: src/Widgets/Display.vala:479
+msgid "Trending"
+msgstr "مُتداول"
+
+#: src/Widgets/Display.vala:480
+msgid "Trending Stations in the last 24 hours"
+msgstr "محطات التصعيد في الـ 24 ساعة الأخيرة"
+
+#: src/Widgets/Display.vala:497
+msgid "Popular"
+msgstr "شائع"
+
+#: src/Widgets/Display.vala:498
+msgid "Most listened to Stations in the last 24 hours"
+msgstr "معظمهم استمعوا للمحطة خلال الـ 24 ساعة الماضية"
+
+#: src/Widgets/Display.vala:535 src/Widgets/Display.vala:536
+msgid "Starred by You"
+msgstr "نجمت من قبلك"
+
+#: src/Widgets/Display.vala:574
+msgid "Latest Search"
+msgstr "آخر بحث"
+
+#: src/Widgets/Display.vala:575
+msgid "Search Results"
+msgstr "نتائج البحث"
+
+#: src/Widgets/Display.vala:577
+msgid "Save this search"
+msgstr "أنقذ هذا البحث"
+
+#: src/Widgets/Display.vala:711
+msgid "Jukebox"
+msgstr "صندوق الموسيقى"
+
+#: src/Widgets/Display.vala:713
+#, c-format
+msgid "Double click to shuffle through %1$u stations"
+msgstr "انقر نقرًا مزدوجًا للتنقل بين %1$u محطة"
+
+#: src/Widgets/Display.vala:714
+msgid "one, every ten minutes, for %2$u days"
+msgstr "واحدة كل عشر دقائق، لمدة %2$u يومًا"
+
+#: src/Widgets/Display.vala:780
+msgid "Saved Search"
+msgstr "عملية البحث المحفوظة"
+
+#: src/Widgets/Display.vala:783
+msgid "Remove this saved search"
+msgstr "إزالة هذا البحث المنقذ"
+
+#: src/Widgets/HeaderBar.vala:159 src/Widgets/StationContextMenu.vala:159
+msgid "Star this station"
+msgstr "نجم هذه المحطة"
+
+#.
+#. Create and configure play button
+#.
+#. Toggles player state
+#.
+#. RHS Controls
+#.
+#. Search button
+#: src/Widgets/HeaderBar.vala:181
+msgid "Search for Stations"
+msgstr "البحث عن المحطات"
+
+#: src/Widgets/HeaderBar.vala:189
+msgid "Preferences"
+msgstr "التفضيلات"
+
+#: src/Widgets/HeaderBar.vala:194
+msgid "History"
+msgstr "التاريخ"
+
+#: src/Widgets/HeaderBar.vala:198
+msgid "Heart current track in history"
+msgstr "مسار القلب في التاريخ"
+
+#: src/Widgets/PreferencesPopover.vala:24
+msgid "About"
+msgstr "عن"
+
+#. Voting
+#: src/Widgets/PreferencesPopover.vala:30
+msgid "Do not participate in Station voting"
+msgstr "لا تشارك في التصويت بالمحطة"
+
+#: src/Widgets/PreferencesPopover.vala:32
+msgid ""
+"If checked, your starred and streamed stations will not be used to calculate "
+"the Station index popularity vote, nor the popular and trending stations"
+msgstr ""
+"إذا تم فحصها، محطاتك المضللة والمتدفقة لن تستخدم لحساب شعبية الرقم القياسي "
+"للمحطة، ولا المحطات الشعبية والموجهة"
+
+#. Theme
+#: src/Widgets/PreferencesPopover.vala:38
+msgid "System"
+msgstr "نظام"
+
+#: src/Widgets/PreferencesPopover.vala:39
+msgid "Light mode"
+msgstr "النور"
+
+#: src/Widgets/PreferencesPopover.vala:40
+msgid "Dark mode"
+msgstr "الوضع الداكن"
+
+#: src/Widgets/PreferencesPopover.vala:47
+msgid "Theme"
+msgstr "الوضع الداكن"
+
+#. Autoplay
+#: src/Widgets/PreferencesPopover.vala:52
+msgid "Auto-play last station on startup"
+msgstr "المحطة الأخيرة لللعب الآلي في البداية"
+
+#: src/Widgets/PreferencesPopover.vala:54
+msgid ""
+"If enabled, when Tuner starts it will automatically start to play the last "
+"played station"
+msgstr "إذا مُكّنَ، عندما تَبْدأُ تونر هو سَيَبْدأُ تلقائياً لعب المحطة الأخيرة"
+
+#. Restart Playing after network interruption
+#: src/Widgets/PreferencesPopover.vala:60
+msgid "Restart playing after a network outage"
+msgstr "إعادة اللعب بعد انقطاع الشبكة"
+
+#: src/Widgets/PreferencesPopover.vala:62
+msgid ""
+"If enabled, Tuner will restart playing the current station if it was stopped "
+"by a network outage"
+msgstr ""
+"إذا مُكّن من ذلك، (تونر) سيعيد تشغيل المحطة الحالية إذا تم إيقافها من قبل شبكة "
+"خارجية"
+
+#. Start on Starred
+#: src/Widgets/PreferencesPopover.vala:68
+msgid "Open to Starred Stations"
+msgstr "مفتوحة لمحطة ستارد"
+
+#: src/Widgets/PreferencesPopover.vala:70
+msgid "If enabled, when Tuner starts it will open to the starred stations view"
+msgstr "إذا مُكّن، عندما يبدأ (تونر) سيفتح على مشاهدات المحطات المُحدّدة"
+
+#. Startup sound
+#: src/Widgets/PreferencesPopover.vala:76
+msgid "Play startup jingle"
+msgstr "ابدأي"
+
+#: src/Widgets/PreferencesPopover.vala:78
+msgid "If enabled, Tuner plays a short sound when it starts"
+msgstr "إذا مُكّنَ، تونر يَلْعبُ a صوت قصير عندما يَبْدأُ"
+
+#. Play Display
+#: src/Widgets/PreferencesPopover.vala:84
+msgid "Show stream info when playing"
+msgstr "مدخل العرض عند اللعب"
+
+#: src/Widgets/PreferencesPopover.vala:86
+msgid "Cycle through the metadata from the playing stream"
+msgstr "دورة من خلال البيانات الوصفية من مجرى اللعب"
+
+#: src/Widgets/PreferencesPopover.vala:90
+msgid "Faster cycling through stream info"
+msgstr "سرعة التدوير من خلال معلومات المجرى"
+
+#: src/Widgets/PreferencesPopover.vala:92
+msgid ""
+"Fast cycle through the metadata from the playing stream if show stream info "
+"is enabled"
+msgstr ""
+"دورة سريعة من خلال البيانات الفوقية من مجرى اللعب إذا تم توفير معلومات عن "
+"مسار العرض"
+
+#: src/Widgets/PreferencesPopover.vala:96
+msgid "Stream metadata image popup"
+msgstr "صورة طبق الأصل"
+
+#: src/Widgets/PreferencesPopover.vala:98
+msgid "Show a movable popup with images discovered in the stream metadata"
+msgstr "اظهروا بعض الصور المتحركة المكتشفة في الميضات"
+
+#: src/Widgets/PreferencesPopover.vala:102
+msgid "Shrink title dynamically with the text"
+msgstr "اللقب الشائع ديناميكياً مع النص"
+
+#: src/Widgets/PreferencesPopover.vala:104
+msgid "Shrink the title according to the length of the displayed text."
+msgstr "دق العنوان وفقاً لطول النص المعروض."
+
+#: src/Widgets/PreferencesPopover.vala:122
+msgid "Language"
+msgstr "لغة"
+
+#: src/Widgets/PreferencesPopover.vala:123
+msgid "Language changes restart Tuner"
+msgstr "التغييرات اللغوية من جديد"
+
+#. end language selection
+#. Export starred
+#: src/Widgets/PreferencesPopover.vala:131
+msgid "Export Starred Stations to Playlist"
+msgstr "تصدير المحطات المميزة إلى قائمة التشغيل"
+
+#. Import starred
+#: src/Widgets/PreferencesPopover.vala:141
+msgid "Import Station UUIDs as Starred Stations"
+msgstr "محطة استيراد UUIDs as Starred Stations"
+
+#. Create the file chooser dialog for saving the exported playlist
+#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:572
+msgid "Save File"
+msgstr "أنقذ (فايف)"
+
+#: src/Widgets/PreferencesPopover.vala:232
+#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:575
+msgid "_Cancel"
+msgstr "أ_لغِ"
+
+#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:564
+#: src/Widgets/Window.vala:576
+msgid "_Save"
+msgstr "_حفظ"
+
+#. warning("Error: $(e.message)");
+#: src/Widgets/PreferencesPopover.vala:254
+msgid "Error"
+msgstr "خطأ"
+
+#: src/Widgets/PreferencesPopover.vala:267
+msgid "Choose a file"
+msgstr "اختيار مِلَفّ"
+
+#: src/Widgets/PreferencesPopover.vala:271
+msgid "_Open"
+msgstr "ا_فتح"
+
+#. warning("Error reading file: $(e.message)");
+#: src/Widgets/PreferencesPopover.vala:294
+msgid "Error reading file"
+msgstr "خطأ في قراءة الملف"
+
+#. ----------------------------------------------
+#: src/Widgets/StationContextMenu.vala:77
+msgid "Station info updated Online - View changes"
+msgstr "معلومات مستكملة عن المحطة Online - View changes"
+
+#: src/Widgets/StationContextMenu.vala:78
+msgid "Update Station from Online"
+msgstr "تحديث المحطة من الإنترنت"
+
+#: src/Widgets/StationContextMenu.vala:86
+msgid "Visit Website"
+msgstr "زيارة الموقع"
+
+#: src/Widgets/StationContextMenu.vala:93
+msgid "Copy Stream-URI to clipboard"
+msgstr "نسخة من سترام - يوري إلى مشبك"
+
+#. warning (@"Unable to open website: $(e.message)");
+#: src/Widgets/StationContextMenu.vala:135
+msgid "Unable to open website"
+msgstr "تعذر فتح الموقع الإلكتروني"
+
+#. item.label = _station.starred ? Application.UNSTAR_CHAR + _("Unstar this station") : Application.STAR_CHAR + _("Star this station");
+#: src/Widgets/StationContextMenu.vala:158
+msgid "Unstar this station"
+msgstr "أون ستار هذه المحطة"
+
+#. Private
+#: src/Widgets/Window.vala:74
+msgid "Playing in background"
+msgstr "يتم التشغيل في الخلفية"
+
+#: src/Widgets/Window.vala:75
+msgid ""
+"Click here to resume window. To quit Tuner, pause playback and close the "
+"window."
+msgstr "انقر هنا لاستئناف النافذة لترك (تونر) وتوقف عن العزف وإغلاق النافذة."
+
+#: src/Widgets/Window.vala:340
+msgid "Stop Playback requested"
+msgstr "توقف بلايباك طلب"
+
+#: src/Widgets/Window.vala:561
+msgid "Save hearted tracks to a file?"
+msgstr "انقذوا مسارات القلب للملف؟?"
+
+#: src/Widgets/Window.vala:563
+msgid "_Don't Save"
+msgstr "لا تنقذ"
+
+#~ msgid "Search"
+#~ msgstr "بحث"
+
+#~ msgid "Stream Metadata"
+#~ msgstr "بيانات تعريف البث"
+
+#~ msgid "Data Provider"
+#~ msgstr "مقدِّم البيانات"
+
+#~ msgid "Stations"
+#~ msgstr "المحطات"
+
+#~ msgid "Tags"
+#~ msgstr "العلامات"
+
+#~ msgid "Station Search"
+#~ msgstr "محطة البحث"
+
+#~ msgid "Nothing here"
+#~ msgstr "لا شيء هنا"
+
+#~ msgid ""
+#~ "Something went wrong loading radio stations data from station provider. "
+#~ "Please try again later."
+#~ msgstr ""
+#~ "حدث شيء خاطئ في تحميل بيانات محطات الراديو من مزود المحطة. حاول مرة أخرى "
+#~ "لاحقاً."
+
+#~ msgid "No stations found"
+#~ msgstr "لا توجد محطات"
+
+#~ msgid "Please try a different search term."
+#~ msgstr "رجاءً حاولْ a مصطلح بحث مختلف."
+
+#~ msgid "Error while trying to autoplay, aborting…"
+#~ msgstr "أخطأ في محاولة التأقلم، والإجهاض.."
+
+#, fuzzy
+#~ msgid "Restart playing after a network interruption"
+#~ msgstr "Restart playing after a network interruption"
+
+#, fuzzy
+#~ msgid ""
+#~ "If enabled, if there is an network interuption and Tuner was playing "
+#~ "Tuner will automatically start to play the last played station"
+#~ msgstr ""
+#~ "If enabled, if there is an network interuption and Tuner was playing "
+#~ "Tuner will automatically start to play the last played station"
+
+#~ msgid "Could not get random station"
+#~ msgstr "لا يمكن الحصول على محطة عشوائية"
+
+#~ msgid "Default"
+#~ msgstr "الافتراضية"
+
+#~ msgid "Requires restarting Tuner"
+#~ msgstr "يتطلب إعادة تشغيل برنامج Tuner"

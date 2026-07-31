@@ -1,7 +1,30 @@
+# Copyright © 2026 <https://github.com/technosf>
+# SPDX-FileCopyrightText: © 2026 <https://github.com/technosf>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+AGENTS.md
 build
 builddir
+build-dir
 build-aux
 *~
+apidocs/*
 .vscode
 .buildconfig
 .flatpak-builder
+.flatpak
+code.sh
+favicon.ico
+tuner.code-workspace
+.~lock.tags.ods#
+.~lock.tags.ods#
+labelexpand.ods
+tuner-starred.m3u8
+uncrustify.cfg
+repo/*
+*.bak
+*.log
+*.tmp
+data/*.gresource
+TODO

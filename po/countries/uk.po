@@ -1,0 +1,2209 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the countries package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: countries\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-06 00:43-0800\n"
+"PO-Revision-Date: 2026-03-16 08:44+0000\n"
+"Last-Translator: technosf <535060+technosf@users.noreply.github.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/tuner/"
+"countries-languages/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.17-dev\n"
+
+#: src/Models/Countries.vala:26
+msgctxt "Countries"
+msgid "Afghanistan"
+msgstr "Афганістан"
+
+#: src/Models/Countries.vala:27
+msgctxt "Countries"
+msgid "Aland Islands"
+msgstr "АЛАНДА АРАНДИ"
+
+#: src/Models/Countries.vala:28
+msgctxt "Countries"
+msgid "Albania"
+msgstr "Албанія"
+
+#: src/Models/Countries.vala:29
+msgctxt "Countries"
+msgid "Algeria"
+msgstr "Алжир"
+
+#: src/Models/Countries.vala:30
+msgctxt "Countries"
+msgid "American Samoa"
+msgstr "Американський Самоа"
+
+#: src/Models/Countries.vala:31
+msgctxt "Countries"
+msgid "Andorra"
+msgstr "Андорра"
+
+#: src/Models/Countries.vala:32
+msgctxt "Countries"
+msgid "Angola"
+msgstr "Ангола"
+
+#: src/Models/Countries.vala:33
+msgctxt "Countries"
+msgid "Anguilla"
+msgstr "Ангоя"
+
+#: src/Models/Countries.vala:34
+msgctxt "Countries"
+msgid "Antarctica"
+msgstr "Антарктида"
+
+#: src/Models/Countries.vala:35
+msgctxt "Countries"
+msgid "Antigua and Barbuda"
+msgstr "Антигуа та Барбуда"
+
+#: src/Models/Countries.vala:36
+msgctxt "Countries"
+msgid "Argentina"
+msgstr "Аргентина"
+
+#: src/Models/Countries.vala:37
+msgctxt "Countries"
+msgid "Armenia"
+msgstr "Вірменія"
+
+#: src/Models/Countries.vala:38
+msgctxt "Countries"
+msgid "Aruba"
+msgstr "Аруба"
+
+#: src/Models/Countries.vala:39
+msgctxt "Countries"
+msgid "Australia"
+msgstr "Австралія"
+
+#: src/Models/Countries.vala:40
+msgctxt "Countries"
+msgid "Austria"
+msgstr "Австрія"
+
+#: src/Models/Countries.vala:41
+msgctxt "Countries"
+msgid "Azerbaijan"
+msgstr "Азербайджан"
+
+#: src/Models/Countries.vala:42
+msgctxt "Countries"
+msgid "Bahamas"
+msgstr "Багами"
+
+#: src/Models/Countries.vala:43
+msgctxt "Countries"
+msgid "Bahrain"
+msgstr "Бахрейн"
+
+#: src/Models/Countries.vala:44
+msgctxt "Countries"
+msgid "Bangladesh"
+msgstr "Бангладеш"
+
+#: src/Models/Countries.vala:45
+msgctxt "Countries"
+msgid "Barbados"
+msgstr "Барбадос"
+
+#: src/Models/Countries.vala:46
+msgctxt "Countries"
+msgid "Belarus"
+msgstr "Білорусь"
+
+#: src/Models/Countries.vala:47
+msgctxt "Countries"
+msgid "Belgium"
+msgstr "Бельгія"
+
+#: src/Models/Countries.vala:48
+msgctxt "Countries"
+msgid "Belize"
+msgstr "Белізувати"
+
+#: src/Models/Countries.vala:49
+msgctxt "Countries"
+msgid "Benin"
+msgstr "Бенін"
+
+#: src/Models/Countries.vala:50
+msgctxt "Countries"
+msgid "Bermuda"
+msgstr "Бермуди"
+
+#: src/Models/Countries.vala:51
+msgctxt "Countries"
+msgid "Bhutan"
+msgstr "Бутан"
+
+#: src/Models/Countries.vala:52
+msgctxt "Countries"
+msgid "Bolivia"
+msgstr "Болівія"
+
+#: src/Models/Countries.vala:53
+msgctxt "Countries"
+msgid "Bonaire, Sint Eustatius and Saba"
+msgstr "Бонайре, Сінт Євстатій і Саба"
+
+#: src/Models/Countries.vala:54
+msgctxt "Countries"
+msgid "Bosnia and Herzegovina"
+msgstr "Боснія та Герцеговина"
+
+#: src/Models/Countries.vala:55
+msgctxt "Countries"
+msgid "Botswana"
+msgstr "Ботсвана"
+
+#: src/Models/Countries.vala:56
+msgctxt "Countries"
+msgid "Bouvet Island"
+msgstr "Острів Бувет"
+
+#: src/Models/Countries.vala:57
+msgctxt "Countries"
+msgid "Brazil"
+msgstr "Бразилія"
+
+#: src/Models/Countries.vala:58
+msgctxt "Countries"
+msgid "British Indian Ocean Territory"
+msgstr "Британські території Індійського океану"
+
+#: src/Models/Countries.vala:59
+msgctxt "Countries"
+msgid "Brunei Darussalam"
+msgstr "Бруней Даруссалам"
+
+#: src/Models/Countries.vala:60
+msgctxt "Countries"
+msgid "Bulgaria"
+msgstr "Болгарія"
+
+#: src/Models/Countries.vala:61
+msgctxt "Countries"
+msgid "Burkina Faso"
+msgstr "Буркіна-Фасо"
+
+#: src/Models/Countries.vala:62
+msgctxt "Countries"
+msgid "Burundi"
+msgstr "Бурунді"
+
+#: src/Models/Countries.vala:63
+msgctxt "Countries"
+msgid "Cabo Verde"
+msgstr "Кабо-Верде"
+
+#: src/Models/Countries.vala:64
+msgctxt "Countries"
+msgid "Cambodia"
+msgstr "Камбоджа"
+
+#: src/Models/Countries.vala:65
+msgctxt "Countries"
+msgid "Cameroon"
+msgstr "Камерун"
+
+#: src/Models/Countries.vala:66
+msgctxt "Countries"
+msgid "Canada"
+msgstr "Канада"
+
+#: src/Models/Countries.vala:67
+msgctxt "Countries"
+msgid "Cayman Islands"
+msgstr "Кайманські острови"
+
+#: src/Models/Countries.vala:68
+msgctxt "Countries"
+msgid "Central African Republic"
+msgstr "Центральноафриканська республіка"
+
+#: src/Models/Countries.vala:69
+msgctxt "Countries"
+msgid "Chad"
+msgstr "Чад"
+
+#: src/Models/Countries.vala:70
+msgctxt "Countries"
+msgid "Chile"
+msgstr "Чилі"
+
+#: src/Models/Countries.vala:71
+msgctxt "Countries"
+msgid "China"
+msgstr "Китай"
+
+#: src/Models/Countries.vala:72
+msgctxt "Countries"
+msgid "Christmas Island"
+msgstr "Різдвяний острів"
+
+#: src/Models/Countries.vala:73
+msgctxt "Countries"
+msgid "Cocos (Keeling) Islands"
+msgstr "Кокос (кілінг) острови"
+
+#: src/Models/Countries.vala:74
+msgctxt "Countries"
+msgid "Colombia"
+msgstr "Колумбія"
+
+#: src/Models/Countries.vala:75
+msgctxt "Countries"
+msgid "Comoros"
+msgstr "Коморські острови"
+
+#: src/Models/Countries.vala:76
+msgctxt "Countries"
+msgid "Congo"
+msgstr "Конго"
+
+#: src/Models/Countries.vala:77
+msgctxt "Countries"
+msgid "Congo, Democratic Republic of the"
+msgstr "Конго, Демократична Республіка"
+
+#: src/Models/Countries.vala:78
+msgctxt "Countries"
+msgid "Cook Islands"
+msgstr "Кухарські острови"
+
+#: src/Models/Countries.vala:79
+msgctxt "Countries"
+msgid "Costa Rica"
+msgstr "Коста -Ріка"
+
+#: src/Models/Countries.vala:80
+msgctxt "Countries"
+msgid "Cote d'Ivoire"
+msgstr "Кот д'Ивуар"
+
+#: src/Models/Countries.vala:81
+msgctxt "Countries"
+msgid "Croatia"
+msgstr "Хорватія"
+
+#: src/Models/Countries.vala:82
+msgctxt "Countries"
+msgid "Cuba"
+msgstr "Куба"
+
+#: src/Models/Countries.vala:83
+msgctxt "Countries"
+msgid "Curacao"
+msgstr "Куракао"
+
+#: src/Models/Countries.vala:84
+msgctxt "Countries"
+msgid "Cyprus"
+msgstr "Кіпр"
+
+#: src/Models/Countries.vala:85
+msgctxt "Countries"
+msgid "Czechia"
+msgstr "Чехія"
+
+#: src/Models/Countries.vala:86
+msgctxt "Countries"
+msgid "Denmark"
+msgstr "Данія"
+
+#: src/Models/Countries.vala:87
+msgctxt "Countries"
+msgid "Djibouti"
+msgstr "Djibouti"
+
+#: src/Models/Countries.vala:88
+msgctxt "Countries"
+msgid "Dominica"
+msgstr "Домініка"
+
+#: src/Models/Countries.vala:89
+msgctxt "Countries"
+msgid "Dominican Republic"
+msgstr "Домініканська Республіка"
+
+#: src/Models/Countries.vala:90
+msgctxt "Countries"
+msgid "Ecuador"
+msgstr "Еквадор"
+
+#: src/Models/Countries.vala:91
+msgctxt "Countries"
+msgid "Egypt"
+msgstr "Єгипет"
+
+#: src/Models/Countries.vala:92
+msgctxt "Countries"
+msgid "El Salvador"
+msgstr "Сальвадор"
+
+#: src/Models/Countries.vala:93
+msgctxt "Countries"
+msgid "Equatorial Guinea"
+msgstr "Екваторіальна морська"
+
+#: src/Models/Countries.vala:94
+msgctxt "Countries"
+msgid "Eritrea"
+msgstr "Еритрея"
+
+#: src/Models/Countries.vala:95
+msgctxt "Countries"
+msgid "Estonia"
+msgstr "Естонія"
+
+#: src/Models/Countries.vala:96
+msgctxt "Countries"
+msgid "Eswatini"
+msgstr "Есватіні"
+
+#: src/Models/Countries.vala:97
+msgctxt "Countries"
+msgid "Ethiopia"
+msgstr "Ефіопія"
+
+#: src/Models/Countries.vala:98
+msgctxt "Countries"
+msgid "Falkland Islands (Malvinas)"
+msgstr "Фолклендські острови (Мальвінас)"
+
+#: src/Models/Countries.vala:99
+msgctxt "Countries"
+msgid "Faroe Islands"
+msgstr "Фарерські острови"
+
+#: src/Models/Countries.vala:100
+msgctxt "Countries"
+msgid "Fiji"
+msgstr "Фіджі"
+
+#: src/Models/Countries.vala:101
+msgctxt "Countries"
+msgid "Finland"
+msgstr "Фінляндія"
+
+#: src/Models/Countries.vala:102
+msgctxt "Countries"
+msgid "France"
+msgstr "Франція"
+
+#: src/Models/Countries.vala:103
+msgctxt "Countries"
+msgid "French Guiana"
+msgstr "Французька Гвіана"
+
+#: src/Models/Countries.vala:104
+msgctxt "Countries"
+msgid "French Polynesia"
+msgstr "Французька полінезія"
+
+#: src/Models/Countries.vala:105
+msgctxt "Countries"
+msgid "French Southern Territories"
+msgstr "Французькі південні території"
+
+#: src/Models/Countries.vala:106
+msgctxt "Countries"
+msgid "Gabon"
+msgstr "Габон"
+
+#: src/Models/Countries.vala:107
+msgctxt "Countries"
+msgid "Gambia"
+msgstr "Гамбія"
+
+#: src/Models/Countries.vala:108
+msgctxt "Countries"
+msgid "Georgia"
+msgstr "Грузія"
+
+#: src/Models/Countries.vala:109
+msgctxt "Countries"
+msgid "Germany"
+msgstr "Німеччина"
+
+#: src/Models/Countries.vala:110
+msgctxt "Countries"
+msgid "Ghana"
+msgstr "Гана"
+
+#: src/Models/Countries.vala:111
+msgctxt "Countries"
+msgid "Gibraltar"
+msgstr "Гібралтар"
+
+#: src/Models/Countries.vala:112
+msgctxt "Countries"
+msgid "Greece"
+msgstr "Греція"
+
+#: src/Models/Countries.vala:113
+msgctxt "Countries"
+msgid "Greenland"
+msgstr "Гренландія"
+
+#: src/Models/Countries.vala:114
+msgctxt "Countries"
+msgid "Grenada"
+msgstr "Гренада"
+
+#: src/Models/Countries.vala:115
+msgctxt "Countries"
+msgid "Guadeloupe"
+msgstr "Гваделуп"
+
+#: src/Models/Countries.vala:116
+msgctxt "Countries"
+msgid "Guam"
+msgstr "Гуам"
+
+#: src/Models/Countries.vala:117
+msgctxt "Countries"
+msgid "Guatemala"
+msgstr "Гватемала"
+
+#: src/Models/Countries.vala:118
+msgctxt "Countries"
+msgid "Guernsey"
+msgstr "Гернсі"
+
+#: src/Models/Countries.vala:119
+msgctxt "Countries"
+msgid "Guinea"
+msgstr "Гвінея"
+
+#: src/Models/Countries.vala:120
+msgctxt "Countries"
+msgid "Guinea-Bissau"
+msgstr "Гвінея-Біссау"
+
+#: src/Models/Countries.vala:121
+msgctxt "Countries"
+msgid "Guyana"
+msgstr "Гайана"
+
+#: src/Models/Countries.vala:122
+msgctxt "Countries"
+msgid "Haiti"
+msgstr "Гаїті"
+
+#: src/Models/Countries.vala:123
+msgctxt "Countries"
+msgid "Heard Island and McDonald Islands"
+msgstr "Черг острови та Макдональд острови"
+
+#: src/Models/Countries.vala:124
+msgctxt "Countries"
+msgid "Holy See"
+msgstr "Головна"
+
+#: src/Models/Countries.vala:125
+msgctxt "Countries"
+msgid "Honduras"
+msgstr "Гондурас"
+
+#: src/Models/Countries.vala:126
+msgctxt "Countries"
+msgid "Hong Kong"
+msgstr "Гонконг"
+
+#: src/Models/Countries.vala:127
+msgctxt "Countries"
+msgid "Hungary"
+msgstr "Угорщина"
+
+#: src/Models/Countries.vala:128
+msgctxt "Countries"
+msgid "Iceland"
+msgstr "Ісландія"
+
+#: src/Models/Countries.vala:129
+msgctxt "Countries"
+msgid "India"
+msgstr "Індія"
+
+#: src/Models/Countries.vala:130
+msgctxt "Countries"
+msgid "Indonesia"
+msgstr "Індонезія"
+
+#: src/Models/Countries.vala:131
+msgctxt "Countries"
+msgid "Iran"
+msgstr "Іран"
+
+#: src/Models/Countries.vala:132
+msgctxt "Countries"
+msgid "Iraq"
+msgstr "Ірак"
+
+#: src/Models/Countries.vala:133
+msgctxt "Countries"
+msgid "Ireland"
+msgstr "Ірландія"
+
+#: src/Models/Countries.vala:134
+msgctxt "Countries"
+msgid "Isle of Man"
+msgstr "Острів людини"
+
+#: src/Models/Countries.vala:135
+msgctxt "Countries"
+msgid "Israel"
+msgstr "Ізраїль"
+
+#: src/Models/Countries.vala:136
+msgctxt "Countries"
+msgid "Italy"
+msgstr "Італія"
+
+#: src/Models/Countries.vala:137
+msgctxt "Countries"
+msgid "Jamaica"
+msgstr "Ямайка"
+
+#: src/Models/Countries.vala:138
+msgctxt "Countries"
+msgid "Japan"
+msgstr "Японія"
+
+#: src/Models/Countries.vala:139
+msgctxt "Countries"
+msgid "Jersey"
+msgstr "Трикотаж"
+
+#: src/Models/Countries.vala:140
+msgctxt "Countries"
+msgid "Jordan"
+msgstr "Йордан"
+
+#: src/Models/Countries.vala:141
+msgctxt "Countries"
+msgid "Kazakhstan"
+msgstr "Казахстан"
+
+#: src/Models/Countries.vala:142
+msgctxt "Countries"
+msgid "Kenya"
+msgstr "Кенія"
+
+#: src/Models/Countries.vala:143
+msgctxt "Countries"
+msgid "Kiribati"
+msgstr "Кірібаті"
+
+#: src/Models/Countries.vala:144
+msgctxt "Countries"
+msgid "Korea (Democratic People's Republic of)"
+msgstr "Корея (Демократична Народна Республіка)"
+
+#: src/Models/Countries.vala:145
+msgctxt "Countries"
+msgid "Korea, Republic of"
+msgstr "Корея, Республіка"
+
+#: src/Models/Countries.vala:146
+msgctxt "Countries"
+msgid "Kuwait"
+msgstr "Кувейт"
+
+#: src/Models/Countries.vala:147
+msgctxt "Countries"
+msgid "Kyrgyzstan"
+msgstr "Киргизстан"
+
+#: src/Models/Countries.vala:148
+msgctxt "Countries"
+msgid "Lao People's Democratic Republic"
+msgstr "Народна демократична республіка Лао"
+
+#: src/Models/Countries.vala:149
+msgctxt "Countries"
+msgid "Latvia"
+msgstr "Латвія"
+
+#: src/Models/Countries.vala:150
+msgctxt "Countries"
+msgid "Lebanon"
+msgstr "Ліван"
+
+#: src/Models/Countries.vala:151
+msgctxt "Countries"
+msgid "Lesotho"
+msgstr "Лесото"
+
+#: src/Models/Countries.vala:152
+msgctxt "Countries"
+msgid "Liberia"
+msgstr "Ліберія"
+
+#: src/Models/Countries.vala:153
+msgctxt "Countries"
+msgid "Libya"
+msgstr "Лівія"
+
+#: src/Models/Countries.vala:154
+msgctxt "Countries"
+msgid "Liechtenstein"
+msgstr "Ліхтенштейн"
+
+#: src/Models/Countries.vala:155
+msgctxt "Countries"
+msgid "Lithuania"
+msgstr "Литва"
+
+#: src/Models/Countries.vala:156
+msgctxt "Countries"
+msgid "Luxembourg"
+msgstr "Люксембург"
+
+#: src/Models/Countries.vala:157
+msgctxt "Countries"
+msgid "Macao"
+msgstr "Макао"
+
+#: src/Models/Countries.vala:158
+msgctxt "Countries"
+msgid "Madagascar"
+msgstr "Мадагаскар"
+
+#: src/Models/Countries.vala:159
+msgctxt "Countries"
+msgid "Malawi"
+msgstr "Малаві"
+
+#: src/Models/Countries.vala:160
+msgctxt "Countries"
+msgid "Malaysia"
+msgstr "Малайзія"
+
+#: src/Models/Countries.vala:161
+msgctxt "Countries"
+msgid "Maldives"
+msgstr "Мальдіви"
+
+#: src/Models/Countries.vala:162
+msgctxt "Countries"
+msgid "Mali"
+msgstr "Малі"
+
+#: src/Models/Countries.vala:163
+msgctxt "Countries"
+msgid "Malta"
+msgstr "Мальта"
+
+#: src/Models/Countries.vala:164
+msgctxt "Countries"
+msgid "Marshall Islands"
+msgstr "Маршалові острови"
+
+#: src/Models/Countries.vala:165
+msgctxt "Countries"
+msgid "Martinique"
+msgstr "Мартиніка"
+
+#: src/Models/Countries.vala:166
+msgctxt "Countries"
+msgid "Mauritania"
+msgstr "Мауританія"
+
+#: src/Models/Countries.vala:167
+msgctxt "Countries"
+msgid "Mauritius"
+msgstr "Маврикій"
+
+#: src/Models/Countries.vala:168
+msgctxt "Countries"
+msgid "Mayotte"
+msgstr "Майотта"
+
+#: src/Models/Countries.vala:169
+msgctxt "Countries"
+msgid "Mexico"
+msgstr "Мексика"
+
+#: src/Models/Countries.vala:170
+msgctxt "Countries"
+msgid "Micronesia"
+msgstr "Мікронезія"
+
+#: src/Models/Countries.vala:171
+msgctxt "Countries"
+msgid "Moldova"
+msgstr "Молдова"
+
+#: src/Models/Countries.vala:172
+msgctxt "Countries"
+msgid "Monaco"
+msgstr "Монако"
+
+#: src/Models/Countries.vala:173
+msgctxt "Countries"
+msgid "Mongolia"
+msgstr "Монголія"
+
+#: src/Models/Countries.vala:174
+msgctxt "Countries"
+msgid "Montenegro"
+msgstr "Чорногорія"
+
+#: src/Models/Countries.vala:175
+msgctxt "Countries"
+msgid "Montserrat"
+msgstr "Монтсеррат"
+
+#: src/Models/Countries.vala:176
+msgctxt "Countries"
+msgid "Morocco"
+msgstr "Марокко"
+
+#: src/Models/Countries.vala:177
+msgctxt "Countries"
+msgid "Mozambique"
+msgstr "Мозамбік"
+
+#: src/Models/Countries.vala:178
+msgctxt "Countries"
+msgid "Myanmar"
+msgstr "М'янма"
+
+#: src/Models/Countries.vala:179
+msgctxt "Countries"
+msgid "Namibia"
+msgstr "Намібія"
+
+#: src/Models/Countries.vala:180
+msgctxt "Countries"
+msgid "Nauru"
+msgstr "Науру"
+
+#: src/Models/Countries.vala:181
+msgctxt "Countries"
+msgid "Nepal"
+msgstr "Непал"
+
+#: src/Models/Countries.vala:182
+msgctxt "Countries"
+msgid "Netherlands"
+msgstr "Нідерланди"
+
+#: src/Models/Countries.vala:183
+msgctxt "Countries"
+msgid "New Caledonia"
+msgstr "Нова Каледонія"
+
+#: src/Models/Countries.vala:184
+msgctxt "Countries"
+msgid "New Zealand"
+msgstr "Нова Зеландія"
+
+#: src/Models/Countries.vala:185
+msgctxt "Countries"
+msgid "Nicaragua"
+msgstr "Нікарагуа"
+
+#: src/Models/Countries.vala:186
+msgctxt "Countries"
+msgid "Niger"
+msgstr "Нігер"
+
+#: src/Models/Countries.vala:187
+msgctxt "Countries"
+msgid "Nigeria"
+msgstr "Нігерія"
+
+#: src/Models/Countries.vala:188
+msgctxt "Countries"
+msgid "Niue"
+msgstr "Ніуе"
+
+#: src/Models/Countries.vala:189
+msgctxt "Countries"
+msgid "Norfolk Island"
+msgstr "Острів Норфолк"
+
+#: src/Models/Countries.vala:190
+msgctxt "Countries"
+msgid "North Macedonia"
+msgstr "Північна Македонія"
+
+#: src/Models/Countries.vala:191
+msgctxt "Countries"
+msgid "Northern Mariana Islands"
+msgstr "Північні Маріанські острови"
+
+#: src/Models/Countries.vala:192
+msgctxt "Countries"
+msgid "Norway"
+msgstr "Норвегія"
+
+#: src/Models/Countries.vala:193
+msgctxt "Countries"
+msgid "Oman"
+msgstr "Оманський"
+
+#: src/Models/Countries.vala:194
+msgctxt "Countries"
+msgid "Pakistan"
+msgstr "Пакистан"
+
+#: src/Models/Countries.vala:195
+msgctxt "Countries"
+msgid "Palau"
+msgstr "Палау"
+
+#: src/Models/Countries.vala:196
+msgctxt "Countries"
+msgid "Palestine"
+msgstr "Палестина"
+
+#: src/Models/Countries.vala:197
+msgctxt "Countries"
+msgid "Panama"
+msgstr "Панама"
+
+#: src/Models/Countries.vala:198
+msgctxt "Countries"
+msgid "Papua New Guinea"
+msgstr "Папуа -Нова Гвінея"
+
+#: src/Models/Countries.vala:199
+msgctxt "Countries"
+msgid "Paraguay"
+msgstr "Парагвай"
+
+#: src/Models/Countries.vala:200
+msgctxt "Countries"
+msgid "Peru"
+msgstr "Перу"
+
+#: src/Models/Countries.vala:201
+msgctxt "Countries"
+msgid "Philippines"
+msgstr "Філіппіни"
+
+#: src/Models/Countries.vala:202
+msgctxt "Countries"
+msgid "Pitcairn"
+msgstr "Піткерн"
+
+#: src/Models/Countries.vala:203
+msgctxt "Countries"
+msgid "Poland"
+msgstr "Польща"
+
+#: src/Models/Countries.vala:204
+msgctxt "Countries"
+msgid "Portugal"
+msgstr "Португалія"
+
+#: src/Models/Countries.vala:205
+msgctxt "Countries"
+msgid "Puerto Rico"
+msgstr "Пуерто -Рико"
+
+#: src/Models/Countries.vala:206
+msgctxt "Countries"
+msgid "Qatar"
+msgstr "Катар"
+
+#: src/Models/Countries.vala:207
+msgctxt "Countries"
+msgid "Reunion"
+msgstr "Реюньйон"
+
+#: src/Models/Countries.vala:208
+msgctxt "Countries"
+msgid "Romania"
+msgstr "Румунія"
+
+#: src/Models/Countries.vala:209
+msgctxt "Countries"
+msgid "Russian Federation"
+msgstr "Російська федерація"
+
+#: src/Models/Countries.vala:210
+msgctxt "Countries"
+msgid "Rwanda"
+msgstr "Руанда"
+
+#: src/Models/Countries.vala:211
+msgctxt "Countries"
+msgid "Saint Barthelemy"
+msgstr "Святий Бартелемія"
+
+#: src/Models/Countries.vala:212
+msgctxt "Countries"
+msgid "Saint Helena, Ascension and Tristan da Cunha"
+msgstr "Сент -Хелена, Вознесіння та Трістан да Кунья"
+
+#: src/Models/Countries.vala:213
+msgctxt "Countries"
+msgid "Saint Kitts and Nevis"
+msgstr "Сент -Кітс і Невіс"
+
+#: src/Models/Countries.vala:214
+msgctxt "Countries"
+msgid "Saint Lucia"
+msgstr "Сент -Люсія"
+
+#: src/Models/Countries.vala:215
+msgctxt "Countries"
+msgid "Saint Martin"
+msgstr "Сен-Мартен"
+
+#: src/Models/Countries.vala:216
+msgctxt "Countries"
+msgid "Saint Pierre and Miquelon"
+msgstr "Сент -П'єр і Мікелон"
+
+#: src/Models/Countries.vala:217
+msgctxt "Countries"
+msgid "Saint Vincent and the Grenadines"
+msgstr "Сент -Вінсент та Гренадини"
+
+#: src/Models/Countries.vala:218
+msgctxt "Countries"
+msgid "Samoa"
+msgstr "Самоа"
+
+#: src/Models/Countries.vala:219
+msgctxt "Countries"
+msgid "San Marino"
+msgstr "Сан -Маріно"
+
+#: src/Models/Countries.vala:220
+msgctxt "Countries"
+msgid "Sao Tome and Principe"
+msgstr "Sao Tome і Principe"
+
+#: src/Models/Countries.vala:221
+msgctxt "Countries"
+msgid "Saudi Arabia"
+msgstr "Саудівська Аравія"
+
+#: src/Models/Countries.vala:222
+msgctxt "Countries"
+msgid "Senegal"
+msgstr "Сенегал"
+
+#: src/Models/Countries.vala:223
+msgctxt "Countries"
+msgid "Serbia"
+msgstr "Сербія"
+
+#: src/Models/Countries.vala:224
+msgctxt "Countries"
+msgid "Seychelles"
+msgstr "Сейшельські острови"
+
+#: src/Models/Countries.vala:225
+msgctxt "Countries"
+msgid "Sierra Leone"
+msgstr "Сьєрра -Леоне"
+
+#: src/Models/Countries.vala:226
+msgctxt "Countries"
+msgid "Singapore"
+msgstr "Сінгапур"
+
+#: src/Models/Countries.vala:227
+msgctxt "Countries"
+msgid "Sint Maarten"
+msgstr "Сінт Маартен"
+
+#: src/Models/Countries.vala:228
+msgctxt "Countries"
+msgid "Slovakia"
+msgstr "Словаччина"
+
+#: src/Models/Countries.vala:229
+msgctxt "Countries"
+msgid "Slovenia"
+msgstr "Словенія"
+
+#: src/Models/Countries.vala:230
+msgctxt "Countries"
+msgid "Solomon Islands"
+msgstr "Соломонові острови"
+
+#: src/Models/Countries.vala:231
+msgctxt "Countries"
+msgid "Somalia"
+msgstr "Сомалі"
+
+#: src/Models/Countries.vala:232
+msgctxt "Countries"
+msgid "South Africa"
+msgstr "Південна Африка"
+
+#: src/Models/Countries.vala:233
+msgctxt "Countries"
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "Південна Джорджія та Південні сендвіч -острови"
+
+#: src/Models/Countries.vala:234
+msgctxt "Countries"
+msgid "South Sudan"
+msgstr "Південний Судан"
+
+#: src/Models/Countries.vala:235
+msgctxt "Countries"
+msgid "Spain"
+msgstr "Іспанія"
+
+#: src/Models/Countries.vala:236
+msgctxt "Countries"
+msgid "Sri Lanka"
+msgstr "Шрі -Ланка"
+
+#: src/Models/Countries.vala:237
+msgctxt "Countries"
+msgid "Sudan"
+msgstr "Судан"
+
+#: src/Models/Countries.vala:238
+msgctxt "Countries"
+msgid "Suriname"
+msgstr "Сурінам"
+
+#: src/Models/Countries.vala:239
+msgctxt "Countries"
+msgid "Svalbard and Jan Mayen"
+msgstr "Свальбард та Ян Мейен"
+
+#: src/Models/Countries.vala:240
+msgctxt "Countries"
+msgid "Sweden"
+msgstr "Швеція"
+
+#: src/Models/Countries.vala:241
+msgctxt "Countries"
+msgid "Switzerland"
+msgstr "Швейцарія"
+
+#: src/Models/Countries.vala:242
+msgctxt "Countries"
+msgid "Syrian Arab Republic"
+msgstr "Сирійська арабська республіка"
+
+#: src/Models/Countries.vala:243
+msgctxt "Countries"
+msgid "Taiwan"
+msgstr "Тайвань"
+
+#: src/Models/Countries.vala:244
+msgctxt "Countries"
+msgid "Tajikistan"
+msgstr "Таджикистан"
+
+#: src/Models/Countries.vala:245
+msgctxt "Countries"
+msgid "Tanzania"
+msgstr "Танзанія"
+
+#: src/Models/Countries.vala:246
+msgctxt "Countries"
+msgid "Thailand"
+msgstr "Таїланд"
+
+#: src/Models/Countries.vala:247
+msgctxt "Countries"
+msgid "Timor-Leste"
+msgstr "Тимор-Лешті"
+
+#: src/Models/Countries.vala:248
+msgctxt "Countries"
+msgid "Togo"
+msgstr "Того"
+
+#: src/Models/Countries.vala:249
+msgctxt "Countries"
+msgid "Tokelau"
+msgstr "Токелау"
+
+#: src/Models/Countries.vala:250
+msgctxt "Countries"
+msgid "Tonga"
+msgstr "Тонга"
+
+#: src/Models/Countries.vala:251
+msgctxt "Countries"
+msgid "Trinidad and Tobago"
+msgstr "Тринідад і Тобаго"
+
+#: src/Models/Countries.vala:252
+msgctxt "Countries"
+msgid "Tunisia"
+msgstr "Туніс"
+
+#: src/Models/Countries.vala:253
+msgctxt "Countries"
+msgid "Turkey"
+msgstr "Індичка"
+
+#: src/Models/Countries.vala:254
+msgctxt "Countries"
+msgid "Turkmenistan"
+msgstr "Туркменістан"
+
+#: src/Models/Countries.vala:255
+msgctxt "Countries"
+msgid "Turks and Caicos Islands"
+msgstr "Турки та острови Кайкос"
+
+#: src/Models/Countries.vala:256
+msgctxt "Countries"
+msgid "Tuvalu"
+msgstr "Тувалу"
+
+#: src/Models/Countries.vala:257
+msgctxt "Countries"
+msgid "Uganda"
+msgstr "Уганда"
+
+#: src/Models/Countries.vala:258
+msgctxt "Countries"
+msgid "Ukraine"
+msgstr "Україна"
+
+#: src/Models/Countries.vala:259
+msgctxt "Countries"
+msgid "United Arab Emirates"
+msgstr "Об'єднані Арабські Емірати"
+
+#: src/Models/Countries.vala:260
+msgctxt "Countries"
+msgid "United Kingdom of Great Britain and Northern Ireland"
+msgstr "Велика Британія та Північна Ірландія"
+
+#: src/Models/Countries.vala:261
+msgctxt "Countries"
+msgid "United States of America"
+msgstr "Сполучені Штати Америки"
+
+#: src/Models/Countries.vala:262
+msgctxt "Countries"
+msgid "United States Minor Outlying Islands"
+msgstr "Сполучені Штати незначні острови"
+
+#: src/Models/Countries.vala:263
+msgctxt "Countries"
+msgid "Uruguay"
+msgstr "Уругвай"
+
+#: src/Models/Countries.vala:264
+msgctxt "Countries"
+msgid "Uzbekistan"
+msgstr "Узбекистан"
+
+#: src/Models/Countries.vala:265
+msgctxt "Countries"
+msgid "Vanuatu"
+msgstr "Вануату"
+
+#: src/Models/Countries.vala:266
+msgctxt "Countries"
+msgid "Venezuela"
+msgstr "Венесуела"
+
+#: src/Models/Countries.vala:267
+msgctxt "Countries"
+msgid "Vietnam"
+msgstr "В'єтнам"
+
+#: src/Models/Countries.vala:268
+msgctxt "Countries"
+msgid "Virgin Islands (UK)"
+msgstr "Віргінські острови (Великобританія)"
+
+#: src/Models/Countries.vala:269
+msgctxt "Countries"
+msgid "Virgin Islands (US)"
+msgstr "Віргінські острови (США)"
+
+#: src/Models/Countries.vala:270
+msgctxt "Countries"
+msgid "Wallis and Futuna"
+msgstr "Уолліс і Футуна"
+
+#: src/Models/Countries.vala:271
+msgctxt "Countries"
+msgid "Western Sahara"
+msgstr "Західна Сахара"
+
+#: src/Models/Countries.vala:272
+msgctxt "Countries"
+msgid "Yemen"
+msgstr "Ємен"
+
+#: src/Models/Countries.vala:273
+msgctxt "Countries"
+msgid "Zambia"
+msgstr "Замбія"
+
+#: src/Models/Countries.vala:274
+msgctxt "Countries"
+msgid "Zimbabwe"
+msgstr "Зімбабве"
+
+#: src/Models/Countries.vala:275
+msgctxt "Countries"
+msgid "Kosovo"
+msgstr "Косово"
+
+#. Language code we have translations for which have a different name than the default one.
+#: src/Models/Languages.vala:52
+msgctxt "Languages"
+msgid "Spanish (Latin America)"
+msgstr "іспанська (Латинська Америка)"
+
+#: src/Models/Languages.vala:53
+msgctxt "Languages"
+msgid "Norwegian (Bokmal)"
+msgstr "Норвезька (Бокмаль)"
+
+#: src/Models/Languages.vala:54
+msgctxt "Languages"
+msgid "Portuguese (Brazil)"
+msgstr "Португальська (Бразилія)"
+
+#: src/Models/Languages.vala:55
+msgctxt "Languages"
+msgid "Traditional Chinese"
+msgstr "Традиційний китайський"
+
+#. Populate the reference map with language codes and their corresponding translated names,
+#. which we may or may not have translations for, but we want to have a reference for the default name.
+#: src/Models/Languages.vala:59
+msgctxt "Languages"
+msgid "Afar"
+msgstr "Здалеку"
+
+#: src/Models/Languages.vala:60
+msgctxt "Languages"
+msgid "Abkhazian"
+msgstr "Абхазіан"
+
+#: src/Models/Languages.vala:61
+msgctxt "Languages"
+msgid "Avestan"
+msgstr "Авестан"
+
+#: src/Models/Languages.vala:62
+msgctxt "Languages"
+msgid "Afrikaans"
+msgstr "Африкаани"
+
+#: src/Models/Languages.vala:63
+msgctxt "Languages"
+msgid "Akan"
+msgstr "Акан"
+
+#: src/Models/Languages.vala:64
+msgctxt "Languages"
+msgid "Amharic"
+msgstr "Амхарський"
+
+#: src/Models/Languages.vala:65
+msgctxt "Languages"
+msgid "Aragonese"
+msgstr "Арагонський"
+
+#: src/Models/Languages.vala:66
+msgctxt "Languages"
+msgid "Arabic"
+msgstr "Арабський"
+
+#: src/Models/Languages.vala:67
+msgctxt "Languages"
+msgid "Assamese"
+msgstr "Асамський"
+
+#: src/Models/Languages.vala:68
+msgctxt "Languages"
+msgid "Avaric"
+msgstr "Аварій"
+
+#: src/Models/Languages.vala:69
+msgctxt "Languages"
+msgid "Aymara"
+msgstr "Аймара"
+
+#: src/Models/Languages.vala:70
+msgctxt "Languages"
+msgid "Azerbaijani"
+msgstr "Азербайджанська"
+
+#: src/Models/Languages.vala:72
+msgctxt "Languages"
+msgid "Bashkir"
+msgstr "Башкирська"
+
+#: src/Models/Languages.vala:73
+msgctxt "Languages"
+msgid "Belarusian"
+msgstr "Білоруська"
+
+#: src/Models/Languages.vala:74
+msgctxt "Languages"
+msgid "Bulgarian"
+msgstr "Болгарський"
+
+#: src/Models/Languages.vala:75
+msgctxt "Languages"
+msgid "Bihari"
+msgstr "біхарська"
+
+#: src/Models/Languages.vala:76
+msgctxt "Languages"
+msgid "Bislama"
+msgstr "Креольська"
+
+#: src/Models/Languages.vala:77
+msgctxt "Languages"
+msgid "Bambara"
+msgstr "Бамбара"
+
+#: src/Models/Languages.vala:78
+msgctxt "Languages"
+msgid "Bengali"
+msgstr "Бенгальська"
+
+#: src/Models/Languages.vala:79
+msgctxt "Languages"
+msgid "Tibetan"
+msgstr "Тибетський"
+
+#: src/Models/Languages.vala:80
+msgctxt "Languages"
+msgid "Breton"
+msgstr "Бретонська"
+
+#: src/Models/Languages.vala:81
+msgctxt "Languages"
+msgid "Bosnian"
+msgstr "Боснійська"
+
+#: src/Models/Languages.vala:83
+msgctxt "Languages"
+msgid "Catalan"
+msgstr "Каталонська"
+
+#: src/Models/Languages.vala:84
+msgctxt "Languages"
+msgid "Chechen"
+msgstr "Чеченська"
+
+#: src/Models/Languages.vala:85
+msgctxt "Languages"
+msgid "Chamorro"
+msgstr "Чаморро"
+
+#: src/Models/Languages.vala:86
+msgctxt "Languages"
+msgid "Corsican"
+msgstr "Корсикан"
+
+#: src/Models/Languages.vala:87
+msgctxt "Languages"
+msgid "Cree"
+msgstr "Крижок"
+
+#: src/Models/Languages.vala:88
+msgctxt "Languages"
+msgid "Czech"
+msgstr "Чеський"
+
+#: src/Models/Languages.vala:89
+msgctxt "Languages"
+msgid "Church Slavic"
+msgstr "Церковний слов'янський"
+
+#: src/Models/Languages.vala:90
+msgctxt "Languages"
+msgid "Chuvash"
+msgstr "Чуваська"
+
+#: src/Models/Languages.vala:91
+msgctxt "Languages"
+msgid "Welsh"
+msgstr "Валлійський"
+
+#: src/Models/Languages.vala:93
+msgctxt "Languages"
+msgid "Danish"
+msgstr "Датський"
+
+#: src/Models/Languages.vala:94
+msgctxt "Languages"
+msgid "German"
+msgstr "Німецький"
+
+#: src/Models/Languages.vala:95
+msgctxt "Languages"
+msgid "Divehi"
+msgstr "Дівгі"
+
+#: src/Models/Languages.vala:96
+msgctxt "Languages"
+msgid "Dzongkha"
+msgstr "Дзонгха"
+
+#: src/Models/Languages.vala:98
+msgctxt "Languages"
+msgid "Ewe"
+msgstr "Ефі"
+
+#: src/Models/Languages.vala:99
+msgctxt "Languages"
+msgid "Greek"
+msgstr "Грецький"
+
+#: src/Models/Languages.vala:100
+msgctxt "Languages"
+msgid "English"
+msgstr "Англійська"
+
+#: src/Models/Languages.vala:101
+msgctxt "Languages"
+msgid "Esperanto"
+msgstr "Есперанто"
+
+#: src/Models/Languages.vala:102
+msgctxt "Languages"
+msgid "Spanish"
+msgstr "Іспанська"
+
+#: src/Models/Languages.vala:103
+msgctxt "Languages"
+msgid "Estonian"
+msgstr "Естонський"
+
+#: src/Models/Languages.vala:104
+msgctxt "Languages"
+msgid "Basque"
+msgstr "Баскська"
+
+#: src/Models/Languages.vala:106
+msgctxt "Languages"
+msgid "Persian"
+msgstr "Перський"
+
+#: src/Models/Languages.vala:107
+msgctxt "Languages"
+msgid "Fulah"
+msgstr "Фула"
+
+#: src/Models/Languages.vala:108
+msgctxt "Languages"
+msgid "Finnish"
+msgstr "Фінський"
+
+#: src/Models/Languages.vala:109
+msgctxt "Languages"
+msgid "Fijian"
+msgstr "Фіджійська"
+
+#: src/Models/Languages.vala:110
+msgctxt "Languages"
+msgid "Faroese"
+msgstr "Фаринський"
+
+#: src/Models/Languages.vala:111
+msgctxt "Languages"
+msgid "French"
+msgstr "Французька"
+
+#: src/Models/Languages.vala:112
+msgctxt "Languages"
+msgid "Western Frisian"
+msgstr "Західний фризький"
+
+#: src/Models/Languages.vala:114
+msgctxt "Languages"
+msgid "Irish"
+msgstr "Ірландський"
+
+#: src/Models/Languages.vala:115
+msgctxt "Languages"
+msgid "Scottish Gaelic"
+msgstr "шотландська гельська"
+
+#: src/Models/Languages.vala:116
+msgctxt "Languages"
+msgid "Galician"
+msgstr "Галійка"
+
+#: src/Models/Languages.vala:117
+msgctxt "Languages"
+msgid "Guarani"
+msgstr "Гуарані"
+
+#: src/Models/Languages.vala:118
+msgctxt "Languages"
+msgid "Gujarati"
+msgstr "Гуджараті"
+
+#: src/Models/Languages.vala:119
+msgctxt "Languages"
+msgid "Manx"
+msgstr "Менська"
+
+#: src/Models/Languages.vala:121
+msgctxt "Languages"
+msgid "Hausa"
+msgstr "Хауса"
+
+#: src/Models/Languages.vala:122
+msgctxt "Languages"
+msgid "Hebrew"
+msgstr "Іврит"
+
+#: src/Models/Languages.vala:123
+msgctxt "Languages"
+msgid "Hindi"
+msgstr "Хінді"
+
+#: src/Models/Languages.vala:124
+msgctxt "Languages"
+msgid "Hiri Motu"
+msgstr "Хірі Моту"
+
+#: src/Models/Languages.vala:125
+msgctxt "Languages"
+msgid "Croatian"
+msgstr "Хорватський"
+
+#: src/Models/Languages.vala:126
+msgctxt "Languages"
+msgid "Haitian"
+msgstr "гаїтянська"
+
+#: src/Models/Languages.vala:127
+msgctxt "Languages"
+msgid "Hungarian"
+msgstr "Угорський"
+
+#: src/Models/Languages.vala:128
+msgctxt "Languages"
+msgid "Armenian"
+msgstr "Вірменський"
+
+#: src/Models/Languages.vala:129
+msgctxt "Languages"
+msgid "Herero"
+msgstr "Гереро"
+
+#: src/Models/Languages.vala:131
+msgctxt "Languages"
+msgid "Interlingua"
+msgstr "Інтерлінгва"
+
+#: src/Models/Languages.vala:132
+msgctxt "Languages"
+msgid "Indonesian"
+msgstr "Індонезійський"
+
+#: src/Models/Languages.vala:133
+msgctxt "Languages"
+msgid "Interlingue"
+msgstr "Контакти"
+
+#: src/Models/Languages.vala:134
+msgctxt "Languages"
+msgid "Igbo"
+msgstr "Igbo"
+
+#: src/Models/Languages.vala:135
+msgctxt "Languages"
+msgid "Sichuan Yi"
+msgstr "носу"
+
+#: src/Models/Languages.vala:136
+msgctxt "Languages"
+msgid "Inupiaq"
+msgstr "Inupiaq"
+
+#: src/Models/Languages.vala:137
+msgctxt "Languages"
+msgid "Ido"
+msgstr "Ідо"
+
+#: src/Models/Languages.vala:138
+msgctxt "Languages"
+msgid "Icelandic"
+msgstr "Ісландський"
+
+#: src/Models/Languages.vala:139
+msgctxt "Languages"
+msgid "Italian"
+msgstr "Італійський"
+
+#: src/Models/Languages.vala:140
+msgctxt "Languages"
+msgid "Inuktitut"
+msgstr "Inuktitut"
+
+#: src/Models/Languages.vala:142
+msgctxt "Languages"
+msgid "Japanese"
+msgstr "Японська"
+
+#: src/Models/Languages.vala:143
+msgctxt "Languages"
+msgid "Javanese"
+msgstr "Яванський"
+
+#: src/Models/Languages.vala:145
+msgctxt "Languages"
+msgid "Georgian"
+msgstr "Грузинський"
+
+#: src/Models/Languages.vala:146
+msgctxt "Languages"
+msgid "Kongo"
+msgstr "Конго"
+
+#: src/Models/Languages.vala:147
+msgctxt "Languages"
+msgid "Kikuyu"
+msgstr "Кікуйю"
+
+#: src/Models/Languages.vala:148
+msgctxt "Languages"
+msgid "Kwanyama"
+msgstr "кваняма"
+
+#: src/Models/Languages.vala:149
+msgctxt "Languages"
+msgid "Kazakh"
+msgstr "Казаха"
+
+#: src/Models/Languages.vala:150
+msgctxt "Languages"
+msgid "Kalaallisut"
+msgstr "гренландська"
+
+#: src/Models/Languages.vala:151
+msgctxt "Languages"
+msgid "Khmer"
+msgstr "Кхмерська"
+
+#: src/Models/Languages.vala:152
+msgctxt "Languages"
+msgid "Kannada"
+msgstr "Канада"
+
+#: src/Models/Languages.vala:153
+msgctxt "Languages"
+msgid "Korean"
+msgstr "Корейський"
+
+#: src/Models/Languages.vala:154
+msgctxt "Languages"
+msgid "Kanuri"
+msgstr "Канурі"
+
+#: src/Models/Languages.vala:155
+msgctxt "Languages"
+msgid "Kashmiri"
+msgstr "Кашмірі"
+
+#: src/Models/Languages.vala:156
+msgctxt "Languages"
+msgid "Kurdish"
+msgstr "Курдський"
+
+#: src/Models/Languages.vala:157
+msgctxt "Languages"
+msgid "Komi"
+msgstr "Комі"
+
+#: src/Models/Languages.vala:158
+msgctxt "Languages"
+msgid "Cornish"
+msgstr "Корнус"
+
+#: src/Models/Languages.vala:159
+msgctxt "Languages"
+msgid "Kirghiz"
+msgstr "киргизька"
+
+#: src/Models/Languages.vala:161
+msgctxt "Languages"
+msgid "Latin"
+msgstr "Латинський"
+
+#: src/Models/Languages.vala:162
+msgctxt "Languages"
+msgid "Luxembourgish"
+msgstr "Люксембургій"
+
+#: src/Models/Languages.vala:163
+msgctxt "Languages"
+msgid "Ganda"
+msgstr "Ганда"
+
+#: src/Models/Languages.vala:164
+msgctxt "Languages"
+msgid "Limburgish"
+msgstr "Лімбурзька"
+
+#: src/Models/Languages.vala:165
+msgctxt "Languages"
+msgid "Lingala"
+msgstr "Лінгала"
+
+#: src/Models/Languages.vala:166
+msgctxt "Languages"
+msgid "Lao"
+msgstr "Лао"
+
+#: src/Models/Languages.vala:167
+msgctxt "Languages"
+msgid "Lithuanian"
+msgstr "Литовський"
+
+#: src/Models/Languages.vala:168
+msgctxt "Languages"
+msgid "Latvian"
+msgstr "Латвійський"
+
+#: src/Models/Languages.vala:170
+msgctxt "Languages"
+msgid "Malagasy"
+msgstr "Малагасійський"
+
+#: src/Models/Languages.vala:171
+msgctxt "Languages"
+msgid "Marshallese"
+msgstr "Маршаллі"
+
+#: src/Models/Languages.vala:172
+msgctxt "Languages"
+msgid "Maori"
+msgstr "Маорі"
+
+#: src/Models/Languages.vala:173
+msgctxt "Languages"
+msgid "Macedonian"
+msgstr "Македонський"
+
+#: src/Models/Languages.vala:174
+msgctxt "Languages"
+msgid "Malayalam"
+msgstr "Малаялам"
+
+#: src/Models/Languages.vala:175
+msgctxt "Languages"
+msgid "Mongolian"
+msgstr "Монгольський"
+
+#: src/Models/Languages.vala:176
+msgctxt "Languages"
+msgid "Marathi"
+msgstr "Маратхі"
+
+#: src/Models/Languages.vala:177
+msgctxt "Languages"
+msgid "Malay"
+msgstr "Малайський"
+
+#: src/Models/Languages.vala:178
+msgctxt "Languages"
+msgid "Maltese"
+msgstr "Мальтійський"
+
+#: src/Models/Languages.vala:179
+msgctxt "Languages"
+msgid "Burmese"
+msgstr "Бірманська"
+
+#: src/Models/Languages.vala:181
+msgctxt "Languages"
+msgid "Nauru"
+msgstr "Науру"
+
+#: src/Models/Languages.vala:182
+msgctxt "Languages"
+msgid "Norwegian Bokmal"
+msgstr "Норвезька Bokmal"
+
+#: src/Models/Languages.vala:183
+msgctxt "Languages"
+msgid "North Ndebele"
+msgstr "Північна Ндебеле"
+
+#: src/Models/Languages.vala:184
+msgctxt "Languages"
+msgid "Nepali"
+msgstr "Непальський"
+
+#: src/Models/Languages.vala:185
+msgctxt "Languages"
+msgid "Ndonga"
+msgstr "Ндоунга"
+
+#: src/Models/Languages.vala:186
+msgctxt "Languages"
+msgid "Dutch"
+msgstr "Нідерландська"
+
+#: src/Models/Languages.vala:187
+msgctxt "Languages"
+msgid "Norwegian Nynorsk"
+msgstr "Норвезький Нінорск"
+
+#: src/Models/Languages.vala:188
+msgctxt "Languages"
+msgid "Norwegian"
+msgstr "Норвезький"
+
+#: src/Models/Languages.vala:189
+msgctxt "Languages"
+msgid "South Ndebele"
+msgstr "Південна Ндебеле"
+
+#: src/Models/Languages.vala:190
+msgctxt "Languages"
+msgid "Navajo"
+msgstr "навахо"
+
+#: src/Models/Languages.vala:191
+msgctxt "Languages"
+msgid "Chichewa"
+msgstr "Чева"
+
+#: src/Models/Languages.vala:193
+msgctxt "Languages"
+msgid "Occitan"
+msgstr "Оцвітський"
+
+#: src/Models/Languages.vala:194
+msgctxt "Languages"
+msgid "Ojibwa"
+msgstr "Оджібва"
+
+#: src/Models/Languages.vala:195
+msgctxt "Languages"
+msgid "Oromo"
+msgstr "Оромо"
+
+#: src/Models/Languages.vala:196
+msgctxt "Languages"
+msgid "Oriya"
+msgstr "Орія"
+
+#: src/Models/Languages.vala:197
+msgctxt "Languages"
+msgid "Ossetian"
+msgstr "Осетинська"
+
+#: src/Models/Languages.vala:199
+msgctxt "Languages"
+msgid "Punjabi"
+msgstr "Punjabi"
+
+#: src/Models/Languages.vala:200
+msgctxt "Languages"
+msgid "Pali"
+msgstr "Палі"
+
+#: src/Models/Languages.vala:201
+msgctxt "Languages"
+msgid "Polish"
+msgstr "Польський"
+
+#: src/Models/Languages.vala:202
+msgctxt "Languages"
+msgid "Pashto"
+msgstr "Пушту"
+
+#: src/Models/Languages.vala:203
+msgctxt "Languages"
+msgid "Portuguese"
+msgstr "Португальський"
+
+#: src/Models/Languages.vala:205
+msgctxt "Languages"
+msgid "Quechua"
+msgstr "Кечуа"
+
+#: src/Models/Languages.vala:207
+msgctxt "Languages"
+msgid "Romansh"
+msgstr "Римський"
+
+#: src/Models/Languages.vala:208
+msgctxt "Languages"
+msgid "Rundi"
+msgstr "Рунді"
+
+#: src/Models/Languages.vala:209
+msgctxt "Languages"
+msgid "Romanian"
+msgstr "Румунський"
+
+#: src/Models/Languages.vala:210
+msgctxt "Languages"
+msgid "Russian"
+msgstr "Російський"
+
+#: src/Models/Languages.vala:211
+msgctxt "Languages"
+msgid "Kinyarwanda"
+msgstr "Kinyarwanda"
+
+#: src/Models/Languages.vala:213
+msgctxt "Languages"
+msgid "Sanskrit"
+msgstr "Санскрит"
+
+#: src/Models/Languages.vala:214
+msgctxt "Languages"
+msgid "Sardinian"
+msgstr "Сардинський"
+
+#: src/Models/Languages.vala:215
+msgctxt "Languages"
+msgid "Sindhi"
+msgstr "Сіндхі"
+
+#: src/Models/Languages.vala:216
+msgctxt "Languages"
+msgid "Northern Sami"
+msgstr "Північний Самі"
+
+#: src/Models/Languages.vala:217
+msgctxt "Languages"
+msgid "Sango"
+msgstr "Санґо"
+
+#: src/Models/Languages.vala:218
+msgctxt "Languages"
+msgid "Sinhala"
+msgstr "Сингальська"
+
+#: src/Models/Languages.vala:219
+msgctxt "Languages"
+msgid "Slovak"
+msgstr "Словак"
+
+#: src/Models/Languages.vala:220
+msgctxt "Languages"
+msgid "Slovenian"
+msgstr "Словенський"
+
+#: src/Models/Languages.vala:221
+msgctxt "Languages"
+msgid "Samoan"
+msgstr "Самоанський"
+
+#: src/Models/Languages.vala:222
+msgctxt "Languages"
+msgid "Shona"
+msgstr "Шона"
+
+#: src/Models/Languages.vala:223
+msgctxt "Languages"
+msgid "Somali"
+msgstr "Сомалі"
+
+#: src/Models/Languages.vala:224
+msgctxt "Languages"
+msgid "Albanian"
+msgstr "Албанський"
+
+#: src/Models/Languages.vala:225
+msgctxt "Languages"
+msgid "Serbian"
+msgstr "Сербський"
+
+#: src/Models/Languages.vala:226
+msgctxt "Languages"
+msgid "Swati"
+msgstr "Суть"
+
+#: src/Models/Languages.vala:227
+msgctxt "Languages"
+msgid "Southern Sotho"
+msgstr "південне сото"
+
+#: src/Models/Languages.vala:228
+msgctxt "Languages"
+msgid "Sundanese"
+msgstr "Сундан"
+
+#: src/Models/Languages.vala:229
+msgctxt "Languages"
+msgid "Swedish"
+msgstr "Шведський"
+
+#: src/Models/Languages.vala:230
+msgctxt "Languages"
+msgid "Swahili"
+msgstr "Суахілі"
+
+#: src/Models/Languages.vala:232
+msgctxt "Languages"
+msgid "Tamil"
+msgstr "Тамільський"
+
+#: src/Models/Languages.vala:233
+msgctxt "Languages"
+msgid "Telugu"
+msgstr "Телугу"
+
+#: src/Models/Languages.vala:234
+msgctxt "Languages"
+msgid "Tajik"
+msgstr "Таджиць"
+
+#: src/Models/Languages.vala:235
+msgctxt "Languages"
+msgid "Thai"
+msgstr "Тайський"
+
+#: src/Models/Languages.vala:236
+msgctxt "Languages"
+msgid "Tigrinya"
+msgstr "Тигрина"
+
+#: src/Models/Languages.vala:237
+msgctxt "Languages"
+msgid "Turkmen"
+msgstr "Туркмен"
+
+#: src/Models/Languages.vala:238
+msgctxt "Languages"
+msgid "Tagalog"
+msgstr "Тагалог"
+
+#: src/Models/Languages.vala:239
+msgctxt "Languages"
+msgid "Tswana"
+msgstr "Тсвана"
+
+#: src/Models/Languages.vala:240
+msgctxt "Languages"
+msgid "Tonga"
+msgstr "Тонга"
+
+#: src/Models/Languages.vala:241
+msgctxt "Languages"
+msgid "Turkish"
+msgstr "Турецький"
+
+#: src/Models/Languages.vala:242
+msgctxt "Languages"
+msgid "Tsonga"
+msgstr "Цонга"
+
+#: src/Models/Languages.vala:243
+msgctxt "Languages"
+msgid "Tatar"
+msgstr "Татар"
+
+#: src/Models/Languages.vala:244
+msgctxt "Languages"
+msgid "Twi"
+msgstr "Твитнуть"
+
+#: src/Models/Languages.vala:245
+msgctxt "Languages"
+msgid "Tahitian"
+msgstr "Таїтянська"
+
+#: src/Models/Languages.vala:247
+msgctxt "Languages"
+msgid "Uighur"
+msgstr "Уйгурський"
+
+#: src/Models/Languages.vala:248
+msgctxt "Languages"
+msgid "Ukrainian"
+msgstr "Українська"
+
+#: src/Models/Languages.vala:249
+msgctxt "Languages"
+msgid "Urdu"
+msgstr "Урду"
+
+#: src/Models/Languages.vala:250
+msgctxt "Languages"
+msgid "Uzbek"
+msgstr "Узбек"
+
+#: src/Models/Languages.vala:252
+msgctxt "Languages"
+msgid "Venda"
+msgstr "Венда"
+
+#: src/Models/Languages.vala:253
+msgctxt "Languages"
+msgid "Vietnamese"
+msgstr "В'єтнамський"
+
+#: src/Models/Languages.vala:254
+msgctxt "Languages"
+msgid "Volapuk"
+msgstr "Волапюк"
+
+#: src/Models/Languages.vala:256
+msgctxt "Languages"
+msgid "Walloon"
+msgstr "Валун"
+
+#: src/Models/Languages.vala:257
+msgctxt "Languages"
+msgid "Wolof"
+msgstr "Волоф"
+
+#: src/Models/Languages.vala:259
+msgctxt "Languages"
+msgid "Xhosa"
+msgstr "Xhosa"
+
+#: src/Models/Languages.vala:261
+msgctxt "Languages"
+msgid "Yiddish"
+msgstr "Ідиш"
+
+#: src/Models/Languages.vala:262
+msgctxt "Languages"
+msgid "Yoruba"
+msgstr "Йоруба"
+
+#: src/Models/Languages.vala:264
+msgctxt "Languages"
+msgid "Zhuang"
+msgstr "Чжуан"
+
+#: src/Models/Languages.vala:265
+msgctxt "Languages"
+msgid "Chinese"
+msgstr "Китайський"
+
+#: src/Models/Languages.vala:266
+msgctxt "Languages"
+msgid "Zulu"
+msgstr "Зулу"
