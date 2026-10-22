@@ -3,29 +3,30 @@
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  *
- * @file ListButton.vala
+ * @file HistoryButton.vala
  *
- * @brief ListButton classes
+ * @brief HistoryButton classes
  *
  */
 
 using Gtk;
 using Gee;
 
+using Tuner.Events;
 using Tuner.Models;
 
 /**
- * @class ListButton
+ * @class HistoryButton
  *
- * @brief A custom button with a dropdown menu for station selection and context actions
+ * @brief A custom button with a dropdown menu displaying station and track history
  *
- * The ListButton class provides a button that displays a dropdown menu of stations
+ * The HistoryButton class provides a button that displays a dropdown menu of stations/tracks
  * and allows for context actions such as copying the list to the clipboard or clearing
  * all items from the menu.
  *
  * @extends Gtk.Button
  */
-public class Tuner.Widgets.ListButton : Gtk.Button
+public class Tuner.Widgets.HistoryButton : Gtk.Button
 {
 	private const int MAX_VISIBLE_ROWS = 12;
 
@@ -41,55 +42,70 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 	private Gtk.ScrolledWindow history_scroller;
 	private Gtk.Label summary_plays_value;
 	private Gtk.Label summary_changes_value;
-	private Gtk.Label summary_distinct_value;
 	private Gtk.Label summary_hearted_value;
 	private Gtk.Label total_play_time_value;
 	private Gee.HashMap<HistoryEntry, Gtk.ListBoxRow> rows_by_entry;
-	private uint row_refresh_timeout_id = 0;
+	private AppEventBus _events;
+	private ulong _playback_time_tick_handler_id = 0;
 
 	/**
-	* @brief Constructs a new ListButton with an icon.
+	* @brief Constructs a new HistoryButton with an icon.
 	* @param icon_name The name of the icon to display on the button.
 	* @param size The size of the icon.
 	*/
-	public ListButton.from_icon_name(History history, string? icon_name,  IconSize size = IconSize.BUTTON)
+	public HistoryButton.from_icon_name(History history, AppEventBus events, string? icon_name,  IconSize size = IconSize.BUTTON)
 	{
 		Object(history: history);
+		_events = events;
 		var image = new Image.from_icon_name(icon_name, size);
 		this.set_image(image);
 		initialize();
-	} // ListButton
+	} // HistoryButton
 
 	
 	/**
-	* @brief Constructs a new ListButton without an icon.
+	* @brief Constructs a new HistoryButton without an icon.
 	*/
-	public ListButton(History history)
+	public HistoryButton(History history, AppEventBus events)
 	{
 		Object(history: history);
+		_events = events;
 		initialize();
-	} // ListButton
+	} // HistoryButton
 
 
 	public History history { get; construct; }
 
 
+	/**
+	 * @brief Initialize the history popover and wire event handlers.
+	 *
+	 * This sets up the internal row cache, builds the popover UI, binds the
+	 * history model signals, and starts live playback tick updates.
+	 */
 	private void initialize()
 	{
 		rows_by_entry = new Gee.HashMap<HistoryEntry, Gtk.ListBoxRow>();
 		build_popover();
-		start_row_refresh_timer();
 		this.clicked.connect(() => {
 			if (history.entries.size > 0)
 			{
+				refresh_history_popover();
 				history_popover.popup();
 			}
 		});
 		bind_history();
+		start_playback_time_tick_listener();
 		refresh_summary();
 	} // initialize
 
 
+	/**
+	 * @brief Create and configure the history popover UI.
+	 *
+	 * The popover contains a summary row, action buttons, total playback
+	 * duration, and a scrollable list of history items.
+	 */
 	private void build_popover()
 	{
 		history_popover = new Gtk.Popover(this);
@@ -108,7 +124,6 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 		summary_box.get_style_context().add_class("history-summary-box");
 		summary_box.pack_start(create_summary_tile(_("Tracks"), out summary_plays_value), true, true, 0);
 		summary_box.pack_start(create_summary_tile(_("Stations"), out summary_changes_value), true, true, 0);
-		summary_box.pack_start(create_summary_tile(_("Unique"), out summary_distinct_value), true, true, 0);
 		summary_box.pack_start(create_summary_tile(_("Hearted"), out summary_hearted_value), true, true, 0);
 		content.pack_start(summary_box, false, false, 0);
 
@@ -166,6 +181,12 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 	} // build_popover
 
 
+	/**
+	 * @brief Create a summary tile for the history popover header.
+	 *
+	 * Each tile displays a localized label and a numeric value such as tracks,
+	 * stations, or hearted entries.
+	 */
 	private Gtk.Widget create_summary_tile(string label_text, out Gtk.Label value_label)
 	{
 		var tile = new Gtk.Box(Gtk.Orientation.VERTICAL, 2);
@@ -256,6 +277,12 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 	} // get_hearted_history_lines_without_hearts
 
 
+	/**
+	 * @brief Attach history model signals to the popover UI.
+	 *
+	 * Listens for history changes and creates, removes, or updates rows as the
+	 * underlying model changes.
+	 */
 	private void bind_history()
 	{
 		history.entry_added_sig.connect((entry) => { add_menu_item(entry); });
@@ -275,6 +302,12 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 	 * @brief Adds a menu item for the given history entry.
 	 * @param entry The history entry to add.
 	 */
+	/**
+	 * @brief Add a row for a new history entry.
+	 *
+	 * New entries are inserted at the top of the list so the most recent history
+	 * is shown first.
+	 */
 	private void add_menu_item(HistoryEntry entry)
 	{
 		var row = build_history_row(entry);
@@ -289,6 +322,9 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 	 * @brief Removes the menu item for the given history entry.
 	 * @param entry The history entry to remove.
 	 */
+	/**
+	 * @brief Remove a row from the history list when an entry is deleted.
+	 */
 	private void remove_menu_item(HistoryEntry entry)
 	{
 		var row = rows_by_entry.get(entry);
@@ -301,6 +337,12 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 	} // remove_menu_item
 
 
+	/**
+	 * @brief Refresh the UI for an existing history entry row.
+	 *
+	 * This rebuilds the row contents when the entry changes, including
+	 * play time, hearted state, or title updates.
+	 */
 	private void update_menu_item(HistoryEntry entry)
 	{
 		var row = rows_by_entry.get(entry);
@@ -311,6 +353,9 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 	} // update_menu_item
 
 
+	/**
+	 * @brief Remove all row widgets from the history list.
+	 */
 	private void clear_menu_items()
 	{
 		foreach (var row in rows_by_entry.values)
@@ -320,6 +365,12 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 	} // clear_menu_items
 
 
+	/**
+	 * @brief Create a single history row widget.
+	 *
+	 * Each row contains the station, title, elapsed play time, and a heart
+	 * indicator when applicable.
+	 */
 	private Gtk.ListBoxRow build_history_row(HistoryEntry entry)
 	{
 		var row = new Gtk.ListBoxRow();
@@ -335,6 +386,12 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 	} // build_history_row
 
 
+	/**
+	 * @brief Rebuild the contents of a history row from a history entry.
+	 *
+	 * This creates the row layout and updates the displayed metadata for the
+	 * given entry each time it changes.
+	 */
 	private void rebuild_history_row(Gtk.ListBoxRow row, HistoryEntry entry)
 	{
 		var existing_child = row.get_child();
@@ -412,6 +469,9 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 	} // format_entry_title
 
 
+	/**
+	 * @brief Apply alternating row styles to visible history rows.
+	 */
 	private void refresh_row_styles()
 	{
 		var children = history_list.get_children();
@@ -436,7 +496,6 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 	{
 		summary_plays_value.label = history.entries.size.to_string();
 		summary_changes_value.label = history.station_change_count.to_string();
-		summary_distinct_value.label = history.distinct_track_count.to_string();
 		summary_hearted_value.label = history.hearted_track_count.to_string();
 		if (total_play_time_value != null)
 			total_play_time_value.label = format_total_play_time();
@@ -449,24 +508,48 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 	} // refresh_summary
 
 
-	private void start_row_refresh_timer()
+	/**
+	 * @brief Refreshes history rows and summary values before showing the popover.
+	 *
+	 * This ensures the displayed play time is current for any active history entry
+	 * as soon as the popover opens.
+	 */
+	private void refresh_history_popover()
 	{
-		row_refresh_timeout_id = Timeout.add_seconds(1, () =>
+		refresh_summary();
+		foreach (var entry in history.entries)
+		{
+			update_menu_item(entry);
+		}
+	} // refresh_history_popover
+
+
+	/**
+	 * @brief Start listening for playback time ticks while the history popover is visible.
+	 *
+	 * The live tick listener updates the summary and any currently playing row so
+	 * elapsed times stay accurate while the popover remains open.
+	 */
+	private void start_playback_time_tick_listener()
+	{
+		_playback_time_tick_handler_id = _events.playback_time_tick_sig.connect((station, total_play_seconds, station_play_seconds) =>
 		{
 			if (!history_popover.visible)
-				return Source.CONTINUE;
+				return;
 
+			refresh_summary();
 			foreach (var entry in history.entries)
 			{
 				if (entry.playing)
 					update_menu_item(entry);
 			}
-
-			return Source.CONTINUE;
 		});
-	} // start_row_refresh_timer
+	} // start_playback_time_tick_listener
 
 
+	/**
+	 * @brief Format a history entry's elapsed play time for display.
+	 */
 	private string format_play_time(HistoryEntry entry)
 	{
 		int total_seconds = entry.get_total_played_seconds();
@@ -474,12 +557,18 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 	} // format_play_time
 
 
+	/**
+	 * @brief Format the total elapsed play time across the history list.
+	 */
 	private string format_total_play_time()
 	{
 		return format_seconds(history.total_played_seconds);
 	} // format_total_play_time
 
 
+	/**
+	 * @brief Convert seconds into a localized HH:MM:SS or MM:SS string.
+	 */
 	private string format_seconds(int total_seconds)
 	{
 		int hours = total_seconds / 3600;
@@ -493,6 +582,9 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 	} // format_seconds
 
 
+	/**
+	 * @brief Build a plain-text representation of history entries for the clipboard.
+	 */
 	private string build_clipboard_text()
 	{
 		var builder = new StringBuilder();
@@ -506,4 +598,4 @@ public class Tuner.Widgets.ListButton : Gtk.Button
 		}
 		return builder.str;
 	} // build_clipboard_text
-} // ListButton
+} // HistoryButton

@@ -103,6 +103,9 @@ namespace Tuner {
 
         private static string GTK_SYSTEM_THEME = "unset";
 
+        /**
+         * @brief The system GTK theme name, saved before Tuner applies its own theme; "unset" until it is read.
+         */
         public static string SYSTEM_THEME() { return GTK_SYSTEM_THEME; }
 
         static construct 
@@ -195,11 +198,20 @@ namespace Tuner {
         /** @brief Player controller */
         public DirectoryController directory { get; construct; }
 
+        /** @brief Jukebox controller */
+        public JukeboxController jukebox { get; construct; }
+
+        /** @brief Tape counter controller */
+        public TapeCounterController tape_counter { get; construct; }
+
         /** @brief Player controller */
         public StarStore stars { get; construct; }
 
         /** @brief Shared session playback history */
         public History history { get; private set; }
+
+        /** @brief Stations that failed to play this session - jukebox skips these */
+        public StationSession session { get; private set; }
         
         /** @brief API DataProvider */
         public DataProvider.API provider { get; construct; }
@@ -293,6 +305,9 @@ namespace Tuner {
             stars = create_star_store(starred_file);
             directory = create_directory_controller(provider, stars);
             history = new History();
+            session = new StationSession();
+            jukebox = create_jukebox_controller();
+            tape_counter = create_tape_counter_controller();
             initialize_coordinators();
 
             register_application_actions ();
@@ -430,12 +445,34 @@ namespace Tuner {
 
 
         /**
+        * @brief Creates the jukebox controller service.
+        *
+        * @return Newly created jukebox controller.
+        */
+        private JukeboxController create_jukebox_controller()
+        {
+            return new JukeboxController(this, directory);
+        }
+
+
+        /**
+        * @brief Creates the tape-counter controller service.
+        *
+        * @return Newly created tape-counter controller.
+        */
+        private TapeCounterController create_tape_counter_controller()
+        {
+            return new TapeCounterController(events, history, session);
+        }
+
+
+        /**
         * @brief Initializes app coordinators that consume initialized services.
         */
         private void initialize_coordinators()
         {
             _playback_recovery_coordinator = new PlaybackRecoveryCoordinator(this, events, player, settings);
-            _usage_tracking_coordinator = new UsageTrackingCoordinator(settings, events, provider);
+            _usage_tracking_coordinator = new UsageTrackingCoordinator(settings, events, provider, session);
         }
 
 

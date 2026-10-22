@@ -489,6 +489,13 @@ public class Tuner.Widgets.Base.TunerStatus : Fixed
 	private double _last_norm = 0.5;
 	private const double ONLINE_PULSE_DELTA = 0.12;
 
+    /**
+     * @brief Creates the status icon.
+     *
+     * @param app Application, for the online state and station-change events.
+     * @param window Main window, for the provider name in the tooltip.
+     * @param provider Data provider whose station and tag counts are shown.
+     */
     public TunerStatus(Application app, Window window, DataProvider.API provider) 
     {
             // Tuner icon

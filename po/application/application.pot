@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: application\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-09 10:10-0700\n"
+"POT-Creation-Date: 2026-10-21 19:18-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,44 +23,44 @@ msgstr ""
 #. ----------------------------------------------------------
 #. Indicates if the station is in the provider index
 #. Indicates if the station is up-to-date with the provider index
-#: src/Models/Station.vala:160
+#: src/Models/Station.vala:162
 msgid "Station no longer in the index"
 msgstr ""
 
-#: src/Models/Station.vala:402
+#: src/Models/Station.vala:403
 #, c-format
 msgid "Last Played: %s\tPlays: %d"
 msgstr ""
 
-#: src/Models/Station.vala:436
+#: src/Models/Station.vala:437
 msgid "Changes"
 msgstr ""
 
-#: src/Models/Station.vala:437
+#: src/Models/Station.vala:438
 msgid "Stream Url"
 msgstr ""
 
-#: src/Models/Station.vala:438
+#: src/Models/Station.vala:439
 msgid "Stream Resolved Url"
 msgstr ""
 
-#: src/Models/Station.vala:439
+#: src/Models/Station.vala:440
 msgid "Favicon address"
 msgstr ""
 
-#: src/Models/Station.vala:440
+#: src/Models/Station.vala:441
 msgid "Homepage address"
 msgstr ""
 
-#: src/Models/Station.vala:441
+#: src/Models/Station.vala:442
 msgid "Station tags"
 msgstr ""
 
-#: src/Models/Station.vala:442 src/Models/StreamMetadata.vala:36
+#: src/Models/Station.vala:443 src/Models/StreamMetadata.vala:36
 msgid "Bitrate"
 msgstr ""
 
-#: src/Models/Station.vala:443
+#: src/Models/Station.vala:444
 msgid "Codec"
 msgstr ""
 
@@ -181,6 +181,18 @@ msgstr ""
 msgid "Date Time"
 msgstr ""
 
+#: src/Models/StreamMetadata.vala:57
+msgid "Copyright"
+msgstr ""
+
+#: src/Models/StreamMetadata.vala:58
+msgid "Publisher"
+msgstr ""
+
+#: src/Models/StreamMetadata.vala:59
+msgid "Comment"
+msgstr ""
+
 #.
 #. Display Assets
 #.
@@ -216,68 +228,68 @@ msgstr ""
 msgid "Talk, News, Sport"
 msgstr ""
 
-#: src/Widgets/Display.vala:454
+#: src/Widgets/Display.vala:439
 msgid "Discover"
 msgstr ""
 
-#: src/Widgets/Display.vala:455
+#: src/Widgets/Display.vala:440
 msgid "Stations to Discover"
 msgstr ""
 
-#: src/Widgets/Display.vala:459
+#: src/Widgets/Display.vala:444
 msgid "Discover more stations"
 msgstr ""
 
-#: src/Widgets/Display.vala:479
+#: src/Widgets/Display.vala:468
 msgid "Trending"
 msgstr ""
 
-#: src/Widgets/Display.vala:480
+#: src/Widgets/Display.vala:469
 msgid "Trending Stations in the last 24 hours"
 msgstr ""
 
-#: src/Widgets/Display.vala:497
+#: src/Widgets/Display.vala:487
 msgid "Popular"
 msgstr ""
 
-#: src/Widgets/Display.vala:498
+#: src/Widgets/Display.vala:488
 msgid "Most listened to Stations in the last 24 hours"
 msgstr ""
 
-#: src/Widgets/Display.vala:535 src/Widgets/Display.vala:536
+#: src/Widgets/Display.vala:526 src/Widgets/Display.vala:527
 msgid "Starred by You"
 msgstr ""
 
-#: src/Widgets/Display.vala:574
+#: src/Widgets/Display.vala:565
 msgid "Latest Search"
 msgstr ""
 
-#: src/Widgets/Display.vala:575
+#: src/Widgets/Display.vala:566
 msgid "Search Results"
 msgstr ""
 
-#: src/Widgets/Display.vala:577
+#: src/Widgets/Display.vala:568
 msgid "Save this search"
 msgstr ""
 
-#: src/Widgets/Display.vala:711
+#: src/Widgets/Display.vala:702
 msgid "Jukebox"
 msgstr ""
 
-#: src/Widgets/Display.vala:713
+#: src/Widgets/Display.vala:704
 #, c-format
 msgid "Double click to shuffle through %1$u stations"
 msgstr ""
 
-#: src/Widgets/Display.vala:714
+#: src/Widgets/Display.vala:705
 msgid "one, every ten minutes, for %2$u days"
 msgstr ""
 
-#: src/Widgets/Display.vala:780
+#: src/Widgets/Display.vala:762
 msgid "Saved Search"
 msgstr ""
 
-#: src/Widgets/Display.vala:783
+#: src/Widgets/Display.vala:765
 msgid "Remove this saved search"
 msgstr ""
 
@@ -436,17 +448,17 @@ msgid "Import Station UUIDs as Starred Stations"
 msgstr ""
 
 #. Create the file chooser dialog for saving the exported playlist
-#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:572
+#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:571
 msgid "Save File"
 msgstr ""
 
 #: src/Widgets/PreferencesPopover.vala:232
-#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:575
+#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:574
 msgid "_Cancel"
 msgstr ""
 
-#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:564
-#: src/Widgets/Window.vala:576
+#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:563
+#: src/Widgets/Window.vala:575
 msgid "_Save"
 msgstr ""
 
@@ -510,10 +522,10 @@ msgstr ""
 msgid "Stop Playback requested"
 msgstr ""
 
-#: src/Widgets/Window.vala:561
+#: src/Widgets/Window.vala:560
 msgid "Save hearted tracks to a file?"
 msgstr ""
 
-#: src/Widgets/Window.vala:563
+#: src/Widgets/Window.vala:562
 msgid "_Don't Save"
 msgstr ""

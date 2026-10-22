@@ -22,6 +22,9 @@ namespace Tuner.Coordinators {
 		private Settings _settings;
 		private AppEventBus _events;
 		private DataProvider.API _provider;
+		private StationSession _session;
+
+		private const int64 CLICK_INTERVAL_US = 86400000000LL;   // 24 hours in microseconds: one click per station per day
 
 		private ulong _player_state_handler_id = 0;
 		private ulong _player_tape_handler_id = 0;
@@ -33,16 +36,19 @@ namespace Tuner.Coordinators {
 		 * @param settings Application settings that gate vote/click behavior.
 		 * @param events App-level event bus used for player lifecycle signals.
 		 * @param provider Data provider that receives click/vote notifications.
+		 * @param session Session station records: click times.
 		 */
 		public UsageTrackingCoordinator(
 			Settings settings,
 			AppEventBus events,
-			DataProvider.API provider
+			DataProvider.API provider,
+			StationSession session
 		) {
 			Object();
 			_settings = settings;
 			_events = events;
 			_provider = provider;
+			_session = session;
 
 			_player_state_handler_id = _events.player_state_changed_sig.connect((station, state) => {
 				on_player_state_changed(station, state);
@@ -51,6 +57,31 @@ namespace Tuner.Coordinators {
 			_player_tape_handler_id = _events.tape_counter_sig.connect((station) => {
 				on_tape_counter(station);
 			});
+		}
+
+
+		/**
+		 * @brief Sends a click for the station unless one was sent within the last 24 hours.
+		 *
+		 * Called at the playback milestones: when playback starts and at each tape-counter
+		 * interval of continuous play. The station's local click record is checked first; if it
+		 * is empty or older than 24 hours the click request is sent and the record is updated.
+		 * RadioBrowser ignores repeat clicks from one listener inside that window anyway.
+		 *
+		 * @param station Station that is playing.
+		 */
+		private void send_click_if_due(Station station)
+		{
+			var last = _session.get_last_click_sent(station);
+			var now = new DateTime.now_utc();
+
+			if (last != null && now.difference(last) <= CLICK_INTERVAL_US)
+				return;
+
+			_provider.click(station.stationuuid);
+			_session.set_last_click_sent(station, now);
+			station.clickcount++;
+			station.clicktrend++;
 		}
 
 
@@ -67,9 +98,7 @@ namespace Tuner.Coordinators {
 			if (_settings.do_not_vote || state != StreamPlayer.State.PLAYING)
 				return;
 
-			_provider.click(station.stationuuid);
-			station.clickcount++;
-			station.clicktrend++;
+			send_click_if_due(station);
 		}
 
 
@@ -91,9 +120,7 @@ namespace Tuner.Coordinators {
 				station.votes++;
 			}
 
-			_provider.click(station.stationuuid);
-			station.clickcount++;
-			station.clicktrend++;
+			send_click_if_due(station);
 		}
 
 

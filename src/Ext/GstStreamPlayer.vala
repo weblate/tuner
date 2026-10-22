@@ -48,8 +48,12 @@ namespace Tuner.Ext
             base ( stream_url);
             
             playbin = ElementFactory.make ("playbin", "play");
-            //playbin.user_agent = Tuner.user_agent ();
             playbin.uri = stream_url;
+
+            // playbin has no user-agent property of its own, so the HTTP source it creates sends
+            // GStreamer's default "GStreamer souphttpsrc libsoup/x.y.z". Some stream servers answer
+            // that with 403 Forbidden (seen with wz0liw.scahw.com.au), so identify as Tuner instead.
+            GLib.Signal.connect (playbin, "source-setup", (GLib.Callback) on_source_setup, null);
 
             set_volume_level (0.5);
             setup_level_monitor ();
@@ -154,6 +158,39 @@ namespace Tuner.Ext
 
 
         /**
+         * @brief Set Tuner's User-Agent on the HTTP source playbin creates for the stream.
+         *
+         * Connected to playbin's `source-setup` signal. Sources without a
+         * `user-agent` property (file, etc.) are left alone. Also relaxes TLS
+         * certificate checking (`ssl-strict`) for HTTPS sources.
+         *
+         * @param pb The playbin emitting the signal.
+         * @param source The newly created source element.
+         * @param data Unused signal user data.
+         */
+        private static void on_source_setup (Gst.Element pb, Gst.Element source, void* data)
+        {
+            var klass = (ObjectClass) source.get_type ().class_ref ();
+            if (klass.find_property ("user-agent") == null)
+                return;
+
+            source.set ("user-agent", Tuner.user_agent ());
+            debug (@"source-setup: set user-agent '$(Tuner.user_agent ())' on $(source.get_name ())");
+
+            // Many radio servers present incomplete or self-signed certificate chains (e.g.
+            // stream3.infovojna.com: "unable to get local issuer certificate"). souphttpsrc is strict
+            // by default and then fails with only a generic "Internal data stream error". Accept the
+            // certificate, as HttpClient already does for the app's own requests - streams carry no
+            // credentials or private data.
+            if (klass.find_property ("ssl-strict") != null)
+            {
+                source.set ("ssl-strict", false);
+                debug ("source-setup: ssl-strict disabled");
+            }
+        } // on_source_setup
+
+
+        /**
          * @brief Handle GStreamer bus messages.
          *
          * @param bus GStreamer bus instance.
@@ -166,10 +203,28 @@ namespace Tuner.Ext
             {
             case MessageType.ERROR:
                 GLib.Error err;
-                string debug;
-                message.parse_error (out err, out debug);
-                //  stdout.printf ("Error: %s\n", err.message);
-                playback_error (err.message);
+                string debug_info;
+                message.parse_error (out err, out debug_info);
+
+                // GStreamer's message text is generic (e.g. "Stream doesn't contain enough data").
+                // The element that raised it, the error domain/code, the debug string and the
+                // optional details structure (souphttpsrc adds "http-status-code") say why.
+                string src_name = (message.src != null) ? message.src.get_name () : "unknown";
+                unowned Gst.Structure? details = null;
+                message.parse_error_details (out details);
+                string details_text = (details != null) ? details.to_string () : "none";
+
+                warning (@"Playback error from element '$(src_name)': $(err.domain.to_string()) code=$(err.code) '$(err.message)'; debug='$(debug_info)'; details=$(details_text); uri=$(stream_url)");
+
+                // Tooltip text: GStreamer's message plus the most useful extra facts
+                string tooltip = err.message;
+                uint http_status = 0;
+                if (details != null && details.get_uint ("http-status-code", out http_status) && http_status > 0)
+                    tooltip += @" [$(src_name), HTTP $(http_status)]";
+                else
+                    tooltip += @" [$(src_name)]";
+
+                playback_error (tooltip);
                 update_play_state (State.STOPPED_ERROR);
                 break;
 

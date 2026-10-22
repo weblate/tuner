@@ -42,6 +42,9 @@ public abstract class Tuner.Models.Favicon : Object
     /** @property {string} favicon - Favicon URL of the station. */
     private string _favicon;
 
+    /**
+     * @brief Favicon URL. Empty values and repeats are ignored. A URL that fails to parse is added to FAILING_FAVICON.
+     */
     public string favicon {
         get { return _favicon; }
         protected set {

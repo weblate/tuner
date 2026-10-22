@@ -4,6 +4,9 @@
  */
 
 
+/**
+ * @brief D-Bus binding for the MPRIS org.mpris.MediaPlayer2.Player interface.
+ */
 [DBus (name = "org.mpris.MediaPlayer2.Player", timeout = 120000)]
 public interface Tuner.Services.DBus.IMediaPlayer2Player : GLib.Object {
 
@@ -85,6 +88,9 @@ public interface Tuner.Services.DBus.IMediaPlayer2Player : GLib.Object {
 	public abstract bool can_control {  get; }
 }
 
+/**
+ * @brief D-Bus binding for the MPRIS org.mpris.MediaPlayer2 root interface.
+ */
 [DBus (name = "org.mpris.MediaPlayer2", timeout = 120000)]
 public interface Tuner.Services.DBus.IMediaPlayer2 : GLib.Object {
 

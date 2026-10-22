@@ -9,7 +9,7 @@ builddir
 build-dir
 build-aux
 *~
-apidocs/*
+apidocs/
 .vscode
 .buildconfig
 .flatpak-builder
@@ -22,9 +22,28 @@ tuner.code-workspace
 labelexpand.ods
 tuner-starred.m3u8
 uncrustify.cfg
-repo/*
+repo/
 *.bak
 *.log
 *.tmp
 data/*.gresource
 TODO
+backup/
+
+# Local build output
+build-dir-*/
+__pycache__/
+
+# AI assistant notes, config and indexes
+CLAUDE.md
+GEMINI.md
+.claude/
+.cursor/
+.kiro/
+.windsurf/
+.infigraph/
+.infigraphignore
+.github/copilot-instructions.md
+
+# Local reports
+report-*.html

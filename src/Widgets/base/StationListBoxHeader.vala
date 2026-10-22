@@ -21,6 +21,13 @@ namespace Tuner.Widgets.Base
 
         private StackLabel _parameter_label;
 
+        /**
+         * @brief Creates a header with a subtitle and an optional action button.
+         *
+         * @param subtitle Text shown in the header.
+         * @param action_tooltip_text Tooltip for the action button, or null for no button.
+         * @param action_icon_name Icon for the action button, or null for no button.
+         */
         public StationListBoxHeader(string subtitle, string? action_tooltip_text, string? action_icon_name)
         {
             Object (
@@ -47,6 +54,9 @@ namespace Tuner.Widgets.Base
             pack_start (_parameter_label, false, false);
         }
 
+        /**
+         * @brief Sets the parameter text shown in the header, or clears it when null.
+         */
         public void set_parameter (string? parameter)
         {
             _parameter_label.label = parameter ?? "";

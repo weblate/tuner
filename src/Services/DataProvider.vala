@@ -287,7 +287,12 @@ namespace Tuner.Services.DataProvider {
  * @throw DataError if unable to retrieve or parse station data
  */
 		public abstract Set<Station> search(SearchParams params, uint rowcount, uint offset             = 0) throws DataError;
-		public async abstract Set<Station> search_async(SearchParams params, uint rowcount, uint offset = 0) throws DataError;
+
+/**
+ * @brief Asynchronous search(). The priority applies to the HTTP request: use GLib.Priority.LOW for
+ * background work nobody is waiting for.
+ */
+		public async abstract Set<Station> search_async(SearchParams params, uint rowcount, uint offset = 0, int priority = GLib.Priority.HIGH_IDLE) throws DataError;
 
     } // API
 } // DataProvider

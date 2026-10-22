@@ -49,6 +49,14 @@ private void install_filtered_json_warning_handler ()
     );
 } // install_filtered_json_warning_handler
 
+/**
+ * @brief Program entry point.
+ *
+ * Installs the crash signal handlers and the JSON warning filter, sets the locale, initialises
+ * GStreamer and runs the Application.
+ *
+ * @return The application exit status, or 1 if registration fails or Tuner is already running.
+ */
 public static int main (string[] args) 
 {
     Posix.signal (Posix.Signal.SEGV, on_signal);

@@ -54,6 +54,9 @@ public class Tuner.Models.StreamMetadata : GLib.Object
         {"GstSample",                   N_("GStreamer Sample")	    },
         {"GstDateTime",                 N_("GStreamer Date Time")	},
         {"datetime",                    N_("Date Time")	            },
+        {"copyright",                   N_("Copyright")	            },
+        {"publisher",                   N_("Publisher")	            },
+        {"comment",                     N_("Comment")	            },
     };
 
 

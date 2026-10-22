@@ -79,6 +79,7 @@ gtk+-3.0
 json-glib-1.0
 libgee-0.8
 libsoup-3.0
+librsvg2-dev
 meson
 vala
 ```
@@ -87,7 +88,7 @@ Install required dependencies (Debian/Ubuntu):
 
 ```bash
 sudo apt install git valac meson
-sudo apt install libgtk-3-dev libgee-0.8-dev libgstreamer1.0-dev libgstreamer-plugins-bad1.0-dev libsoup-3.0-dev libjson-glib-dev
+sudo apt install libgtk-3-dev libgee-0.8-dev libgstreamer1.0-dev libgstreamer-plugins-bad1.0-dev libsoup-3.0-dev libjson-glib-dev librsvg2-dev
 ```
 
 [libgee](https://gitlab.gnome.org/GNOME/libgee/-/releases) is built as a module during the build.
@@ -155,7 +156,6 @@ valadoc --force \
   --pkg gee-0.8 --pkg gio-2.0 \
   --pkg libsoup-3.0 --pkg json-glib-1.0 \
   --pkg gstreamer-1.0 --pkg gstreamer-player-1.0 \
-  --pkg granite \
   --package-name=Tuner \
   --directory=src \
   -o apidocs \

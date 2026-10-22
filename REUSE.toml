@@ -1,13 +1,20 @@
 version = 1
 
 [[annotations]]
-path = ["po/*.po", "po/*.pot"]
+path = ["po/**.po", "po/**.pot"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Copyright © 2026 technosf <https://github.com/technosf>"
 SPDX-License-Identifier = "GPL-3.0-or-later"
 
 [[annotations]]
-path = ["data/*.in", "scripts", "src/*.vala" ]
+path = ["data/*.in", "scripts/**", "src/**.vala"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Copyright © 2026 technosf <https://github.com/technosf>"
+SPDX-License-Identifier = "GPL-3.0-or-later"
+
+[[annotations]]
+# Screenshots, logo and startup jingle: project's original work, same licence as the project
+path = ["flathub/**.png", "data/sounds/tuner_startup.mp3"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Copyright © 2026 technosf <https://github.com/technosf>"
 SPDX-License-Identifier = "GPL-3.0-or-later"

@@ -34,14 +34,30 @@ namespace Tuner.Providers {
     private const string SRV_PROTOCOL   = "tcp";
     private const string SRV_DOMAIN     = "radio-browser.info";
 
+    /*
+        RadioBrowser API this provider is written against
+        --------------------------------------------------
+        Documentation : https://api.radio-browser.info/ (the old www.radio-browser.info API is deprecated)
+        Protocol      : JSON over HTTPS ("preferably HTTPS" per the docs), paths under /json/
+        Wire version  : /json/stats reports "supported_version" - this code expects RBI_API_SUPPORTED_VERSION
+        Spec reference: OpenAPI listing at https://apis.io/apis/radio-browser/radio-browser-stations-api/
+                        shows info.version 0.7.44 (third party copy - check against a live server's
+                        "software_version" in /json/stats). Last reviewed against it: 2026-10-21.
+        Rules followed: speaking User-Agent (app/version), server list from DNS SRV (fallback /json/servers),
+                        random server order, retry a failed request on the next server, /json/url on each play,
+                        use uuids and countrycode (not the legacy id/country fields) for lookups, hidebroken=true.
+    */
+    private const int    RBI_API_SUPPORTED_VERSION = 1;
+    private const string RBI_SCHEME     = "https";
+
     private const string RBI_ALL_API    = "all.api.radio-browser.info";    // Round-robin API address
     private const string RBI_STATS      = "/json/stats";
     private const string RBI_SERVERS    = "/json/servers";
 
     // RB Queries
-    private const string RBI_STATION    = "/json/url/$stationuuid";
+    private const string RBI_STATION    = "/json/url/";    // + stationuuid
     private const string RBI_SEARCH     = "/json/stations/search";
-    private const string RBI_VOTE       = "/json/vote/$stationuuid";
+    private const string RBI_VOTE       = "/json/vote/";   // + stationuuid
     private const string RBI_UUID       = "/json/stations/byuuid";
     private const string RBI_URL        = "/json/stations/byurl";
     private const string RBI_TAGS       = "/json/tags";
@@ -54,7 +70,7 @@ namespace Tuner.Providers {
      * RadioBrowser class implements the DataProvider.API interface to fetch
      * radio station data from the Radio Browser service.
      * 
-     * See https://www.radio-browser.info/ for API details.
+     * See https://api.radio-browser.info/ for API details (and the API version note at the top of this file).
      */
     public class RadioBrowser : Object, API 
     {
@@ -67,11 +83,16 @@ namespace Tuner.Providers {
         private int _degrade = DEGRADE_CAPITAL;
         private int _available_stations = 1000;     // default guess
         private int _available_tags = 1000;     // default guess
+        private int _api_supported_version = 0;          // From /json/stats "supported_version", 0 = unknown
+        private string _api_software_version = "unknown"; // From /json/stats "software_version"
 
 
+        /**
+         * @brief Provider description: name, current server and API version.
+         */
         public string name()
         {
-            return @"RadioBrowser 2.0\n\nServer: $_current_server"; 
+            return @"RadioBrowser 2.0\n\nServer: $_current_server\nAPI version: $_api_software_version (wire v$_api_supported_version)"; 
         } // name
 
 
@@ -79,11 +100,17 @@ namespace Tuner.Providers {
 
         public DataError? last_data_error { get; set; }
 
+		/**
+		 * @brief Station count reported by the server's stats.
+		 */
 		public int available_stations()
 		{
 			return _available_stations;
 		} // available_stations
 
+		/**
+		 * @brief Tag count reported by the server's stats.
+		 */
 		public int available_tags()
 		{
 			return _available_tags;
@@ -112,15 +139,14 @@ namespace Tuner.Providers {
          */
         private Uri? build_uri(string path, string query = "")
         {          
-            debug(@"http://$_current_server$path?$query");
             try {
                 if (query == "") 
                 { 
-                    return Uri.parse(@"http://$_current_server$path",UriFlags.ENCODED);
+                    return Uri.parse(@"$(RBI_SCHEME)://$_current_server$path",UriFlags.ENCODED);
                 }
                 else
                 {
-                    return Uri.parse(@"http://$_current_server$path?$query",UriFlags.ENCODED);
+                    return Uri.parse(@"$(RBI_SCHEME)://$_current_server$path?$query",UriFlags.ENCODED);
                 }
             } catch (UriError e)
             {
@@ -173,41 +199,55 @@ namespace Tuner.Providers {
         /**
          * @brief Track a station listen event
          *
+         * Fire-and-forget: the request is sent in the background and this returns at once,
+         * so a slow or resetting server never stalls the caller (this runs on every play).
+         *
          * @param stationuuid UUID of the station being listened to
          */
-        public void click(string stationuuid) {
-            debug(@"sending listening event for station $(stationuuid)");
-            uint status_code;
-            var uri = build_uri(RBI_STATION, stationuuid);
-            if (uri == null)
-            {
-                warning(@"click - Invalid URI for station $(stationuuid)");
-                return;
-            }
-            HttpClient.GET(uri, out status_code);
-            debug(@"response: $(status_code)");
-        } // track
+        public void click(string stationuuid)
+        {
+            send_station_event.begin(RBI_STATION, stationuuid, "listening");
+        } // click
 
 
         /**
          * @brief Vote for a station
+         *
+         * Fire-and-forget, like `click()`.
+         *
          * @param stationuuid UUID of the station being voted for
          */
-        public void vote(string stationuuid) {
-            debug(@"sending vote event for station $(stationuuid)");
-            uint status_code;
-            //var uri = Uri.build(NONE, "http", null, _current_server, -1, RBI_VOTE, stationuuid, null);
-            var uri = build_uri(RBI_VOTE, stationuuid);
+        public void vote(string stationuuid)
+        {
+            send_station_event.begin(RBI_VOTE, stationuuid, "vote");
+        } // vote
+
+
+        /**
+         * @brief Send a per-station event (/json/url click or /json/vote) without blocking.
+         *
+         * @param path Endpoint prefix, the station uuid is appended
+         * @param stationuuid UUID of the station
+         * @param event_name Name used in log messages
+         */
+        private async void send_station_event(string path, string stationuuid, string event_name)
+        {
+            if (Tuner.debug_enabled ())
+                debug(@"sending $(event_name) event for station $(stationuuid)");
+
+            var uri = build_uri(path + stationuuid);
             if (uri == null)
             {
-                warning(@"vote - Invalid URI for station $(stationuuid)");
+                warning(@"$(event_name) - Invalid URI for station $(stationuuid)");
                 return;
             }
-            HttpClient.GET(uri, out status_code);            
-            //HttpClient.GET(@"$(_current_server)/$(RBI_VOTE)/$(stationuuid)", Priority.HIGH, out status_code);
-            //  HttpClient.GETasync(@"$(_current_server)/$(RBI_VOTE)/$(stationuuid)", out status_code);
-            debug(@"response: $(status_code)");
-        } // vote
+
+            uint status_code;
+            yield HttpClient.GETasync(uri, Priority.LOW, out status_code);
+
+            if (Tuner.debug_enabled ())
+                debug(@"$(event_name) response: $(status_code)");
+        } // send_station_event
 
 
         /**
@@ -286,7 +326,7 @@ namespace Tuner.Providers {
         */
         public Set<Station> by_url(string url) throws DataError {
             if ( app().is_offline || safestrip(url).length == 0 ) return new HashSet<Station>();
-            var result = station_query(RBI_URL,@"$url");
+            var result = station_query(RBI_URL,@"url=$(encode_text(url))");
             return result;
         } // by_url
 
@@ -324,10 +364,11 @@ namespace Tuner.Providers {
         * @param params Search parameters
         * @param rowcount Maximum number of results to return
         * @param offset Offset for pagination
+        * @param priority Priority of the HTTP request; GLib.Priority.LOW for background loads
         * @return ArrayList of Station objects matching the search criteria
         * @throw DataError if unable to retrieve or parse station data
         */
-		public async Set<Station> search_async(SearchParams params, uint rowcount, uint offset = 0) throws DataError
+		public async Set<Station> search_async(SearchParams params, uint rowcount, uint offset = 0, int priority = GLib.Priority.HIGH_IDLE) throws DataError
 		{
 			// by uuids
 			if (params.uuids != null)
@@ -340,8 +381,9 @@ namespace Tuner.Providers {
 			// by text or tags
 			var query = get_search_query_params(params, rowcount, offset);
 
-            debug(@"Search: $(query)");
-            return  yield station_query_async(RBI_SEARCH, query);
+            if (Tuner.debug_enabled ())
+                debug(@"Search: $(query)");
+            return  yield station_query_async(RBI_SEARCH, query, priority);
         } // search
 
 
@@ -349,6 +391,36 @@ namespace Tuner.Providers {
         /*  ---------------------------------------------------------------
             Private
             ---------------------------------------------------------------*/
+
+        /**
+         * @brief Whether a failed response is worth retrying on another server.
+         *
+         * No response at all (0) or a server-side error (5xx). Client errors (4xx) would fail everywhere.
+         */
+        private static bool is_retryable(uint status_code)
+        {
+            return status_code == 0 || status_code >= 500;
+        } // is_retryable
+
+
+        /**
+         * @brief Move on to the next server in the discovered list.
+         *
+         * The docs say: "If a request fails just retry the request with the next entry in the list".
+         *
+         * @return false if there is no other server to move to.
+         */
+        private bool switch_to_next_server()
+        {
+            if (_servers == null || _servers.size < 2)
+                return false;
+
+            var index = _servers.index_of(_current_server);     // -1 if unknown, which lands on the first
+            _current_server = _servers[(index + 1) % _servers.size];
+            debug(@"RadioBrowser Client - retrying on next server: $_current_server");
+            return true;
+        } // switch_to_next_server
+
 
         /**
          * @brief Get all available tags
@@ -367,7 +439,7 @@ namespace Tuner.Providers {
                 var server =  (random_server + a) %_servers.size;
                 _current_server = _servers[server];
                 try {
-                    var uri = Uri.parse(@"http://$_current_server/json/stats",UriFlags.NONE);  
+                    var uri = Uri.parse(@"$(RBI_SCHEME)://$_current_server$(RBI_STATS)",UriFlags.NONE);  
                     //status = HttpClient.HEAD(uri);  // RB doesn't support HEAD
                     HttpClient.GET(uri,out status);
                 } catch (UriError e)
@@ -397,7 +469,7 @@ namespace Tuner.Providers {
             // Degraded result
             {
                 warning(@"RadioBrowser degrading server: $_current_server");
-                _degrade =- DEGRADE_COST;
+                _degrade -= DEGRADE_COST;
                 if ( _degrade < 0 ) 
                 // This server degraded to zero
                 {
@@ -436,6 +508,14 @@ namespace Tuner.Providers {
                     _available_stations = (int)json_object.get_int_member("stations");
                     _available_tags = (int)json_object.get_int_member("tags");
 
+                    if (json_object.has_member("supported_version"))
+                        _api_supported_version = (int)json_object.get_int_member("supported_version");
+                    if (json_object.has_member("software_version"))
+                        _api_software_version = json_object.get_string_member("software_version");
+                    if (_api_supported_version != 0 && _api_supported_version != RBI_API_SUPPORTED_VERSION)
+                        warning(@"RadioBrowser server $_current_server reports API wire version $_api_supported_version, this code expects $RBI_API_SUPPORTED_VERSION");
+                    debug(@"RadioBrowser API software version $_api_software_version, wire version $_api_supported_version");
+
                 } catch (Error e) {
                     warning(@"Could not get server stats: $(e.message)");
                 } // try
@@ -453,39 +533,48 @@ namespace Tuner.Providers {
          */
         private Set<Station> station_query(string path, string query) throws DataProvider.DataError {
 
-            debug(@"station_query - $(path) $(query)");
+            if (Tuner.debug_enabled ())
+                debug(@"station_query - $(path) $(query)");
 
-            uint status_code;
-            var uri = build_uri(path, query);  
-            if (uri == null)
+            for (int attempt = 1; attempt <= 2; attempt++)
+            // Second attempt, if any, is on a different server
             {
-                warning(@"station_query - Invalid URI for path $(path) query $(query)");
-                degrade();
-                return new HashSet<Station>();
-            } // if
+                uint status_code;
+                var uri = build_uri(path, query);
+                if (uri == null)
+                {
+                    warning(@"station_query - Invalid URI for path $(path) query $(query)");
+                    degrade();
+                    return new HashSet<Station>();
+                } // if
 
-            debug(@"station_query - $(uri.to_string())");
-                
-            var stream =  HttpClient.GET(uri,  out status_code);                
+                if (Tuner.debug_enabled ())
+                    debug(@"station_query - $(uri.to_string())");
 
-			if (status_code == 200 && stream != null)
-			{
-				degrade(false);
-				try
-				{
-					var stations = parse_json_response(stream);
-					return stations;
-				} catch (Error e)
-				{
-					debug(@"JSON error \"$(e.message)\" for uri $(uri)");
-				}
-			}
-			else
-			{
-				warning(@"Response from 'radio-browser.info': $(status_code) for url: $(uri.to_string())");
-				degrade();
-			} // if
-			return new HashSet<Station>();
+                var stream =  HttpClient.GET(uri,  out status_code);
+
+                if (status_code == 200 && stream != null)
+                {
+                    degrade(false);
+                    try
+                    {
+                        return parse_json_response(stream);
+                    } catch (Error e)
+                    {
+                        debug(@"JSON error \"$(e.message)\" for uri $(uri)");
+                    }
+                    return new HashSet<Station>();
+                } // if
+
+                warning(@"Response from 'radio-browser.info': $(status_code) for url: $(uri.to_string()) [server=$(_current_server) degrade=$(_degrade) offline=$(app().is_offline)]");
+                var failed_server = _current_server;
+                degrade();      // May already have chosen a new server
+
+                if (attempt == 1 && is_retryable(status_code) && (_current_server != failed_server || switch_to_next_server()))
+                    continue;
+                break;
+            } // for
+            return new HashSet<Station>();
 		} // station_query
 
 
@@ -496,40 +585,49 @@ namespace Tuner.Providers {
         * @return ArrayList of Station objects
         * @throw DataError if unable to retrieve or parse station data
         */
-		private async Set<Station> station_query_async(string path, string query) throws DataError
+		private async Set<Station> station_query_async(string path, string query, int priority = GLib.Priority.HIGH_IDLE) throws DataError
 		{
-			debug(@"station_query - $(path) $(query)");
+			if (Tuner.debug_enabled ())
+				debug(@"station_query_async - $(path) $(query)");
 
-			uint status_code;
-			var  uri = build_uri(path, query);
-            if (uri == null)
-            {
-                warning(@"station_query_async - Invalid URI for path $(path) query $(query)");
-                degrade();
-                return new HashSet<Station>();
-            } // if
-
-			debug(@"station_query - $(uri.to_string())");
-
-			var stream =  yield HttpClient.GETasync(uri,  Priority.HIGH_IDLE, out status_code);
-
-			if (status_code == 200 && stream != null)
+			for (int attempt = 1; attempt <= 2; attempt++)
+			// Second attempt, if any, is on a different server
 			{
-				degrade(false);
-				try
+				uint status_code;
+				var  uri = build_uri(path, query);
+				if (uri == null)
 				{
-					var stations = parse_json_response(stream);
-					return stations;
-				} catch (Error e)
+					warning(@"station_query_async - Invalid URI for path $(path) query $(query)");
+					degrade();
+					return new HashSet<Station>();
+				} // if
+
+				if (Tuner.debug_enabled ())
+					debug(@"station_query_async - $(uri.to_string())");
+
+				var stream =  yield HttpClient.GETasync(uri,  priority, out status_code);
+
+				if (status_code == 200 && stream != null)
 				{
-					debug(@"JSON error \"$(e.message)\" for uri $(uri)");
-				} // try
-			}
-			else
-			{
-				warning(@"Response from 'radio-browser.info': $(status_code) for url: $(uri.to_string())");
-				degrade();
-			} // if
+					degrade(false);
+					try
+					{
+						return parse_json_response(stream);
+					} catch (Error e)
+					{
+						debug(@"JSON error \"$(e.message)\" for uri $(uri)");
+					} // try
+					return new HashSet<Station>();
+				} // if
+
+				warning(@"Response from 'radio-browser.info': $(status_code) for url: $(uri.to_string()) [server=$(_current_server) degrade=$(_degrade) offline=$(app().is_offline)]");
+				var failed_server = _current_server;
+				degrade();      // May already have chosen a new server
+
+				if (attempt == 1 && is_retryable(status_code) && (_current_server != failed_server || switch_to_next_server()))
+					continue;
+				break;
+			} // for
 			return new HashSet<Station>();
 		} // station_query_async
 
@@ -547,7 +645,8 @@ namespace Tuner.Providers {
         private string get_search_query_params(DataProvider.SearchParams params, uint rowcount, uint offset)
         {
             // by text or tags
-            var query = @"limit=$rowcount&order=$(params.order)&offset=$offset";
+            // hidebroken: the API default includes stations whose last health check failed
+            var query = @"limit=$rowcount&order=$(params.order)&offset=$offset&hidebroken=true";
 
             if (params.text != "") {
                 query += @"&name=$(encode_text(params.text))";  // Encode text for ampersands etc

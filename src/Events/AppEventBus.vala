@@ -31,7 +31,19 @@ namespace Tuner {
 		/** Signal emitted when the volume changes. */
 		public signal void volume_changed_sig (double volume);
 
-		/** Signal emitted every ten minutes that a station has been playing continuously. */
+/**
+	 * @brief Emitted every second while a station is actively playing.
+	 *
+	 * The payload values are in seconds.
+	 */
+	public signal void playback_time_tick_sig (Station station, int total_play_seconds, int station_play_seconds);
+
+	/**
+	 * @brief Signal emitted every ten minutes while a station has been playing continuously.
+	 *
+	 * This existing tape-counter milestone event is retained for provider tracking
+	 * and jukebox shuffle behavior.
+	 */
 		public signal void tape_counter_sig (Station station);
 
 

@@ -15,7 +15,7 @@ using Tuner.Models;
 using Gee;
 using Tuner.Services;
 
-/*
+/**
  * @class Tuner.TitleBox
  *
  * @brief The TitleBox sits at the top of the Window and presents the Header and Search controls
@@ -147,31 +147,51 @@ public class Tuner.Widgets.TitleBox : Gtk.Box
         Public 
     */
 
+	/**
+	 * @brief Shows or hides the stream metadata in the header. Passed to the HeaderBar.
+	 */
 	public void stream_info(bool show)
 	{
 		_headerbar.stream_info(show);
 	}
 
+	/**
+	 * @brief Sets fast cycling of the stream metadata. Passed to the HeaderBar.
+	 */
 	public void stream_info_fast(bool fast)
 	{
 		_headerbar.stream_info_fast(fast);
 	}
 
+	/**
+	 * @brief Enables or disables dynamic shrinking of the station info. Passed to the HeaderBar.
+	 */
 	public void stream_info_dynamic_shrink(bool enabled)
 	{
 		_headerbar.stream_info_dynamic_shrink(enabled);
 	}
 
+	/**
+	 * @brief Shows a station as the one playing. Passed to the HeaderBar.
+	 *
+	 * @return The HeaderBar's result.
+	 */
 	public bool update_playing_station(Station station)
 	{
 		return _headerbar.update_playing_station(station);
 	}
 
+	/**
+	 * @brief Titles hearted this session, from the HeaderBar's history button.
+	 */
 	public Gee.List<string> get_hearted_titles()
 	{
 		return _headerbar.get_hearted_titles();
 	}
 
+	/**
+	 * @brief Hearted history lines without the heart markers, from the HeaderBar's history button.
+	 */
 	public Gee.List<string> get_hearted_history_lines_without_hearts()
 	{
 		return _headerbar.get_hearted_history_lines_without_hearts();

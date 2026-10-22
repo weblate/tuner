@@ -24,6 +24,9 @@ using Tuner.Widgets.Granite;
  */
 namespace Tuner.Widgets.Base
 {
+    /**
+     * @brief Implemented by objects that connect to a StationList's signals when it is created.
+     */
     public interface StationListHookup : Object
     {
         public abstract void station_list_hookup( StationList station_list );
@@ -36,6 +39,11 @@ namespace Tuner.Widgets.Base
     */
     public class StationListBoxFactory
     {
+        /**
+         * @brief Creates a StationListBox from a configuration.
+         *
+         * @param cfg Where the box goes and what it shows.
+         */
         public static StationListBox create(StationListBoxConfig cfg)
         {
             var prepopulated = cfg.stations != null;

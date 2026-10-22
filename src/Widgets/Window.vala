@@ -512,7 +512,6 @@ public class Tuner.Widgets.Window : Gtk.ApplicationWindow
 
         player_ctrl.station = station;
         _settings.last_played_station = station.stationuuid;
-        _directory.count_station_click (station);
 
         set_title (WINDOW_NAME+": "+station.name);
     } // handle_station_click

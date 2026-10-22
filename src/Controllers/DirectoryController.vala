@@ -41,6 +41,9 @@ public class Tuner.Controllers.DirectoryController : Object
 
     public signal void tags_updated (Set<DataProvider.Tag> tags);
 
+	/**
+	 * @brief The data provider's description (DataProvider.API.name).
+	 */
 	public string provider_name()
 	{
 		return _provider.name();
@@ -58,6 +61,9 @@ public class Tuner.Controllers.DirectoryController : Object
     } // DirectoryController
 
 
+	/**
+	 * @brief The data provider's description. Same as provider_name().
+	 */
 	public string provider()
 	{
 		return _provider.name();
@@ -321,44 +327,6 @@ public class Tuner.Controllers.DirectoryController : Object
 
 
 	/**
-	* @brief Count a click for a station.
-	*
-	* @param station The station that was clicked.
-	*/
-	public StationSet load_by_tag_set (Set<string> utags)
-	{
-		var params = DataProvider.SearchParams() {
-			text        = "",
-			countrycode = "",
-			tags        = utags,
-			order       = DataProvider.SortOrder.VOTES,
-			reverse     = true
-		};
-		var source = new StationSet(40, params, _provider, _star_store);
-		return source;
-	} // load_by_tag_set
-
-
-	/**
-	* @brief Count a click for a station.
-	*
-	* @param station The station that was clicked.
-	*/
-	public void count_station_click (Station station)
-	{
-		if (!app().settings.do_not_vote)
-		{
-			debug (@"Send listening event for station $(station.stationuuid)");
-			_provider.click (station.stationuuid);
-		}
-		else
-		{
-			debug ("do-not-vote enabled, will not send listening event");
-		}
-	} // count_station_click
-
-
-	/**
 	* @brief Load tags from the _provider.
 	*/
 	public void load_tags ()
@@ -374,6 +342,14 @@ public class Tuner.Controllers.DirectoryController : Object
 	} // load_tags
 
 
+	/**
+	 * @brief Fetches random tags from the provider, one request per tag.
+	 *
+	 * Stops early if the app goes offline. Failed requests are skipped and retried.
+	 *
+	 * @param genres Number of distinct tags wanted.
+	 * @return The tags found, at most genres of them.
+	 */
 	public Set<DataProvider.Tag> load_random_genres(int genres)
 	{
 		Set<DataProvider.Tag> result = new HashSet<DataProvider.Tag>();
@@ -462,10 +438,11 @@ public class Tuner.StationSet : Object
 	/**
 	* @brief Fetch the next set of stations.
 	*
+	* @param priority Priority of the HTTP request; GLib.Priority.LOW for background loads.
 	* @return An ArrayList of Model.Station objects.
 	* @throws SourceError If the source is unavailable.
 	*/
-	public async Set<Station>? next_page_async () throws SourceError
+	public async Set<Station>? next_page_async (int priority = GLib.Priority.HIGH_IDLE) throws SourceError
 	{
 
 		if (app().is_offline)
@@ -474,7 +451,7 @@ public class Tuner.StationSet : Object
 		// Fetch one more to determine if source has more items than page size
 		try
 		{
-			var raw_stations = yield _provider.search_async(_params, _page_size + 1, _offset);
+			var raw_stations = yield _provider.search_async(_params, _page_size + 1, _offset, priority);
 			// TODO Place filter here?
 			// var filtered_stations = raw_stations.filter (filterByCountry);
 			var filtered_stations = raw_stations.iterator ();

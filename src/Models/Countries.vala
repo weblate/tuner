@@ -15,6 +15,9 @@ using Gee;
 */
 namespace Tuner.Models {
 
+    /**
+     * @brief Localised country names, looked up by ISO 3166-1 alpha-2 code.
+     */
     public class Countries {
         
         public static HashMap<string, string> _map = null;
@@ -278,6 +281,13 @@ namespace Tuner.Models {
             }
         }
 
+        /**
+         * @brief The localised name for a country code.
+         *
+         * @param code ISO 3166-1 alpha-2 code. Surrounding whitespace is ignored.
+         * @param fallback Returned when the code is empty.
+         * @return The localised name, or the code itself if it is not known.
+         */
         public static string get_by_code(string code, string fallback = "") {
             var my_code = code.strip ();
             if (my_code == "") return fallback;

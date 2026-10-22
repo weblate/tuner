@@ -21,7 +21,6 @@ public class Tuner.Controllers.PlayerController : GLib.Object
 {
     private const bool TRACE_METADATA_PATH = false;
 
-    private const uint CLICK_INTERVAL_IN_SECONDS = 606;  // tape counter timer - 10 mins plus 1%
     private const uint PLAYING_STATE_DEBOUNCE_MS = 1000;
 
     public bool play_error { get { return _play_error; } }
@@ -40,8 +39,6 @@ public class Tuner.Controllers.PlayerController : GLib.Object
     private StreamPlayer.State _last_play_state = StreamPlayer.State.STOPPED;
     private double _volume_cache = 0.5;
     private uint _debounce_state_id = 0;
-
-    private uint _tape_counter_id = 0;
 
 
     //  construct 
@@ -128,25 +125,6 @@ public class Tuner.Controllers.PlayerController : GLib.Object
             
             if (_station != null )
                 app().events.player_state_changed_sig(_station, value);
-
-			if (value == StreamPlayer.State.STOPPED || value == StreamPlayer.State.STOPPED_ERROR)
-			{
-				if (_tape_counter_id > 0)
-				{
-					Source.remove(_tape_counter_id);
-					_tape_counter_id = 0;
-				}
-			}
-			else if (value == StreamPlayer.State.PLAYING)
-			{
-				_tape_counter_id = Timeout.add_seconds_full(Priority.LOW, CLICK_INTERVAL_IN_SECONDS, () =>
-				{
-					if (_station == null)
-						return Source.REMOVE;
-					app().events.tape_counter_sig(_station);
-					return Source.CONTINUE;
-				});
-			}
 		} // set
 	} // player_state
 
@@ -414,8 +392,22 @@ public class Tuner.Controllers.PlayerController : GLib.Object
      */
     private void on_player_error (string _message)
     {
-        _play_error = true;
-        _play_error_message = _message;
+        // One failure raises several errors in a row (e.g. HTTP 403, then "internal data stream
+        // error", then "can't typefind"). The first is the root cause - keep it for the tooltip
+        // and treat the rest as follow-on noise until the error is cleared by the next play.
+        if (!_play_error)
+        {
+            _play_error = true;
+            _play_error_message = _message;
+
+            // A failure while offline or without a network says nothing about the station
+            bool offline_or_lost_network = app().is_offline || !NetworkMonitor.get_default ().get_network_available ();
+            if (_station != null && !offline_or_lost_network)
+                app().session.mark_broken (_station, _message);
+        }
+        else
+            debug (@"Ignoring follow-on playback error: $(_message)");
+
         set_play_state (StreamPlayer.State.STOPPED_ERROR);
     } // on_player_error
 

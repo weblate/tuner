@@ -34,6 +34,18 @@ namespace Tuner.Models
         public string? action_tooltip_text { get; set; }
         public string? action_icon_name { get; set; }
 
+        /**
+         * @brief Creates a configuration with the required settings. The optional ones are properties.
+         *
+         * @param stack Stack the box is added to.
+         * @param source_list Sidebar list the box's entry is added to.
+         * @param category Sidebar category the entry goes under.
+         * @param name Stack child name.
+         * @param icon Sidebar icon name.
+         * @param title Sidebar title.
+         * @param subtitle Header subtitle.
+         * @param filter Whether the list can be filtered.
+         */
         public StationListBoxConfig(
             Stack stack,
             SourceList source_list,

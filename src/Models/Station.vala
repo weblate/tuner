@@ -100,8 +100,10 @@ public class Tuner.Models.Station : Favicon
     public string	lastlocalchecktime_iso8601 { get; private set ; }
     /** @property {string} clicktimestamp - Timestamp of the last click. */
     public string	clicktimestamp { get; private set ; }
+    
     /** @property {string} clicktimestamp_iso8601 - Last click timestamp in ISO 8601 format. */
     public string	clicktimestamp_iso8601 { get; private set ; }
+
     /** @property {int} clickcount - Number of clicks on the station. */
     public int	clickcount { get;  set ; }
     /** @property {int} clicktrend - Trend of clicks on the station. */
@@ -279,7 +281,6 @@ public class Tuner.Models.Station : Favicon
 			lastcheckoktime_iso8601    = json_object.get_string_member("lastcheckoktime_iso8601").strip();
 			lastlocalchecktime         = json_object.get_string_member("lastlocalchecktime").strip();
 			lastlocalchecktime_iso8601 = json_object.get_string_member("lastlocalchecktime_iso8601").strip();
-			lastlocalchecktime_iso8601 = json_object.get_string_member("has_extended_info").strip();
 			clicktimestamp             = json_object.get_string_member("clicktimestamp").strip();
 			clicktimestamp_iso8601     = json_object.get_string_member("clicktimestamp_iso8601").strip();
 			clickcount                 = (int)json_object.get_int_member("clickcount");

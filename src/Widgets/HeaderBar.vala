@@ -17,7 +17,7 @@ using Tuner.Models;
 using Gee;
 using Tuner.Services;
 
-/*
+/**
  * @class Tuner.HeaderBar
  *
  * @brief Custom header bar that centrally displays station info and
@@ -73,7 +73,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 	private PlayButton _play_button  = new PlayButton ();
 	private MenuButton _prefs_button = new MenuButton ();
 	private Button _search_button = new Button.from_icon_name ("system-search-symbolic", IconSize.LARGE_TOOLBAR);
-	private ListButton _list_button;
+	private HistoryButton _history_button;
 	private Button _heart_button = new Button();
 
 	/*
@@ -189,9 +189,9 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 		_prefs_button.tooltip_text = _("Preferences");
 		_prefs_button.popover      = new PreferencesPopover();
 
-		_list_button = new ListButton.from_icon_name(_app.history, "mark-location-symbolic", IconSize.LARGE_TOOLBAR);
-		_list_button.valign       = Align.CENTER;
-		_list_button.tooltip_text = _("History");
+		_history_button = new HistoryButton.from_icon_name(_app.history, _app.events, "mark-location-symbolic", IconSize.LARGE_TOOLBAR);
+		_history_button.valign       = Align.CENTER;
+		_history_button.tooltip_text = _("History");
 
 		_heart_button.image = new Image.from_icon_name ("emblem-favorite-symbolic", IconSize.LARGE_TOOLBAR);
 		_heart_button.valign = Align.CENTER;
@@ -203,10 +203,10 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 				return;
 
 			var next_hearted_state = !_app.history.is_last_entry_hearted_for(_last_metadata_station, _last_metadata_title);
-			if (!_list_button.set_last_entry_hearted_if_matches(_last_metadata_station, _last_metadata_title, next_hearted_state))
+			if (!_history_button.set_last_entry_hearted_if_matches(_last_metadata_station, _last_metadata_title, next_hearted_state))
 			{
-				_list_button.append_station_title_pair(_last_metadata_station, _last_metadata_title);
-				_list_button.set_last_entry_hearted_if_matches(_last_metadata_station, _last_metadata_title, next_hearted_state);
+				_history_button.append_station_title_pair(_last_metadata_station, _last_metadata_title);
+				_history_button.set_last_entry_hearted_if_matches(_last_metadata_station, _last_metadata_title, next_hearted_state);
 			}
 
 			set_heart_favorited(next_hearted_state);
@@ -229,7 +229,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 
 		// pack RHS
 		pack_end (_prefs_button);
-		pack_end (_list_button);
+		pack_end (_history_button);
 		pack_end (_search_button);
 
 		show_close_button = true;
@@ -264,7 +264,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 
 		_app.events.playback_metadata_changed_sig.connect ((station, metadata) =>
 		{
-			_list_button.append_station_title_pair(station, metadata.title);
+			_history_button.append_station_title_pair(station, metadata.title);
 			_app.history.sync_play_state(station, _player.player_state);
 			_last_metadata_station = station;
 			_last_metadata_title = metadata.title != null ? metadata.title : "";
@@ -272,7 +272,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 			set_heart_favorited(_app.history.is_last_entry_hearted_for(_last_metadata_station, _last_metadata_title));
 		});
 
-		_list_button.item_station_selected_sig.connect((station) =>
+		_history_button.item_station_selected_sig.connect((station) =>
 		{
 			window.handle_play_station(station);
 		});
@@ -288,14 +288,20 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 			ctx.remove_class("heart-favorited");
 	} // set_heart_favorited
 
+	/**
+	 * @brief Titles hearted this session, from the history button.
+	 */
 	public Gee.List<string> get_hearted_titles()
 	{
-		return _list_button.get_hearted_titles();
+		return _history_button.get_hearted_titles();
 	}
 
+	/**
+	 * @brief Hearted history lines without the heart markers, from the history button.
+	 */
 	public Gee.List<string> get_hearted_history_lines_without_hearts()
 	{
-		return _list_button.get_hearted_history_lines_without_hearts();
+		return _history_button.get_hearted_history_lines_without_hearts();
 	} // get_hearted_history_lines_without_hearts
 
 
@@ -384,6 +390,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 
 
     /**
+     * @brief Sets fast cycling of the stream metadata in the title label.
      */
     public void stream_info_fast(bool fast)
     {
@@ -391,6 +398,9 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
     } // stream_info_fast
 
 
+    /**
+     * @brief Enables or disables dynamic shrinking of the playing-station info.
+     */
     public void stream_info_dynamic_shrink(bool enabled)
     {
         _playing_station_info.set_dynamic_shrink(enabled);
@@ -419,7 +429,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 			_play_button.sensitive             = is_playing_now;
 			_play_button.opacity               = is_playing_now ? 1.0 : 0.5;
 			_volume_button.sensitive           = false;
-			_list_button.sensitive             = true;
+			_history_button.sensitive             = true;
 			_search_button.sensitive           = false;
 
 		}
@@ -432,7 +442,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 			_play_button.sensitive             = true;
 			_play_button.opacity               = 1.0;
 			_volume_button.sensitive           = true;
-			_list_button.sensitive             = true;
+			_history_button.sensitive             = true;
 			_search_button.sensitive           = true;
 		}
 	} // update_controls_state

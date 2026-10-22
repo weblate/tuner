@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: Copyright © 2026 technosf <https://github.com/technosf>
+
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
 # Event Architecture
 
 This document tracks the event orchestration introduced in the 2026 refactor.
