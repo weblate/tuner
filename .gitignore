@@ -29,3 +29,21 @@ repo/
 data/*.gresource
 TODO
 backup/
+
+# Local build output
+build-dir-*/
+__pycache__/
+
+# AI assistant notes, config and indexes
+CLAUDE.md
+GEMINI.md
+.claude/
+.cursor/
+.kiro/
+.windsurf/
+.infigraph/
+.infigraphignore
+.github/copilot-instructions.md
+
+# Local reports
+report-*.html

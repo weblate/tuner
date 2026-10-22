@@ -78,6 +78,13 @@ public class Tuner.Widgets.Base.CyclingRevealLabel : RevealLabel {
     private Gee.Map<uint, string> sublabels = new Gee.HashMap<uint, string>();
 
 
+    /**
+     * @brief Creates a label that cycles between a title and its sublabels.
+     *
+     * @param _follow Not used.
+     * @param min_label_width Smallest width of the label, in pixels.
+     * @param str Initial text, or null.
+     */
     public CyclingRevealLabel (Widget _follow, int min_label_width, string? str = null) 
     {
         Object();

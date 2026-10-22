@@ -1,7 +1,32 @@
+/**
+ * SPDX-FileCopyrightText: Copyright © 2026 technosf <https://github.com/technosf>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ *
+ * @file GstFader.vala
+ *
+ * @brief Volume transitions (crossfade, fade in, fade out) between GstStreamPlayer instances.
+ */
+
 using Tuner.Models;
 
 namespace Tuner.Ext {
+    /**
+     * @brief Volume transitions between GstStreamPlayer instances: crossfade, fade in and fade out.
+     *
+     * Options are set with the set_* methods and apply to the next transition. A transition
+     * requested while another is running is handled according to the TransitionPolicy.
+     * Emits fade_completed when a transition finishes.
+     */
     public class GstFader : GLib.Object {
+        /**
+         * @brief When the incoming player's volume starts to rise.
+         *
+         * UNBUFFERED starts the fade at once. PLAYING_READY waits for the player to reach PLAYING.
+         * AUDIO_READY waits until the player's level is above the silence threshold.
+         * PREROLL_AUDIO_READY prerolls the player first, then waits as AUDIO_READY. The waiting
+         * modes give up after the fade-in timeout (set_fade_in_timeout_ms).
+         */
         public enum FadeInMode {
             UNBUFFERED,
             PLAYING_READY,
@@ -9,12 +34,22 @@ namespace Tuner.Ext {
             PREROLL_AUDIO_READY
         }
 
+        /**
+         * @brief What a new transition request does while one is already running.
+         *
+         * IGNORE_DURING_FADE drops the new request. CANCEL_AND_START cancels the running transition
+         * and starts the new one. QUEUE_LATEST keeps only the latest request and runs it when the
+         * current transition finishes.
+         */
         public enum TransitionPolicy {
             IGNORE_DURING_FADE,
             CANCEL_AND_START,
             QUEUE_LATEST
         }
 
+        /**
+         * @brief Shape of the volume ramp over the fade duration.
+         */
         public enum FadeCurve {
             LINEAR,
             EXPONENTIAL,
@@ -63,73 +98,150 @@ namespace Tuner.Ext {
 
         public signal void fade_completed (GstStreamPlayer player);
 
+        /**
+         * @brief Creates a fader with the default options: linear curve, 1500 ms, CANCEL_AND_START.
+         */
         public GstFader () {
         }
 
+        /**
+         * @brief Sets the volume ramp shape used by later transitions.
+         */
         public void set_curve (FadeCurve curve) {
             this.curve = curve;
         }
 
+        /**
+         * @brief Sets the default transition duration, used when a call gives no duration.
+         */
         public void set_duration_ms (uint duration_ms) {
             this.duration_ms = duration_ms;
         }
 
+        /**
+         * @brief Sets when the incoming player's volume starts to rise (see FadeInMode).
+         */
         public void set_fade_in_mode (FadeInMode mode) {
             fade_in_mode = mode;
         }
 
+        /**
+         * @brief Sets how a request made during a running transition is handled (see TransitionPolicy).
+         */
         public void set_transition_policy (TransitionPolicy policy) {
             transition_policy = policy;
         }
 
+        /**
+         * @brief Sets the longest wait for the incoming player to become ready before the fade starts anyway.
+         */
         public void set_fade_in_timeout_ms (uint timeout_ms) {
             fade_in_timeout_ms = timeout_ms;
         }
 
+        /**
+         * @brief Enables prerolling the incoming player before a crossfade starts.
+         */
         public void set_preroll_enabled (bool enabled) {
             preroll_enabled = enabled;
         }
 
+        /**
+         * @brief Enables the tail: the outgoing player keeps playing quietly for a short time after the fade.
+         *
+         * @see set_tail_params
+         */
         public void set_tail_enabled (bool enabled) {
             tail_enabled = enabled;
         }
 
+        /**
+         * @brief Enables scaling both volumes down during a crossfade so their sum never exceeds 1.0.
+         */
         public void set_limiter_enabled (bool enabled) {
             limiter_enabled = enabled;
         }
 
+        /**
+         * @brief Enables waiting for a quiet moment in the outgoing stream before a crossfade starts.
+         *
+         * @see set_silence_gate_params
+         */
         public void set_silence_gate_enabled (bool enabled) {
             silence_gate_enabled = enabled;
         }
 
+        /**
+         * @brief Enables waiting for a loud peak in the outgoing stream before a crossfade starts.
+         *
+         * Used only when the silence gate is off. @see set_beat_sync_params
+         */
         public void set_beat_sync_enabled (bool enabled) {
             beat_sync_enabled = enabled;
         }
 
+        /**
+         * @brief Enables trimming each player's gain towards a target loudness.
+         *
+         * @see set_loudness_trim_params
+         */
         public void set_loudness_trim_enabled (bool enabled) {
             loudness_trim_enabled = enabled;
         }
 
+        /**
+         * @brief Sets the loudness trim parameters.
+         *
+         * @param target_rms_db Loudness, in dB RMS, that the trim aims for.
+         * @param max_trim_db Largest boost or cut, in dB, the trim may apply.
+         */
         public void set_loudness_trim_params (double target_rms_db, double max_trim_db) {
             this.target_rms_db = target_rms_db;
             this.max_trim_db = max_trim_db;
         }
 
+        /**
+         * @brief Sets the tail parameters.
+         *
+         * @param duration_ms How long the outgoing player keeps playing after the fade.
+         * @param level Tail volume as a fraction of the target volume.
+         */
         public void set_tail_params (uint duration_ms, double level) {
             tail_duration_ms = duration_ms;
             tail_level = level;
         }
 
+        /**
+         * @brief Sets the silence gate parameters. The threshold is also used by the AUDIO_READY fade-in modes.
+         *
+         * @param threshold_db Level, in dB RMS, at or below which the stream counts as silent.
+         * @param timeout_ms Longest wait for silence before the crossfade starts anyway.
+         */
         public void set_silence_gate_params (double threshold_db, uint timeout_ms) {
             silence_threshold_db = threshold_db;
             silence_gate_timeout_ms = timeout_ms;
         }
 
+        /**
+         * @brief Sets the beat sync parameters.
+         *
+         * @param window_ms Longest wait for a peak before the crossfade starts anyway.
+         * @param poll_ms How often the stream level is checked.
+         */
         public void set_beat_sync_params (uint window_ms, uint poll_ms) {
             beat_window_ms = window_ms;
             beat_poll_ms = poll_ms;
         }
 
+        /**
+         * @brief Fades the outgoing player out while fading the incoming player in.
+         *
+         * @param from_player Player to fade out and stop, or null to only fade in.
+         * @param to_player Player to fade in. It is started by the fader.
+         * @param target_volume Volume the incoming player ends at.
+         * @param duration_ms Fade duration, or null to use the default from set_duration_ms.
+         * @param interval_ms Time between volume steps.
+         */
         public void crossfade (GstStreamPlayer? from_player, GstStreamPlayer to_player, double target_volume, uint? duration_ms = null, uint interval_ms = 50) {
             // Fade out the current player while fading in the new one.
             if (!prepare_transition (TransitionRequest.crossfade (from_player, to_player, target_volume, duration_ms, interval_ms))) {
@@ -153,6 +265,16 @@ namespace Tuner.Ext {
             start_crossfade ();
         }
 
+        /**
+         * @brief Starts a player at zero volume and fades it in.
+         *
+         * The fade starts according to the FadeInMode.
+         *
+         * @param to_player Player to fade in.
+         * @param target_volume Volume the player ends at.
+         * @param duration_ms Fade duration, or null to use the default from set_duration_ms.
+         * @param interval_ms Time between volume steps.
+         */
         public void fade_in (GstStreamPlayer to_player, double target_volume, uint? duration_ms = null, uint interval_ms = 50) {
             if (!prepare_transition (TransitionRequest.fade_in (to_player, target_volume, duration_ms, interval_ms))) {
                 return;
@@ -180,6 +302,14 @@ namespace Tuner.Ext {
             start_fade_in_gate ();
         }
 
+        /**
+         * @brief Fades a player out and then stops it.
+         *
+         * @param from_player Player to fade out.
+         * @param start_volume Volume the fade starts from.
+         * @param duration_ms Fade duration, or null to use the default from set_duration_ms.
+         * @param interval_ms Time between volume steps.
+         */
         public void fade_out (GstStreamPlayer from_player, double start_volume, uint? duration_ms = null, uint interval_ms = 50) {
             if (!prepare_transition (TransitionRequest.fade_out (from_player, start_volume, duration_ms, interval_ms))) {
                 return;
@@ -442,6 +572,9 @@ namespace Tuner.Ext {
             return delta;
         }
 
+        /**
+         * @brief Stops any running transition and drops any queued request. Players are left as they are.
+         */
         public void cancel () {
             // Stop any active fade.
             if (timeout_id != 0) {
@@ -460,6 +593,11 @@ namespace Tuner.Ext {
             queued_request = null;
         }
 
+        /**
+         * @brief Cancels any running transition and stops the players it was using.
+         *
+         * @param keep_player Player to leave running, or null to stop both.
+         */
         public void cancel_and_stop (GstStreamPlayer? keep_player) {
             // Cancel any transition and stop any non-kept active players.
             cancel ();
@@ -539,14 +677,23 @@ namespace Tuner.Ext {
             );
         }
 
+        /**
+         * @brief Request for a deferred crossfade() call.
+         */
         public static TransitionRequest crossfade (GstStreamPlayer? from_player, GstStreamPlayer to_player, double target_volume, uint? duration_ms, uint interval_ms) {
             return new TransitionRequest (TransitionKind.CROSSFADE, from_player, to_player, target_volume, duration_ms, interval_ms);
         }
 
+        /**
+         * @brief Request for a deferred fade_in() call.
+         */
         public static TransitionRequest fade_in (GstStreamPlayer to_player, double target_volume, uint? duration_ms, uint interval_ms) {
             return new TransitionRequest (TransitionKind.FADE_IN, null, to_player, target_volume, duration_ms, interval_ms);
         }
 
+        /**
+         * @brief Request for a deferred fade_out() call.
+         */
         public static TransitionRequest fade_out (GstStreamPlayer from_player, double target_volume, uint? duration_ms, uint interval_ms) {
             return new TransitionRequest (TransitionKind.FADE_OUT, from_player, null, target_volume, duration_ms, interval_ms);
         }

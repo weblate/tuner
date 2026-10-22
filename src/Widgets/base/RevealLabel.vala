@@ -56,6 +56,9 @@ public class Tuner.Widgets.Base.RevealLabel : Gtk.Revealer
     } // construct
 
 
+    /**
+     * @brief Clears the label text and any pending text.
+     */
     protected void clear() {
         _next_text = "";
         label_child.label = "";

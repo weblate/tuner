@@ -74,6 +74,9 @@ namespace Tuner.Services.DBus
 	}     // onBusAcquired
 
 
+	/**
+	 * @brief MPRIS root object (org.mpris.MediaPlayer2): application identity and window control.
+	 */
 	public class MediaPlayer : Object, DBus.IMediaPlayer2
 	{
 		private Application _app;
@@ -89,6 +92,9 @@ namespace Tuner.Services.DBus
 			_app = app;
 		}
 
+		/**
+		 * @brief MPRIS Raise: brings the main window to the front.
+		 */
 		public void raise() throws DBusError, IOError
 		{
 			debug ("DBus Raise() requested");
@@ -98,6 +104,9 @@ namespace Tuner.Services.DBus
 				_app.window.present_with_time (timestamp);
 		}
 
+		/**
+		 * @brief MPRIS Quit: logged only; the application does not quit.
+		 */
 		public void quit() throws DBusError, IOError
 		{
 			debug ("DBus Quit() requested");
@@ -155,6 +164,9 @@ namespace Tuner.Services.DBus
 	}     // MediaPlayer
 
 
+	/**
+	 * @brief MPRIS player object (org.mpris.MediaPlayer2.Player): playback control and now-playing metadata.
+	 */
 	public class MediaPlayerPlayer : Object, DBus.IMediaPlayer2Player
 	{
 		[DBus (visible = false)]
@@ -237,49 +249,76 @@ namespace Tuner.Services.DBus
 		} // update_metadata
 
 
+		/**
+		 * @brief MPRIS Next: shuffles to another station.
+		 */
 		public void next() throws DBusError, IOError
 		{
 			_player.shuffle();
 		}
 
+		/**
+		 * @brief MPRIS Previous: not supported, does nothing.
+		 */
 		public void previous() throws DBusError, IOError
 		{
 			// debug ("DBus Previous() requested");
 		}
 
+		/**
+		 * @brief MPRIS Pause: not supported, does nothing.
+		 */
 		public void pause() throws DBusError, IOError
 		{
 			//  debug ("DBus Pause() requested");
 		}
 
+		/**
+		 * @brief MPRIS PlayPause: toggles playback.
+		 */
 		public void play_pause() throws DBusError, IOError
 		{
 			//  debug ("DBus PlayPause() requested");
 			_player.play_pause();
 		}
 
+		/**
+		 * @brief MPRIS Stop: stops playback.
+		 */
 		public void stop() throws DBusError, IOError
 		{
 			//  debug ("DBus stop() requested");
 			_player.stop();
 		}
 
+		/**
+		 * @brief MPRIS Play: toggles playback, the same as PlayPause.
+		 */
 		public void play() throws DBusError, IOError
 		{
 			//  debug ("DBus Play() requested");
 			_player.play_pause ();
 		}
 
+		/**
+		 * @brief MPRIS Seek: not supported for live streams, does nothing.
+		 */
 		public void seek(int64 Offset) throws DBusError, IOError
 		{
 			//  debug ("DBus Seek() requested");
 		}
 
+		/**
+		 * @brief MPRIS SetPosition: not supported for live streams, does nothing.
+		 */
 		public void set_position(ObjectPath TrackId, int64 Position) throws DBusError, IOError
 		{
 			//  debug ("DBus SetPosition() requested");
 		}
 
+		/**
+		 * @brief MPRIS OpenUri: not supported, does nothing.
+		 */
 		public void open_uri(string uri) throws DBusError, IOError
 		{
 			//  debug ("DBus OpenUri() requested");

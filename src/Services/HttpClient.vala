@@ -32,6 +32,30 @@ public class Tuner.Services.HttpClient : Object
      */
     private static Soup.Session _session;
 
+    /** @brief Soup session idle timeout in seconds (also quoted in diagnostics) */
+    private const int SESSION_TIMEOUT_S = 3;
+
+
+    /**
+     * @brief Milliseconds elapsed on a timer, for diagnostics.
+     */
+    private static uint elapsed_ms(Timer timer)
+    {
+        return (uint)(timer.elapsed() * 1000.0);
+    } // elapsed_ms
+
+
+    /**
+     * @brief Describe an error as domain:code and message, for diagnostics.
+     *
+     * The domain/code pair distinguishes a timeout, a refused connection,
+     * a DNS failure, a TLS failure or a cancellation.
+     */
+    private static string describe_error(Error e)
+    {
+        return @"$(e.domain.to_string()) code=$(e.code) '$(e.message)'";
+    } // describe_error
+
 
     /**
      * @brief Get the singleton Soup.Session instance
@@ -51,11 +75,10 @@ public class Tuner.Services.HttpClient : Object
             _session = new Soup.Session.with_options(
                "max-conns", 50,
                 "max-conns-per-host", 2 ,
-                "timeout", 3,
+                "timeout", SESSION_TIMEOUT_S,
                 "user_agent", Tuner.user_agent ()
             );
         }
-        debug(@"Conns Max: $(_session.get_max_conns()), Conns PH: $(_session.get_max_conns_per_host())");
         return _session;
     } // getSession
 
@@ -126,7 +149,8 @@ public class Tuner.Services.HttpClient : Object
             return null;
         }
 
-		debug(@"Get: $(uri.to_string()) ");
+		if (Tuner.debug_enabled ())
+			debug(@"Get: $(uri.to_string()) ");
 
         var msg = new Soup.Message.from_uri("GET", uri);
         if (msg == null)
@@ -142,12 +166,18 @@ public class Tuner.Services.HttpClient : Object
             return true;
         });
 
+        var timer = new Timer();   // Diagnostics: how long did the request take before it ended/failed
         try {
             var inputStream = getSession().send(msg);
             status_code = msg.status_code;
+            string reason = msg.reason_phrase ?? "";   // null when no response line was parsed
+            if (Tuner.debug_enabled ())
+                debug(@"GET - $(status_code) $(reason) in $(elapsed_ms(timer))ms: $(uri.to_string())");
             return inputStream;
         } catch (Error e) {
-            warning(@"GET - Error accessing URL: $(uri.to_string()) ($(e.message))");
+            // status_code stays 0 here - no HTTP response was received at all. Report why.
+            string reason = msg.reason_phrase ?? "";   // null when no response line was parsed
+            debug(@"GET - No response after $(elapsed_ms(timer))ms (session timeout $(SESSION_TIMEOUT_S)s): $(uri.to_string()) - $(describe_error(e)); http_status=$(msg.status_code) reason='$(reason)'");
         }
 
         return null;
@@ -195,20 +225,23 @@ public class Tuner.Services.HttpClient : Object
 		    Try three times
 		 */
 		{
+			var timer = new Timer();   // Diagnostics: time taken by this attempt
 			try
 			{
 				var inputStream = yield getSession().send_async(msg, priority, app().offline_cancel);
 				status_code = msg.status_code;
 				if (status_code >= 200 && status_code < 300)
 					return inputStream;
+				string reason = msg.reason_phrase ?? "";   // null when no response line was parsed
+				debug(@"GETasync - Try $(loop)/3 got HTTP $(status_code) '$(reason)' after $(elapsed_ms(timer))ms: $(uri.to_string())");
 			} catch (Error e)
 			{
-				info(@"GETasync - Try $(loop) failed to fetch: $(uri.to_string()) $(e.message)");
+				debug(@"GETasync - Try $(loop)/3 no response after $(elapsed_ms(timer))ms (session timeout $(SESSION_TIMEOUT_S)s): $(uri.to_string()) - $(describe_error(e)); cancelled=$(app().offline_cancel.is_cancelled())");
 			}
 			yield nap(200 * loop);
 		} while (loop++ < 3);
 
-        info(@"GETasync - GETasync failed for: $(uri.to_string())");
+        debug(@"GETasync - gave up after 3 tries, last http_status=$(status_code): $(uri.to_string())");
         return null;
     } // GETasync
 }

@@ -16,8 +16,10 @@ sources = files (
     'Coordinators/UsageTrackingCoordinator.vala',
 
     'Controllers/DirectoryController.vala',
+    'Controllers/JukeboxController.vala',
     'Controllers/PlayerController.vala',
     'Controllers/SearchController.vala',
+    'Controllers/TapeCounterController.vala',
 
 
  #   'Models/CrossfadePlayer.vala',
@@ -29,6 +31,7 @@ sources = files (
     'Models/StreamPlayer.vala',
     'Models/StreamMetadata.vala',
     'Models/History.vala',
+    'Models/StationSession.vala',
     'Models/StationListBoxConfig.vala',
     'Models/StationListBoxPager.vala',
 
@@ -51,7 +54,7 @@ sources = files (
     'Widgets/base/StationListItem.vala',
     'Widgets/base/StackLabel.vala',
     'Widgets/base/StationList.vala',
-    'Widgets/base/TunerStatus.vala',
+    'Widgets/base/AnimatedIcons.vala',
 
     'Widgets/granite/AlertView.vala',
     'Widgets/granite/CellRendererBadge.vala',
@@ -62,7 +65,7 @@ sources = files (
     'Widgets/HeaderBar.vala',
     'Widgets/PlayButton.vala',
     'Widgets/PlayingStationInfo.vala',
-    'Widgets/ListButton.vala',
+    'Widgets/HistoryButton.vala',
     'Widgets/StationButton.vala',
     'Widgets/StationContextMenu.vala',
     'Widgets/MetadataImagePopup.vala',

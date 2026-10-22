@@ -16,6 +16,13 @@
  */
 public class Tuner.Widgets.Base.StackLabel : Gtk.Label
 {
+	/**
+	 * @brief Creates a stack header label.
+	 *
+	 * @param label Text to show.
+	 * @param xpad Horizontal padding, in pixels.
+	 * @param ypad Vertical padding, in pixels.
+	 */
 	public StackLabel (string label, int xpad = 0, int ypad = 0 )
 	{
 		Object (

@@ -102,20 +102,33 @@ namespace Tuner.Coordinators {
 			_autoplay_attempted = true;
 			_directory.load();
 
-			var source = _directory.load_station_uuid(_settings.last_played_station);
-			try
+			autoplay_last_station.begin();
+			}
+
+
+			/**
+			 * @brief Looks up the last played station and plays it, without blocking startup.
+			 */
+			private async void autoplay_last_station()
 			{
-				foreach (var station in source.next_page())
+				var source = _directory.load_station_uuid(_settings.last_played_station);
+				try
 				{
-					_window.handle_play_station(station);
-					break;
+					var page = yield source.next_page_async();
+					if (page == null)
+						return;
+
+					foreach (var station in page)
+					{
+						_window.handle_play_station(station);
+						break;
+					}
 				}
-			}
-			catch (SourceError e)
-			{
-				warning(_("Error while trying to autoplay, aborting…"));
-			}
-			}
+				catch (SourceError e)
+				{
+					warning(_("Error while trying to autoplay, aborting…"));
+				}
+			} // autoplay_last_station
 
 
 			/**

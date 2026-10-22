@@ -8,7 +8,7 @@
 using Gtk;
 using Tuner.Widgets.Granite;
 
-namespace Tuner.Widgets.Base
+namespace Tuner.Widgets.Base  // FIXME Refactor content out to a model - can it be shard with search?
 {
     /**
     * @class StationListBoxContent
@@ -21,6 +21,9 @@ namespace Tuner.Widgets.Base
 
         public ListFlowBox content_list { get { return _content_list; } }
 
+        /**
+         * @brief Creates the stack with its alert, nothing-found and content pages.
+         */
         public StationListBoxContent()
         {
             Object ();
@@ -50,21 +53,35 @@ namespace Tuner.Widgets.Base
             add_named (content_scroller(_content), "content");
         }
 
+        /**
+         * @brief Shows the load-error page.
+         */
         public void show_alert ()
         {
             set_visible_child_full ("alert", StackTransitionType.NONE);
         }
 
+        /**
+         * @brief Shows the nothing-found page.
+         */
         public void show_nothing_found ()
         {
             set_visible_child_full ("nothing-found", StackTransitionType.NONE);
         }
 
+        /**
+         * @brief Shows the content page.
+         */
         public void show_content ()
         {
             set_visible_child_full ("content", StackTransitionType.NONE);
         }
 
+        /**
+         * @brief Replaces the content page's list and shows it.
+         *
+         * @param content The list to show. The previous list is destroyed.
+         */
         public void set_content (ListFlowBox content)
         {
             foreach (var child in _content.get_children ()) { child.destroy (); }

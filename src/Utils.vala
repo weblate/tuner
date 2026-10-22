@@ -29,6 +29,27 @@ namespace Tuner {
         return @"$(Application.APP_ID)/$(Application.APP_VERSION)";
     } // user_agent
 
+
+    private static int _debug_state = -1;      // -1 unknown, 0 off, 1 on
+
+    /**
+     * @brief Whether debug logging is switched on (`G_MESSAGES_DEBUG` is set).
+     *
+     * Vala builds `debug(@"...")` strings before `debug()` can decide to drop them.
+     * On hot paths (every HTTP request, every tick) guard the call with this so the
+     * string is only built when someone is going to read it:
+     * `if (Tuner.debug_enabled ()) debug(@"...");`
+     */
+    public static bool debug_enabled ()
+    {
+        if (_debug_state < 0)
+        {
+            var domains = Environment.get_variable ("G_MESSAGES_DEBUG");
+            _debug_state = (domains != null && domains != "") ? 1 : 0;
+        }
+        return _debug_state == 1;
+    } // debug_enabled
+
     /**
     * @brief Available themes
     *
@@ -39,6 +60,9 @@ namespace Tuner {
         LIGHT,
         DARK;
 
+        /**
+         * @brief The theme's name as used in settings: "system", "light" or "dark".
+         */
         public unowned string get_name ()
         {
             switch (this) {
@@ -69,6 +93,13 @@ namespace Tuner {
     } // apply_theme
 
 
+    /**
+     * @brief Applies a theme by name.
+     *
+     * "light" sets Adwaita, "dark" sets Adwaita-dark, "system" restores the system theme.
+     *
+     * @param requested_theme A THEME name, as returned by THEME.get_name().
+     */
     public static void apply_theme_name(string requested_theme)
     {
 
