@@ -9,10 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: application\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
-"POT-Creation-Date: 2026-06-09 10:10-0700\n"
-"PO-Revision-Date: 2026-06-09 18:20+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"POT-Creation-Date: 2026-10-21 19:18-0700\n"
+"PO-Revision-Date: 2026-10-22 03:22+0000\n"
+"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/tuner/tuner-ui/el/>"
 "\n"
 "Language: el\n"
@@ -20,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #. Count once per day
 #. ----------------------------------------------------------
@@ -28,44 +27,44 @@ msgstr ""
 #. ----------------------------------------------------------
 #. Indicates if the station is in the provider index
 #. Indicates if the station is up-to-date with the provider index
-#: src/Models/Station.vala:160
+#: src/Models/Station.vala:162
 msgid "Station no longer in the index"
 msgstr "Σταθμός δεν είναι πλέον στον δείκτη"
 
-#: src/Models/Station.vala:402
+#: src/Models/Station.vala:403
 #, c-format
 msgid "Last Played: %s\tPlays: %d"
 msgstr "Last Played: %s Plays: %d"
 
-#: src/Models/Station.vala:436
+#: src/Models/Station.vala:437
 msgid "Changes"
 msgstr "Αλλαγές"
 
-#: src/Models/Station.vala:437
+#: src/Models/Station.vala:438
 msgid "Stream Url"
 msgstr "Stream Url"
 
-#: src/Models/Station.vala:438
+#: src/Models/Station.vala:439
 msgid "Stream Resolved Url"
 msgstr "Stream Resolved Url"
 
-#: src/Models/Station.vala:439
+#: src/Models/Station.vala:440
 msgid "Favicon address"
 msgstr "Favicon διεύθυνση"
 
-#: src/Models/Station.vala:440
+#: src/Models/Station.vala:441
 msgid "Homepage address"
 msgstr "Homepage διεύθυνση διεύθυνση"
 
-#: src/Models/Station.vala:441
+#: src/Models/Station.vala:442
 msgid "Station tags"
 msgstr "Station ετικέτες ετικέτες"
 
-#: src/Models/Station.vala:442 src/Models/StreamMetadata.vala:36
+#: src/Models/Station.vala:443 src/Models/StreamMetadata.vala:36
 msgid "Bitrate"
 msgstr "Bitrate"
 
-#: src/Models/Station.vala:443
+#: src/Models/Station.vala:444
 msgid "Codec"
 msgstr "Codec"
 
@@ -186,6 +185,21 @@ msgstr "GStreamer Date"
 msgid "Date Time"
 msgstr "Ημερομηνία"
 
+#: src/Models/StreamMetadata.vala:57
+#, fuzzy
+msgid "Copyright"
+msgstr "Copyright"
+
+#: src/Models/StreamMetadata.vala:58
+#, fuzzy
+msgid "Publisher"
+msgstr "Publisher"
+
+#: src/Models/StreamMetadata.vala:59
+#, fuzzy
+msgid "Comment"
+msgstr "Comment"
+
 #.
 #. Display Assets
 #.
@@ -221,68 +235,68 @@ msgstr "Περιοχές"
 msgid "Talk, News, Sport"
 msgstr "Συζητήστε, ειδήσεις, αθλητισμό"
 
-#: src/Widgets/Display.vala:454
+#: src/Widgets/Display.vala:439
 msgid "Discover"
 msgstr "Επισκόπηση"
 
-#: src/Widgets/Display.vala:455
+#: src/Widgets/Display.vala:440
 msgid "Stations to Discover"
 msgstr "Σταθμός για να ανακαλύψετε"
 
-#: src/Widgets/Display.vala:459
+#: src/Widgets/Display.vala:444
 msgid "Discover more stations"
 msgstr "Ανακαλύψτε περισσότερους σταθμούς"
 
-#: src/Widgets/Display.vala:479
+#: src/Widgets/Display.vala:468
 msgid "Trending"
 msgstr "Σε Άνοδο"
 
-#: src/Widgets/Display.vala:480
+#: src/Widgets/Display.vala:469
 msgid "Trending Stations in the last 24 hours"
 msgstr "Τάσεις Σταθμών τις τελευταίες 24 ώρες"
 
-#: src/Widgets/Display.vala:497
+#: src/Widgets/Display.vala:487
 msgid "Popular"
 msgstr "Δημοφιλή"
 
-#: src/Widgets/Display.vala:498
+#: src/Widgets/Display.vala:488
 msgid "Most listened to Stations in the last 24 hours"
 msgstr "Οι περισσότεροι άκουγαν σταθμούς τις τελευταίες 24 ώρες"
 
-#: src/Widgets/Display.vala:535 src/Widgets/Display.vala:536
+#: src/Widgets/Display.vala:526 src/Widgets/Display.vala:527
 msgid "Starred by You"
 msgstr "Starred από εσάς"
 
-#: src/Widgets/Display.vala:574
+#: src/Widgets/Display.vala:565
 msgid "Latest Search"
 msgstr "Τελευταία Αναζήτηση"
 
-#: src/Widgets/Display.vala:575
+#: src/Widgets/Display.vala:566
 msgid "Search Results"
 msgstr "Αποτελέσματα αναζήτησης"
 
-#: src/Widgets/Display.vala:577
+#: src/Widgets/Display.vala:568
 msgid "Save this search"
 msgstr "Σώστε αυτή την αναζήτηση"
 
-#: src/Widgets/Display.vala:711
+#: src/Widgets/Display.vala:702
 msgid "Jukebox"
 msgstr "Jukebox"
 
-#: src/Widgets/Display.vala:713
+#: src/Widgets/Display.vala:704
 #, c-format
 msgid "Double click to shuffle through %1$u stations"
 msgstr "Διπλό κλικ για να συρρικνωθεί μέσω σταθμών %1$u"
 
-#: src/Widgets/Display.vala:714
+#: src/Widgets/Display.vala:705
 msgid "one, every ten minutes, for %2$u days"
 msgstr "1, κάθε δέκα λεπτά, για ημέρες %2$u"
 
-#: src/Widgets/Display.vala:780
+#: src/Widgets/Display.vala:762
 msgid "Saved Search"
 msgstr "Saved Search"
 
-#: src/Widgets/Display.vala:783
+#: src/Widgets/Display.vala:765
 msgid "Remove this saved search"
 msgstr "Αφαιρέστε αυτή την αποθηκευμένη αναζήτηση"
 
@@ -453,17 +467,17 @@ msgid "Import Station UUIDs as Starred Stations"
 msgstr "Σταθμός εισαγωγής UUIDs ως Starred Stations"
 
 #. Create the file chooser dialog for saving the exported playlist
-#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:572
+#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:571
 msgid "Save File"
 msgstr "Αποθήκευση Αρχείου"
 
 #: src/Widgets/PreferencesPopover.vala:232
-#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:575
+#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:574
 msgid "_Cancel"
 msgstr "_Άκυρο"
 
-#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:564
-#: src/Widgets/Window.vala:576
+#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:563
+#: src/Widgets/Window.vala:575
 msgid "_Save"
 msgstr "_Αποθήκευση"
 
@@ -529,11 +543,11 @@ msgstr ""
 msgid "Stop Playback requested"
 msgstr "Stop Playback ζήτησε"
 
-#: src/Widgets/Window.vala:561
+#: src/Widgets/Window.vala:560
 msgid "Save hearted tracks to a file?"
 msgstr "Εξοικονομήστε καρδιακά κομμάτια σε ένα αρχείο?"
 
-#: src/Widgets/Window.vala:563
+#: src/Widgets/Window.vala:562
 msgid "_Don't Save"
 msgstr "Μην σώζεις"
 

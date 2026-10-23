@@ -7,10 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.tuner_labs.tuner 2.0.1-beta.2\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
-"POT-Creation-Date: 2026-06-09 10:10-0700\n"
-"PO-Revision-Date: 2026-06-09 19:26+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"POT-Creation-Date: 2026-10-21 19:18-0700\n"
+"PO-Revision-Date: 2026-10-22 03:21+0000\n"
+"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/tuner/tuner-ui/"
 "is/>\n"
 "Language: is\n"
@@ -18,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #. Count once per day
 #. ----------------------------------------------------------
@@ -26,50 +25,50 @@ msgstr ""
 #. ----------------------------------------------------------
 #. Indicates if the station is in the provider index
 #. Indicates if the station is up-to-date with the provider index
-#: src/Models/Station.vala:160
+#: src/Models/Station.vala:162
 #, fuzzy
 msgid "Station no longer in the index"
 msgstr "Station no longer in the index"
 
-#: src/Models/Station.vala:402
+#: src/Models/Station.vala:403
 #, fuzzy, c-format
 msgid "Last Played: %s\tPlays: %d"
 msgstr "Last Played: %s\tPlays: %d"
 
-#: src/Models/Station.vala:436
+#: src/Models/Station.vala:437
 msgid "Changes"
 msgstr "Breytingar"
 
-#: src/Models/Station.vala:437
+#: src/Models/Station.vala:438
 #, fuzzy
 msgid "Stream Url"
 msgstr "Stream Url"
 
-#: src/Models/Station.vala:438
+#: src/Models/Station.vala:439
 #, fuzzy
 msgid "Stream Resolved Url"
 msgstr "Stream Resolved Url"
 
-#: src/Models/Station.vala:439
+#: src/Models/Station.vala:440
 #, fuzzy
 msgid "Favicon address"
 msgstr "Favicon address"
 
-#: src/Models/Station.vala:440
+#: src/Models/Station.vala:441
 #, fuzzy
 msgid "Homepage address"
 msgstr "Homepage address"
 
-#: src/Models/Station.vala:441
+#: src/Models/Station.vala:442
 #, fuzzy
 msgid "Station tags"
 msgstr "Station tags"
 
-#: src/Models/Station.vala:442 src/Models/StreamMetadata.vala:36
+#: src/Models/Station.vala:443 src/Models/StreamMetadata.vala:36
 msgid "Bitrate"
 msgstr "Bitrat"
 
-#: src/Models/Station.vala:443
+#: src/Models/Station.vala:444
 msgid "Codec"
 msgstr "Kóðari"
 
@@ -210,6 +209,21 @@ msgstr "GStreamer Date Time"
 msgid "Date Time"
 msgstr "Date Time"
 
+#: src/Models/StreamMetadata.vala:57
+#, fuzzy
+msgid "Copyright"
+msgstr "Copyright"
+
+#: src/Models/StreamMetadata.vala:58
+#, fuzzy
+msgid "Publisher"
+msgstr "Publisher"
+
+#: src/Models/StreamMetadata.vala:59
+#, fuzzy
+msgid "Comment"
+msgstr "Comment"
+
 #.
 #. Display Assets
 #.
@@ -246,74 +260,74 @@ msgstr "Tímabil"
 msgid "Talk, News, Sport"
 msgstr "Spjall, fréttir, íþróttir"
 
-#: src/Widgets/Display.vala:454
+#: src/Widgets/Display.vala:439
 msgid "Discover"
 msgstr "Kynnast Weblate"
 
-#: src/Widgets/Display.vala:455
+#: src/Widgets/Display.vala:440
 #, fuzzy
 msgid "Stations to Discover"
 msgstr "Stations to Discover"
 
-#: src/Widgets/Display.vala:459
+#: src/Widgets/Display.vala:444
 #, fuzzy
 msgid "Discover more stations"
 msgstr "Discover more stations"
 
-#: src/Widgets/Display.vala:479
+#: src/Widgets/Display.vala:468
 msgid "Trending"
 msgstr "Vinsælt"
 
-#: src/Widgets/Display.vala:480
+#: src/Widgets/Display.vala:469
 #, fuzzy
 msgid "Trending Stations in the last 24 hours"
 msgstr "Trending Stations in the last 24 hours"
 
-#: src/Widgets/Display.vala:497
+#: src/Widgets/Display.vala:487
 msgid "Popular"
 msgstr "Vinsælt"
 
-#: src/Widgets/Display.vala:498
+#: src/Widgets/Display.vala:488
 #, fuzzy
 msgid "Most listened to Stations in the last 24 hours"
 msgstr "Most listened to Stations in the last 24 hours"
 
-#: src/Widgets/Display.vala:535 src/Widgets/Display.vala:536
+#: src/Widgets/Display.vala:526 src/Widgets/Display.vala:527
 msgid "Starred by You"
 msgstr "Stjörnumerkt af þér"
 
-#: src/Widgets/Display.vala:574
+#: src/Widgets/Display.vala:565
 msgid "Latest Search"
 msgstr "Nýjasta leit"
 
-#: src/Widgets/Display.vala:575
+#: src/Widgets/Display.vala:566
 msgid "Search Results"
 msgstr "Leitarniðurstöður"
 
-#: src/Widgets/Display.vala:577
+#: src/Widgets/Display.vala:568
 #, fuzzy
 msgid "Save this search"
 msgstr "Save this search"
 
-#: src/Widgets/Display.vala:711
+#: src/Widgets/Display.vala:702
 msgid "Jukebox"
 msgstr "Gúmmíkassi"
 
-#: src/Widgets/Display.vala:713
+#: src/Widgets/Display.vala:704
 #, fuzzy, c-format
 msgid "Double click to shuffle through %1$u stations"
 msgstr "Double click to shuffle through %1$u stations"
 
-#: src/Widgets/Display.vala:714
+#: src/Widgets/Display.vala:705
 #, fuzzy
 msgid "one, every ten minutes, for %2$u days"
 msgstr "one, every ten minutes, for %2$u days"
 
-#: src/Widgets/Display.vala:780
+#: src/Widgets/Display.vala:762
 msgid "Saved Search"
 msgstr "Vistuð leit"
 
-#: src/Widgets/Display.vala:783
+#: src/Widgets/Display.vala:765
 #, fuzzy
 msgid "Remove this saved search"
 msgstr "Remove this saved search"
@@ -507,18 +521,18 @@ msgid "Import Station UUIDs as Starred Stations"
 msgstr "Import Station UUIDs as Starred Stations"
 
 #. Create the file chooser dialog for saving the exported playlist
-#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:572
+#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:571
 #, fuzzy
 msgid "Save File"
 msgstr "Save File"
 
 #: src/Widgets/PreferencesPopover.vala:232
-#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:575
+#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:574
 msgid "_Cancel"
 msgstr "_Hætta við"
 
-#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:564
-#: src/Widgets/Window.vala:576
+#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:563
+#: src/Widgets/Window.vala:575
 #, fuzzy
 msgid "_Save"
 msgstr "_Save"
@@ -595,12 +609,12 @@ msgstr ""
 msgid "Stop Playback requested"
 msgstr "Stop Playback requested"
 
-#: src/Widgets/Window.vala:561
+#: src/Widgets/Window.vala:560
 #, fuzzy
 msgid "Save hearted tracks to a file?"
 msgstr "Save hearted tracks to a file?"
 
-#: src/Widgets/Window.vala:563
+#: src/Widgets/Window.vala:562
 #, fuzzy
 msgid "_Don't Save"
 msgstr "_Don't Save"

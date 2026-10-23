@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.tuner_labs.tuner 2.0.2-BETA\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
-"POT-Creation-Date: 2026-06-09 10:10-0700\n"
-"PO-Revision-Date: 2026-06-10 21:54+0000\n"
+"POT-Creation-Date: 2026-10-21 19:18-0700\n"
+"PO-Revision-Date: 2026-10-22 09:16+0000\n"
 "Last-Translator: Priit Jõerüüt <jrthwlate@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/tuner/tuner-ui/"
 "et/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #. Count once per day
 #. ----------------------------------------------------------
@@ -26,44 +26,44 @@ msgstr ""
 #. ----------------------------------------------------------
 #. Indicates if the station is in the provider index
 #. Indicates if the station is up-to-date with the provider index
-#: src/Models/Station.vala:160
+#: src/Models/Station.vala:162
 msgid "Station no longer in the index"
 msgstr "See veebiraadiojaam pole enam indeksis"
 
-#: src/Models/Station.vala:402
+#: src/Models/Station.vala:403
 #, c-format
 msgid "Last Played: %s\tPlays: %d"
 msgstr "Viimati esitatud: %s\tEsitamisi: %d"
 
-#: src/Models/Station.vala:436
+#: src/Models/Station.vala:437
 msgid "Changes"
 msgstr "Muudatused"
 
-#: src/Models/Station.vala:437
+#: src/Models/Station.vala:438
 msgid "Stream Url"
 msgstr "Meediavoo aadress"
 
-#: src/Models/Station.vala:438
+#: src/Models/Station.vala:439
 msgid "Stream Resolved Url"
 msgstr "Voogedastuse võrguaadress"
 
-#: src/Models/Station.vala:439
+#: src/Models/Station.vala:440
 msgid "Favicon address"
 msgstr "Favikoni aadress"
 
-#: src/Models/Station.vala:440
+#: src/Models/Station.vala:441
 msgid "Homepage address"
 msgstr "Avalehe aadress"
 
-#: src/Models/Station.vala:441
+#: src/Models/Station.vala:442
 msgid "Station tags"
 msgstr "Veebiraadiojaamade sildid"
 
-#: src/Models/Station.vala:442 src/Models/StreamMetadata.vala:36
+#: src/Models/Station.vala:443 src/Models/StreamMetadata.vala:36
 msgid "Bitrate"
 msgstr "Bitikiirus"
 
-#: src/Models/Station.vala:443
+#: src/Models/Station.vala:444
 msgid "Codec"
 msgstr "Koodek"
 
@@ -184,6 +184,18 @@ msgstr "GStreameri ajatempel"
 msgid "Date Time"
 msgstr "Kuupäev ja kellaaeg"
 
+#: src/Models/StreamMetadata.vala:57
+msgid "Copyright"
+msgstr "Autoriõigused"
+
+#: src/Models/StreamMetadata.vala:58
+msgid "Publisher"
+msgstr "Väljaandja"
+
+#: src/Models/StreamMetadata.vala:59
+msgid "Comment"
+msgstr "Komentaar"
+
 #.
 #. Display Assets
 #.
@@ -219,68 +231,68 @@ msgstr "Ajastud"
 msgid "Talk, News, Sport"
 msgstr "Jutusaated, uudised, sport"
 
-#: src/Widgets/Display.vala:454
+#: src/Widgets/Display.vala:439
 msgid "Discover"
 msgstr "Otsi ja avasta"
 
-#: src/Widgets/Display.vala:455
+#: src/Widgets/Display.vala:440
 msgid "Stations to Discover"
 msgstr "Avastatavad veebiraadiojaamad"
 
-#: src/Widgets/Display.vala:459
+#: src/Widgets/Display.vala:444
 msgid "Discover more stations"
 msgstr "Otsi ja avasta uusi veebiraadiojaamu"
 
-#: src/Widgets/Display.vala:479
+#: src/Widgets/Display.vala:468
 msgid "Trending"
 msgstr "Hetkel populaarne"
 
-#: src/Widgets/Display.vala:480
+#: src/Widgets/Display.vala:469
 msgid "Trending Stations in the last 24 hours"
 msgstr "Populaarsust koguvad veebiraadiojaamad viimase 24 tunni jooksul"
 
-#: src/Widgets/Display.vala:497
+#: src/Widgets/Display.vala:487
 msgid "Popular"
 msgstr "Populaarne"
 
-#: src/Widgets/Display.vala:498
+#: src/Widgets/Display.vala:488
 msgid "Most listened to Stations in the last 24 hours"
 msgstr "Viimase 24 tunni jooksul enimkuulatud jaamad"
 
-#: src/Widgets/Display.vala:535 src/Widgets/Display.vala:536
+#: src/Widgets/Display.vala:526 src/Widgets/Display.vala:527
 msgid "Starred by You"
 msgstr "Sinu lemmikud"
 
-#: src/Widgets/Display.vala:574
+#: src/Widgets/Display.vala:565
 msgid "Latest Search"
 msgstr "Viimane otsing"
 
-#: src/Widgets/Display.vala:575
+#: src/Widgets/Display.vala:566
 msgid "Search Results"
 msgstr "Otsingutulemused"
 
-#: src/Widgets/Display.vala:577
+#: src/Widgets/Display.vala:568
 msgid "Save this search"
 msgstr "Salvesta see otsing"
 
-#: src/Widgets/Display.vala:711
+#: src/Widgets/Display.vala:702
 msgid "Jukebox"
 msgstr "Muusikaautomaat"
 
-#: src/Widgets/Display.vala:713
+#: src/Widgets/Display.vala:704
 #, c-format
 msgid "Double click to shuffle through %1$u stations"
 msgstr "Topeltklõps, et esitada juhuslikus järjekorras %1$u jaama"
 
-#: src/Widgets/Display.vala:714
+#: src/Widgets/Display.vala:705
 msgid "one, every ten minutes, for %2$u days"
 msgstr "üks kord iga kümne minuti järel %2$u päeva kestel"
 
-#: src/Widgets/Display.vala:780
+#: src/Widgets/Display.vala:762
 msgid "Saved Search"
 msgstr "Salvestatud otsing"
 
-#: src/Widgets/Display.vala:783
+#: src/Widgets/Display.vala:765
 msgid "Remove this saved search"
 msgstr "Eemalda see salvestatud otsing"
 
@@ -449,17 +461,17 @@ msgid "Import Station UUIDs as Starred Stations"
 msgstr "Impordi jaamade UUID-d lemmikaamade vaatesse"
 
 #. Create the file chooser dialog for saving the exported playlist
-#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:572
+#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:571
 msgid "Save File"
 msgstr "Salvesta fail"
 
 #: src/Widgets/PreferencesPopover.vala:232
-#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:575
+#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:574
 msgid "_Cancel"
 msgstr "_Katkesta"
 
-#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:564
-#: src/Widgets/Window.vala:576
+#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:563
+#: src/Widgets/Window.vala:575
 msgid "_Save"
 msgstr "_Salvesta"
 
@@ -525,11 +537,11 @@ msgstr ""
 msgid "Stop Playback requested"
 msgstr "Oled soovinud taasesituse lõpetamist"
 
-#: src/Widgets/Window.vala:561
+#: src/Widgets/Window.vala:560
 msgid "Save hearted tracks to a file?"
 msgstr "Kas salvestad lemmikuks märgitud jaamad/lood faili?"
 
-#: src/Widgets/Window.vala:563
+#: src/Widgets/Window.vala:562
 msgid "_Don't Save"
 msgstr "_Ära salvesta"
 
