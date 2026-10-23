@@ -8,27 +8,30 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-21 19:18-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-10-23 01:29+0000\n"
+"Last-Translator: Guillermo Rivero "
+"<tormenthor@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Spanish (Latin America) <https://hosted.weblate.org/projects/"
+"tuner/extra/es_419/>\n"
 "Language: es_419\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: data/io.github.tuner_labs.tuner.desktop.in:9
 msgid "Tuner"
-msgstr ""
+msgstr "Tuner"
 
 #: data/io.github.tuner_labs.tuner.desktop.in:10
 msgid "Internet streaming radio music player"
-msgstr ""
+msgstr "Reproductor de música y radio a través de Internet"
 
 #: data/io.github.tuner_labs.tuner.desktop.in:11
 msgid "Listen to Radio Stations from around the world"
-msgstr ""
+msgstr "Escucha emisoras de radio de todo el mundo"
 
 #: data/io.github.tuner_labs.tuner.desktop.in:17
 msgid "Radio;Receiver;FM;Music;Talk;Sport;News"
-msgstr ""
+msgstr "Radio;Receptor;FM;Música;Conversación;Deportes;Noticias"
