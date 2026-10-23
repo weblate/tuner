@@ -9,16 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: application\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
-"POT-Creation-Date: 2026-06-09 10:10-0700\n"
-"PO-Revision-Date: 2026-06-09 17:20+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"POT-Creation-Date: 2026-10-21 19:18-0700\n"
+"PO-Revision-Date: 2026-10-22 09:16+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Lao <https://hosted.weblate.org/projects/tuner/tuner-ui/lo/>\n"
 "Language: lo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #. Count once per day
 #. ----------------------------------------------------------
@@ -26,44 +27,44 @@ msgstr ""
 #. ----------------------------------------------------------
 #. Indicates if the station is in the provider index
 #. Indicates if the station is up-to-date with the provider index
-#: src/Models/Station.vala:160
+#: src/Models/Station.vala:162
 msgid "Station no longer in the index"
 msgstr "ສະຖານີບໍ່ມີຢູ່ໃນດັດຊະນີແລ້ວ"
 
-#: src/Models/Station.vala:402
+#: src/Models/Station.vala:403
 #, fuzzy, c-format
 msgid "Last Played: %s\tPlays: %d"
 msgstr "Last Played: %s\tPlays: %d"
 
-#: src/Models/Station.vala:436
+#: src/Models/Station.vala:437
 msgid "Changes"
 msgstr "ການປ່ຽນແປງ"
 
-#: src/Models/Station.vala:437
+#: src/Models/Station.vala:438
 msgid "Stream Url"
 msgstr "URL ຂອງສະຕຣີມ"
 
-#: src/Models/Station.vala:438
+#: src/Models/Station.vala:439
 msgid "Stream Resolved Url"
 msgstr "URL ທີ່ຖອດຖອນໄດ້ຂອງສະຕຣີມ"
 
-#: src/Models/Station.vala:439
+#: src/Models/Station.vala:440
 msgid "Favicon address"
 msgstr "ທີ່ຢູ່ໄອຄອນເວັບໄຊ (Favicon)"
 
-#: src/Models/Station.vala:440
+#: src/Models/Station.vala:441
 msgid "Homepage address"
 msgstr "ທີ່ຢູ່ໜ້າທຳອິດ"
 
-#: src/Models/Station.vala:441
+#: src/Models/Station.vala:442
 msgid "Station tags"
 msgstr "ແທັກຂອງສະຖານີ"
 
-#: src/Models/Station.vala:442 src/Models/StreamMetadata.vala:36
+#: src/Models/Station.vala:443 src/Models/StreamMetadata.vala:36
 msgid "Bitrate"
 msgstr "ບິດເຣດ"
 
-#: src/Models/Station.vala:443
+#: src/Models/Station.vala:444
 msgid "Codec"
 msgstr "ໂຄເດັກ"
 
@@ -187,6 +188,18 @@ msgstr "GStreamer Date Time"
 msgid "Date Time"
 msgstr "ວັນທີ ເວລາ"
 
+#: src/Models/StreamMetadata.vala:57
+msgid "Copyright"
+msgstr "ລິຂະສິດ"
+
+#: src/Models/StreamMetadata.vala:58
+msgid "Publisher"
+msgstr "ຜູ້ເຜີຍແຜ່"
+
+#: src/Models/StreamMetadata.vala:59
+msgid "Comment"
+msgstr "ຄຳເຫັນ"
+
 #.
 #. Display Assets
 #.
@@ -222,68 +235,68 @@ msgstr "ຍຸກ"
 msgid "Talk, News, Sport"
 msgstr "ສົນທະນາ, ຂ່າວ, ກິລາ"
 
-#: src/Widgets/Display.vala:454
+#: src/Widgets/Display.vala:439
 msgid "Discover"
 msgstr "ຄົ້ນພົບ"
 
-#: src/Widgets/Display.vala:455
+#: src/Widgets/Display.vala:440
 msgid "Stations to Discover"
 msgstr "ສະຖານີທີ່ໜ້າຄົ້ນຫາ"
 
-#: src/Widgets/Display.vala:459
+#: src/Widgets/Display.vala:444
 msgid "Discover more stations"
 msgstr "ຄົ້ນຫາສະຖານີເພີ່ມເຕີມ"
 
-#: src/Widgets/Display.vala:479
+#: src/Widgets/Display.vala:468
 msgid "Trending"
 msgstr "ກຳລັງມາແຮງ"
 
-#: src/Widgets/Display.vala:480
+#: src/Widgets/Display.vala:469
 msgid "Trending Stations in the last 24 hours"
 msgstr "ສະຖານີທີ່ກຳລັງມາແຮງໃນ 24 ຊົ່ວໂມງຜ່ານມາ"
 
-#: src/Widgets/Display.vala:497
+#: src/Widgets/Display.vala:487
 msgid "Popular"
 msgstr "ຍອດນິຍົມ"
 
-#: src/Widgets/Display.vala:498
+#: src/Widgets/Display.vala:488
 msgid "Most listened to Stations in the last 24 hours"
 msgstr "ສະຖານີທີ່ມີຄົນຟັງຫຼາຍທີ່ສຸດໃນ 24 ຊົ່ວໂມງຜ່ານມາ"
 
-#: src/Widgets/Display.vala:535 src/Widgets/Display.vala:536
+#: src/Widgets/Display.vala:526 src/Widgets/Display.vala:527
 msgid "Starred by You"
 msgstr "ທີ່ທ່ານຕິດດາວໄວ້"
 
-#: src/Widgets/Display.vala:574
+#: src/Widgets/Display.vala:565
 msgid "Latest Search"
 msgstr "ການຄົ້ນຫາຫຼ້າສຸດ"
 
-#: src/Widgets/Display.vala:575
+#: src/Widgets/Display.vala:566
 msgid "Search Results"
 msgstr "ຜົນການຄົ້ນຫາ"
 
-#: src/Widgets/Display.vala:577
+#: src/Widgets/Display.vala:568
 msgid "Save this search"
 msgstr "ບັນທຶກການຄົ້ນຫານີ້"
 
-#: src/Widgets/Display.vala:711
+#: src/Widgets/Display.vala:702
 msgid "Jukebox"
 msgstr "ຕູ້ເພງ"
 
-#: src/Widgets/Display.vala:713
+#: src/Widgets/Display.vala:704
 #, c-format
 msgid "Double click to shuffle through %1$u stations"
 msgstr "ດັບເບິນຄລິກເພື່ອສຸ່ມຟັງຜ່ານ %1$u ສະຖານີ"
 
-#: src/Widgets/Display.vala:714
+#: src/Widgets/Display.vala:705
 msgid "one, every ten minutes, for %2$u days"
 msgstr "ໜຶ່ງລາຍການ, ທຸກໆສິບນາທີ, ເປັນເວລາ %2$u ມື້"
 
-#: src/Widgets/Display.vala:780
+#: src/Widgets/Display.vala:762
 msgid "Saved Search"
 msgstr "ການຄົ້ນຫາທີ່ບັນທຶກໄວ້"
 
-#: src/Widgets/Display.vala:783
+#: src/Widgets/Display.vala:765
 msgid "Remove this saved search"
 msgstr "ລົບການຄົ້ນຫາທີ່ບັນທຶກໄວ້ນີ້ອອກ"
 
@@ -449,17 +462,17 @@ msgid "Import Station UUIDs as Starred Stations"
 msgstr "ນຳເຂົ້າ UUID ຂອງສະຖານີເປັນສະຖານີທີ່ຕິດດາວ"
 
 #. Create the file chooser dialog for saving the exported playlist
-#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:572
+#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:571
 msgid "Save File"
 msgstr "ບັນທຶກໄຟລ໌"
 
 #: src/Widgets/PreferencesPopover.vala:232
-#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:575
+#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:574
 msgid "_Cancel"
 msgstr "_ຍົກເລີກ"
 
-#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:564
-#: src/Widgets/Window.vala:576
+#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:563
+#: src/Widgets/Window.vala:575
 msgid "_Save"
 msgstr "_ບັນທຶກ"
 
@@ -523,11 +536,11 @@ msgstr "ຄລິກທີ່ນີ້ເພື່ອເປີດໜ້າຕ່
 msgid "Stop Playback requested"
 msgstr "ມີການຮ້ອງຂໍໃຫ້ຢຸດການຫຼິ້ນ"
 
-#: src/Widgets/Window.vala:561
+#: src/Widgets/Window.vala:560
 msgid "Save hearted tracks to a file?"
 msgstr "ບັນທຶກເພງທີ່ຖືກໃຈລົງໃນໄຟລ໌ຫຼືບໍ່?"
 
-#: src/Widgets/Window.vala:563
+#: src/Widgets/Window.vala:562
 msgid "_Don't Save"
 msgstr "_ບໍ່ບັນທຶກ"
 

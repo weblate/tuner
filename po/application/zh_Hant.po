@@ -7,10 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.tuner_labs.tuner 2.0.2-BETA\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
-"POT-Creation-Date: 2026-06-09 10:10-0700\n"
-"PO-Revision-Date: 2026-06-09 20:07+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"POT-Creation-Date: 2026-10-21 19:18-0700\n"
+"PO-Revision-Date: 2026-10-22 03:21+0000\n"
+"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/tuner/tuner-ui/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -18,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #. Count once per day
 #. ----------------------------------------------------------
@@ -26,44 +25,44 @@ msgstr ""
 #. ----------------------------------------------------------
 #. Indicates if the station is in the provider index
 #. Indicates if the station is up-to-date with the provider index
-#: src/Models/Station.vala:160
+#: src/Models/Station.vala:162
 msgid "Station no longer in the index"
 msgstr "索引中已移除該站點"
 
-#: src/Models/Station.vala:402
+#: src/Models/Station.vala:403
 #, fuzzy, c-format
 msgid "Last Played: %s\tPlays: %d"
 msgstr "Last Played: %s\tPlays: %d"
 
-#: src/Models/Station.vala:436
+#: src/Models/Station.vala:437
 msgid "Changes"
 msgstr "變更"
 
-#: src/Models/Station.vala:437
+#: src/Models/Station.vala:438
 msgid "Stream Url"
 msgstr "串流媒體網址"
 
-#: src/Models/Station.vala:438
+#: src/Models/Station.vala:439
 msgid "Stream Resolved Url"
 msgstr "串流已解析 Url"
 
-#: src/Models/Station.vala:439
+#: src/Models/Station.vala:440
 msgid "Favicon address"
 msgstr "網站圖示位址"
 
-#: src/Models/Station.vala:440
+#: src/Models/Station.vala:441
 msgid "Homepage address"
 msgstr "首頁網址"
 
-#: src/Models/Station.vala:441
+#: src/Models/Station.vala:442
 msgid "Station tags"
 msgstr "車站標籤"
 
-#: src/Models/Station.vala:442 src/Models/StreamMetadata.vala:36
+#: src/Models/Station.vala:443 src/Models/StreamMetadata.vala:36
 msgid "Bitrate"
 msgstr "位元率"
 
-#: src/Models/Station.vala:443
+#: src/Models/Station.vala:444
 msgid "Codec"
 msgstr "編解碼器"
 
@@ -189,6 +188,21 @@ msgstr "GStreamer Date Time"
 msgid "Date Time"
 msgstr "日期與時間"
 
+#: src/Models/StreamMetadata.vala:57
+#, fuzzy
+msgid "Copyright"
+msgstr "Copyright"
+
+#: src/Models/StreamMetadata.vala:58
+#, fuzzy
+msgid "Publisher"
+msgstr "Publisher"
+
+#: src/Models/StreamMetadata.vala:59
+#, fuzzy
+msgid "Comment"
+msgstr "Comment"
+
 #.
 #. Display Assets
 #.
@@ -224,69 +238,69 @@ msgstr "時代"
 msgid "Talk, News, Sport"
 msgstr "談話、新聞、體育"
 
-#: src/Widgets/Display.vala:454
+#: src/Widgets/Display.vala:439
 msgid "Discover"
 msgstr "發現"
 
-#: src/Widgets/Display.vala:455
+#: src/Widgets/Display.vala:440
 msgid "Stations to Discover"
 msgstr "值得探索的車站"
 
-#: src/Widgets/Display.vala:459
+#: src/Widgets/Display.vala:444
 msgid "Discover more stations"
 msgstr "探索更多車站"
 
-#: src/Widgets/Display.vala:479
+#: src/Widgets/Display.vala:468
 msgid "Trending"
 msgstr "趨勢"
 
-#: src/Widgets/Display.vala:480
+#: src/Widgets/Display.vala:469
 msgid "Trending Stations in the last 24 hours"
 msgstr "過去 24 小時內的熱門電台"
 
-#: src/Widgets/Display.vala:497
+#: src/Widgets/Display.vala:487
 msgid "Popular"
 msgstr "受歡迎的"
 
-#: src/Widgets/Display.vala:498
+#: src/Widgets/Display.vala:488
 msgid "Most listened to Stations in the last 24 hours"
 msgstr "過去24小時內收聽量最高的電台"
 
-#: src/Widgets/Display.vala:535 src/Widgets/Display.vala:536
+#: src/Widgets/Display.vala:526 src/Widgets/Display.vala:527
 msgid "Starred by You"
 msgstr "由你主演"
 
-#: src/Widgets/Display.vala:574
+#: src/Widgets/Display.vala:565
 msgid "Latest Search"
 msgstr "最新搜尋"
 
-#: src/Widgets/Display.vala:575
+#: src/Widgets/Display.vala:566
 msgid "Search Results"
 msgstr "搜尋結果"
 
-#: src/Widgets/Display.vala:577
+#: src/Widgets/Display.vala:568
 msgid "Save this search"
 msgstr "儲存此搜尋"
 
-#: src/Widgets/Display.vala:711
+#: src/Widgets/Display.vala:702
 msgid "Jukebox"
 msgstr "點唱機"
 
-#: src/Widgets/Display.vala:713
+#: src/Widgets/Display.vala:704
 #, fuzzy, c-format
 msgid "Double click to shuffle through %1$u stations"
 msgstr "Double click to shuffle through %1$u stations"
 
-#: src/Widgets/Display.vala:714
+#: src/Widgets/Display.vala:705
 #, fuzzy
 msgid "one, every ten minutes, for %2$u days"
 msgstr "one, every ten minutes, for %2$u days"
 
-#: src/Widgets/Display.vala:780
+#: src/Widgets/Display.vala:762
 msgid "Saved Search"
 msgstr "已儲存的搜尋"
 
-#: src/Widgets/Display.vala:783
+#: src/Widgets/Display.vala:765
 msgid "Remove this saved search"
 msgstr "刪除此已儲存的搜尋"
 
@@ -460,17 +474,17 @@ msgid "Import Station UUIDs as Starred Stations"
 msgstr "將站點 UUID 匯入為星標站點"
 
 #. Create the file chooser dialog for saving the exported playlist
-#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:572
+#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:571
 msgid "Save File"
 msgstr "儲存檔案"
 
 #: src/Widgets/PreferencesPopover.vala:232
-#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:575
+#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:574
 msgid "_Cancel"
 msgstr "取消(_C)"
 
-#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:564
-#: src/Widgets/Window.vala:576
+#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:563
+#: src/Widgets/Window.vala:575
 msgid "_Save"
 msgstr "儲存檔案(_S)"
 
@@ -535,12 +549,12 @@ msgstr "點擊這裡恢復視窗。若要退出調諧器，請暫停播放並關
 msgid "Stop Playback requested"
 msgstr "請求停止播放"
 
-#: src/Widgets/Window.vala:561
+#: src/Widgets/Window.vala:560
 #, fuzzy
 msgid "Save hearted tracks to a file?"
 msgstr "Save hearted tracks to a file?"
 
-#: src/Widgets/Window.vala:563
+#: src/Widgets/Window.vala:562
 msgid "_Don't Save"
 msgstr "不保存"
 
