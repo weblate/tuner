@@ -1,27 +1,14 @@
 /*
-* Copyright (c) 2020 Louis Brauer (https://github.com/louis77)
-*
-* This program is free software; you can redistribute it and/or
-* modify it under the terms of the GNU General Public
-* License as published by the Free Software Foundation; either
-* version 2 of the License, or (at your option) any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-* General Public License for more details.
-*
-* You should have received a copy of the GNU General Public
-* License along with this program; if not, write to the
-* Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-* Boston, MA 02110-1301 USA
-*
-* Authored by: Louis Brauer <louis77@member.fsf.org>
-*/
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2020-2022 Louis Brauer <louis@brauer.family>
+ */
 
 
+/**
+ * @brief D-Bus binding for the MPRIS org.mpris.MediaPlayer2.Player interface.
+ */
 [DBus (name = "org.mpris.MediaPlayer2.Player", timeout = 120000)]
-public interface Tuner.DBus.IMediaPlayer2Player : GLib.Object {
+public interface Tuner.Services.DBus.IMediaPlayer2Player : GLib.Object {
 
 	[DBus (name = "Next")]
 	public abstract void next() throws DBusError, IOError;
@@ -101,8 +88,11 @@ public interface Tuner.DBus.IMediaPlayer2Player : GLib.Object {
 	public abstract bool can_control {  get; }
 }
 
+/**
+ * @brief D-Bus binding for the MPRIS org.mpris.MediaPlayer2 root interface.
+ */
 [DBus (name = "org.mpris.MediaPlayer2", timeout = 120000)]
-public interface Tuner.DBus.IMediaPlayer2 : GLib.Object {
+public interface Tuner.Services.DBus.IMediaPlayer2 : GLib.Object {
 
 	[DBus (name = "Raise")]
 	public abstract void raise() throws DBusError, IOError;
