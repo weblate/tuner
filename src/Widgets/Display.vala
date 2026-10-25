@@ -12,6 +12,10 @@
  * features such as a source list, content stack that display and manage Station
  * settings and handles user actions like station selection.
  *
+ * Display consists of a source list (LHS) for navigation and a stack (RHS) for content presentation, with background visuals that transition based on user interactions.
+ * The class manages various categories of stations, including selections, library, explore, genres, subgenres, eras, and talk stations. 
+ * It also handles search functionality and starred stations management.
+ *
  * @since 2.0.0
  *
  * @see Tuner.Application
@@ -21,6 +25,7 @@
 
 using Gee;
 using Tuner.Controllers;
+using Tuner.Ext;
 using Tuner.Models;
 using Tuner.Services;
 using Tuner.Widgets.Base;
@@ -140,7 +145,6 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
 	private Gtk.Revealer _background_tuner   = new Gtk.Revealer();     // Background image
 	private Gtk.Revealer _background_jukebox = new Gtk.Revealer();      // Background image
 	private Gtk.Overlay _overlay             = new Gtk.Overlay ();
-	private StationSet jukebox_station_set;      // Jukebox station set
 	private SearchController _search_controller;      // Search controller
 	private StationListBox _search_results;      // Search results list
 	private string _pending_search_term = "";
@@ -180,40 +184,44 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
 		_stars = stars;
 		_provider = provider;
 
-        // Jukebox set up - get the station set and connect signals for shuffle and tape counter
-        jukebox_station_set = _directory.load_random_stations(1);
-        _app.events.shuffle_requested_sig.connect(() =>
+        _app.jukebox.shuffle_state_changed_sig.connect((enabled) =>
         {
-            if (_shuffle)
-                jukebox_shuffle.begin();
-        });
-
-        _app.events.state_changed_sig.connect((station, state) =>
-        {
-            if (_shuffle && state == PlayerController.Is.STOPPED_ERROR)
+            debug(@"shuffle_state_changed_sig -> $enabled");
+            _shuffle = enabled;
+            if (enabled)
             {
-	                Timeout.add(HeaderBar.SHUFFLE_ERROR_RETRY_DELAY_MS, () =>
-	                {
-	                    jukebox_shuffle.begin();
-	                    return Source.REMOVE;
-                });
+                _background_tuner.reveal_child = false;
+                _background_jukebox.reveal_child = true;
+            }
+            else
+            {
+                _background_jukebox.reveal_child = false;
+                _background_tuner.reveal_child = true;
             }
         });
 
-
-		var tuner = new Gtk.Image.from_icon_name (BACKGROUND_TUNER, Gtk.IconSize.INVALID);
+		var tuner = new AnimatedTunerIcon (256, 256);
 		tuner.opacity                         = BACKGROUND_OPACITY;
 		_background_tuner.transition_duration = BACKGROUND_TRANSITION_TIME_MS;
 		_background_tuner.transition_type     = BACKGROUND_TRANSITION_TYPE;
 		_background_tuner.reveal_child        = true;
 		_background_tuner.child               = tuner;
 
-		var jukebox = new Gtk.Image.from_icon_name (BACKGROUND_JUKEBOX, Gtk.IconSize.INVALID);
+		var jukebox = new AnimatedJukeboxIcon (256, 256);
 		jukebox.opacity                         = BACKGROUND_OPACITY;
 		_background_jukebox.transition_duration = BACKGROUND_TRANSITION_TIME_MS;
 		_background_jukebox.transition_type     = BACKGROUND_TRANSITION_TYPE;
 		_background_jukebox.reveal_child        = false;
 		_background_jukebox.child               = jukebox;
+
+		_app.events.station_changed_sig.connect((station) =>
+		{
+			string key = station.stationuuid != "" ? station.stationuuid : station.name;
+			uint hash = GLib.str_hash (key);
+			double norm = (double) (hash % 1000) / 999.0;
+			tuner.animate_to (norm);
+			jukebox.animate_to (norm);
+		});
 
 		var background = new Gtk.Fixed();
 		background.add(_background_tuner);
@@ -277,6 +285,11 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
 			if (item is StationListItem)
 				((StationListItem)item).populate( this );
 			var selected_item   = item.get_data<string> ("stack_child");
+			// Gtk.Stack only switches to a visible child, and a page whose stations load
+			// asynchronously is not shown until they arrive - show it first
+			var page = (selected_item != null) ? stack.get_child_by_name (selected_item) : null;   // Items such as Jukebox have no page
+			if (page != null)
+				page.show_all ();
 			stack.visible_child_name    = selected_item;
 		});
 
@@ -296,28 +309,14 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
     */
 
     /**
-    * @brief Asynchronously shuffles to a new random station in jukebox mode
-    *
-    * If shuffle mode is active, selects and plays a new random station
-    * from the jukebox station set.
+    * @brief Asynchronously shuffles to a new random station in jukebox mode.
     */
-    public async void jukebox_shuffle()
+    public void jukebox_shuffle()
     {
 		if (!_shuffle)
 			return;
 
-        try 
-        {
-            var page = yield jukebox_station_set.next_page_async();
-            if (page == null || page.size == 0)
-                return;
-
-            var station = page.to_array()[0];
-
-			station_clicked_sig(station);
-		}
-		catch (SourceError e)
-		{}
+		_app.jukebox.request_shuffle();
 	} // jukebox_shuffle
 
 
@@ -439,6 +438,7 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
                 "face-smile",
                 _("Discover"),
                 _("Stations to Discover")
+                // true // TODO Implement filter
             ) {
                 station_set = _directory.load_random_stations(20),
                 action_tooltip_text = _("Discover more stations"),
@@ -446,6 +446,10 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
             }
         );
         
+        // Selections load in the foreground so their pages appear complete;
+        // all other categories load in the background
+        discover.item.load_in_background = false;
+
         discover.action_button_activated_sig.connect (() => {
             discover.item.populate( this, true );
         });
@@ -454,7 +458,7 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
 		/* ---------------------------------------------------------------------------
 		    Trending
 		 */
-         StationListBoxFactory.create (
+         var trending = StationListBoxFactory.create (
             new StationListBoxConfig (
                 stack,
                 source_list,
@@ -467,12 +471,13 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
                 station_set = _directory.load_trending_stations(40)
             }
          );
+         trending.item.load_in_background = false;
 
         /* ---------------------------------------------------------------------------
             Popular
         */
 
-        StationListBoxFactory.create (
+        var popular = StationListBoxFactory.create (
             new StationListBoxConfig (
                 stack,
                 source_list,
@@ -485,6 +490,7 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
                 station_set = _directory.load_popular_stations(40)
             }
         );
+        popular.item.load_in_background = false;
     
 
         // ---------------------------------------------------------------------------
@@ -518,7 +524,7 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
                 "starred",
                 "starred",
                 _("Starred by You"),
-                _("Starred by You") + " :"
+                _("Starred by You") + " : "
             ) {
                 station_list_hookup = this,
                 stations = _directory.get_starred()
@@ -704,18 +710,10 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
 
         item.activated.connect(() =>
         {
-                _shuffle = true;
-                jukebox_shuffle.begin();
+                debug(@"Jukebox item activated (double-click), jukebox.enabled was $(_app.jukebox.enabled)");
+                _app.jukebox.enable();
                 _app.events.shuffle_mode_sig(true);
-                _background_tuner.reveal_child = false;    
-                _background_jukebox.reveal_child = true; 
         });
-
-		_app.events.tape_counter_sig.connect((oldstation) =>
-		{
-			if (_shuffle)
-				jukebox_shuffle.begin();
-		});
 		category.add(item);
 	} // jukebox
 
@@ -731,12 +729,11 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
 		station_list.station_clicked_sig.connect((station) =>
 		{
 			station_clicked_sig(station);
-            if ( _shuffle ) 
+            if ( _shuffle )
             {
-                _shuffle = false;
+                debug(@"Manual station click while jukebox shuffle active, disabling jukebox: $(station.name)");
+                _app.jukebox.disable();
                 _app.events.shuffle_mode_sig(false);
-                _background_jukebox.reveal_child = false;
-                _background_tuner.reveal_child   = true;
             } // if
 		});
 	}  // station_list_hookup
@@ -813,6 +810,7 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
                     "tuner:playlist-symbolic",
                     genre,
                     genre
+                    // true // TODO Implement filter
                 ) {
                     station_set = directory.load_by_tag (genre.down ())
                 }

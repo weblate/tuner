@@ -42,10 +42,18 @@ message('Installed desktop file\n')
 #
 message('Installing metainfo...')
 
-install_data(
-  meson.project_name() + '.metainfo.xml',
-  install_dir: join_paths(get_option('datadir'), 'metainfo'),
-  install_tag: 'metainfo'
+# The newest <release> takes its version from the project version in the top-level
+# meson.build, so the version number is only set there
+metainfo_file = configure_file(
+    input: meson.project_name() + '.metainfo.xml.in',
+    output: meson.project_name() + '.metainfo.xml',
+    configuration: {
+      'VERSION': meson.project_version(),
+      'VERSION_DATE': run_command('date', '+%Y-%m-%d', check: true).stdout().strip(),
+    },
+    install: true,
+    install_dir: join_paths(get_option('datadir'), 'metainfo'),
+    install_tag: 'metainfo'
 )
 
 message('Installed metainfo\n')
@@ -87,7 +95,6 @@ meson.add_install_script (
     schemas_dir,
     install_tag: 'schemas'
 )
-
 
 message('Installed schema\n')
 

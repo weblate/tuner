@@ -71,6 +71,14 @@ public class Tuner.Widgets.PreferencesPopover : Gtk.Popover
 		start_on_starred.margin_start = ROW_INDENT;
 
 
+		// Startup sound
+		var startup_jingle = new Gtk.ModelButton ();
+		startup_jingle.text         = _("Play startup jingle");
+		startup_jingle.action_name  = Window.ACTION_PREFIX + Window.ACTION_STARTUP_JINGLE;
+		startup_jingle.tooltip_text = _("If enabled, Tuner plays a short sound when it starts");
+		startup_jingle.margin_start = ROW_INDENT;
+
+
 		// Play Display
 		var stream_info = new Gtk.ModelButton ();
 		stream_info.text         = _("Show stream info when playing");
@@ -89,6 +97,12 @@ public class Tuner.Widgets.PreferencesPopover : Gtk.Popover
 		stream_info_image_popup.action_name  = Window.ACTION_PREFIX + Window.ACTION_STREAM_INFO_IMAGE_POPUP;
 		stream_info_image_popup.tooltip_text = _("Show a movable popup with images discovered in the stream metadata");
 		stream_info_image_popup.margin_start = ROW_INDENT;
+
+		var stream_info_dynamic_shrink = new Gtk.ModelButton ();
+		stream_info_dynamic_shrink.text         = _("Shrink title dynamically with the text");
+		stream_info_dynamic_shrink.action_name  = Window.ACTION_PREFIX + Window.ACTION_STREAM_INFO_DYNAMIC_SHRINK;
+		stream_info_dynamic_shrink.tooltip_text = _("Shrink the title according to the length of the displayed text.");
+		stream_info_dynamic_shrink.margin_start = ROW_INDENT;
 
 
 /* 
@@ -151,14 +165,17 @@ public class Tuner.Widgets.PreferencesPopover : Gtk.Popover
 		menu_grid.attach (new Gtk.SeparatorMenuItem (), 0, vpos++, 4, 1);
 
 		menu_grid.attach (autoplay_item, 0, vpos++, 4, 1);
-
 		menu_grid.attach (play_restart_item, 0, vpos++, 4, 1);
+
+		menu_grid.attach (startup_jingle, 0, vpos++, 4, 1);
+
 
 		menu_grid.attach (new Gtk.SeparatorMenuItem (), 0, vpos++, 4, 1);
 		
 		menu_grid.attach (stream_info, 0, vpos++, 4, 1);
 		menu_grid.attach (stream_info_fast, 0, vpos++, 4, 1);
 		menu_grid.attach (stream_info_image_popup, 0, vpos++, 4, 1);
+		menu_grid.attach (stream_info_dynamic_shrink, 0, vpos++, 4, 1);
 
 		menu_grid.attach (new Gtk.SeparatorMenuItem (), 0, vpos++, 4, 1);
 

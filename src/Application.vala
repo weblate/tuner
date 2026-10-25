@@ -14,6 +14,7 @@
  using Tuner.Coordinators;
  using Tuner.Controllers;
  using Tuner.Events;
+ using Tuner.Models;
  using Tuner.Providers;
  using Tuner.Services;
  using Tuner.Widgets;
@@ -98,8 +99,13 @@ namespace Tuner {
 
         private static Gtk.Settings GTK_SETTINGS;
 
+        private static int CONST_JINGLE_DELAY_MS = 777;
+
         private static string GTK_SYSTEM_THEME = "unset";
 
+        /**
+         * @brief The system GTK theme name, saved before Tuner applies its own theme; "unset" until it is read.
+         */
         public static string SYSTEM_THEME() { return GTK_SYSTEM_THEME; }
 
         static construct 
@@ -192,8 +198,20 @@ namespace Tuner {
         /** @brief Player controller */
         public DirectoryController directory { get; construct; }
 
+        /** @brief Jukebox controller */
+        public JukeboxController jukebox { get; construct; }
+
+        /** @brief Tape counter controller */
+        public TapeCounterController tape_counter { get; construct; }
+
         /** @brief Player controller */
         public StarStore stars { get; construct; }
+
+        /** @brief Shared session playback history */
+        public History history { get; private set; }
+
+        /** @brief Stations that failed to play this session - jukebox skips these */
+        public StationSession session { get; private set; }
         
         /** @brief API DataProvider */
         public DataProvider.API provider { get; construct; }
@@ -249,7 +267,7 @@ namespace Tuner {
         private bool _has_started = false;
         // Coordinates startup-only cross-component flows (e.g., deferred autoplay).
         private StartupCoordinator _startup_coordinator;
-        private Gst.Element? _startup_jingle;
+        private GLib.Object? _startup_jingle;
         // Coordinates playback restart behavior after online/offline transitions.
         private PlaybackRecoveryCoordinator _playback_recovery_coordinator;
         // Coordinates provider click/vote updates from player events.
@@ -286,6 +304,10 @@ namespace Tuner {
             player = create_player();
             stars = create_star_store(starred_file);
             directory = create_directory_controller(provider, stars);
+            history = new History();
+            session = new StationSession();
+            jukebox = create_jukebox_controller();
+            tape_counter = create_tape_counter_controller();
             initialize_coordinators();
 
             register_application_actions ();
@@ -423,12 +445,34 @@ namespace Tuner {
 
 
         /**
+        * @brief Creates the jukebox controller service.
+        *
+        * @return Newly created jukebox controller.
+        */
+        private JukeboxController create_jukebox_controller()
+        {
+            return new JukeboxController(this, directory);
+        }
+
+
+        /**
+        * @brief Creates the tape-counter controller service.
+        *
+        * @return Newly created tape-counter controller.
+        */
+        private TapeCounterController create_tape_counter_controller()
+        {
+            return new TapeCounterController(events, history, session);
+        }
+
+
+        /**
         * @brief Initializes app coordinators that consume initialized services.
         */
         private void initialize_coordinators()
         {
             _playback_recovery_coordinator = new PlaybackRecoveryCoordinator(this, events, player, settings);
-            _usage_tracking_coordinator = new UsageTrackingCoordinator(settings, events, provider);
+            _usage_tracking_coordinator = new UsageTrackingCoordinator(settings, events, provider, session);
         }
 
 
@@ -547,9 +591,13 @@ namespace Tuner {
         private void create_main_window()
         {
             window = new Window (this, player, settings, directory);
-            play_startup_jingle ();
+
             _startup_coordinator = new StartupCoordinator(this, events, window, settings, directory);
             _startup_coordinator.start();
+
+            GLib.Timeout.add_once (CONST_JINGLE_DELAY_MS, () => {
+                    play_startup_jingle ();
+                });
 
             // Flathub screenshot sizing
             //window.resize(1000, 625);    // Screenshot sizing - round corners 80, ds op 1
@@ -559,42 +607,27 @@ namespace Tuner {
 
 
         /**
-        * @brief Play the startup jingle (resource-backed WAV) once per launch.
+        * @brief Play the startup jingle (resource-backed sound) once per launch.
         */
         private void play_startup_jingle ()
         {
-            if (_startup_jingle != null)
+            if ( _startup_jingle != null || !settings.startup_jingle )
+            {
                 return;
+            } // if
 
-            var playbin = Gst.ElementFactory.make ("playbin", "startup-jingle");
-            if (playbin == null)
-                return;
+            //  if (wait_ms > 0)
+            //  {
+            //      GLib.Timeout.Add (wait_ms, () => {
+            //          play_startup_jingle ();
+            //      });
+            //      return;
+            //  } // if
 
             var uri = "resource:///io/github/tuner_labs/tuner/sounds/tuner_startup.mp3";
-            playbin.set ("uri", uri);
-            playbin.set ("volume", settings.volume);
-            _startup_jingle = playbin;
-
-            var bus = playbin.get_bus ();
-            if (bus != null)
-            {
-                bus.add_signal_watch ();
-                bus.message.connect ((message) => {
-                    switch (message.type)
-                    {
-                        case Gst.MessageType.EOS:
-                        case Gst.MessageType.ERROR:
-                            playbin.set_state (Gst.State.NULL);
-                            bus.remove_signal_watch ();
-                            _startup_jingle = null;
-                            break;
-                        default:
-                            break;
-                    }
-                });
-            }
-
-            playbin.set_state (Gst.State.PLAYING);
+            _startup_jingle = StreamPlayer.play_file (uri, settings.volume/2, () => {
+                _startup_jingle = null;
+            });
         }
 
 

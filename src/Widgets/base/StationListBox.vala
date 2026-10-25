@@ -7,6 +7,7 @@
 
 using Gtk;
 using Gee;
+using Gdk;
 using Tuner.Models;
 using Tuner.Widgets.Granite;
 
@@ -23,6 +24,9 @@ using Tuner.Widgets.Granite;
  */
 namespace Tuner.Widgets.Base
 {
+    /**
+     * @brief Implemented by objects that connect to a StationList's signals when it is created.
+     */
     public interface StationListHookup : Object
     {
         public abstract void station_list_hookup( StationList station_list );
@@ -35,6 +39,11 @@ namespace Tuner.Widgets.Base
     */
     public class StationListBoxFactory
     {
+        /**
+         * @brief Creates a StationListBox from a configuration.
+         *
+         * @param cfg Where the box goes and what it shows.
+         */
         public static StationListBox create(StationListBoxConfig cfg)
         {
             var prepopulated = cfg.stations != null;
@@ -46,6 +55,7 @@ namespace Tuner.Widgets.Base
                 cfg.icon,
                 cfg.title,
                 cfg.subtitle,
+                cfg.filter,
                 prepopulated,
                 cfg.station_set,
                 cfg.action_tooltip_text,
@@ -130,6 +140,8 @@ namespace Tuner.Widgets.Base
         private StationListBoxContent _content_view;
         private Stack _stack;
         private SourceList _source_list;
+        private bool _filter;
+        private Button? _filter_button;
 
 
         
@@ -150,6 +162,7 @@ namespace Tuner.Widgets.Base
             string icon,
             string title,
             string subtitle,
+            bool filter,
             bool prepopulated = false,
             StationSet? data,
             string? action_tooltip_text,
@@ -166,6 +179,7 @@ namespace Tuner.Widgets.Base
             _stack = stack;
             _source_list = source_list;
             _category = category;
+            _filter = filter;
 
             pager = new StationListBoxPager (data);
             _icon = new ThemedIcon (icon);
@@ -182,6 +196,19 @@ namespace Tuner.Widgets.Base
             {
                 _header_view.set_parameter (parameter);
             });
+                        
+            if (_filter) {
+                _filter_button = new Button.from_icon_name (
+                    "view-more-horizontal",
+                    IconSize.BUTTON
+                );
+
+                _filter_button.relief = Gtk.ReliefStyle.NONE;
+                _filter_button.valign = Align.CENTER;
+                _filter_button.opacity = 0.4;
+                _header_view.pack_end (_filter_button, false, false,3);
+            }
+
 
             pack_start (_header_view, false, false);
 

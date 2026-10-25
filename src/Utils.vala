@@ -9,6 +9,8 @@
  */
 
  using GLib;
+ using Tuner.Models;
+ using Tuner.Ext;
 
 /**
  * @namespace Tuner
@@ -20,6 +22,35 @@ namespace Tuner {
     public const uint WINDOW_FADE_MS = 400;
 
     /**
+     * @brief Build the app-wide User-Agent string.
+     */
+    public static string user_agent ()
+    {
+        return @"$(Application.APP_ID)/$(Application.APP_VERSION)";
+    } // user_agent
+
+
+    private static int _debug_state = -1;      // -1 unknown, 0 off, 1 on
+
+    /**
+     * @brief Whether debug logging is switched on (`G_MESSAGES_DEBUG` is set).
+     *
+     * Vala builds `debug(@"...")` strings before `debug()` can decide to drop them.
+     * On hot paths (every HTTP request, every tick) guard the call with this so the
+     * string is only built when someone is going to read it:
+     * `if (Tuner.debug_enabled ()) debug(@"...");`
+     */
+    public static bool debug_enabled ()
+    {
+        if (_debug_state < 0)
+        {
+            var domains = Environment.get_variable ("G_MESSAGES_DEBUG");
+            _debug_state = (domains != null && domains != "") ? 1 : 0;
+        }
+        return _debug_state == 1;
+    } // debug_enabled
+
+    /**
     * @brief Available themes
     *
     */
@@ -29,6 +60,9 @@ namespace Tuner {
         LIGHT,
         DARK;
 
+        /**
+         * @brief The theme's name as used in settings: "system", "light" or "dark".
+         */
         public unowned string get_name ()
         {
             switch (this) {
@@ -59,6 +93,13 @@ namespace Tuner {
     } // apply_theme
 
 
+    /**
+     * @brief Applies a theme by name.
+     *
+     * "light" sets Adwaita, "dark" sets Adwaita-dark, "system" restores the system theme.
+     *
+     * @param requested_theme A THEME name, as returned by THEME.get_name().
+     */
     public static void apply_theme_name(string requested_theme)
     {
 
@@ -152,5 +193,35 @@ namespace Tuner {
         if ( text.length == 0 ) return "";
         return text._strip();
     } // safestrip
+
+
+    /**
+     * @brief Create a stream player for the given URL.
+     *
+     * Centralizes the selection of the concrete StreamPlayer implementation.
+     *
+     * @param stream_url Stream URL to play.
+     * @return A StreamPlayer instance for the requested URL.
+     */
+    public static StreamPlayer create_stream_player (string stream_url)
+    {
+        return new GstStreamPlayer (stream_url);
+    } // create_stream_player
+
+
+    /**
+     * @brief Play a file URI through the configured stream backend.
+     *
+     * Centralizes one-shot playback mapping so `StreamPlayer` remains backend-agnostic.
+     *
+     * @param file_uri URI to play.
+     * @param volume Playback volume between 0.0 and 1.0.
+     * @param on_finished Optional callback fired on EOS/ERROR.
+     * @return Backend playback handle, or null when setup failed.
+     */
+    public static GLib.Object? play_stream_file (string file_uri, double volume, owned StreamPlayer.FilePlaybackFinished? on_finished = null)
+    {
+        return GstStreamPlayer.play_file_backend (file_uri, volume, (owned) on_finished);
+    } // play_stream_file
 
 } // namespace Tuner

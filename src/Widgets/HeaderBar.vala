@@ -12,11 +12,12 @@
 
 using Gtk;
 using Tuner.Controllers;
+using Tuner.Ext;
 using Tuner.Models;
 using Gee;
 using Tuner.Services;
 
-/*
+/**
  * @class Tuner.HeaderBar
  *
  * @brief Custom header bar that centrally displays station info and
@@ -72,7 +73,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 	private PlayButton _play_button  = new PlayButton ();
 	private MenuButton _prefs_button = new MenuButton ();
 	private Button _search_button = new Button.from_icon_name ("system-search-symbolic", IconSize.LARGE_TOOLBAR);
-	private ListButton _list_button  = new ListButton.from_icon_name ("mark-location-symbolic", IconSize.LARGE_TOOLBAR);
+	private HistoryButton _history_button;
 	private Button _heart_button = new Button();
 
 	/*
@@ -84,9 +85,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 	private Station _station;
 	private Station _last_metadata_station;
 	private string _last_metadata_title = "";
-	private string _heart_favorited_title = "";
-	private bool _heart_is_favorited = false;
-	private Mutex _station_update_lock = Mutex();       // Lock out concurrent updates
+	private uint _station_update_in_progress = 0u;       // Guard concurrent updates with an atomic flag
 	private bool _station_locked       = false;
 	private ulong _station_handler_id  = 0;
 	private Application _app;
@@ -95,7 +94,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 
     private VolumeButton _volume_button = new VolumeButton();
     
-	private Base.PlayerInfo _player_info;
+	private PlayingStationInfo _playing_station_info;
 
 	/** @property {bool} starred - Station starred. */
 	private bool _starred = false;
@@ -179,7 +178,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 
 		// Search button
 		_search_button.valign = Align.CENTER;
-		_search_button.tooltip_text = _("Search");
+		_search_button.tooltip_text = _("Search for Stations");
 		_search_button.clicked.connect (() => {
 			search_toggle_sig();
 		});
@@ -190,8 +189,9 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 		_prefs_button.tooltip_text = _("Preferences");
 		_prefs_button.popover      = new PreferencesPopover();
 
-		_list_button.valign       = Align.CENTER;
-		_list_button.tooltip_text = _("History");
+		_history_button = new HistoryButton.from_icon_name(_app.history, _app.events, "mark-location-symbolic", IconSize.LARGE_TOOLBAR);
+		_history_button.valign       = Align.CENTER;
+		_history_button.tooltip_text = _("History");
 
 		_heart_button.image = new Image.from_icon_name ("emblem-favorite-symbolic", IconSize.LARGE_TOOLBAR);
 		_heart_button.valign = Align.CENTER;
@@ -201,20 +201,15 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 		{
 			if (_last_metadata_station == null || _last_metadata_title == "")
 				return;
-			var hearted_title = "♥ " + _last_metadata_title;
-			if (_heart_is_favorited && _heart_favorited_title == _last_metadata_title)
+
+			var next_hearted_state = !_app.history.is_last_entry_hearted_for(_last_metadata_station, _last_metadata_title);
+			if (!_history_button.set_last_entry_hearted_if_matches(_last_metadata_station, _last_metadata_title, next_hearted_state))
 			{
-				if (!_list_button.replace_last_title_if_matches(_last_metadata_station, hearted_title, _last_metadata_title))
-					_list_button.append_station_title_pair(_last_metadata_station, _last_metadata_title);
-				_heart_favorited_title = "";
-				set_heart_favorited(false);
-				return;
+				_history_button.append_station_title_pair(_last_metadata_station, _last_metadata_title);
+				_history_button.set_last_entry_hearted_if_matches(_last_metadata_station, _last_metadata_title, next_hearted_state);
 			}
 
-			if (!_list_button.replace_last_title_if_matches(_last_metadata_station, _last_metadata_title, hearted_title))
-				_list_button.append_station_title_pair(_last_metadata_station, hearted_title);
-			_heart_favorited_title = _last_metadata_title;
-			set_heart_favorited(true);
+			set_heart_favorited(next_hearted_state);
 		});
 
        /*
@@ -229,20 +224,13 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
         pack_start (_play_button);
 		pack_start (_heart_button);
 
-	    _player_info = new Base.PlayerInfo(window, _player);
-        custom_title = _player_info; // Station display
+	    _playing_station_info = new PlayingStationInfo(window, _player);
+        custom_title = _playing_station_info; // Station display
 
 		// pack RHS
 		pack_end (_prefs_button);
-		pack_end (_list_button);
+		pack_end (_history_button);
 		pack_end (_search_button);
-
-		/* Test fixture */
-		//  private Button _off_button       = new Button.from_icon_name ("list-add", IconSize.LARGE_TOOLBAR);
-		//  pack_end (_off_button);
-		//  _off_button.clicked.connect (() => {
-		//  	app().is_online = !app().is_online;
-		//  });
 
 		show_close_button = true;
 
@@ -256,34 +244,35 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 			update_controls_state();
 		});
 
-		_app.events.state_changed_sig.connect ((station, state) =>
+		_app.events.player_state_changed_sig.connect ((station, state) =>
 		{
+			_app.history.sync_play_state(station, state);
 			update_controls_state();
 		});
 
 	    update_controls_state();
 
-		_player_info.info_changed_completed_sig.connect(() =>
+		_playing_station_info.info_changed_completed_sig.connect(() =>
 		// _player_info is going to signal when it has completed and the lock can be released
 		{
 			if (!_station_locked)
 				return;
-			_station_update_lock.unlock();
+			AtomicUint.set (ref _station_update_in_progress, 0u);
 			_station_locked = false;
 		});
 
 
-		_app.events.metadata_changed_sig.connect ((station, metadata) =>
+		_app.events.playback_metadata_changed_sig.connect ((station, metadata) =>
 		{
-			_list_button.append_station_title_pair(station, metadata.title);
+			_history_button.append_station_title_pair(station, metadata.title);
+			_app.history.sync_play_state(station, _player.player_state);
 			_last_metadata_station = station;
 			_last_metadata_title = metadata.title != null ? metadata.title : "";
 			_heart_button.sensitive = _last_metadata_title != "";
-			if (_last_metadata_title == "" || _last_metadata_title != _heart_favorited_title)
-				set_heart_favorited(false);
+			set_heart_favorited(_app.history.is_last_entry_hearted_for(_last_metadata_station, _last_metadata_title));
 		});
 
-		_list_button.item_station_selected_sig.connect((station) =>
+		_history_button.item_station_selected_sig.connect((station) =>
 		{
 			window.handle_play_station(station);
 		});
@@ -297,18 +286,23 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 			ctx.add_class("heart-favorited");
 		else
 			ctx.remove_class("heart-favorited");
-		_heart_is_favorited = favorited;
-	}
+	} // set_heart_favorited
 
+	/**
+	 * @brief Titles hearted this session, from the history button.
+	 */
 	public Gee.List<string> get_hearted_titles()
 	{
-		return _list_button.get_hearted_titles();
+		return _history_button.get_hearted_titles();
 	}
 
+	/**
+	 * @brief Hearted history lines without the heart markers, from the history button.
+	 */
 	public Gee.List<string> get_hearted_history_lines_without_hearts()
 	{
-		return _list_button.get_hearted_history_lines_without_hearts();
-	}
+		return _history_button.get_hearted_history_lines_without_hearts();
+	} // get_hearted_history_lines_without_hearts
 
 
     /* 
@@ -325,18 +319,19 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 	*/
 	public bool update_playing_station(Station station)
 	{
-		if ( _app.is_offline || ( _station != null && _station == station && _player.player_state != Tuner.Controllers.PlayerController.Is.STOPPED_ERROR ) )
+		if ( _app.is_offline || ( _station != null && _station == station && _player.player_state != StreamPlayer.State.STOPPED_ERROR ) )
 			return false;
 
-		if (_station_update_lock.trylock())
-		// Lock while changing the station to ensure single threading.
-		// Lock is released when the info is updated on emit of info_changed_completed_sig
-		{
-			_station_locked       = true;
-			//_player_info.metadata = STREAM_METADATA;
+		if (AtomicUint.compare_and_exchange (ref _station_update_in_progress, 0u, 1u))
+		// Guard while changing the station to ensure single threading.
+		// Guard is released when the info is updated on emit of info_changed_completed_sig
+			{
+				_station_locked       = true;
+				//_player_info.metadata = STREAM_METADATA;
+				_playing_station_info.queue_station_transition (station);
 
-			Idle.add (() =>
-			          // Initiate the fade out on a non-UI thread
+				Idle.add (() =>
+				          // Initiate the fade out on a non-UI thread
 			{
 
 				if (_station_handler_id > 0)
@@ -346,7 +341,7 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 					_station_handler_id = 0;
 				}
 
-				_player_info.change_station.begin(station, () =>
+				_playing_station_info.change_station.begin(station, () =>
 				{
 					_station            = station;
 					starred             = _station.starred;
@@ -375,12 +370,12 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 	{
 		base.realize();
 
-		_player_info.transition_type = RevealerTransitionType.SLIDE_UP; // Optional: add animation
-		_player_info.set_transition_duration(REVEAL_DELAY*3);
+		_playing_station_info.transition_type = RevealerTransitionType.SLIDE_UP; // Optional: add animation
+		_playing_station_info.set_transition_duration(REVEAL_DELAY*3);
 
 		// Use Timeout to delay the reveal animation
 		Timeout.add(REVEAL_DELAY*3, () => {
-			_player_info.set_reveal_child(true);
+			_playing_station_info.set_reveal_child(true);
 			return Source.REMOVE;
 		});
 	} // realize
@@ -390,16 +385,26 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
      */
     public void stream_info(bool show)
     {
-        _player_info.title_label.show_metadata = show;        
+        _playing_station_info.title_label.show_metadata = show;        
     } // stream_info
 
 
     /**
+     * @brief Sets fast cycling of the stream metadata in the title label.
      */
     public void stream_info_fast(bool fast)
     {
-        _player_info.title_label.metadata_fast_cycle = fast;          
+        _playing_station_info.title_label.metadata_fast_cycle = fast;          
     } // stream_info_fast
+
+
+    /**
+     * @brief Enables or disables dynamic shrinking of the playing-station info.
+     */
+    public void stream_info_dynamic_shrink(bool enabled)
+    {
+        _playing_station_info.set_dynamic_shrink(enabled);
+    } // stream_info_dynamic_shrink
 
 
 	/*
@@ -413,31 +418,31 @@ public class Tuner.Widgets.HeaderBar : Gtk.HeaderBar
 	*/
 	private void update_controls_state()
 	{
-		bool is_playing_now = _player.player_state == PlayerController.Is.PLAYING
-			|| _player.player_state == PlayerController.Is.BUFFERING;
+		bool is_playing_now = _player.player_state == StreamPlayer.State.PLAYING
+			|| _player.player_state == StreamPlayer.State.BUFFERING;
 
 		if (_app.is_offline)
 		{
-			_player_info.favicon_image.opacity = 0.5;
+			_playing_station_info.favicon_image.opacity = 0.5;
 			_tuner_status.online               = false;
 			_star_button.sensitive             = false;
 			_play_button.sensitive             = is_playing_now;
 			_play_button.opacity               = is_playing_now ? 1.0 : 0.5;
 			_volume_button.sensitive           = false;
-			_list_button.sensitive             = true;
+			_history_button.sensitive             = true;
 			_search_button.sensitive           = false;
 
 		}
 		else
 		// Online - restore full functionality
 		{
-			_player_info.favicon_image.opacity = 1.0;
+			_playing_station_info.favicon_image.opacity = 1.0;
 			_tuner_status.online               = true;
 			_star_button.sensitive             = true;
 			_play_button.sensitive             = true;
 			_play_button.opacity               = 1.0;
 			_volume_button.sensitive           = true;
-			_list_button.sensitive             = true;
+			_history_button.sensitive             = true;
 			_search_button.sensitive           = true;
 		}
 	} // update_controls_state

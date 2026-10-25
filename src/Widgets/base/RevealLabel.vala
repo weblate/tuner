@@ -22,7 +22,7 @@
  */
 public class Tuner.Widgets.Base.RevealLabel : Gtk.Revealer 
 {
-    private Mutex _set_text_lock = Mutex();   // Lock out concurrent updates
+    private uint _set_text_in_progress = 0u;   // Guard concurrent updates with an atomic flag
     private string _next_text;
 
     /**
@@ -56,6 +56,9 @@ public class Tuner.Widgets.Base.RevealLabel : Gtk.Revealer
     } // construct
 
 
+    /**
+     * @brief Clears the label text and any pending text.
+     */
     protected void clear() {
         _next_text = "";
         label_child.label = "";
@@ -81,7 +84,8 @@ public class Tuner.Widgets.Base.RevealLabel : Gtk.Revealer
         // Prevent transition if same title is submitted multiple times
         if ( label_child.label == text) return true;      
         
-        if ( _set_text_lock.trylock() == false ) return false;
+        if (!AtomicUint.compare_and_exchange (ref _set_text_in_progress, 0u, 1u))
+            return false;
 
         reveal_child = false;
         _next_text = text;
@@ -91,7 +95,7 @@ public class Tuner.Widgets.Base.RevealLabel : Gtk.Revealer
         {
             label_child.label = _next_text;
             reveal_child = true;
-            _set_text_lock.unlock ();
+            AtomicUint.set (ref _set_text_in_progress, 0u);
             return true;
         }
 
@@ -107,7 +111,7 @@ public class Tuner.Widgets.Base.RevealLabel : Gtk.Revealer
         {
             label_child.label = _next_text;
             reveal_child = true;
-            _set_text_lock.unlock ();
+            AtomicUint.set (ref _set_text_in_progress, 0u);
             return Source.REMOVE;
         }, Priority.DEFAULT_IDLE);    
         

@@ -9,6 +9,9 @@ namespace Tuner.Models.Genre {
 
     private static Set<string> PREDEFINED;
 
+    /**
+     * @brief Whether a tag is one of the predefined genres or subgenres.
+     */
     public static bool in_genre(string genre)
     {
         if ( PREDEFINED == null)

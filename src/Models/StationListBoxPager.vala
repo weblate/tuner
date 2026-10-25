@@ -18,6 +18,11 @@ namespace Tuner.Models
     {
         private StationSet? _data;
 
+        /**
+         * @brief Creates a pager over a station set.
+         *
+         * @param data The station set to page through, or null for none.
+         */
         public StationListBoxPager(StationSet? data)
         {
             _data = data;
@@ -32,6 +37,18 @@ namespace Tuner.Models
         {
             if ( _data == null ) return null;
             return _data.next_page();
+        }
+
+        /**
+        * @brief Retrieves the next page of stations without blocking the caller
+        * @param priority Priority of the HTTP request; GLib.Priority.LOW for background loads
+        * @return A Set of Model.Station objects, or null if no data source exists
+        * @throws SourceError If there's an error retrieving the next page
+        */
+        public async Set<Station>? next_page_async (int priority = GLib.Priority.HIGH_IDLE) throws SourceError
+        {
+            if ( _data == null ) return null;
+            return yield _data.next_page_async(priority);
         }
     } // StationListBoxPager
 } // Tuner

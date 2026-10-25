@@ -11,9 +11,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.tuner_labs.tuner\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
-"POT-Creation-Date: 2026-03-30 17:20-0700\n"
-"PO-Revision-Date: 2026-03-31 03:18+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"POT-Creation-Date: 2026-10-21 19:18-0700\n"
+"PO-Revision-Date: 2026-10-25 19:13+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/tuner/tuner-ui/"
 "ru/>\n"
 "Language: ru\n"
@@ -22,201 +23,224 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
+#. Count once per day
+#. ----------------------------------------------------------
+#. Temporal Properties
+#. ----------------------------------------------------------
 #. Indicates if the station is in the provider index
 #. Indicates if the station is up-to-date with the provider index
-#: src/Models/Station.vala:131
+#: src/Models/Station.vala:162
 msgid "Station no longer in the index"
 msgstr "Станция больше не в индексе"
 
-#: src/Models/Station.vala:355
+#: src/Models/Station.vala:403
+#, c-format
+msgid "Last Played: %s\tPlays: %d"
+msgstr "Играет: %s"
+
+#: src/Models/Station.vala:437
 msgid "Changes"
 msgstr "Изменения"
 
-#: src/Models/Station.vala:356
+#: src/Models/Station.vala:438
 msgid "Stream Url"
 msgstr "Поток"
 
-#: src/Models/Station.vala:357
+#: src/Models/Station.vala:439
 msgid "Stream Resolved Url"
 msgstr "Удаление потока Url"
 
-#: src/Models/Station.vala:358
+#: src/Models/Station.vala:440
 msgid "Favicon address"
 msgstr "Адрес Favicon"
 
-#: src/Models/Station.vala:359
+#: src/Models/Station.vala:441
 msgid "Homepage address"
 msgstr "Домой Адрес"
 
-#: src/Models/Station.vala:360
+#: src/Models/Station.vala:442
 msgid "Station tags"
 msgstr "Метки станции"
 
-#: src/Models/Station.vala:361 src/Models/StreamMetadata.vala:32
+#: src/Models/Station.vala:443 src/Models/StreamMetadata.vala:36
 msgid "Bitrate"
 msgstr "Битрейт"
 
-#: src/Models/Station.vala:362
+#: src/Models/Station.vala:444
 msgid "Codec"
 msgstr "Видеокодек"
 
 #. Ordered array of tags and descriptions
-#: src/Models/StreamMetadata.vala:23
+#: src/Models/StreamMetadata.vala:27
 msgid "Title"
 msgstr "Название"
 
-#: src/Models/StreamMetadata.vala:24
+#: src/Models/StreamMetadata.vala:28
 msgid "Artist"
 msgstr "Художник"
 
-#: src/Models/StreamMetadata.vala:25
+#: src/Models/StreamMetadata.vala:29
 msgid "Album"
 msgstr "Альбом"
 
-#: src/Models/StreamMetadata.vala:26
+#: src/Models/StreamMetadata.vala:30
 msgid "Image"
 msgstr "Изображение"
 
-#: src/Models/StreamMetadata.vala:27
+#: src/Models/StreamMetadata.vala:31
 msgid "Genre"
 msgstr "Жанр"
 
-#: src/Models/StreamMetadata.vala:28
+#: src/Models/StreamMetadata.vala:32
 msgid "Homepage"
 msgstr "Домашняя страница"
 
-#: src/Models/StreamMetadata.vala:29
+#: src/Models/StreamMetadata.vala:33
 msgid "Organization"
 msgstr "Организация"
 
-#: src/Models/StreamMetadata.vala:30
+#: src/Models/StreamMetadata.vala:34
 msgid "Location"
 msgstr "Местоположение"
 
-#: src/Models/StreamMetadata.vala:31
+#: src/Models/StreamMetadata.vala:35
 msgid "Extended Comment"
 msgstr "Расширенное замечание"
 
-#: src/Models/StreamMetadata.vala:33
+#: src/Models/StreamMetadata.vala:37
 msgid "Audio Codec"
 msgstr "Audio Codec"
 
-#: src/Models/StreamMetadata.vala:34
+#: src/Models/StreamMetadata.vala:38
+msgid "Video Codec"
+msgstr "Видео Codec"
+
+#: src/Models/StreamMetadata.vala:39
 msgid "Channel Mode"
 msgstr "Режим канала"
 
-#: src/Models/StreamMetadata.vala:35
+#: src/Models/StreamMetadata.vala:40
 msgid "Track Number"
 msgstr "Номер трека"
 
-#: src/Models/StreamMetadata.vala:36
+#: src/Models/StreamMetadata.vala:41
 msgid "Track Count"
 msgstr "График"
 
-#: src/Models/StreamMetadata.vala:37
+#: src/Models/StreamMetadata.vala:42
 msgid "Nominal Bitrate"
 msgstr "Nominal Bitrate"
 
-#: src/Models/StreamMetadata.vala:38
+#: src/Models/StreamMetadata.vala:43
 msgid "Minimum Bitrate"
 msgstr "Минимальный размер"
 
-#: src/Models/StreamMetadata.vala:39
+#: src/Models/StreamMetadata.vala:44
 msgid "Maximum Bitrate"
 msgstr "Максимальный размер"
 
-#: src/Models/StreamMetadata.vala:40
+#: src/Models/StreamMetadata.vala:45
 msgid "Has CRC"
 msgstr "CRC"
 
-#: src/Models/StreamMetadata.vala:41
+#: src/Models/StreamMetadata.vala:46
 msgid "Container Format"
 msgstr "Контейнерный формат"
 
-#: src/Models/StreamMetadata.vala:42
-#, fuzzy
+#: src/Models/StreamMetadata.vala:47
 msgid "Track Id"
 msgstr "Track Id"
 
-#: src/Models/StreamMetadata.vala:43
+#: src/Models/StreamMetadata.vala:48
 msgid "Application Name"
 msgstr "Имя приложения"
 
-#: src/Models/StreamMetadata.vala:44
+#: src/Models/StreamMetadata.vala:49
 msgid "Encoder"
 msgstr "Энкодер"
 
-#: src/Models/StreamMetadata.vala:45
+#: src/Models/StreamMetadata.vala:50
 msgid "Encoder Version"
 msgstr "Версия"
 
-#: src/Models/StreamMetadata.vala:46
+#: src/Models/StreamMetadata.vala:51
 msgid "Encoded by"
 msgstr "Кодировщик"
 
-#: src/Models/StreamMetadata.vala:47
+#: src/Models/StreamMetadata.vala:52
 msgid "Private Data"
 msgstr "Частные данные"
 
-#: src/Models/StreamMetadata.vala:48
+#: src/Models/StreamMetadata.vala:53
 msgid "ID3 Private"
 msgstr "ID3 Частный"
 
-#: src/Models/StreamMetadata.vala:49
+#: src/Models/StreamMetadata.vala:54
 msgid "GStreamer Sample"
 msgstr "GStreamer Sample"
 
-#: src/Models/StreamMetadata.vala:50
-#, fuzzy
+#: src/Models/StreamMetadata.vala:55
 msgid "GStreamer Date Time"
-msgstr "GStreamer Date Time"
+msgstr "Дата"
 
-#: src/Models/StreamMetadata.vala:51
+#: src/Models/StreamMetadata.vala:56
 msgid "Date Time"
 msgstr "Время"
+
+#: src/Models/StreamMetadata.vala:57
+msgid "Copyright"
+msgstr "Авторское право"
+
+#: src/Models/StreamMetadata.vala:58
+msgid "Publisher"
+msgstr "Издатель"
+
+#: src/Models/StreamMetadata.vala:59
+msgid "Comment"
+msgstr "Комментарий"
 
 #.
 #. Display Assets
 #.
-#: src/Widgets/Display.vala:113
+#: src/Widgets/Display.vala:118
 msgid "Selections"
 msgstr "Выборы"
 
-#: src/Widgets/Display.vala:114
+#: src/Widgets/Display.vala:119
 msgid "Library"
 msgstr "Библиотека"
 
-#: src/Widgets/Display.vala:115
+#: src/Widgets/Display.vala:120
 msgid "Saved Searches"
 msgstr "Сохранённые запросы"
 
-#: src/Widgets/Display.vala:116
+#: src/Widgets/Display.vala:121
 msgid "Explore"
 msgstr "Обзор"
 
-#: src/Widgets/Display.vala:117
+#: src/Widgets/Display.vala:122
 msgid "Genres"
 msgstr "Жанры"
 
-#: src/Widgets/Display.vala:118
+#: src/Widgets/Display.vala:123
 msgid "Subgenres"
 msgstr "Subgenres"
 
-#: src/Widgets/Display.vala:119
+#: src/Widgets/Display.vala:124
 msgid "Eras"
 msgstr "Eras"
 
-#: src/Widgets/Display.vala:120
+#: src/Widgets/Display.vala:125
 msgid "Talk, News, Sport"
 msgstr "Новости, Спорт"
 
-#: src/Widgets/Display.vala:440
+#: src/Widgets/Display.vala:439
 msgid "Discover"
 msgstr "Исследовать"
 
-#: src/Widgets/Display.vala:441
+#: src/Widgets/Display.vala:440
 msgid "Stations to Discover"
 msgstr "Станции для обнаружения"
 
@@ -224,60 +248,60 @@ msgstr "Станции для обнаружения"
 msgid "Discover more stations"
 msgstr "Открыть больше станций"
 
-#: src/Widgets/Display.vala:464
+#: src/Widgets/Display.vala:468
 msgid "Trending"
 msgstr "Популярные"
 
-#: src/Widgets/Display.vala:465
+#: src/Widgets/Display.vala:469
 msgid "Trending Stations in the last 24 hours"
 msgstr "Торговые станции за последние 24 часа"
 
-#: src/Widgets/Display.vala:482
+#: src/Widgets/Display.vala:487
 msgid "Popular"
 msgstr "Популярное"
 
-#: src/Widgets/Display.vala:483
+#: src/Widgets/Display.vala:488
 msgid "Most listened to Stations in the last 24 hours"
 msgstr "Большинство слушали станции за последние 24 часа"
 
-#: src/Widgets/Display.vala:520 src/Widgets/Display.vala:521
+#: src/Widgets/Display.vala:526 src/Widgets/Display.vala:527
 msgid "Starred by You"
 msgstr "В избранном"
 
-#: src/Widgets/Display.vala:559
+#: src/Widgets/Display.vala:565
 msgid "Latest Search"
 msgstr "Последний поиск"
 
-#: src/Widgets/Display.vala:560
+#: src/Widgets/Display.vala:566
 msgid "Search Results"
 msgstr "Результаты поиска"
 
-#: src/Widgets/Display.vala:562
+#: src/Widgets/Display.vala:568
 msgid "Save this search"
 msgstr "Сохранить поиск"
 
-#: src/Widgets/Display.vala:696
+#: src/Widgets/Display.vala:702
 msgid "Jukebox"
 msgstr "Jukebox"
 
-#: src/Widgets/Display.vala:698
+#: src/Widgets/Display.vala:704
 #, c-format
 msgid "Double click to shuffle through %1$u stations"
 msgstr "Двойной щелчок, чтобы перетачивать через %1$u станции"
 
-#: src/Widgets/Display.vala:699
+#: src/Widgets/Display.vala:705
 msgid "one, every ten minutes, for %2$u days"
 msgstr "один, каждые 10 минут, в течение %2$u дней"
 
-#: src/Widgets/Display.vala:765
+#: src/Widgets/Display.vala:762
 msgid "Saved Search"
 msgstr "Спасенный поиск"
 
-#: src/Widgets/Display.vala:768
+#: src/Widgets/Display.vala:765
 msgid "Remove this saved search"
 msgstr "Удалить сохраненный поиск"
 
-#: src/Widgets/HeaderBar.vala:160 src/Widgets/StationContextMenu.vala:173
+#: src/Widgets/HeaderBar.vala:159 src/Widgets/StationContextMenu.vala:159
 msgid "Star this station"
 msgstr "В избранное"
 
@@ -289,11 +313,11 @@ msgstr "В избранное"
 #. RHS Controls
 #.
 #. Search button
-#: src/Widgets/HeaderBar.vala:182
-msgid "Search"
-msgstr "Поиск"
+#: src/Widgets/HeaderBar.vala:181
+msgid "Search for Stations"
+msgstr "Поиск станций"
 
-#: src/Widgets/HeaderBar.vala:190
+#: src/Widgets/HeaderBar.vala:189
 msgid "Preferences"
 msgstr "Настройки"
 
@@ -374,20 +398,29 @@ msgstr "Открыто для Starred Stations"
 msgid "If enabled, when Tuner starts it will open to the starred stations view"
 msgstr "Если включен, то при запуске Tuner он откроется для звездных станций"
 
-#. Play Display
+#. Startup sound
 #: src/Widgets/PreferencesPopover.vala:76
+msgid "Play startup jingle"
+msgstr "Играть стартап джингл"
+
+#: src/Widgets/PreferencesPopover.vala:78
+msgid "If enabled, Tuner plays a short sound when it starts"
+msgstr "Если включен, Tuner играет короткий звук, когда он начинается"
+
+#. Play Display
+#: src/Widgets/PreferencesPopover.vala:84
 msgid "Show stream info when playing"
 msgstr "Показать информацию о потоке при игре"
 
-#: src/Widgets/PreferencesPopover.vala:78
+#: src/Widgets/PreferencesPopover.vala:86
 msgid "Cycle through the metadata from the playing stream"
 msgstr "Цикл через метаданные из игрового потока"
 
-#: src/Widgets/PreferencesPopover.vala:82
+#: src/Widgets/PreferencesPopover.vala:90
 msgid "Faster cycling through stream info"
 msgstr "Быстрый велоспорт через потоковую информацию"
 
-#: src/Widgets/PreferencesPopover.vala:84
+#: src/Widgets/PreferencesPopover.vala:92
 msgid ""
 "Fast cycle through the metadata from the playing stream if show stream info "
 "is enabled"
@@ -395,101 +428,109 @@ msgstr ""
 "Быстрый цикл через метаданные из игрового потока, если отображается "
 "информация потока"
 
-#: src/Widgets/PreferencesPopover.vala:88
+#: src/Widgets/PreferencesPopover.vala:96
 msgid "Stream metadata image popup"
 msgstr "Всплывание образа метаданных"
 
-#: src/Widgets/PreferencesPopover.vala:90
+#: src/Widgets/PreferencesPopover.vala:98
 msgid "Show a movable popup with images discovered in the stream metadata"
 msgstr ""
 "Показать движимое всплывание с изображениями, обнаруженными в потоковых "
 "метаданных"
 
-#: src/Widgets/PreferencesPopover.vala:108
+#: src/Widgets/PreferencesPopover.vala:102
+msgid "Shrink title dynamically with the text"
+msgstr "Пережать заголовок динамически с текстом"
+
+#: src/Widgets/PreferencesPopover.vala:104
+msgid "Shrink the title according to the length of the displayed text."
+msgstr "Опустить заголовок в соответствии с длиной отображаемого текста."
+
+#: src/Widgets/PreferencesPopover.vala:122
 msgid "Language"
 msgstr "Язык"
 
-#: src/Widgets/PreferencesPopover.vala:109
+#: src/Widgets/PreferencesPopover.vala:123
 msgid "Language changes restart Tuner"
 msgstr "Изменение языка"
 
 #. end language selection
 #. Export starred
-#: src/Widgets/PreferencesPopover.vala:117
+#: src/Widgets/PreferencesPopover.vala:131
 msgid "Export Starred Stations to Playlist"
 msgstr "Экспорт Starred Stations в Playlist"
 
 #. Import starred
-#: src/Widgets/PreferencesPopover.vala:127
+#: src/Widgets/PreferencesPopover.vala:141
 msgid "Import Station UUIDs as Starred Stations"
 msgstr "Импорт станции UUIDs как Starred Stations"
 
 #. Create the file chooser dialog for saving the exported playlist
-#: src/Widgets/PreferencesPopover.vala:212 src/Widgets/Window.vala:530
+#: src/Widgets/PreferencesPopover.vala:229 src/Widgets/Window.vala:571
 msgid "Save File"
 msgstr "Сохранить файл"
 
-#: src/Widgets/PreferencesPopover.vala:215
-#: src/Widgets/PreferencesPopover.vala:253 src/Widgets/Window.vala:533
+#: src/Widgets/PreferencesPopover.vala:232
+#: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:574
 msgid "_Cancel"
 msgstr "_Отмена"
 
-#: src/Widgets/PreferencesPopover.vala:216 src/Widgets/Window.vala:522
-#: src/Widgets/Window.vala:534
+#: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:563
+#: src/Widgets/Window.vala:575
 msgid "_Save"
 msgstr "_Сохранить"
 
 #. warning("Error: $(e.message)");
-#: src/Widgets/PreferencesPopover.vala:237
+#: src/Widgets/PreferencesPopover.vala:254
 msgid "Error"
 msgstr "Ошибка"
 
-#: src/Widgets/PreferencesPopover.vala:250
+#: src/Widgets/PreferencesPopover.vala:267
 msgid "Choose a file"
 msgstr "Выберете файл"
 
-#: src/Widgets/PreferencesPopover.vala:254
+#: src/Widgets/PreferencesPopover.vala:271
 msgid "_Open"
 msgstr "_Открыть"
 
 #. warning("Error reading file: $(e.message)");
-#: src/Widgets/PreferencesPopover.vala:277
+#: src/Widgets/PreferencesPopover.vala:294
 msgid "Error reading file"
 msgstr "Ошибка при чтении файла"
 
 #. ----------------------------------------------
-#: src/Widgets/StationContextMenu.vala:91
+#: src/Widgets/StationContextMenu.vala:77
 msgid "Station info updated Online - View changes"
 msgstr "Информация о станции Онлайн - просмотр изменений"
 
-#: src/Widgets/StationContextMenu.vala:92
+#: src/Widgets/StationContextMenu.vala:78
 msgid "Update Station from Online"
 msgstr "Станция обновления онлайн"
 
-#: src/Widgets/StationContextMenu.vala:100
+#: src/Widgets/StationContextMenu.vala:86
 msgid "Visit Website"
 msgstr "Посетить сайт"
 
-#: src/Widgets/StationContextMenu.vala:107
+#: src/Widgets/StationContextMenu.vala:93
 msgid "Copy Stream-URI to clipboard"
 msgstr "Копировать поток-URI в буфер обмена"
 
 #. warning (@"Unable to open website: $(e.message)");
-#: src/Widgets/StationContextMenu.vala:149
+#: src/Widgets/StationContextMenu.vala:135
 msgid "Unable to open website"
 msgstr "Невозможно открыть сайт"
 
 #. item.label = _station.starred ? Application.UNSTAR_CHAR + _("Unstar this station") : Application.STAR_CHAR + _("Star this station");
-#: src/Widgets/StationContextMenu.vala:172
+#: src/Widgets/StationContextMenu.vala:158
 msgid "Unstar this station"
 msgstr "Из избранного"
 
 #. Private
-#: src/Widgets/Window.vala:71
+#: src/Widgets/Window.vala:74
 msgid "Playing in background"
 msgstr "Воспроизведение в фоновом режиме"
 
-#: src/Widgets/Window.vala:72
+#: src/Widgets/Window.vala:75
 msgid ""
 "Click here to resume window. To quit Tuner, pause playback and close the "
 "window."
@@ -497,17 +538,20 @@ msgstr ""
 "Нажмите здесь, чтобы возобновить окно. Чтобы бросить Тунера, остановите "
 "воспроизведение и закройте окно."
 
-#: src/Widgets/Window.vala:332
+#: src/Widgets/Window.vala:340
 msgid "Stop Playback requested"
 msgstr "Stop Playback"
 
-#: src/Widgets/Window.vala:519
+#: src/Widgets/Window.vala:560
 msgid "Save hearted tracks to a file?"
 msgstr "Сохранить сердечные треки в файл?"
 
-#: src/Widgets/Window.vala:521
+#: src/Widgets/Window.vala:562
 msgid "_Don't Save"
 msgstr "_Don't Save"
+
+#~ msgid "Search"
+#~ msgstr "Поиск"
 
 #~ msgid "Stream Metadata"
 #~ msgstr "Метаданные потока"

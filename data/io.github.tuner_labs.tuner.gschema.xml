@@ -54,6 +54,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
             <summary>Stream metadata image popup</summary>
             <description>Show a movable popup with images discovered in the stream metadata</description>
         </key>
+        <key name="stream-info-dynamic-shrink" type="b">
+            <default>false</default>
+            <summary>Shrink metadata title dynamically</summary>
+            <description>If enabled, the metadata title width expands during label cycling but only shrinks when a new metadata payload arrives.</description>
+        </key>
         <key name="excluded-countries" type="as">
             <default>[]</default>
             <summary>Excluded Countries</summary>
@@ -68,6 +73,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
             <default>false</default>
             <summary>Auto-play last station</summary>
             <description>If enabled, when Tuner starts it will automatically start to play the last played station</description>
+        </key>
+        <key name="startup-jingle" type="b">
+            <default>true</default>
+            <summary>Play startup sound</summary>
+            <description>If enabled, Tuner plays the startup sound when the main window opens</description>
         </key>
         <key name="last-played-station" type="s">
             <default>""</default>

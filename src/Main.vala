@@ -32,6 +32,31 @@ void on_signal (int sig) {
     Posix._exit (128 + sig);
 }
 
+private void install_filtered_json_warning_handler ()
+{
+    GLib.Log.set_handler (
+        "Json",
+        GLib.LogLevelFlags.LEVEL_WARNING,
+        (log_domain, log_level, message) => {
+            if (message != null
+                && message.contains ("Boxed type 'GDateTime' is not handled by JSON-GLib"))
+            {
+                return;
+            }
+
+            GLib.Log.default_handler (log_domain, log_level, message);
+        }
+    );
+} // install_filtered_json_warning_handler
+
+/**
+ * @brief Program entry point.
+ *
+ * Installs the crash signal handlers and the JSON warning filter, sets the locale, initialises
+ * GStreamer and runs the Application.
+ *
+ * @return The application exit status, or 1 if registration fails or Tuner is already running.
+ */
 public static int main (string[] args) 
 {
     Posix.signal (Posix.Signal.SEGV, on_signal);
@@ -39,7 +64,18 @@ public static int main (string[] args)
     Posix.signal (Posix.Signal.BUS,  on_signal);
 
     Intl.setlocale (LocaleCategory.ALL, "");
+    install_filtered_json_warning_handler ();
     Gst.init (ref args);
     var app = Tuner.Application.instance;
+    try {
+        app.register (null);
+    } catch (Error e) {
+        GLib.critical ("Failed to register application: %s", e.message);
+        return 1;
+    }
+    if (app.is_remote) {
+        GLib.critical ("Tuner is already running.");
+        return 1;
+    }
     return app.run (args);
 }

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: countries\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-06 00:43-0800\n"
+"POT-Creation-Date: 2026-10-21 19:18-0700\n"
 "PO-Revision-Date: 2026-03-16 08:48+0000\n"
 "Last-Translator: technosf <535060+technosf@users.noreply.github.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
@@ -19,1252 +19,1252 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.17-dev\n"
 
-#: src/Models/Countries.vala:26
+#: src/Models/Countries.vala:29
 msgctxt "Countries"
 msgid "Afghanistan"
 msgstr "阿富汗"
 
-#: src/Models/Countries.vala:27
+#: src/Models/Countries.vala:30
 msgctxt "Countries"
 msgid "Aland Islands"
 msgstr "奧蘭群島"
 
-#: src/Models/Countries.vala:28
+#: src/Models/Countries.vala:31
 msgctxt "Countries"
 msgid "Albania"
 msgstr "阿爾巴尼亞"
 
-#: src/Models/Countries.vala:29
+#: src/Models/Countries.vala:32
 msgctxt "Countries"
 msgid "Algeria"
 msgstr "阿爾及利亞"
 
-#: src/Models/Countries.vala:30
+#: src/Models/Countries.vala:33
 msgctxt "Countries"
 msgid "American Samoa"
 msgstr "美屬薩摩亞"
 
-#: src/Models/Countries.vala:31
+#: src/Models/Countries.vala:34
 msgctxt "Countries"
 msgid "Andorra"
 msgstr "安道爾"
 
-#: src/Models/Countries.vala:32
+#: src/Models/Countries.vala:35
 msgctxt "Countries"
 msgid "Angola"
 msgstr "安哥拉"
 
-#: src/Models/Countries.vala:33
+#: src/Models/Countries.vala:36
 msgctxt "Countries"
 msgid "Anguilla"
 msgstr "安圭拉"
 
-#: src/Models/Countries.vala:34
+#: src/Models/Countries.vala:37
 msgctxt "Countries"
 msgid "Antarctica"
 msgstr "南極洲"
 
-#: src/Models/Countries.vala:35
+#: src/Models/Countries.vala:38
 msgctxt "Countries"
 msgid "Antigua and Barbuda"
 msgstr "安提瓜和巴布達"
 
-#: src/Models/Countries.vala:36
+#: src/Models/Countries.vala:39
 msgctxt "Countries"
 msgid "Argentina"
 msgstr "阿根廷"
 
-#: src/Models/Countries.vala:37
+#: src/Models/Countries.vala:40
 msgctxt "Countries"
 msgid "Armenia"
 msgstr "亞美尼亞"
 
-#: src/Models/Countries.vala:38
+#: src/Models/Countries.vala:41
 msgctxt "Countries"
 msgid "Aruba"
 msgstr "阿魯巴"
 
-#: src/Models/Countries.vala:39
+#: src/Models/Countries.vala:42
 msgctxt "Countries"
 msgid "Australia"
 msgstr "澳洲"
 
-#: src/Models/Countries.vala:40
+#: src/Models/Countries.vala:43
 msgctxt "Countries"
 msgid "Austria"
 msgstr "奧地利"
 
-#: src/Models/Countries.vala:41
+#: src/Models/Countries.vala:44
 msgctxt "Countries"
 msgid "Azerbaijan"
 msgstr "阿塞拜疆"
 
-#: src/Models/Countries.vala:42
+#: src/Models/Countries.vala:45
 msgctxt "Countries"
 msgid "Bahamas"
 msgstr "巴哈馬"
 
-#: src/Models/Countries.vala:43
+#: src/Models/Countries.vala:46
 msgctxt "Countries"
 msgid "Bahrain"
 msgstr "巴林"
 
-#: src/Models/Countries.vala:44
+#: src/Models/Countries.vala:47
 msgctxt "Countries"
 msgid "Bangladesh"
 msgstr "孟加拉"
 
-#: src/Models/Countries.vala:45
+#: src/Models/Countries.vala:48
 msgctxt "Countries"
 msgid "Barbados"
 msgstr "巴巴多斯"
 
-#: src/Models/Countries.vala:46
+#: src/Models/Countries.vala:49
 msgctxt "Countries"
 msgid "Belarus"
 msgstr "白俄羅斯"
 
-#: src/Models/Countries.vala:47
+#: src/Models/Countries.vala:50
 msgctxt "Countries"
 msgid "Belgium"
 msgstr "比利時"
 
-#: src/Models/Countries.vala:48
+#: src/Models/Countries.vala:51
 msgctxt "Countries"
 msgid "Belize"
 msgstr "伯利茲"
 
-#: src/Models/Countries.vala:49
+#: src/Models/Countries.vala:52
 msgctxt "Countries"
 msgid "Benin"
 msgstr "貝寧"
 
-#: src/Models/Countries.vala:50
+#: src/Models/Countries.vala:53
 msgctxt "Countries"
 msgid "Bermuda"
 msgstr "百慕大群島"
 
-#: src/Models/Countries.vala:51
+#: src/Models/Countries.vala:54
 msgctxt "Countries"
 msgid "Bhutan"
 msgstr "不丹"
 
-#: src/Models/Countries.vala:52
+#: src/Models/Countries.vala:55
 msgctxt "Countries"
 msgid "Bolivia"
 msgstr "玻利維亞"
 
-#: src/Models/Countries.vala:53
+#: src/Models/Countries.vala:56
 msgctxt "Countries"
 msgid "Bonaire, Sint Eustatius and Saba"
 msgstr "博內爾島，聖尤斯特歇斯島和薩巴"
 
-#: src/Models/Countries.vala:54
+#: src/Models/Countries.vala:57
 msgctxt "Countries"
 msgid "Bosnia and Herzegovina"
 msgstr "波斯尼亞和黑塞哥維那"
 
-#: src/Models/Countries.vala:55
+#: src/Models/Countries.vala:58
 msgctxt "Countries"
 msgid "Botswana"
 msgstr "博茨瓦納"
 
-#: src/Models/Countries.vala:56
+#: src/Models/Countries.vala:59
 msgctxt "Countries"
 msgid "Bouvet Island"
 msgstr "羅得島"
 
-#: src/Models/Countries.vala:57
+#: src/Models/Countries.vala:60
 msgctxt "Countries"
 msgid "Brazil"
 msgstr "巴西"
 
-#: src/Models/Countries.vala:58
+#: src/Models/Countries.vala:61
 msgctxt "Countries"
 msgid "British Indian Ocean Territory"
 msgstr "英屬印度洋領地"
 
-#: src/Models/Countries.vala:59
+#: src/Models/Countries.vala:62
 msgctxt "Countries"
 msgid "Brunei Darussalam"
 msgstr "汶萊"
 
-#: src/Models/Countries.vala:60
+#: src/Models/Countries.vala:63
 msgctxt "Countries"
 msgid "Bulgaria"
 msgstr "保加利亞"
 
-#: src/Models/Countries.vala:61
+#: src/Models/Countries.vala:64
 msgctxt "Countries"
 msgid "Burkina Faso"
 msgstr "布基納法索"
 
-#: src/Models/Countries.vala:62
+#: src/Models/Countries.vala:65
 msgctxt "Countries"
 msgid "Burundi"
 msgstr "布隆迪"
 
-#: src/Models/Countries.vala:63
+#: src/Models/Countries.vala:66
 msgctxt "Countries"
 msgid "Cabo Verde"
 msgstr "維德角"
 
-#: src/Models/Countries.vala:64
+#: src/Models/Countries.vala:67
 msgctxt "Countries"
 msgid "Cambodia"
 msgstr "柬埔寨"
 
-#: src/Models/Countries.vala:65
+#: src/Models/Countries.vala:68
 msgctxt "Countries"
 msgid "Cameroon"
 msgstr "喀麥隆"
 
-#: src/Models/Countries.vala:66
+#: src/Models/Countries.vala:69
 msgctxt "Countries"
 msgid "Canada"
 msgstr "加拿大"
 
-#: src/Models/Countries.vala:67
+#: src/Models/Countries.vala:70
 msgctxt "Countries"
 msgid "Cayman Islands"
 msgstr "開曼群島"
 
-#: src/Models/Countries.vala:68
+#: src/Models/Countries.vala:71
 msgctxt "Countries"
 msgid "Central African Republic"
 msgstr "中非共和國"
 
-#: src/Models/Countries.vala:69
+#: src/Models/Countries.vala:72
 msgctxt "Countries"
 msgid "Chad"
 msgstr "查德"
 
-#: src/Models/Countries.vala:70
+#: src/Models/Countries.vala:73
 msgctxt "Countries"
 msgid "Chile"
 msgstr "智利"
 
-#: src/Models/Countries.vala:71
+#: src/Models/Countries.vala:74
 msgctxt "Countries"
 msgid "China"
 msgstr "中國"
 
-#: src/Models/Countries.vala:72
+#: src/Models/Countries.vala:75
 msgctxt "Countries"
 msgid "Christmas Island"
 msgstr "聖誕島"
 
-#: src/Models/Countries.vala:73
+#: src/Models/Countries.vala:76
 msgctxt "Countries"
 msgid "Cocos (Keeling) Islands"
 msgstr "科科斯(基林)群島"
 
-#: src/Models/Countries.vala:74
+#: src/Models/Countries.vala:77
 msgctxt "Countries"
 msgid "Colombia"
 msgstr "哥倫比亞"
 
-#: src/Models/Countries.vala:75
+#: src/Models/Countries.vala:78
 msgctxt "Countries"
 msgid "Comoros"
 msgstr "科摩羅群島"
 
-#: src/Models/Countries.vala:76
+#: src/Models/Countries.vala:79
 msgctxt "Countries"
 msgid "Congo"
 msgstr "剛果"
 
-#: src/Models/Countries.vala:77
+#: src/Models/Countries.vala:80
 msgctxt "Countries"
 msgid "Congo, Democratic Republic of the"
 msgstr "剛果民主共和國"
 
-#: src/Models/Countries.vala:78
+#: src/Models/Countries.vala:81
 msgctxt "Countries"
 msgid "Cook Islands"
 msgstr "庫克群島"
 
-#: src/Models/Countries.vala:79
+#: src/Models/Countries.vala:82
 msgctxt "Countries"
 msgid "Costa Rica"
 msgstr "哥斯達黎加"
 
-#: src/Models/Countries.vala:80
+#: src/Models/Countries.vala:83
 msgctxt "Countries"
 msgid "Cote d'Ivoire"
 msgstr "科特迪瓦"
 
-#: src/Models/Countries.vala:81
+#: src/Models/Countries.vala:84
 msgctxt "Countries"
 msgid "Croatia"
 msgstr "克羅地亞"
 
-#: src/Models/Countries.vala:82
+#: src/Models/Countries.vala:85
 msgctxt "Countries"
 msgid "Cuba"
 msgstr "古巴"
 
-#: src/Models/Countries.vala:83
+#: src/Models/Countries.vala:86
 msgctxt "Countries"
 msgid "Curacao"
 msgstr "庫拉索"
 
-#: src/Models/Countries.vala:84
+#: src/Models/Countries.vala:87
 msgctxt "Countries"
 msgid "Cyprus"
 msgstr "塞浦路斯"
 
-#: src/Models/Countries.vala:85
+#: src/Models/Countries.vala:88
 msgctxt "Countries"
 msgid "Czechia"
 msgstr "捷克"
 
-#: src/Models/Countries.vala:86
+#: src/Models/Countries.vala:89
 msgctxt "Countries"
 msgid "Denmark"
 msgstr "丹麥"
 
-#: src/Models/Countries.vala:87
+#: src/Models/Countries.vala:90
 msgctxt "Countries"
 msgid "Djibouti"
 msgstr "吉布提"
 
-#: src/Models/Countries.vala:88
+#: src/Models/Countries.vala:91
 msgctxt "Countries"
 msgid "Dominica"
 msgstr "多米尼加"
 
-#: src/Models/Countries.vala:89
+#: src/Models/Countries.vala:92
 msgctxt "Countries"
 msgid "Dominican Republic"
 msgstr "多米尼加共和國"
 
-#: src/Models/Countries.vala:90
+#: src/Models/Countries.vala:93
 msgctxt "Countries"
 msgid "Ecuador"
 msgstr "厄瓜多爾"
 
-#: src/Models/Countries.vala:91
+#: src/Models/Countries.vala:94
 msgctxt "Countries"
 msgid "Egypt"
 msgstr "埃及"
 
-#: src/Models/Countries.vala:92
+#: src/Models/Countries.vala:95
 msgctxt "Countries"
 msgid "El Salvador"
 msgstr "薩爾瓦多"
 
-#: src/Models/Countries.vala:93
+#: src/Models/Countries.vala:96
 msgctxt "Countries"
 msgid "Equatorial Guinea"
 msgstr "赤道幾內亞"
 
-#: src/Models/Countries.vala:94
+#: src/Models/Countries.vala:97
 msgctxt "Countries"
 msgid "Eritrea"
 msgstr "厄立特裡亞"
 
-#: src/Models/Countries.vala:95
+#: src/Models/Countries.vala:98
 msgctxt "Countries"
 msgid "Estonia"
 msgstr "愛沙尼亞"
 
-#: src/Models/Countries.vala:96
+#: src/Models/Countries.vala:99
 msgctxt "Countries"
 msgid "Eswatini"
 msgstr "斯威士蘭（史瓦帝尼）"
 
-#: src/Models/Countries.vala:97
+#: src/Models/Countries.vala:100
 msgctxt "Countries"
 msgid "Ethiopia"
 msgstr "埃塞俄比亞"
 
-#: src/Models/Countries.vala:98
+#: src/Models/Countries.vala:101
 msgctxt "Countries"
 msgid "Falkland Islands (Malvinas)"
 msgstr "福克蘭群島"
 
-#: src/Models/Countries.vala:99
+#: src/Models/Countries.vala:102
 msgctxt "Countries"
 msgid "Faroe Islands"
 msgstr "法羅群島"
 
-#: src/Models/Countries.vala:100
+#: src/Models/Countries.vala:103
 msgctxt "Countries"
 msgid "Fiji"
 msgstr "斐濟"
 
-#: src/Models/Countries.vala:101
+#: src/Models/Countries.vala:104
 msgctxt "Countries"
 msgid "Finland"
 msgstr "芬蘭"
 
-#: src/Models/Countries.vala:102
+#: src/Models/Countries.vala:105
 msgctxt "Countries"
 msgid "France"
 msgstr "法國"
 
-#: src/Models/Countries.vala:103
+#: src/Models/Countries.vala:106
 msgctxt "Countries"
 msgid "French Guiana"
 msgstr "法屬圭亞那"
 
-#: src/Models/Countries.vala:104
+#: src/Models/Countries.vala:107
 msgctxt "Countries"
 msgid "French Polynesia"
 msgstr "法屬玻里尼西亞"
 
-#: src/Models/Countries.vala:105
+#: src/Models/Countries.vala:108
 msgctxt "Countries"
 msgid "French Southern Territories"
 msgstr "法國南部地區"
 
-#: src/Models/Countries.vala:106
+#: src/Models/Countries.vala:109
 msgctxt "Countries"
 msgid "Gabon"
 msgstr "加彭共和國"
 
-#: src/Models/Countries.vala:107
+#: src/Models/Countries.vala:110
 msgctxt "Countries"
 msgid "Gambia"
 msgstr "甘比亞共和國"
 
-#: src/Models/Countries.vala:108
+#: src/Models/Countries.vala:111
 msgctxt "Countries"
 msgid "Georgia"
 msgstr "喬治亞"
 
-#: src/Models/Countries.vala:109
+#: src/Models/Countries.vala:112
 msgctxt "Countries"
 msgid "Germany"
 msgstr "德國"
 
-#: src/Models/Countries.vala:110
+#: src/Models/Countries.vala:113
 msgctxt "Countries"
 msgid "Ghana"
 msgstr "加納"
 
-#: src/Models/Countries.vala:111
+#: src/Models/Countries.vala:114
 msgctxt "Countries"
 msgid "Gibraltar"
 msgstr "直布羅陀"
 
-#: src/Models/Countries.vala:112
+#: src/Models/Countries.vala:115
 msgctxt "Countries"
 msgid "Greece"
 msgstr "希臘"
 
-#: src/Models/Countries.vala:113
+#: src/Models/Countries.vala:116
 msgctxt "Countries"
 msgid "Greenland"
 msgstr "格陵蘭島"
 
-#: src/Models/Countries.vala:114
+#: src/Models/Countries.vala:117
 msgctxt "Countries"
 msgid "Grenada"
 msgstr "格瑞那達"
 
-#: src/Models/Countries.vala:115
+#: src/Models/Countries.vala:118
 msgctxt "Countries"
 msgid "Guadeloupe"
 msgstr "瓜地洛普"
 
-#: src/Models/Countries.vala:116
+#: src/Models/Countries.vala:119
 msgctxt "Countries"
 msgid "Guam"
 msgstr "關島"
 
-#: src/Models/Countries.vala:117
+#: src/Models/Countries.vala:120
 msgctxt "Countries"
 msgid "Guatemala"
 msgstr "瓜地馬拉"
 
-#: src/Models/Countries.vala:118
+#: src/Models/Countries.vala:121
 msgctxt "Countries"
 msgid "Guernsey"
 msgstr "根西島"
 
-#: src/Models/Countries.vala:119
+#: src/Models/Countries.vala:122
 msgctxt "Countries"
 msgid "Guinea"
 msgstr "幾內亞"
 
-#: src/Models/Countries.vala:120
+#: src/Models/Countries.vala:123
 msgctxt "Countries"
 msgid "Guinea-Bissau"
 msgstr "幾內亞比紹"
 
-#: src/Models/Countries.vala:121
+#: src/Models/Countries.vala:124
 msgctxt "Countries"
 msgid "Guyana"
 msgstr "圭亞那"
 
-#: src/Models/Countries.vala:122
+#: src/Models/Countries.vala:125
 msgctxt "Countries"
 msgid "Haiti"
 msgstr "海地"
 
-#: src/Models/Countries.vala:123
+#: src/Models/Countries.vala:126
 msgctxt "Countries"
 msgid "Heard Island and McDonald Islands"
 msgstr "赫德島和麥克唐納群島"
 
-#: src/Models/Countries.vala:124
+#: src/Models/Countries.vala:127
 msgctxt "Countries"
 msgid "Holy See"
 msgstr "教廷"
 
-#: src/Models/Countries.vala:125
+#: src/Models/Countries.vala:128
 msgctxt "Countries"
 msgid "Honduras"
 msgstr "洪都拉斯"
 
-#: src/Models/Countries.vala:126
+#: src/Models/Countries.vala:129
 msgctxt "Countries"
 msgid "Hong Kong"
 msgstr "香港"
 
-#: src/Models/Countries.vala:127
+#: src/Models/Countries.vala:130
 msgctxt "Countries"
 msgid "Hungary"
 msgstr "匈牙利"
 
-#: src/Models/Countries.vala:128
+#: src/Models/Countries.vala:131
 msgctxt "Countries"
 msgid "Iceland"
 msgstr "冰島"
 
-#: src/Models/Countries.vala:129
+#: src/Models/Countries.vala:132
 msgctxt "Countries"
 msgid "India"
 msgstr "印度"
 
-#: src/Models/Countries.vala:130
+#: src/Models/Countries.vala:133
 msgctxt "Countries"
 msgid "Indonesia"
 msgstr "印尼"
 
-#: src/Models/Countries.vala:131
+#: src/Models/Countries.vala:134
 msgctxt "Countries"
 msgid "Iran"
 msgstr "伊朗"
 
-#: src/Models/Countries.vala:132
+#: src/Models/Countries.vala:135
 msgctxt "Countries"
 msgid "Iraq"
 msgstr "伊拉克"
 
-#: src/Models/Countries.vala:133
+#: src/Models/Countries.vala:136
 msgctxt "Countries"
 msgid "Ireland"
 msgstr "愛爾蘭"
 
-#: src/Models/Countries.vala:134
+#: src/Models/Countries.vala:137
 msgctxt "Countries"
 msgid "Isle of Man"
 msgstr "曼恩島"
 
-#: src/Models/Countries.vala:135
+#: src/Models/Countries.vala:138
 msgctxt "Countries"
 msgid "Israel"
 msgstr "以色列"
 
-#: src/Models/Countries.vala:136
+#: src/Models/Countries.vala:139
 msgctxt "Countries"
 msgid "Italy"
 msgstr "意大利"
 
-#: src/Models/Countries.vala:137
+#: src/Models/Countries.vala:140
 msgctxt "Countries"
 msgid "Jamaica"
 msgstr "牙買加"
 
-#: src/Models/Countries.vala:138
+#: src/Models/Countries.vala:141
 msgctxt "Countries"
 msgid "Japan"
 msgstr "日本"
 
-#: src/Models/Countries.vala:139
+#: src/Models/Countries.vala:142
 msgctxt "Countries"
 msgid "Jersey"
 msgstr "澤西島"
 
-#: src/Models/Countries.vala:140
+#: src/Models/Countries.vala:143
 msgctxt "Countries"
 msgid "Jordan"
 msgstr "約旦"
 
-#: src/Models/Countries.vala:141
+#: src/Models/Countries.vala:144
 msgctxt "Countries"
 msgid "Kazakhstan"
 msgstr "哈薩克"
 
-#: src/Models/Countries.vala:142
+#: src/Models/Countries.vala:145
 msgctxt "Countries"
 msgid "Kenya"
 msgstr "肯亞"
 
-#: src/Models/Countries.vala:143
+#: src/Models/Countries.vala:146
 msgctxt "Countries"
 msgid "Kiribati"
 msgstr "吉里巴斯"
 
-#: src/Models/Countries.vala:144
+#: src/Models/Countries.vala:147
 msgctxt "Countries"
 msgid "Korea (Democratic People's Republic of)"
 msgstr "朝鮮（民主人民共和國）"
 
-#: src/Models/Countries.vala:145
+#: src/Models/Countries.vala:148
 msgctxt "Countries"
 msgid "Korea, Republic of"
 msgstr "大韓民國"
 
-#: src/Models/Countries.vala:146
+#: src/Models/Countries.vala:149
 msgctxt "Countries"
 msgid "Kuwait"
 msgstr "科威特"
 
-#: src/Models/Countries.vala:147
+#: src/Models/Countries.vala:150
 msgctxt "Countries"
 msgid "Kyrgyzstan"
 msgstr "吉爾吉斯"
 
-#: src/Models/Countries.vala:148
+#: src/Models/Countries.vala:151
 msgctxt "Countries"
 msgid "Lao People's Democratic Republic"
 msgstr "寮國人民民主共和國"
 
-#: src/Models/Countries.vala:149
+#: src/Models/Countries.vala:152
 msgctxt "Countries"
 msgid "Latvia"
 msgstr "拉脫維亞"
 
-#: src/Models/Countries.vala:150
+#: src/Models/Countries.vala:153
 msgctxt "Countries"
 msgid "Lebanon"
 msgstr "黎巴嫩"
 
-#: src/Models/Countries.vala:151
+#: src/Models/Countries.vala:154
 msgctxt "Countries"
 msgid "Lesotho"
 msgstr "賴索托"
 
-#: src/Models/Countries.vala:152
+#: src/Models/Countries.vala:155
 msgctxt "Countries"
 msgid "Liberia"
 msgstr "賴比瑞亞"
 
-#: src/Models/Countries.vala:153
+#: src/Models/Countries.vala:156
 msgctxt "Countries"
 msgid "Libya"
 msgstr "利比亞"
 
-#: src/Models/Countries.vala:154
+#: src/Models/Countries.vala:157
 msgctxt "Countries"
 msgid "Liechtenstein"
 msgstr "列支敦斯登"
 
-#: src/Models/Countries.vala:155
+#: src/Models/Countries.vala:158
 msgctxt "Countries"
 msgid "Lithuania"
 msgstr "立陶宛"
 
-#: src/Models/Countries.vala:156
+#: src/Models/Countries.vala:159
 msgctxt "Countries"
 msgid "Luxembourg"
 msgstr "盧森堡"
 
-#: src/Models/Countries.vala:157
+#: src/Models/Countries.vala:160
 msgctxt "Countries"
 msgid "Macao"
 msgstr "澳門"
 
-#: src/Models/Countries.vala:158
+#: src/Models/Countries.vala:161
 msgctxt "Countries"
 msgid "Madagascar"
 msgstr "馬達加斯加"
 
-#: src/Models/Countries.vala:159
+#: src/Models/Countries.vala:162
 msgctxt "Countries"
 msgid "Malawi"
 msgstr "馬拉威"
 
-#: src/Models/Countries.vala:160
+#: src/Models/Countries.vala:163
 msgctxt "Countries"
 msgid "Malaysia"
 msgstr "馬來西亞"
 
-#: src/Models/Countries.vala:161
+#: src/Models/Countries.vala:164
 msgctxt "Countries"
 msgid "Maldives"
 msgstr "馬爾地夫"
 
-#: src/Models/Countries.vala:162
+#: src/Models/Countries.vala:165
 msgctxt "Countries"
 msgid "Mali"
 msgstr "馬里"
 
-#: src/Models/Countries.vala:163
+#: src/Models/Countries.vala:166
 msgctxt "Countries"
 msgid "Malta"
 msgstr "馬爾他"
 
-#: src/Models/Countries.vala:164
+#: src/Models/Countries.vala:167
 msgctxt "Countries"
 msgid "Marshall Islands"
 msgstr "馬紹爾群島"
 
-#: src/Models/Countries.vala:165
+#: src/Models/Countries.vala:168
 msgctxt "Countries"
 msgid "Martinique"
 msgstr "馬丁尼克"
 
-#: src/Models/Countries.vala:166
+#: src/Models/Countries.vala:169
 msgctxt "Countries"
 msgid "Mauritania"
 msgstr "茅利塔尼亞"
 
-#: src/Models/Countries.vala:167
+#: src/Models/Countries.vala:170
 msgctxt "Countries"
 msgid "Mauritius"
 msgstr "模里西斯"
 
-#: src/Models/Countries.vala:168
+#: src/Models/Countries.vala:171
 msgctxt "Countries"
 msgid "Mayotte"
 msgstr "馬約特"
 
-#: src/Models/Countries.vala:169
+#: src/Models/Countries.vala:172
 msgctxt "Countries"
 msgid "Mexico"
 msgstr "墨西哥"
 
-#: src/Models/Countries.vala:170
+#: src/Models/Countries.vala:173
 msgctxt "Countries"
 msgid "Micronesia"
 msgstr "密克羅尼西亞"
 
-#: src/Models/Countries.vala:171
+#: src/Models/Countries.vala:174
 msgctxt "Countries"
 msgid "Moldova"
 msgstr "摩爾多瓦"
 
-#: src/Models/Countries.vala:172
+#: src/Models/Countries.vala:175
 msgctxt "Countries"
 msgid "Monaco"
 msgstr "摩納哥"
 
-#: src/Models/Countries.vala:173
+#: src/Models/Countries.vala:176
 msgctxt "Countries"
 msgid "Mongolia"
 msgstr "蒙古"
 
-#: src/Models/Countries.vala:174
+#: src/Models/Countries.vala:177
 msgctxt "Countries"
 msgid "Montenegro"
 msgstr "蒙特內哥羅"
 
-#: src/Models/Countries.vala:175
+#: src/Models/Countries.vala:178
 msgctxt "Countries"
 msgid "Montserrat"
 msgstr "蒙塞拉特島"
 
-#: src/Models/Countries.vala:176
+#: src/Models/Countries.vala:179
 msgctxt "Countries"
 msgid "Morocco"
 msgstr "摩洛哥"
 
-#: src/Models/Countries.vala:177
+#: src/Models/Countries.vala:180
 msgctxt "Countries"
 msgid "Mozambique"
 msgstr "莫三比克"
 
-#: src/Models/Countries.vala:178
+#: src/Models/Countries.vala:181
 msgctxt "Countries"
 msgid "Myanmar"
 msgstr "緬甸"
 
-#: src/Models/Countries.vala:179
+#: src/Models/Countries.vala:182
 msgctxt "Countries"
 msgid "Namibia"
 msgstr "納米比亞"
 
-#: src/Models/Countries.vala:180
+#: src/Models/Countries.vala:183
 msgctxt "Countries"
 msgid "Nauru"
 msgstr "諾魯"
 
-#: src/Models/Countries.vala:181
+#: src/Models/Countries.vala:184
 msgctxt "Countries"
 msgid "Nepal"
 msgstr "尼泊爾"
 
-#: src/Models/Countries.vala:182
+#: src/Models/Countries.vala:185
 msgctxt "Countries"
 msgid "Netherlands"
 msgstr "荷蘭"
 
-#: src/Models/Countries.vala:183
+#: src/Models/Countries.vala:186
 msgctxt "Countries"
 msgid "New Caledonia"
 msgstr "新喀里多尼亞"
 
-#: src/Models/Countries.vala:184
+#: src/Models/Countries.vala:187
 msgctxt "Countries"
 msgid "New Zealand"
 msgstr "紐西蘭"
 
-#: src/Models/Countries.vala:185
+#: src/Models/Countries.vala:188
 msgctxt "Countries"
 msgid "Nicaragua"
 msgstr "尼加拉瓜"
 
-#: src/Models/Countries.vala:186
+#: src/Models/Countries.vala:189
 msgctxt "Countries"
 msgid "Niger"
 msgstr "尼日爾"
 
-#: src/Models/Countries.vala:187
+#: src/Models/Countries.vala:190
 msgctxt "Countries"
 msgid "Nigeria"
 msgstr "尼日利亞"
 
-#: src/Models/Countries.vala:188
+#: src/Models/Countries.vala:191
 msgctxt "Countries"
 msgid "Niue"
 msgstr "紐埃島"
 
-#: src/Models/Countries.vala:189
+#: src/Models/Countries.vala:192
 msgctxt "Countries"
 msgid "Norfolk Island"
 msgstr "諾福克島"
 
-#: src/Models/Countries.vala:190
+#: src/Models/Countries.vala:193
 msgctxt "Countries"
 msgid "North Macedonia"
 msgstr "北馬其頓"
 
-#: src/Models/Countries.vala:191
+#: src/Models/Countries.vala:194
 msgctxt "Countries"
 msgid "Northern Mariana Islands"
 msgstr "北馬利安納群島"
 
-#: src/Models/Countries.vala:192
+#: src/Models/Countries.vala:195
 msgctxt "Countries"
 msgid "Norway"
 msgstr "挪威"
 
-#: src/Models/Countries.vala:193
+#: src/Models/Countries.vala:196
 msgctxt "Countries"
 msgid "Oman"
 msgstr "阿曼"
 
-#: src/Models/Countries.vala:194
+#: src/Models/Countries.vala:197
 msgctxt "Countries"
 msgid "Pakistan"
 msgstr "巴基斯坦"
 
-#: src/Models/Countries.vala:195
+#: src/Models/Countries.vala:198
 msgctxt "Countries"
 msgid "Palau"
 msgstr "帛琉"
 
-#: src/Models/Countries.vala:196
+#: src/Models/Countries.vala:199
 msgctxt "Countries"
 msgid "Palestine"
 msgstr "巴勒斯坦國"
 
-#: src/Models/Countries.vala:197
+#: src/Models/Countries.vala:200
 msgctxt "Countries"
 msgid "Panama"
 msgstr "巴拿馬"
 
-#: src/Models/Countries.vala:198
+#: src/Models/Countries.vala:201
 msgctxt "Countries"
 msgid "Papua New Guinea"
 msgstr "巴布亞新幾內亞"
 
-#: src/Models/Countries.vala:199
+#: src/Models/Countries.vala:202
 msgctxt "Countries"
 msgid "Paraguay"
 msgstr "巴拉圭"
 
-#: src/Models/Countries.vala:200
+#: src/Models/Countries.vala:203
 msgctxt "Countries"
 msgid "Peru"
 msgstr "秘魯"
 
-#: src/Models/Countries.vala:201
+#: src/Models/Countries.vala:204
 msgctxt "Countries"
 msgid "Philippines"
 msgstr "菲律賓"
 
-#: src/Models/Countries.vala:202
+#: src/Models/Countries.vala:205
 msgctxt "Countries"
 msgid "Pitcairn"
 msgstr "皮特凱恩群島"
 
-#: src/Models/Countries.vala:203
+#: src/Models/Countries.vala:206
 msgctxt "Countries"
 msgid "Poland"
 msgstr "波蘭"
 
-#: src/Models/Countries.vala:204
+#: src/Models/Countries.vala:207
 msgctxt "Countries"
 msgid "Portugal"
 msgstr "葡萄牙"
 
-#: src/Models/Countries.vala:205
+#: src/Models/Countries.vala:208
 msgctxt "Countries"
 msgid "Puerto Rico"
 msgstr "波多黎各"
 
-#: src/Models/Countries.vala:206
+#: src/Models/Countries.vala:209
 msgctxt "Countries"
 msgid "Qatar"
 msgstr "卡達"
 
-#: src/Models/Countries.vala:207
+#: src/Models/Countries.vala:210
 msgctxt "Countries"
 msgid "Reunion"
 msgstr "團圓"
 
-#: src/Models/Countries.vala:208
+#: src/Models/Countries.vala:211
 msgctxt "Countries"
 msgid "Romania"
 msgstr "羅馬尼亞"
 
-#: src/Models/Countries.vala:209
+#: src/Models/Countries.vala:212
 msgctxt "Countries"
 msgid "Russian Federation"
 msgstr "俄羅斯聯邦"
 
-#: src/Models/Countries.vala:210
+#: src/Models/Countries.vala:213
 msgctxt "Countries"
 msgid "Rwanda"
 msgstr "盧旺達"
 
-#: src/Models/Countries.vala:211
+#: src/Models/Countries.vala:214
 msgctxt "Countries"
 msgid "Saint Barthelemy"
 msgstr "聖巴泰勒米島"
 
-#: src/Models/Countries.vala:212
+#: src/Models/Countries.vala:215
 msgctxt "Countries"
 msgid "Saint Helena, Ascension and Tristan da Cunha"
 msgstr "聖赫勒拿、阿森松和特裡斯坦-達庫尼亞群島"
 
-#: src/Models/Countries.vala:213
+#: src/Models/Countries.vala:216
 msgctxt "Countries"
 msgid "Saint Kitts and Nevis"
 msgstr "聖基茨和尼維斯"
 
-#: src/Models/Countries.vala:214
+#: src/Models/Countries.vala:217
 msgctxt "Countries"
 msgid "Saint Lucia"
 msgstr "聖盧西亞"
 
-#: src/Models/Countries.vala:215
+#: src/Models/Countries.vala:218
 msgctxt "Countries"
 msgid "Saint Martin"
 msgstr "法屬聖馬丁"
 
-#: src/Models/Countries.vala:216
+#: src/Models/Countries.vala:219
 msgctxt "Countries"
 msgid "Saint Pierre and Miquelon"
 msgstr "聖皮埃爾和密克隆"
 
-#: src/Models/Countries.vala:217
+#: src/Models/Countries.vala:220
 msgctxt "Countries"
 msgid "Saint Vincent and the Grenadines"
 msgstr "聖文森特和格林納丁斯群島"
 
-#: src/Models/Countries.vala:218
+#: src/Models/Countries.vala:221
 msgctxt "Countries"
 msgid "Samoa"
 msgstr "薩摩亞"
 
-#: src/Models/Countries.vala:219
+#: src/Models/Countries.vala:222
 msgctxt "Countries"
 msgid "San Marino"
 msgstr "聖馬力諾"
 
-#: src/Models/Countries.vala:220
+#: src/Models/Countries.vala:223
 msgctxt "Countries"
 msgid "Sao Tome and Principe"
 msgstr "聖多美和普林西比"
 
-#: src/Models/Countries.vala:221
+#: src/Models/Countries.vala:224
 msgctxt "Countries"
 msgid "Saudi Arabia"
 msgstr "沙特阿拉伯"
 
-#: src/Models/Countries.vala:222
+#: src/Models/Countries.vala:225
 msgctxt "Countries"
 msgid "Senegal"
 msgstr "塞內加爾"
 
-#: src/Models/Countries.vala:223
+#: src/Models/Countries.vala:226
 msgctxt "Countries"
 msgid "Serbia"
 msgstr "塞爾維亞"
 
-#: src/Models/Countries.vala:224
+#: src/Models/Countries.vala:227
 msgctxt "Countries"
 msgid "Seychelles"
 msgstr "塞舌爾"
 
-#: src/Models/Countries.vala:225
+#: src/Models/Countries.vala:228
 msgctxt "Countries"
 msgid "Sierra Leone"
 msgstr "塞拉利昂"
 
-#: src/Models/Countries.vala:226
+#: src/Models/Countries.vala:229
 msgctxt "Countries"
 msgid "Singapore"
 msgstr "新加坡"
 
-#: src/Models/Countries.vala:227
+#: src/Models/Countries.vala:230
 msgctxt "Countries"
 msgid "Sint Maarten"
 msgstr "聖馬丁島"
 
-#: src/Models/Countries.vala:228
+#: src/Models/Countries.vala:231
 msgctxt "Countries"
 msgid "Slovakia"
 msgstr "斯洛伐克"
 
-#: src/Models/Countries.vala:229
+#: src/Models/Countries.vala:232
 msgctxt "Countries"
 msgid "Slovenia"
 msgstr "斯洛文尼亞"
 
-#: src/Models/Countries.vala:230
+#: src/Models/Countries.vala:233
 msgctxt "Countries"
 msgid "Solomon Islands"
 msgstr "所羅門群島"
 
-#: src/Models/Countries.vala:231
+#: src/Models/Countries.vala:234
 msgctxt "Countries"
 msgid "Somalia"
 msgstr "索馬裡"
 
-#: src/Models/Countries.vala:232
+#: src/Models/Countries.vala:235
 msgctxt "Countries"
 msgid "South Africa"
 msgstr "南非"
 
-#: src/Models/Countries.vala:233
+#: src/Models/Countries.vala:236
 msgctxt "Countries"
 msgid "South Georgia and the South Sandwich Islands"
 msgstr "南喬治亞和南桑威奇群島"
 
-#: src/Models/Countries.vala:234
+#: src/Models/Countries.vala:237
 msgctxt "Countries"
 msgid "South Sudan"
 msgstr "南蘇丹"
 
-#: src/Models/Countries.vala:235
+#: src/Models/Countries.vala:238
 msgctxt "Countries"
 msgid "Spain"
 msgstr "西班牙"
 
-#: src/Models/Countries.vala:236
+#: src/Models/Countries.vala:239
 msgctxt "Countries"
 msgid "Sri Lanka"
 msgstr "斯里蘭卡"
 
-#: src/Models/Countries.vala:237
+#: src/Models/Countries.vala:240
 msgctxt "Countries"
 msgid "Sudan"
 msgstr "蘇丹"
 
-#: src/Models/Countries.vala:238
+#: src/Models/Countries.vala:241
 msgctxt "Countries"
 msgid "Suriname"
 msgstr "蘇里南"
 
-#: src/Models/Countries.vala:239
+#: src/Models/Countries.vala:242
 msgctxt "Countries"
 msgid "Svalbard and Jan Mayen"
 msgstr "斯瓦爾巴特群島和揚馬延島"
 
-#: src/Models/Countries.vala:240
+#: src/Models/Countries.vala:243
 msgctxt "Countries"
 msgid "Sweden"
 msgstr "瑞典"
 
-#: src/Models/Countries.vala:241
+#: src/Models/Countries.vala:244
 msgctxt "Countries"
 msgid "Switzerland"
 msgstr "瑞士"
 
-#: src/Models/Countries.vala:242
+#: src/Models/Countries.vala:245
 msgctxt "Countries"
 msgid "Syrian Arab Republic"
 msgstr "阿拉伯敘利亞共和國"
 
-#: src/Models/Countries.vala:243
+#: src/Models/Countries.vala:246
 msgctxt "Countries"
 msgid "Taiwan"
 msgstr "台灣"
 
-#: src/Models/Countries.vala:244
+#: src/Models/Countries.vala:247
 msgctxt "Countries"
 msgid "Tajikistan"
 msgstr "塔吉克斯坦"
 
-#: src/Models/Countries.vala:245
+#: src/Models/Countries.vala:248
 msgctxt "Countries"
 msgid "Tanzania"
 msgstr "坦桑尼亞"
 
-#: src/Models/Countries.vala:246
+#: src/Models/Countries.vala:249
 msgctxt "Countries"
 msgid "Thailand"
 msgstr "泰國"
 
-#: src/Models/Countries.vala:247
+#: src/Models/Countries.vala:250
 msgctxt "Countries"
 msgid "Timor-Leste"
 msgstr "東帝汶"
 
-#: src/Models/Countries.vala:248
+#: src/Models/Countries.vala:251
 msgctxt "Countries"
 msgid "Togo"
 msgstr "多哥"
 
-#: src/Models/Countries.vala:249
+#: src/Models/Countries.vala:252
 msgctxt "Countries"
 msgid "Tokelau"
 msgstr "托克勞"
 
-#: src/Models/Countries.vala:250
+#: src/Models/Countries.vala:253
 msgctxt "Countries"
 msgid "Tonga"
 msgstr "湯加語"
 
-#: src/Models/Countries.vala:251
+#: src/Models/Countries.vala:254
 msgctxt "Countries"
 msgid "Trinidad and Tobago"
 msgstr "特裡尼達和多巴哥"
 
-#: src/Models/Countries.vala:252
+#: src/Models/Countries.vala:255
 msgctxt "Countries"
 msgid "Tunisia"
 msgstr "突尼斯"
 
-#: src/Models/Countries.vala:253
+#: src/Models/Countries.vala:256
 msgctxt "Countries"
 msgid "Turkey"
 msgstr "土耳其"
 
-#: src/Models/Countries.vala:254
+#: src/Models/Countries.vala:257
 msgctxt "Countries"
 msgid "Turkmenistan"
 msgstr "土庫曼斯坦"
 
-#: src/Models/Countries.vala:255
+#: src/Models/Countries.vala:258
 msgctxt "Countries"
 msgid "Turks and Caicos Islands"
 msgstr "特克斯和凱科斯群島"
 
-#: src/Models/Countries.vala:256
+#: src/Models/Countries.vala:259
 msgctxt "Countries"
 msgid "Tuvalu"
 msgstr "圖瓦魯"
 
-#: src/Models/Countries.vala:257
+#: src/Models/Countries.vala:260
 msgctxt "Countries"
 msgid "Uganda"
 msgstr "烏干達"
 
-#: src/Models/Countries.vala:258
+#: src/Models/Countries.vala:261
 msgctxt "Countries"
 msgid "Ukraine"
 msgstr "烏克蘭"
 
-#: src/Models/Countries.vala:259
+#: src/Models/Countries.vala:262
 msgctxt "Countries"
 msgid "United Arab Emirates"
 msgstr "阿拉伯聯合酋長國"
 
-#: src/Models/Countries.vala:260
+#: src/Models/Countries.vala:263
 msgctxt "Countries"
 msgid "United Kingdom of Great Britain and Northern Ireland"
 msgstr "大不列顛及北愛爾蘭聯合王國"
 
-#: src/Models/Countries.vala:261
+#: src/Models/Countries.vala:264
 msgctxt "Countries"
 msgid "United States of America"
 msgstr "美國"
 
-#: src/Models/Countries.vala:262
+#: src/Models/Countries.vala:265
 msgctxt "Countries"
 msgid "United States Minor Outlying Islands"
 msgstr "美國海外小島"
 
-#: src/Models/Countries.vala:263
+#: src/Models/Countries.vala:266
 msgctxt "Countries"
 msgid "Uruguay"
 msgstr "烏拉圭"
 
-#: src/Models/Countries.vala:264
+#: src/Models/Countries.vala:267
 msgctxt "Countries"
 msgid "Uzbekistan"
 msgstr "烏茲別克斯坦"
 
-#: src/Models/Countries.vala:265
+#: src/Models/Countries.vala:268
 msgctxt "Countries"
 msgid "Vanuatu"
 msgstr "努瓦阿圖"
 
-#: src/Models/Countries.vala:266
+#: src/Models/Countries.vala:269
 msgctxt "Countries"
 msgid "Venezuela"
 msgstr "委內瑞拉"
 
-#: src/Models/Countries.vala:267
+#: src/Models/Countries.vala:270
 msgctxt "Countries"
 msgid "Vietnam"
 msgstr "越南"
 
-#: src/Models/Countries.vala:268
+#: src/Models/Countries.vala:271
 msgctxt "Countries"
 msgid "Virgin Islands (UK)"
 msgstr "維京群島（英國）"
 
-#: src/Models/Countries.vala:269
+#: src/Models/Countries.vala:272
 msgctxt "Countries"
 msgid "Virgin Islands (US)"
 msgstr "美屬維京群島"
 
-#: src/Models/Countries.vala:270
+#: src/Models/Countries.vala:273
 msgctxt "Countries"
 msgid "Wallis and Futuna"
 msgstr "瓦利斯群島和富圖納群島"
 
-#: src/Models/Countries.vala:271
+#: src/Models/Countries.vala:274
 msgctxt "Countries"
 msgid "Western Sahara"
 msgstr "西撒哈拉"
 
-#: src/Models/Countries.vala:272
+#: src/Models/Countries.vala:275
 msgctxt "Countries"
 msgid "Yemen"
 msgstr "葉門"
 
-#: src/Models/Countries.vala:273
+#: src/Models/Countries.vala:276
 msgctxt "Countries"
 msgid "Zambia"
 msgstr "贊比亞"
 
-#: src/Models/Countries.vala:274
+#: src/Models/Countries.vala:277
 msgctxt "Countries"
 msgid "Zimbabwe"
 msgstr "津巴布韋"
 
-#: src/Models/Countries.vala:275
+#: src/Models/Countries.vala:278
 msgctxt "Countries"
 msgid "Kosovo"
 msgstr "科索沃"
