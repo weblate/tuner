@@ -9,8 +9,9 @@ msgstr ""
 "Project-Id-Version: application\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
 "POT-Creation-Date: 2026-10-21 19:18-0700\n"
-"PO-Revision-Date: 2026-10-22 03:21+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"PO-Revision-Date: 2026-10-25 19:13+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/tuner/tuner-ui/"
 "bn/>\n"
 "Language: bn\n"
@@ -220,9 +221,8 @@ msgid "Copyright"
 msgstr "Copyright"
 
 #: src/Models/StreamMetadata.vala:58
-#, fuzzy
 msgid "Publisher"
-msgstr "Publisher"
+msgstr "প্রকাশক"
 
 #: src/Models/StreamMetadata.vala:59
 #, fuzzy
@@ -626,9 +626,8 @@ msgid "Save hearted tracks to a file?"
 msgstr "Save hearted tracks to a file?"
 
 #: src/Widgets/Window.vala:562
-#, fuzzy
 msgid "_Don't Save"
-msgstr "_Don't Save"
+msgstr "সংরক্ষণ করবেন না"
 
 #~ msgid "Search"
 #~ msgstr "অনুসন্ধান"

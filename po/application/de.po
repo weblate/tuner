@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: io.github.tuner_labs.tuner\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
 "POT-Creation-Date: 2026-10-21 19:18-0700\n"
-"PO-Revision-Date: 2026-10-23 01:30+0000\n"
+"PO-Revision-Date: 2026-10-25 19:13+0000\n"
 "Last-Translator: Masowick <masowick@users.noreply.hosted.weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/tuner/tuner-ui/"
 "de/>\n"
@@ -410,7 +410,7 @@ msgstr ""
 #. Startup sound
 #: src/Widgets/PreferencesPopover.vala:76
 msgid "Play startup jingle"
-msgstr "Jingle bei Programmstart wiedergeben"
+msgstr "Startjingle abspielen"
 
 #: src/Widgets/PreferencesPopover.vala:78
 msgid "If enabled, Tuner plays a short sound when it starts"
