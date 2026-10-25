@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: io.github.tuner_labs.tuner 2.0.1-beta.2\n"
 "Report-Msgid-Bugs-To: 535060+technosf@users.noreply.github.com\n"
 "POT-Creation-Date: 2026-10-21 19:18-0700\n"
-"PO-Revision-Date: 2026-10-22 03:21+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"PO-Revision-Date: 2026-10-25 19:13+0000\n"
+"Last-Translator: technosf <535060+technosf@users.noreply.github.com>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/tuner/tuner-ui/"
 "lv/>\n"
 "Language: lv\n"
@@ -210,9 +210,8 @@ msgid "Date Time"
 msgstr "Date Time"
 
 #: src/Models/StreamMetadata.vala:57
-#, fuzzy
 msgid "Copyright"
-msgstr "Copyright"
+msgstr "Autortiesības"
 
 #: src/Models/StreamMetadata.vala:58
 #, fuzzy
@@ -220,9 +219,8 @@ msgid "Publisher"
 msgstr "Publisher"
 
 #: src/Models/StreamMetadata.vala:59
-#, fuzzy
 msgid "Comment"
-msgstr "Comment"
+msgstr "Komentārs"
 
 #.
 #. Display Assets
@@ -529,7 +527,7 @@ msgstr "Save File"
 #: src/Widgets/PreferencesPopover.vala:232
 #: src/Widgets/PreferencesPopover.vala:270 src/Widgets/Window.vala:574
 msgid "_Cancel"
-msgstr "At_celt"
+msgstr "_Atcelt"
 
 #: src/Widgets/PreferencesPopover.vala:233 src/Widgets/Window.vala:563
 #: src/Widgets/Window.vala:575
@@ -548,7 +546,7 @@ msgstr "Choose a file"
 
 #: src/Widgets/PreferencesPopover.vala:271
 msgid "_Open"
-msgstr "_Atvērt"
+msgstr "_Uzšķirt"
 
 #. warning("Error reading file: $(e.message)");
 #: src/Widgets/PreferencesPopover.vala:294
@@ -614,9 +612,8 @@ msgid "Save hearted tracks to a file?"
 msgstr "Save hearted tracks to a file?"
 
 #: src/Widgets/Window.vala:562
-#, fuzzy
 msgid "_Don't Save"
-msgstr "_Don't Save"
+msgstr "_Nesaglabāt"
 
 #~ msgid "Search"
 #~ msgstr "Meklēšana"
