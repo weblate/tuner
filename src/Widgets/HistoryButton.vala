@@ -37,6 +37,12 @@ public class Tuner.Widgets.HistoryButton : Gtk.Button
 	*/
 	public signal void item_station_selected_sig(Station station);
 
+	/** @brief Widest row text, in characters, before the popover stops growing and text is ellipsized. */
+	private const int MAX_ROW_TEXT_CHARS = 48;
+
+	/** @brief Narrowest the history list gets, in pixels, however short the entries are. */
+	private const int MIN_LIST_WIDTH_PX = 280;
+
 	private Gtk.Popover history_popover;
 	private Gtk.ListBox history_list;
 	private Gtk.ScrolledWindow history_scroller;
@@ -169,7 +175,10 @@ public class Tuner.Widgets.HistoryButton : Gtk.Button
 		history_scroller = new Gtk.ScrolledWindow(null, null);
 		history_scroller.hscrollbar_policy = Gtk.PolicyType.NEVER;
 		history_scroller.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
-		history_scroller.min_content_width = 420;
+		// Width follows the widest row (station or title text), between a floor that keeps the
+		// summary tiles usable and a cap of MAX_ROW_TEXT_CHARS characters; longer text is ellipsized.
+		history_scroller.propagate_natural_width = true;
+		history_scroller.min_content_width = MIN_LIST_WIDTH_PX;
 		history_scroller.min_content_height = 320;
 		history_scroller.max_content_height = 420;
 		history_scroller.add(history_list);
@@ -409,6 +418,7 @@ public class Tuner.Widgets.HistoryButton : Gtk.Button
 
 		var station_label = new Gtk.Label(entry.station.name);
 		station_label.xalign = 0.0f;
+		station_label.max_width_chars = MAX_ROW_TEXT_CHARS;
 		station_label.ellipsize = Pango.EllipsizeMode.END;
 		station_label.get_style_context().add_class("history-row-station");
 
@@ -416,7 +426,7 @@ public class Tuner.Widgets.HistoryButton : Gtk.Button
 		title_label.xalign = 0.0f;
 		title_label.wrap = true;
 		title_label.wrap_mode = Pango.WrapMode.WORD_CHAR;
-		title_label.max_width_chars = 52;
+		title_label.max_width_chars = MAX_ROW_TEXT_CHARS;
 		title_label.ellipsize = Pango.EllipsizeMode.END;
 		title_label.tooltip_text = format_entry_title(entry);
 		title_label.get_style_context().add_class("history-row-title");

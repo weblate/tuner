@@ -18,10 +18,10 @@ The flathub packaging for **Tuner** is maintained in its own github repo:
 
 ### Desktop Menu
 
-The desktop file must be validated using this command:
+The built desktop file must be validated using this command:
 
 ```bash
-desktop-file-validate io.github.tuner_labs.tuner.desktop
+desktop-file-validate builddir/data/io.github.tuner_labs.tuner.desktop
 ```
 
 ### Version number
@@ -45,7 +45,7 @@ and notes alone.
 Before:
 
 ```xml
-<release version="@VERSION@" date="2026-07-10">
+<release version="@VERSION@" date="@VERSION_DATE@">
 ```
 
 After:
@@ -58,7 +58,7 @@ After:
 `@VERSION@`, its date is the planned release date in `YYYY-MM-DD` form, and its notes describe the new release.
 
 ```xml
-<release version="@VERSION@" date="2026-11-15">
+<release version="@VERSION@" date="@VERSION_DATE@">
   <description>
     <p>Feature release:</p>
     <ul>
@@ -104,7 +104,7 @@ LANGUAGE=de_DE ./io.github.tuner_labs.tuner
 
 ## Flatpak
 
-Releasing *Tuner* comprises cutting a release of the code in [tuner github](https://github.com/tuner-app/tuner) and then updating the [flathub repo](https://github.com/flathub/io.github.tuner_labs.tuner) which will automatically have the flatpak generated and rolled to Flathub for distribution.
+Releasing *Tuner* comprises cutting a release of the code in [tuner github](https://github.com/tuner-app/tuner) and then updating the [flathub tuner repo](https://github.com/flathub/io.github.tuner_labs.tuner) which will automatically have the flatpak generated and rolled to Flathub for distribution.
 
 ## Flathub Builds
 
@@ -112,11 +112,11 @@ Releasing *Tuner* comprises cutting a release of the code in [tuner github](http
 
 ### Beta Releases
 
-Beta releases should be tagged from [github](https://github.com/tuner-labs/tuner/releases/new) using the Tuner *development* branch - the version in `meson.build` should match the tag - the beta format is *v2\*.\*-beta.\**
+Beta releases should be tagged from [tuner github](https://github.com/tuner-labs/tuner/releases/new) using the Tuner *development* branch - the version in `meson.build` should match the tag - the beta format is *v2\*.\*-beta.\**
 
-Once a beta release has been tagged, the Flathub *beta* branch can be updated via a pull request with the *beta* tag going into the manifest *.json*, and any patches and documentation updated as needed. The pull request will trigger a flathub build, but will not merge the pull request - pull requests should be merged only if they result in a successful build.
+Once a beta release has been tagged, the [Flathub *beta* branch](https://github.com/flathub/io.github.tuner_labs.tuner/tree/beta) can be updated via a pull request with the *beta* tag going into the manifest *.json*, and any patches and documentation updated as needed. The pull request will trigger a flathub build, but will not merge the pull request - pull requests should be merged only if they result in a successful build.
 
-Once the beta is successfully built by flathub it will be available for installation and testing within the user community.
+Once the beta is successfully built by flathub it will be available for installation and testing for the user community off of the flathub beta repo.
 
 Once a beta roll is deemed a success its pull request can be merged, and a production release can be rolled.
 
@@ -124,7 +124,7 @@ Once a beta roll is deemed a success its pull request can be merged, and a produ
 
 Production releases are generated from *development* pull requests into *main*. The updated *main* branch should be tagged with a version number format of *v2.\*.\**
 
-Once a release has been tagged, the [flathub repo](https://github.com/flathub/io.github.tuner_labs.tuner) *main* branch can be updated with the *release* tag going into the manifest *.json*, and any patches and documentation updated as needed. Updates from the *main* branch should be copied in from a direct *pull request* of the *main* branch. The *main* branch **should not** come from a merge *beta* branch to avoid triggering subsequent builds in *beta*.
+Once a release has been tagged, the [flathub repo](https://github.com/flathub/io.github.tuner_labs.tuner) *main* branch can be updated with the *release* tag going into the manifest *.json*, and any libraries, patches and documentation updated as needed. Updates from the *main* branch should be copied in from a direct *pull request* of the *main* branch. The *main* branch **should not** come from a merge *beta* branch to avoid triggering subsequent builds in *beta*.
 
 Once the main production release is built by flathub it will be available for installation and automatically distributed to user community.
 

@@ -122,7 +122,34 @@ public class Tuner.Models.Station : Favicon
     // User Properties
     // ----------------------------------------------------------
 
-    public DateTime starred_since { get; private set ; }
+    /*
+        StarStore saves stations with Json.gobject_serialize, which cannot write a GDateTime
+        (it logs "Boxed type 'GDateTime' is not handled by JSON-GLib" and drops the value).
+        So the two times are held as DateTime but exposed to the serializer as ISO 8601 strings,
+        which are saved in the favourites file and read back by Station.basic.
+        Use get_starred_since() / get_last_played() for the DateTime values.
+    */
+    private DateTime? _starred_since = null;
+    private DateTime? _last_played = null;
+
+    /** @brief When the station was first starred, or null. */
+    public DateTime? get_starred_since () { return _starred_since; }
+
+    /** @brief When the station was last played (counted once per calendar day), or null. */
+    public DateTime? get_last_played () { return _last_played; }
+
+    /** @property {string} starred_since_iso8601 - Saved form of get_starred_since(); empty if never starred. Read only. */
+    public string starred_since_iso8601
+    {
+        owned get { return _starred_since != null ? _starred_since.format_iso8601 () : ""; }
+    }
+
+    /** @property {string} last_played_iso8601 - Saved form of get_last_played(); empty if never played. Read only. */
+    public string last_played_iso8601
+    {
+        owned get { return _last_played != null ? _last_played.format_iso8601 () : ""; }
+    }
+
     private bool _starred;
     /** @property {bool} starred - Indicates if the station is starred. Only set by Favorites*/
     public bool starred { 
@@ -131,7 +158,7 @@ public class Tuner.Models.Station : Favicon
             if ( _starred == value ) return;
             _starred = value; 
             station_star_changed_sig(_starred );
-            if ( starred_since == null ) starred_since = new DateTime.now_local();
+            if ( _starred_since == null ) _starred_since = new DateTime.now_local();
         }
     } // starred
 
@@ -142,14 +169,13 @@ public class Tuner.Models.Station : Favicon
     public void track_listen()
     {
         var now = new DateTime.now_local();
-        if ( last_played == null || !is_same_calendar_day(last_played, now) ) 
+        if ( _last_played == null || !is_same_calendar_day(_last_played, now) ) 
         {
-            last_played = now;
+            _last_played = now;
             days_played += 1;
         }
     } // listen 
     
-    public DateTime last_played { get; private set ; }
     public int days_played { get; private set ; }   // Count once per day
 
     
@@ -170,6 +196,24 @@ public class Tuner.Models.Station : Favicon
     //  private Uri _favicon_uri;
     //  private Gdk.Pixbuf _favicon_pixbuf; // Favicon for this station
     private string _favicon_cache_file;
+
+    /**
+     * @brief Read an ISO 8601 time saved in the favourites file.
+     *
+     * @return The time, or null if the member is missing, empty or not a valid time.
+     */
+    private static DateTime? read_saved_time(Json.Object json_object, string hyphen_name, string underscore_name)
+    {
+        string name = json_object.has_member(hyphen_name) ? hyphen_name : underscore_name;
+        if (!json_object.has_member(name))
+            return null;
+
+        var text = json_object.get_string_member(name);
+        if (text == null || text.strip() == "")
+            return null;
+
+        return new DateTime.from_iso8601(text.strip(), null);   // null when unparseable
+    } // read_saved_time
 
     private bool is_same_calendar_day(DateTime left, DateTime right)
     {
@@ -302,6 +346,15 @@ public class Tuner.Models.Station : Favicon
 				_starred = json_object.get_boolean_member("starred");
 			}
 
+			// User history saved with the favourite. Json.gobject_serialize writes property names
+			// with hyphens; accept underscores too.
+			_starred_since = read_saved_time(json_object, "starred-since-iso8601", "starred_since_iso8601");
+			_last_played   = read_saved_time(json_object, "last-played-iso8601", "last_played_iso8601");
+			if (json_object.has_member("days-played"))
+				days_played = (int) json_object.get_int_member("days-played");
+			else if (json_object.has_member("days_played"))
+				days_played = (int) json_object.get_int_member("days_played");
+
             /* -----------------------------------------------------------------------
                 Process v1 Attribute, if any, from old Favorites format
             ----------------------------------------------------------------------- */
@@ -400,7 +453,7 @@ public class Tuner.Models.Station : Favicon
      */
     public string temporal()
     {
-        return _("Last Played: %s\tPlays: %d").printf(last_played.format("%x"), days_played);
+        return _("Last Played: %s\tPlays: %d").printf(_last_played != null ? _last_played.format("%x") : "-", days_played);
     } // temporal
 
 
