@@ -342,3 +342,14 @@ The last column is the metric in section 4 that should move.
 * Static counts cannot show runtime behaviour. Section 5.2 findings should be confirmed with a profile
   before large changes are made.
 * The 2.2.0-beta.2 baseline is a commit, not a tag. Tag the release so the baseline is unambiguous.
+
+### 2026-10-26: screenshot mode for debug builds
+
+Not compiled or run when written (no compiler in the editing environment).
+
+* New `src/Services/ScreenshotMode.vala`, compiled only under `DEBUG_LOCAL`, driven by the `TUNER_SCREENSHOT`
+  environment variable. Small `#if DEBUG_LOCAL` hooks: `Application.create_main_window` (prepare and apply),
+  `Application.debug_set_online`, `Window.screenshot_select_view`, `Display.select_view_by_name`.
+* New `scripts/screenshots.sh` (sandboxed run per preset on a private Xvfb display, capture, crop, post-process) and `scripts/flathub_screenshots.py`
+  (crop, shadow, scale, metainfo snippet).
+* Cost: about 330 lines of debug-only Vala and two scripts. Release and Flatpak builds are unchanged.

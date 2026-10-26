@@ -394,6 +394,64 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
     } // update_state
 
 
+#if DEBUG_LOCAL
+    /**
+     * @brief Development-only: select a side-bar item by its label, for screenshots.
+     *
+     * @param name Item label, e.g. "Discover" (case-insensitive, English labels).
+     * @return True if an item was found and selected.
+     */
+    public bool select_view_by_name(string name)
+    {
+        var item = find_item_by_name(source_list.root, name.strip().down());
+        if (item == null)
+            return false;
+
+        source_list.selected = item;
+        return true;
+    } // select_view_by_name
+
+
+    /**
+     * @brief Development-only: activate a side-bar item as a double-click would, for screenshots.
+     *
+     * For Jukebox this switches shuffle mode on, which swaps the background and header icon.
+     *
+     * @param name Item label, e.g. "Jukebox" (case-insensitive, English labels).
+     * @return True if an item was found and activated.
+     */
+    public bool activate_view_by_name(string name)
+    {
+        var item = find_item_by_name(source_list.root, name.strip().down());
+        if (item == null)
+            return false;
+
+        source_list.selected = item;
+        item.activated();
+        return true;
+    } // activate_view_by_name
+
+
+    private SourceList.Item? find_item_by_name(SourceList.ExpandableItem parent, string wanted)
+    {
+        foreach (var child in parent.children)
+        {
+            if (child.name != null && child.name.down() == wanted)
+                return child;
+
+            var expandable = child as SourceList.ExpandableItem;
+            if (expandable != null)
+            {
+                var found = find_item_by_name(expandable, wanted);
+                if (found != null)
+                    return found;
+            }
+        }
+        return null;
+    } // find_item_by_name
+#endif
+
+
     /**
      * @brief Selects the starred stations view in the source list
      * 
@@ -485,7 +543,7 @@ public class Tuner.Widgets.Display : Gtk.Paned, StationListHookup {
                 "popular",
                 "tuner:playlist-similar",
                 _("Popular"),
-                _("Most listened to Stations in the last 24 hours")
+                _("Most listened to Stations")
             ) {
                 station_set = _directory.load_popular_stations(40)
             }

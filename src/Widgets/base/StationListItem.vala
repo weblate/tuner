@@ -68,15 +68,37 @@ namespace Tuner.Widgets.Base
             }
 
             try {
-                var? slist = StationList.with_stations (_slb.pager.next_page ());
+                var page = _slb.pager.next_page ();
+                var? slist = StationList.with_stations (page);
                 if ( slist != null )
                 {
                     _slb.attach_station_list (station_list, slist);
                 }
+                allow_retry_if_empty (page);
             } catch (SourceError e) {
+                _populated = false;     // try again the next time it is selected
                 _slb.show_alert ();
             }
         } // populate
+
+
+        /**
+        * @brief Lets the item load again when the first load came back empty
+        *
+        * A failed request returns an empty page rather than an error, and without this the item
+        * would count as populated and show nothing until the app was restarted. Selecting the item
+        * again now tries again.
+        *
+        * @param page The page that was just loaded, or null
+        */
+        private void allow_retry_if_empty ( Gee.Collection<Station>? page )
+        {
+            if ( page == null || page.size == 0 )
+            {
+                warning (@"Nothing loaded for '$(name)'; it will try again when selected");
+                _populated = false;
+            }
+        } // allow_retry_if_empty
 
 
         /**
@@ -86,12 +108,15 @@ namespace Tuner.Widgets.Base
         private async void populate_async( StationListHookup station_list )
         {
             try {
-                var? slist = StationList.with_stations (yield _slb.pager.next_page_async (Priority.LOW));   // background work: lowest priority
+                var page = yield _slb.pager.next_page_async (Priority.LOW);   // background work: lowest priority
+                var? slist = StationList.with_stations (page);
                 if ( slist != null )
                 {
                     _slb.attach_station_list (station_list, slist);
                 }
+                allow_retry_if_empty (page);
             } catch (SourceError e) {
+                _populated = false;     // try again the next time it is selected
                 _slb.show_alert ();
             }
         } // populate_async
