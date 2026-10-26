@@ -292,6 +292,99 @@ git checkout <tag>
 
 After checking out the required version, build and run the app as described above.
 
+## Flathub Screenshots
+
+Flathub wants real window screenshots: just the app window with its title bar, rounded corners and shadow, default
+theme and settings, no desktop behind it, 1000x700 or smaller, with a one-sentence caption each (see its
+[quality guidelines](https://docs.flathub.org/docs/for-app-authors/metainfo-guidelines/quality-guidelines)).
+
+Local debug builds (`meson setup builddir --buildtype=debug` with a prefix other than `/app`) include a
+screenshot mode, `src/Services/ScreenshotMode.vala`, that puts the app into a known state. It is not compiled into
+release or Flatpak builds. Two scripts do the rest:
+
+* `scripts/screenshots.sh` runs the app once per preset in a throw-away sandbox (its own settings, data, cache and
+  D-Bus session, so none of your favourites, history or settings show and nothing is saved) on a private virtual
+  display (Xvfb), so no desktop, panel, terminal or mouse pointer can appear in a shot. It uses the stock Adwaita
+  theme, captures the virtual screen and writes one raw capture per preset to `flathub/shots/raw`.
+* `scripts/flathub_screenshots.py` crops each capture to the window, trims its outline, adds the rounded corners and
+  drop shadow, scales to at most 1000 px wide, writes `flathub/shots/ready` and prints the metainfo `<screenshots>`
+  block.
+
+### Taking the shots
+
+```
+sudo apt install xvfb imagemagick python3-pil   # once
+meson compile -C builddir                       # rebuild after any change to the app
+
+# Stations used in the shots (see below)
+export TUNER_SHOT_STATION=aa01e1f5-9bb0-4cc1-a77d-88c3c2e712d4
+export TUNER_SHOT_STARRED=dad48711-7228-4dce-a06b-c5499167e522,961949f3-0601-11e8-ae97-52543be04c81,60ceaabd-4efd-4f47-b961-0dab6f475731,6efe216d-bf7e-11e9-8502-52543be04c81
+
+# 1. Capture. Do not edit the script while it runs.
+scripts/screenshots.sh
+
+# 2. Crop, shadow, scale, metainfo block. Output goes to flathub/shots/ready.
+#    (screenshots.sh already does this with these values; run it again to change them)
+python3 scripts/flathub_screenshots.py --crop bg --inset 5 --add-shadow \
+    --shadow-radius 30 --shadow-offset 0 --shadow-opacity 255 --corner-radius 15 \
+    --prefix Tuner.220. --captions flathub/captions.txt \
+    -o flathub/shots/ready flathub/shots/raw/*.png
+```
+
+`screenshots.sh` runs step 2 itself, so a plain `scripts/screenshots.sh` already produces the finished set: the
+defaults are the values above (inset 5, shadow radius 30, offset 0, opacity 255, corner radius 15). Run step 2 by
+hand to repeat it on the existing raw captures, or with other shadow settings, without capturing again.
+`scripts/screenshots.sh -n` captures only. `scripts/screenshots.sh -l` lists the presets, and
+`scripts/screenshots.sh discover dark` runs just those.
+
+Presets, in the order they run: `discover`, `trending`, `search`, `starred` (with the Preferences popover open),
+`jukebox` (activates Jukebox, waits for a station to be picked), `offline`, `dark`, and `history` last (plays the
+starred stations in turn so the History list has several tracks). `history` and the shots that show a playing
+station need `TUNER_SHOT_STATION`; `starred` needs `TUNER_SHOT_STARRED`.
+
+### Stations
+
+* `TUNER_SHOT_STATION` is the first playing station. `TUNER_SHOT_STARRED` is a list of stations that are starred in
+  the `starred` shot and played in turn for the History list.
+* Each shot that shows a playing station takes the next station from the pool: `TUNER_SHOT_STATIONS` if set,
+  otherwise `TUNER_SHOT_STATION` followed by the starred ones. Add more to `TUNER_SHOT_STATIONS` so that no two shots
+  show the same station.
+* Station uuids can be found with `https://de2.api.radio-browser.info/json/stations/search?name=...`.
+
+### Shadow and size options
+
+| Option | Default | What it does |
+| :- | :- | :- |
+| `--crop bg` | | crop to the window and any popover on the virtual display |
+| `--inset N` | 0 (`screenshots.sh` uses 5) | trim N px from every side, removing the window outline |
+| `--add-shadow` | | draw rounded corners and a drop shadow (the virtual display has no compositor, so GTK draws none) |
+| `--shadow-radius N` | 30 | softness and width of the shadow, px |
+| `--shadow-offset N` | 0 | how far the shadow is shifted down, px; 0 gives an even glow |
+| `--shadow-opacity N` | 255 | darkness of the shadow, 0-255 |
+| `--corner-radius N` | 15 | window corner radius, px |
+| `--max-width N` / `--min-width N` | 1000 / 700 | scale down above, warn below |
+
+`screenshots.sh` environment: `TUNER_SHOT_SIZE` (window, default `1000x625`), `TUNER_SHOT_SCALE` (1 or 2),
+`TUNER_SHOT_CANVAS`, `TUNER_SHOT_GTK_THEME`, `TUNER_SHOT_ICON_THEME`, `TUNER_SHOT_FONT`, `TUNER_SHOT_INSET`,
+`TUNER_SHOT_HISTORY`, `TUNER_SHOT_HISTORY_DWELL` and `TUNER_SHOT_WM` (try a window manager if shots come out blank).
+They are documented at the top of the script.
+
+### Publishing
+
+Copy `flathub/shots/ready/Tuner.220.*.png` to where the metainfo URLs point, paste the printed `<screenshots>` block
+into `data/io.github.tuner_labs.tuner.metainfo.xml.in` (best shot first), and run `appstreamcli validate`.
+Captions come from `flathub/captions.txt` (`file.png = One sentence, no full stop`).
+
+### By hand
+
+To drive the app yourself, set `TUNER_SCREENSHOT` (keys: `size`, `theme`, `layout`, `offline`, `starred`, `station`,
+`view`, `activate`, `activate_wait`, `history`, `history_dwell`, `search`, `popover`, `delay`, `popover_delay`;
+documented at the top of `ScreenshotMode.vala`) and run with `GSETTINGS_BACKEND=memory`. Only the close button is
+shown in the title bar by default.
+
+Station names and titles come live from radio-browser.info, so check every image before publishing it: no rude names
+and no personal data.
+
 ## Release Process
 
 Cutting a releasing **Tuner** on [github](https://github.com/tuner-labs/tuner) and packaging and pushing out a new **Flathub** distribution are covered in the [release doc](RELEASE.md)

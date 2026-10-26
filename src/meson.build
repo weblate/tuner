@@ -36,11 +36,13 @@ sources = files (
     'Models/StationListBoxPager.vala',
 
     'Providers/RadioBrowser.vala',
+    'Providers/ServerPool.vala',
 
     'Services/DBusMediaPlayer.vala',
     'Services/DBusInterface.vala',
     'Services/DataProvider.vala',
     'Services/HttpClient.vala',
+    'Services/ScreenshotMode.vala',
     'Services/StarStore.vala',
 
     'Widgets/base/ListFlowBox.vala',
