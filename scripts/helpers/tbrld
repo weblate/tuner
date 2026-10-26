@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Copyright © 2026 <https://github.com/technosf>
+# SPDX-FileCopyrightText: © 2026 <https://github.com/technosf>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
+##
+## Local build run
+##
+
+set -e
+
+meson compile -C builddir 
+G_MESSAGES_DEBUG=all GSETTINGS_SCHEMA_DIR="builddir/data" ./builddir/io.github.tuner_labs.tuner
