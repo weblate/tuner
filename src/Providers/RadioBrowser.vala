@@ -49,6 +49,12 @@ namespace Tuner.Providers {
     */
     private const int    RBI_API_SUPPORTED_VERSION = 1;
     private const string RBI_SCHEME     = "https";
+    private const string RBI_CACHE_BUSTER = "nocache";   // query parameter, value differs on every request
+
+    // A catalogue query is tried this many times. radio-browser.info often drops the first connection with
+    // "connection reset", and the server list can hold a single server, so a retry may go to the same server.
+    private const int  MAX_QUERY_ATTEMPTS   = 3;
+    private const uint QUERY_RETRY_DELAY_MS = 300u;
 
     private const string RBI_ALL_API    = "all.api.radio-browser.info";    // Round-robin API address
     private const string RBI_STATS      = "/json/stats";
@@ -78,7 +84,13 @@ namespace Tuner.Providers {
         private const int DEGRADE_COST = 7;
 
         private string? _optional_servers;
-        private ArrayList<string> _servers;
+        private const int    PROBE_CANDIDATES = 3;           // servers probed when choosing
+        private const int    PROBES_PER_SERVER = 2;          // stats requests per candidate
+        private const int64  REFRESH_INTERVAL_US = 600000000LL;   // list refreshed at most every 10 minutes
+        private const string FALLBACK_SERVERS = "de2.api.radio-browser.info";   // used only when fewer than two are known
+
+        private ServerPool _pool = new ServerPool();
+        private int64 _last_refresh = 0LL;
         private string _current_server = RBI_ALL_API;
         private int _degrade = DEGRADE_CAPITAL;
         private int _available_stations = 1000;     // default guess
@@ -131,6 +143,29 @@ namespace Tuner.Providers {
 
 
         /**
+         * @brief Cache-busting query parameter that is different for every request.
+         *
+         * The value is the time in milliseconds, forced to rise by at least one per call, so it
+         * is unique within a run and across runs. radio-browser.info ignores parameters it does
+         * not know.
+         *
+         * The `offset` parameter is NOT used for this: on a search it is the paging position, and
+         * a rising offset would skip the top of Popular and Trending. It is only safe to rise on
+         * random searches, where StationSet already does that.
+         */
+        private static string cache_buster()
+        {
+            int64 now = GLib.get_real_time() / 1000;
+            if (now <= _cache_serial)
+                now = _cache_serial + 1;
+            _cache_serial = now;
+            return @"$(RBI_CACHE_BUSTER)=$now";
+        } // cache_buster
+
+        private static int64 _cache_serial = 0;
+
+
+        /**
          * @brief Builds a Glib Uri from path and query
          *
          * Uses Glib Uri Parse with encoding to correctly check and encode the query
@@ -140,14 +175,11 @@ namespace Tuner.Providers {
         private Uri? build_uri(string path, string query = "")
         {          
             try {
-                if (query == "") 
-                { 
-                    return Uri.parse(@"$(RBI_SCHEME)://$_current_server$path",UriFlags.ENCODED);
-                }
-                else
-                {
-                    return Uri.parse(@"$(RBI_SCHEME)://$_current_server$path?$query",UriFlags.ENCODED);
-                }
+                // Every request gets a cache-busting parameter: caches and proxies on the way to
+                // radio-browser.info otherwise answer repeat requests (random picks, failed or stale
+                // responses, even clicks) without the server seeing them.
+                var busted = query == "" ? cache_buster() : @"$query&$(cache_buster())";
+                return Uri.parse(@"$(RBI_SCHEME)://$_current_server$path?$busted",UriFlags.ENCODED);
             } catch (UriError e)
             {
                 warning(@"Server: $_current_server  Path: $path  Query: $query  Error: $(e.message)");
@@ -168,12 +200,14 @@ namespace Tuner.Providers {
             if (_optional_servers != null) 
             // Run time server parameter was passed in
             {
-                _servers = new Gee.ArrayList<string>.wrap(_optional_servers.split(":"));
+                _pool.set_servers(new Gee.ArrayList<string>.wrap(_optional_servers.split(":")));
             } else 
             // Identify servers from DNS or API
             {
                 try {
-                    _servers = get_srv_api_servers();
+                    _pool.set_servers(get_srv_api_servers());
+                    _last_refresh = GLib.get_monotonic_time();
+                    add_fallback_servers();
                 } catch (DataError e) {
                     last_data_error = new DataError.NO_CONNECTION(@"Failed to retrieve API servers: $(e.message)");
                     status = NO_SERVER_LIST;
@@ -181,7 +215,7 @@ namespace Tuner.Providers {
                 }
             } // if
 
-			if (_servers.size == 0)
+			if (_pool.size == 0)
 			{
 				last_data_error = new DataError.NO_CONNECTION("Unable to resolve API servers for radio-browser.info");
 				status          = NO_SERVERS_PRESENTED;
@@ -393,6 +427,24 @@ namespace Tuner.Providers {
             ---------------------------------------------------------------*/
 
         /**
+         * @brief Log a warning when a catalogue query that should return stations returns none.
+         *
+         * A failed or odd response otherwise looks exactly like "no stations", and the category
+         * stays empty with nothing in the log. Text and tag searches can legitimately find nothing,
+         * so those are left alone.
+         *
+         * @return The stations, unchanged.
+         */
+        private Set<Station> warn_if_empty(Set<Station> stations, Uri uri)
+        {
+            var query = uri.get_query () ?? "";
+            if (stations.size == 0 && !query.contains ("name=") && !query.contains ("tagList="))
+                warning(@"'radio-browser.info' returned no stations for url: $(uri.to_string()) [server=$(_current_server)]");
+            return stations;
+        } // warn_if_empty
+
+
+        /**
          * @brief Whether a failed response is worth retrying on another server.
          *
          * No response at all (0) or a server-side error (5xx). Client errors (4xx) would fail everywhere.
@@ -412,11 +464,11 @@ namespace Tuner.Providers {
          */
         private bool switch_to_next_server()
         {
-            if (_servers == null || _servers.size < 2)
+            var next = _pool.best(_current_server);
+            if (next == null)
                 return false;
 
-            var index = _servers.index_of(_current_server);     // -1 if unknown, which lands on the first
-            _current_server = _servers[(index + 1) % _servers.size];
+            _current_server = next;
             debug(@"RadioBrowser Client - retrying on next server: $_current_server");
             return true;
         } // switch_to_next_server
@@ -430,24 +482,56 @@ namespace Tuner.Providers {
          */
         private void choose_server()
         {
-            var random_server = Random.int_range(0, _servers.size);
+            string? chosen = null;
+            int chosen_ok = -1;
+            int tried = 0;
 
-            for (int a = 0; a < _servers.size; a++)
-            /* Randomly start checking servers, break on first good one */
+            foreach (var server in _pool.ranked())
+            /* Best servers first; probe a few and take the first that answers every probe */
             {
-                uint status = 0;
-                var server =  (random_server + a) %_servers.size;
-                _current_server = _servers[server];
-                try {
-                    var uri = Uri.parse(@"$(RBI_SCHEME)://$_current_server$(RBI_STATS)",UriFlags.NONE);  
-                    //status = HttpClient.HEAD(uri);  // RB doesn't support HEAD
-                    HttpClient.GET(uri,out status);
-                } catch (UriError e)
+                if (tried >= PROBE_CANDIDATES)
+                    break;
+                if (_pool.is_cooling(server) && tried > 0)
+                    continue;           // cooling servers only if nothing else is left
+                tried++;
+
+                int ok = 0;
+                for (int probe = 0; probe < PROBES_PER_SERVER; probe++)
                 {
-                    debug(@"Server - bad Uri from $_current_server");
+                    uint status = 0;
+                    var saved = _current_server;
+                    _current_server = server;
+                    var uri = build_uri(RBI_STATS);
+                    _current_server = saved;
+                    if (uri == null)
+                    {
+                        debug(@"Server - bad Uri from $server");
+                        break;
+                    }
+
+                    var began = GLib.get_monotonic_time();
+                    HttpClient.GET(uri, out status);
+                    var ms = (GLib.get_monotonic_time() - began) / 1000.0;
+
+                    _pool.record(server, status == 200, status == 200 ? ms : -1.0);
+                    if (status == 200)
+                        ok++;
                 }
-                if ( status == 200 ) break;   // Check the server
+
+                if (ok > chosen_ok)
+                {
+                    chosen = server;
+                    chosen_ok = ok;
+                }
+                if (ok == PROBES_PER_SERVER)
+                    break;
             }
+
+            if (chosen != null)
+                _current_server = chosen;
+
+            if (chosen_ok < PROBES_PER_SERVER)
+                warning(@"RadioBrowser Client - no server answered every probe; using $_current_server\n$(_pool.describe())");
             debug(@"RadioBrowser Client - Chosen radio-browser.info server: $_current_server");
         } // choose_server
     
@@ -460,6 +544,8 @@ namespace Tuner.Providers {
          */
         private void degrade(bool degraded = true )
         {
+            var unhealthy = _pool.record(_current_server, !degraded);
+
             if ( !degraded ) 
             // Track nominal result
             {
@@ -470,14 +556,71 @@ namespace Tuner.Providers {
             {
                 warning(@"RadioBrowser degrading server: $_current_server");
                 _degrade -= DEGRADE_COST;
-                if ( _degrade < 0 ) 
-                // This server degraded to zero
+                if ( _degrade < 0 || unhealthy ) 
+                // This server is out of score, or its recent results are mostly failures
                 {
-                    choose_server();
-                    _degrade = DEGRADE_CAPITAL;
+                    retire_current_server();
                 } // if
             } // if
         } // degrade
+
+
+        /**
+         * @brief Stop using the current server for a while and choose another.
+         *
+         * The server is put into a cool-down, the list of servers is refreshed if it has not
+         * been recently, and a new server is chosen by probing.
+         */
+        private void retire_current_server()
+        {
+            warning(@"RadioBrowser retiring server $_current_server");
+            _pool.retire(_current_server);
+            refresh_servers_if_due();
+            choose_server();
+            _degrade = DEGRADE_CAPITAL;
+        } // retire_current_server
+
+
+        /**
+         * @brief Ask DNS / the API for the current server list, at most every REFRESH_INTERVAL_US.
+         *
+         * New servers are added to the pool; known ones keep their health record.
+         * Does nothing when the servers were given on the command line.
+         */
+        private void refresh_servers_if_due()
+        {
+            if (_optional_servers != null || app().is_offline)
+                return;
+
+            var now = GLib.get_monotonic_time();
+            if (_last_refresh != 0LL && now - _last_refresh < REFRESH_INTERVAL_US)
+                return;
+            _last_refresh = now;
+
+            var saved = _current_server;
+            _current_server = RBI_ALL_API;      // the round-robin name, in case the current server is the problem
+            try {
+                var added = _pool.add_servers(get_srv_api_servers());
+                debug(@"RadioBrowser Client - server list refreshed, $added new");
+            } catch (DataError e) {
+                warning(@"RadioBrowser Client - unable to refresh server list: $(e.message)");
+            }
+            _current_server = saved;
+            add_fallback_servers();
+        } // refresh_servers_if_due
+
+
+        /**
+         * @brief Add the reserve server when fewer than two servers are known.
+         */
+        private void add_fallback_servers()
+        {
+            if (_optional_servers != null || _pool.size >= 2)
+                return;
+
+            _pool.add_servers(new Gee.ArrayList<string>.wrap(FALLBACK_SERVERS.split(":")));
+            debug("RadioBrowser Client - fewer than two servers known, reserve server added");
+        } // add_fallback_servers
 
     
         /**
@@ -536,8 +679,8 @@ namespace Tuner.Providers {
             if (Tuner.debug_enabled ())
                 debug(@"station_query - $(path) $(query)");
 
-            for (int attempt = 1; attempt <= 2; attempt++)
-            // Second attempt, if any, is on a different server
+            for (int attempt = 1; attempt <= MAX_QUERY_ATTEMPTS; attempt++)
+            // Later attempts go to a different server when there is one, otherwise to the same server again
             {
                 uint status_code;
                 var uri = build_uri(path, query);
@@ -558,10 +701,10 @@ namespace Tuner.Providers {
                     degrade(false);
                     try
                     {
-                        return parse_json_response(stream);
+                        return warn_if_empty(parse_json_response(stream), uri);
                     } catch (Error e)
                     {
-                        debug(@"JSON error \"$(e.message)\" for uri $(uri)");
+                        warning(@"Could not read the station list from 'radio-browser.info': $(e.message) for url: $(uri.to_string())");
                     }
                     return new HashSet<Station>();
                 } // if
@@ -570,8 +713,12 @@ namespace Tuner.Providers {
                 var failed_server = _current_server;
                 degrade();      // May already have chosen a new server
 
-                if (attempt == 1 && is_retryable(status_code) && (_current_server != failed_server || switch_to_next_server()))
+                if (attempt < MAX_QUERY_ATTEMPTS && is_retryable(status_code))
+                {
+                    if (_current_server == failed_server)
+                        switch_to_next_server();    // false when this is the only server: try it again
                     continue;
+                }
                 break;
             } // for
             return new HashSet<Station>();
@@ -590,8 +737,8 @@ namespace Tuner.Providers {
 			if (Tuner.debug_enabled ())
 				debug(@"station_query_async - $(path) $(query)");
 
-			for (int attempt = 1; attempt <= 2; attempt++)
-			// Second attempt, if any, is on a different server
+			for (int attempt = 1; attempt <= MAX_QUERY_ATTEMPTS; attempt++)
+			// Later attempts go to a different server when there is one, otherwise to the same server again
 			{
 				uint status_code;
 				var  uri = build_uri(path, query);
@@ -612,10 +759,10 @@ namespace Tuner.Providers {
 					degrade(false);
 					try
 					{
-						return parse_json_response(stream);
+						return warn_if_empty(parse_json_response(stream), uri);
 					} catch (Error e)
 					{
-						debug(@"JSON error \"$(e.message)\" for uri $(uri)");
+						warning(@"Could not read the station list from 'radio-browser.info': $(e.message) for url: $(uri.to_string())");
 					} // try
 					return new HashSet<Station>();
 				} // if
@@ -624,8 +771,15 @@ namespace Tuner.Providers {
 				var failed_server = _current_server;
 				degrade();      // May already have chosen a new server
 
-				if (attempt == 1 && is_retryable(status_code) && (_current_server != failed_server || switch_to_next_server()))
+				if (attempt < MAX_QUERY_ATTEMPTS && is_retryable(status_code))
+				{
+					if (_current_server == failed_server)
+						switch_to_next_server();    // false when this is the only server: try it again
+
+					Timeout.add(QUERY_RETRY_DELAY_MS * (uint) attempt, station_query_async.callback);   // brief pause, without blocking the UI
+					yield;
 					continue;
+				}
 				break;
 			} // for
 			return new HashSet<Station>();

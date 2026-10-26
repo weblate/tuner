@@ -196,6 +196,32 @@ public class Tuner.Widgets.Window : Gtk.ApplicationWindow
     } // construct
 
 
+#if DEBUG_LOCAL
+    /**
+     * @brief Development-only: select a side-bar item by name, for screenshots.
+     *
+     * @param name Item label, e.g. "Discover" (case-insensitive).
+     * @return True if an item with that name was found.
+     */
+	public bool screenshot_select_view(string name)
+	{
+		return _display.select_view_by_name(name);
+	} // screenshot_select_view
+
+
+    /**
+     * @brief Development-only: activate (double-click) a side-bar item, for screenshots.
+     *
+     * @param name Item label, e.g. "Jukebox".
+     * @return True if an item with that name was found.
+     */
+	public bool screenshot_activate_view(string name)
+	{
+		return _display.activate_view_by_name(name);
+	} // screenshot_activate_view
+#endif
+
+
     /**
      * Selects and displays the user's starred (favorite) radio stations.
      * 

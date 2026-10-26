@@ -160,7 +160,10 @@ public class Tuner.Controllers.DirectoryController : Object
 
 
 	/**
-	* @brief Load trending stations.
+	* @brief Load trending stations: the most clicked in the last 24 hours.
+	*
+	* Sorted by `clickcount`, not `clicktrend`: radio-browser's `clicktrend` equals `clickcount`
+	* for every station (checked live, Oct 2026), so it gave the same list. Popular uses `votes`.
 	*
 	* @param limit The maximum number of stations to load.
 	* @return A StationSet object with trending stations.
@@ -171,7 +174,7 @@ public class Tuner.Controllers.DirectoryController : Object
 			text        = "",
 			countrycode = "",
 			tags        = new HashSet<string>(),
-			order       = DataProvider.SortOrder.CLICKTREND,
+			order       = DataProvider.SortOrder.CLICKCOUNT,
 			reverse     = true
 		};
 		var source = new StationSet(limit, params, _provider, _star_store);
@@ -182,6 +185,11 @@ public class Tuner.Controllers.DirectoryController : Object
 	/**
 	* @brief Load popular stations.
 	*
+	* Ordered by votes, which radio-browser keeps for good (a star sends a vote). Trending uses
+	* `clicktrend` and `clickcount` is the clicks of the last 24 hours, so the three measures
+	* differ: votes = lasting favourites, clickcount = busiest now, clicktrend = rising or falling.
+	* Ordering Popular by clickcount made it nearly the same list as Trending.
+	*
 	* @param limit The maximum number of stations to load.
 	* @return A StationSet object with popular stations.
 	*/
@@ -191,7 +199,7 @@ public class Tuner.Controllers.DirectoryController : Object
 			text        = "",
 			countrycode = "",
 			tags        = new HashSet<string>(),
-			order       = DataProvider.SortOrder.CLICKCOUNT,
+			order       = DataProvider.SortOrder.VOTES,
 			reverse     = true
 		};
 		var source = new StationSet(limit, params, _provider, _star_store);

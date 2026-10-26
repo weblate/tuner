@@ -225,6 +225,14 @@ namespace Tuner {
         /** @brief provide a Cancellable for online processes */
         public Cancellable offline_cancel { get; construct; }
 
+#if DEBUG_LOCAL
+        /** @brief Development-only: force the online state, to show the offline look in screenshots. */
+        public void debug_set_online (bool online)
+        {
+            is_online = online;
+        }
+#endif
+
         /** @brief Are we online */
         public bool is_offline { get; private set; default = true;}   
         private bool _is_online = false;
@@ -590,6 +598,10 @@ namespace Tuner {
         */
         private void create_main_window()
         {
+#if DEBUG_LOCAL
+            // Development-only: set up the screenshot state before the window is built
+            ScreenshotMode.prepare ();
+#endif
             window = new Window (this, player, settings, directory);
 
             _startup_coordinator = new StartupCoordinator(this, events, window, settings, directory);
@@ -599,8 +611,12 @@ namespace Tuner {
                     play_startup_jingle ();
                 });
 
-            // Flathub screenshot sizing
-            //window.resize(1000, 625);    // Screenshot sizing - round corners 80, ds op 1
+#if DEBUG_LOCAL
+            // Development-only: apply the screenshot steps from TUNER_SCREENSHOT, if set.
+            // See Services/ScreenshotMode.vala and scripts/screenshots.sh. Flathub wants about 1000x625.
+            if (ScreenshotMode.is_active ())
+                ScreenshotMode.apply.begin (window);
+#endif
 
             add_window(window);
         }

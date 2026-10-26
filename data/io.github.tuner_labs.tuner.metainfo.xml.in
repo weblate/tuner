@@ -19,11 +19,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
   <developer id="io.github.tuner_labs.tuner">
     <name>technosf</name>
   </developer>
-  <launchable type="desktop-id">io.github.tuner_labs.tuner.desktop</launchable>
-  <branding>
-    <color type="primary" scheme_preference="light">#f5c211</color>
-    <color type="primary" scheme_preference="dark">#655510</color>
-  </branding>
+
   <summary>Discover, stream, save your favorite Internet radio station</summary>
   <description>
     <p>Make finding and listening to Internet radio station and music fun again!</p>
@@ -38,36 +34,35 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </ul>
   </description>
 
-  <screenshots>
-    <screenshot type="default">
-      <image>https://raw.githubusercontent.com/tuner-labs/tuner/main/flathub/Tuner.210.one.png</image>
-      <caption>Tuner with light theme, Discover</caption>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/tuner-labs/tuner/main/flathub/Tuner.210.search.png</image>
-      <caption>Tuner search bar</caption>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/tuner-labs/tuner/main/flathub/Tuner.210.starred.png</image>
-      <caption>Tuner starred station with metadata and stream image</caption>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/tuner-labs/tuner/refs/heads/main/flathub/Tuner.210.history.png</image>
-      <caption>Tuner history and favorite tracks</caption>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/tuner-labs/tuner/main/flathub/Tuner.210.jukebox.png</image>
-      <caption>Tuner Jukebox playing, looking at saved search</caption>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/tuner-labs/tuner/main/flathub/Tuner.210.offline.png</image>
-      <caption>Tuner offline</caption>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/tuner-labs/tuner/main/flathub/Tuner.210.dark.png</image>
-      <caption>Tuner with dark theme, preferences</caption>
-    </screenshot>
-  </screenshots>
+  <launchable type="desktop-id">io.github.tuner_labs.tuner.desktop</launchable>
+
+
+  <provides>
+    <binary>com.github.louis77.tuner</binary>
+  </provides>
+  <replaces>
+    <id>com.github.louis77.tuner</id>
+  </replaces>
+
+  <!-- Categories and Keywords are pulled from the Desktop file -->
+
+  <icon type="stock">io.github.tuner_labs.tuner-scalable</icon>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#62A0EA</color>
+    <color type="primary" scheme_preference="dark">#245A91</color>
+  </branding>
+
+  <!-- Stations come from the unmoderated radio-browser.info catalog, so streams and the
+       titles they send can contain adult language, themes and references to drugs. -->
+  <content_rating type="oars-1.1">
+    <content_attribute id="language-profanity">moderate</content_attribute>
+    <content_attribute id="language-discrimination">mild</content_attribute>
+    <content_attribute id="sex-themes">mild</content_attribute>
+    <content_attribute id="drugs-alcohol">mild</content_attribute>
+    <content_attribute id="drugs-narcotics">mild</content_attribute>
+    <content_attribute id="drugs-tobacco">mild</content_attribute>
+  </content_rating>
 
   <update_contact>tuner.10.technomation_AT_xoxy.net</update_contact>
   <url type="homepage">https://github.com/tuner-labs/tuner</url>
@@ -76,28 +71,40 @@ SPDX-License-Identifier: GPL-3.0-or-later
   <url type="translate">https://hosted.weblate.org/projects/tuner/</url>
   <url type="vcs-browser">https://github.com/tuner-labs/tuner</url>
 
-  <content_rating type="oars-1.1">
-    <content_attribute id="violence-slavery">mild</content_attribute>
-    <content_attribute id="violence-worship">mild</content_attribute>
-    <content_attribute id="drugs-alcohol">mild</content_attribute>
-    <content_attribute id="drugs-narcotics">mild</content_attribute>
-    <content_attribute id="drugs-tobacco">mild</content_attribute>
-    <content_attribute id="sex-themes">mild</content_attribute>
-    <content_attribute id="sex-homosexuality">mild</content_attribute>
-    <content_attribute id="sex-prostitution">mild</content_attribute>
-    <content_attribute id="sex-adultery">mild</content_attribute>
-    <content_attribute id="language-profanity">intense</content_attribute>
-    <content_attribute id="language-humor">intense</content_attribute>
-    <content_attribute id="language-discrimination">intense</content_attribute>
-    <content_attribute id="social-info">mild</content_attribute>
-  </content_rating>
-
-  <provides>
-    <binary>com.github.louis77.tuner</binary>
-  </provides>
-  <replaces>
-    <id>com.github.louis77.tuner</id>
-  </replaces>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/tuner-labs/tuner/main/flathub/Tuner.220.dark.png</image>
+      <caption>Tuner with the dark theme</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/tuner-labs/tuner/main/flathub/Tuner.220.discover.png</image>
+      <caption>Tuner with light theme, Discover</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/tuner-labs/tuner/main/flathub/Tuner.220.history.png</image>
+      <caption>Tuner history and favorite tracks</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/tuner-labs/tuner/main/flathub/Tuner.220.jukebox.png</image>
+      <caption>Tuner Jukebox playing, looking at saved search</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/tuner-labs/tuner/main/flathub/Tuner.220.offline.png</image>
+      <caption>Tuner offline</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/tuner-labs/tuner/main/flathub/Tuner.220.search.png</image>
+      <caption>Tuner search bar</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/tuner-labs/tuner/main/flathub/Tuner.220.starred.png</image>
+      <caption>Tuner starred stations with the preferences menu open</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/tuner-labs/tuner/main/flathub/Tuner.220.trending.png</image>
+      <caption>Tuner showing trending stations</caption>
+    </screenshot>
+  </screenshots>
 
   <releases>
   
@@ -109,7 +116,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
           <li>History view revamped</li>
           <li>Icon animations added</li>
           <li>Networking improvements</li>
-          <li>Icon animations added</li>
           <li>Refactored audio player and removed use of deprecated GstPlayer</li>
           <li>Refactored metadata processing and title transitions</li>
           <li>Jingle preferences added</li>
@@ -211,4 +217,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
       </description>
     </release>    
   </releases>
+
+  <translation type="gettext">gnome-builder</translation>
+
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </supports>
+  <requires>
+    <display_length compare="ge">600</display_length>
+  </requires>
+
 </component>
