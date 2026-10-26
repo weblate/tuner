@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 Minimalist radio station player - **Tuner** Version 2
 
 <p align="center">
-  <img src="flathub/Tuner.210.one.png" width="600">
+  <img src="flathub/Tuner.220.one.png" width="600">
 </p>
 
 >I love listening to radio while I work. There are tens of thousands of cool internet radio stations available, however I find it hard to "find" new stations by using filters and genres. As of now, this little app takes away all the filtering and just presents me with new radio stations every time I use it.
