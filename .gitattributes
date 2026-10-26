@@ -1,0 +1,4 @@
+# SPDX-FileCopyrightText: Copyright © 2026 technosf <https://github.com/technosf>
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+po/**/*.po merge=theirs

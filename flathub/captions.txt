@@ -1,0 +1,9 @@
+one.png = Tuner with light theme, Discover
+search.png = Tuner search bar
+starred.png = Tuner starred stations with the preferences menu open
+history.png = Tuner history and favorite tracks
+jukebox.png = Tuner Jukebox playing, looking at saved search
+offline.png = Tuner offline
+dark.png = Tuner with the dark theme
+discover.png = Tuner with light theme, Discover
+trending.png = Tuner showing trending stations
